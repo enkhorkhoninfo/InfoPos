@@ -1,0 +1,5 @@
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.DB\obj\Debug\ResolveAssemblyReference.cache
+D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.DB.dll
+D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.DB.pdb
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.DB\obj\Debug\IPos.DB.dll
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.DB\obj\Debug\IPos.DB.pdb

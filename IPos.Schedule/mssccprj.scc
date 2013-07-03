@@ -1,9 +1,0 @@
-SCC = This is a Source Code Control file
-
-[IPos.Schedule.csproj]
-SCC_Aux_Path = "\\192.168.1.200\vss"
-SCC_Project_Name = "$/InfoPosNew/4.Source/IPos.Schedule", EOHCAAAA
-
-[IPos.DB.csproj]
-SCC_Aux_Path = "\\192.168.1.200\vss"
-SCC_Project_Name = "$/InfoPosNew/4.Source/IPos.Schedule", EOHCAAAA

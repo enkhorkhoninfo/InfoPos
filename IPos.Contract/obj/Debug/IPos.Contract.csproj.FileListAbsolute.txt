@@ -1,0 +1,5 @@
+D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.Contract.dll
+D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.Contract.pdb
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Contract\obj\Debug\ResolveAssemblyReference.cache
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Contract\obj\Debug\IPos.Contract.dll
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Contract\obj\Debug\IPos.Contract.pdb

@@ -1,0 +1,13 @@
+E:\InfoSoft\infopos\Source\ISM.Touch\bin\Debug\ISM.Touch.dll
+E:\InfoSoft\infopos\Source\ISM.Touch\bin\Debug\ISM.Touch.pdb
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ResolveAssemblyReference.cache
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ISM.Touch.frmCombo.resources
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ISM.Touch.frmDatepad.resources
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ISM.Touch.frmKeyboard.resources
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ISM.Touch.frmNumpad.resources
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ISM.Touch.TouchButtonGroup.resources
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\GenerateResource.read.1.tlog
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\GenerateResource.write.1.tlog
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ISM.Touch.dll.licenses
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ISM.Touch.dll
+E:\InfoSoft\infopos\Source\ISM.Touch\obj\Debug\ISM.Touch.pdb

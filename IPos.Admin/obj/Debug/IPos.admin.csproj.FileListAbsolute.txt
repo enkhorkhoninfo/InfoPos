@@ -1,0 +1,5 @@
+D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.Admin.dll
+D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.Admin.pdb
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Admin\obj\Debug\ResolveAssemblyReference.cache
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Admin\obj\Debug\IPos.Admin.dll
+D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Admin\obj\Debug\IPos.Admin.pdb
