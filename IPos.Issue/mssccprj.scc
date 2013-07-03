@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[Hpro.Issue.csproj]
+SCC_Aux_Path = "\\192.168.1.200\vss"
+SCC_Project_Name = "$/Insurance/Source/Hpro.Issue", NQQAAAAA
+
+[IPos.Issue.csproj]
+SCC_Aux_Path = "\\192.168.1.200\vss"
+SCC_Project_Name = "$/InfoPosNew/4.Source/IPos.Issue", ODHCAAAA

@@ -1,0 +1,13 @@
+SCC = This is a Source Code Control file
+
+[HPro.Process.csproj]
+SCC_Aux_Path = "Z:\"
+SCC_Project_Name = "$/Insurance/Source/HPro.Process", RFPAAAAA
+
+[IPOS.Process.csproj]
+SCC_Aux_Path = "Z:\"
+SCC_Project_Name = "$/InfoPosNew/4.Source/IPOS.Process", SXKCAAAA
+
+[IPOS.Process.sln]
+SCC_Aux_Path = "Z:\"
+SCC_Project_Name = "$/InfoPosNew/4.Source/IPOS.Process", SXKCAAAA
