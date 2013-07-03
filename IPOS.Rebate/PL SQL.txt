@@ -1,0 +1,50 @@
+CREATE OR REPLACE type RebateDataRow is object (
+ rebateid number(16)
+,loyalid number(16)
+,pointid number(16)
+);
+/
+
+CREATE OR REPLACE type RebateTable is table of RebateDataRow;
+/
+
+
+
+CREATE OR REPLACE PROCEDURE Func1 (
+   pid       	 IN       NUMBER,
+   ptable        OUT      sys_refcursor
+)
+AS
+   rettable       RebateTable := RebateTable();
+BEGIN
+	rettable.EXTEND;
+	rettable (rettable.COUNT) := RebateDataRow (	1000,
+			                                1001,
+                        				1002);
+
+	OPEN ptable FOR SELECT * FROM TABLE (CAST (rettable AS RebateTable));
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+      DBMS_OUTPUT.put_line (SQLERRM);
+END;
+/
+
+
+create table tmpSale 
+(
+SaleID number(16), 
+CustomerID number(16), 
+ProdType number(2), 
+ProdNo varchar2(20), 
+Price number(18,2), 
+Quantity number(18,2)
+);
+
+create table tmpSaleValue 
+(
+SaleID number(16), 
+ItemName varchar2(20), 
+ItemValue nvarchar2(100)
+);
