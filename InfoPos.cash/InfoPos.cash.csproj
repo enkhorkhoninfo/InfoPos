@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A62AC393-981D-4233-AA15-014603C0A838}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoPos.Cash</RootNamespace>
+    <AssemblyName>InfoPos.Cash</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EServ.Client">
+      <HintPath>..\..\Build\InfoPos\EServ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Shared">
+      <HintPath>..\..\Build\InfoPos\EServ.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="GCIPPOSF">
+      <HintPath>..\..\Build\InfoPos\GCIPPOSF.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Core">
+      <HintPath>..\..\Build\InfoPos\InfoPos.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.fo_Customer">
+      <HintPath>..\..\Build\InfoPos\InfoPos.fo_Customer.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.fo_panels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\InfoPos.fo_panels.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.fo_schd">
+      <HintPath>..\..\Build\InfoPos\InfoPos.fo_schd.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Resource">
+      <HintPath>..\..\Build\InfoPos\InfoPos.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.CUser">
+      <HintPath>..\..\Build\InfoPos\ISM.CUser.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Lib">
+      <HintPath>..\..\Build\InfoPos\ISM.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Template">
+      <HintPath>..\..\Build\InfoPos\ISM.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Touch">
+      <HintPath>..\..\Build\InfoPos\ISM.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="sit">
+      <HintPath>..\..\Build\InfoPos\sit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmCash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCash.Designer.cs">
+      <DependentUpon>frmCash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmCash.resx">
+      <DependentUpon>frmCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfoPos.fo_Order\InfoPos.fo_Order.csproj">
+      <Project>{C9AF5BB4-E9CF-4D97-95E1-1698F7B9C1EA}</Project>
+      <Name>InfoPos.fo_Order</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\..\Build\InfoPos"
+copy "$(TargetDir)$(TargetName).pdb" "..\..\..\..\Build\InfoPos"
+copy "$(TargetDir)$(TargetName).dll" "..\..\..\..\Build\InfoPos"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
