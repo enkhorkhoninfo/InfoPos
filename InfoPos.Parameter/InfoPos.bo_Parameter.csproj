@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B91CFB2F-38F0-4F98-80E6-340B96328091}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoPos.Parameter</RootNamespace>
+    <AssemblyName>InfoPos.Parameter</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.CodeRush.Common, Version=10.2.4.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.CodeRush.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeRush.Core, Version=10.2.4.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.CodeRush.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeRush.Extensions, Version=10.2.4.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.CodeRush.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeRush.Interop, Version=10.2.4.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.CodeRush.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeRush.PlugInCore, Version=10.2.4.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.CodeRush.PlugInCore.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeRush.StructuralParser, Version=10.2.4.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.CodeRush.StructuralParser.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeRush.UserControls, Version=10.2.4.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.CodeRush.UserControls.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeRush.VSCore, Version=10.2.4.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.CodeRush.VSCore.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.Data.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.AssemblyResolver">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.AssemblyResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Controls">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Controls.Data.v6.3">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Controls.Data.v6.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Controls.Utils.v6.3">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Controls.Utils.v6.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Controls.XtraBars.v6.3">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Controls.XtraBars.v6.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Controls.XtraEditors.v6.3">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Controls.XtraEditors.v6.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Controls.XtraLayout.v6.3">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Controls.XtraLayout.v6.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Controls.XtraTreeList.v6.3">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Controls.XtraTreeList.v6.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Localization">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.MetaData">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.MetaData.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Parser">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DXCore.Platform">
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\IDETools\System\DXCore\BIN\DevExpress.DXCore.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.Utils.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraBars.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraEditors.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraGrid.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraNavBar.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EServ.Client, Version=1.0.4247.18479, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\EServ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Shared, Version=1.0.4346.38513, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\EServ.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensibility, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="InfoPos.Core">
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.List">
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.List.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Messages">
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Reports">
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Resource">
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Schedule">
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Schedule.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.MSScriptControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\Build\InfoPosAdmin\Interop.MSScriptControl.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.CUser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.CUser.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Lib, Version=1.0.4413.24679, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Report, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Template">
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Touch">
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeExcel, Version=1.6.24.0, Culture=neutral, PublicKeyToken=0d392c9cfb5a90df, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\NativeExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAge.designer.cs">
+      <DependentUpon>FormAge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTagMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTagMain.Designer.cs">
+      <DependentUpon>FormTagMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaProductTreeDesc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaProductTreeDesc.Designer.cs">
+      <DependentUpon>FormPaProductTreeDesc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FaPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaPosition.designer.cs">
+      <DependentUpon>FaPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBrokerCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBrokerCompany.Designer.cs">
+      <DependentUpon>FormBrokerCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustContactType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustContactType.Designer.cs">
+      <DependentUpon>FormCustContactType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInvMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInvMain.Designer.cs">
+      <DependentUpon>FormInvMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaBill.Designer.cs">
+      <DependentUpon>FormPaBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPabrand .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPabrand .Designer.cs">
+      <DependentUpon>FormPabrand .cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPackProp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPackProp.Designer.cs">
+      <DependentUpon>FormPackProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaContractType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaContractType.Designer.cs">
+      <DependentUpon>FormPaContractType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPADamageType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPADamageType.Designer.cs">
+      <DependentUpon>FormPADamageType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaDaytype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaDaytype.Designer.cs">
+      <DependentUpon>FormPaDaytype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGenParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGenParam.designer.cs">
+      <DependentUpon>FormGenParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaInvCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaInvCat.Designer.cs">
+      <DependentUpon>FormPaInvCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPAInvType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPAInvType.Designer.cs">
+      <DependentUpon>FormPAInvType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPAPayType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPAPayType.Designer.cs">
+      <DependentUpon>FormPAPayType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaScheduleType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaScheduleType.Designer.cs">
+      <DependentUpon>FormPaScheduleType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPAServType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPAServType.Designer.cs">
+      <DependentUpon>FormPAServType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPATagSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPATagSetup.Designer.cs">
+      <DependentUpon>FormPATagSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPAWeather.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPAWeather.Designer.cs">
+      <DependentUpon>FormPAWeather.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPledgetype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPledgetype.Designer.cs">
+      <DependentUpon>FormPledgetype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPosTerminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPosTerminal.Designer.cs">
+      <DependentUpon>FormPosTerminal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaProductTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaProductTree.Designer.cs">
+      <DependentUpon>FormPaProductTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRebateDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRebateDetail.Designer.cs">
+      <DependentUpon>FormRebateDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRebateFormula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRebateFormula.Designer.cs">
+      <DependentUpon>FormRebateFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRebateMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRebateMaster.Designer.cs">
+      <DependentUpon>FormRebateMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportGroup.Designer.cs">
+      <DependentUpon>FormReportGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDocTypeGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocTypeGroup.Designer.cs">
+      <DependentUpon>FormDocTypeGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMPermTxn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMPermTxn.Designer.cs">
+      <DependentUpon>CRMPermTxn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssueActionType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssueActionType.Designer.cs">
+      <DependentUpon>CRMIssueActionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssueLinkType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssueLinkType.Designer.cs">
+      <DependentUpon>CRMIssueLinkType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssueMemberPurp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssueMemberPurp.Designer.cs">
+      <DependentUpon>CRMIssueMemberPurp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssuePriority.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssuePriority.Designer.cs">
+      <DependentUpon>CRMIssuePriority.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssueProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssueProject.Designer.cs">
+      <DependentUpon>CRMIssueProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssueProjectComp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssueProjectComp.Designer.cs">
+      <DependentUpon>CRMIssueProjectComp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssueResolutionType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssueResolutionType.Designer.cs">
+      <DependentUpon>CRMIssueResolutionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssueTracks .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssueTracks .Designer.cs">
+      <DependentUpon>CRMIssueTracks .cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMIssueTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMIssueTypes.Designer.cs">
+      <DependentUpon>CRMIssueTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMNotifyTxn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMNotifyTxn.Designer.cs">
+      <DependentUpon>CRMNotifyTxn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRMProjectType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRMProjectType.Designer.cs">
+      <DependentUpon>CRMProjectType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDocTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocTemplate.Designer.cs">
+      <DependentUpon>FormDocTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormContractAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormContractAdd.designer.cs">
+      <DependentUpon>FormContractAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomerAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomerAdd.designer.cs">
+      <DependentUpon>FormCustomerAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDictionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDictionary.Designer.cs">
+      <DependentUpon>FormDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDynamicList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDynamicList.Designer.cs">
+      <DependentUpon>FormDynamicList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccountCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccountCode.Designer.cs">
+      <DependentUpon>FormAccountCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBacProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBacProduct.Designer.cs">
+      <DependentUpon>FormBacProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBankBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBankBranch.Designer.cs">
+      <DependentUpon>FormBankBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCloseType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCloseType.Designer.cs">
+      <DependentUpon>FormCloseType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConProduct.Designer.cs">
+      <DependentUpon>FormConProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCurrency.Designer.cs">
+      <DependentUpon>FormCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustCity.Designer.cs">
+      <DependentUpon>FormCustCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustDistrict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustDistrict.Designer.cs">
+      <DependentUpon>FormCustDistrict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomerMask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomerMask.Designer.cs">
+      <DependentUpon>FormCustomerMask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomerType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomerType.Designer.cs">
+      <DependentUpon>FormCustomerType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAutoNum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAutoNum.Designer.cs">
+      <DependentUpon>FormAutoNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBank.Designer.cs">
+      <DependentUpon>FormBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBranch.Designer.cs">
+      <DependentUpon>FormBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCountry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCountry.Designer.cs">
+      <DependentUpon>FormCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustRate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustRate.Designer.cs">
+      <DependentUpon>FormCustRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFamilyType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFamilyType.Designer.cs">
+      <DependentUpon>FormFamilyType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFAType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFAType.Designer.cs">
+      <DependentUpon>FormFAType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFormula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFormula.Designer.cs">
+      <DependentUpon>FormFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormIndustry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIndustry.Designer.cs">
+      <DependentUpon>FormIndustry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInventoryType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInventoryType.Designer.cs">
+      <DependentUpon>FormInventoryType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLanguage.Designer.cs">
+      <DependentUpon>FormLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustSubDistrict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustSubDistrict.Designer.cs">
+      <DependentUpon>FormCustSubDistrict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServMain.Designer.cs">
+      <DependentUpon>FormServMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShortcut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShortcut.Designer.cs">
+      <DependentUpon>FormShortcut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStep.Designer.cs">
+      <DependentUpon>FormStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStepItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStepItem.Designer.cs">
+      <DependentUpon>FormStepItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSubIndustry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSubIndustry.Designer.cs">
+      <DependentUpon>FormSubIndustry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTxn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTxn.Designer.cs">
+      <DependentUpon>FormTxn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTxnEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTxnEntry.Designer.cs">
+      <DependentUpon>FormTxnEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTxnWrite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTxnWrite.Designer.cs">
+      <DependentUpon>FormTxnWrite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUnitType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUnitType.Designer.cs">
+      <DependentUpon>FormUnitType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDynReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDynReport.Designer.cs">
+      <DependentUpon>frmDynReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionParam.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAge.resx">
+      <DependentUpon>FormAge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTagMain.resx">
+      <DependentUpon>FormTagMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaProductTreeDesc.resx">
+      <DependentUpon>FormPaProductTreeDesc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FaPosition.resx">
+      <DependentUpon>FaPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBrokerCompany.resx">
+      <DependentUpon>FormBrokerCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustContactType.resx">
+      <DependentUpon>FormCustContactType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGenParam.resx">
+      <DependentUpon>FormGenParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInvMain.resx">
+      <DependentUpon>FormInvMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaBill.resx">
+      <DependentUpon>FormPaBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPabrand .resx">
+      <DependentUpon>FormPabrand .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPackProp.resx">
+      <DependentUpon>FormPackProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaContractType.resx">
+      <DependentUpon>FormPaContractType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPADamageType.resx">
+      <DependentUpon>FormPADamageType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaDaytype.resx">
+      <DependentUpon>FormPaDaytype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaInvCat.resx">
+      <DependentUpon>FormPaInvCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPAInvType.resx">
+      <DependentUpon>FormPAInvType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPAPayType.resx">
+      <DependentUpon>FormPAPayType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaProductTree.resx">
+      <DependentUpon>FormPaProductTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaScheduleType.resx">
+      <DependentUpon>FormPaScheduleType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPAServType.resx">
+      <DependentUpon>FormPAServType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPATagSetup.resx">
+      <DependentUpon>FormPATagSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPAWeather.resx">
+      <DependentUpon>FormPAWeather.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPledgetype.resx">
+      <DependentUpon>FormPledgetype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPosTerminal.resx">
+      <DependentUpon>FormPosTerminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRebateDetail.resx">
+      <DependentUpon>FormRebateDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRebateFormula.resx">
+      <DependentUpon>FormRebateFormula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRebateMaster.resx">
+      <DependentUpon>FormRebateMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportGroup.resx">
+      <DependentUpon>FormReportGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocTypeGroup.resx">
+      <DependentUpon>FormDocTypeGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMPermTxn.resx">
+      <DependentUpon>CRMPermTxn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssueActionType.resx">
+      <DependentUpon>CRMIssueActionType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssueLinkType.resx">
+      <DependentUpon>CRMIssueLinkType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssueMemberPurp.resx">
+      <DependentUpon>CRMIssueMemberPurp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssuePriority.resx">
+      <DependentUpon>CRMIssuePriority.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssueProject.resx">
+      <DependentUpon>CRMIssueProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssueProjectComp.resx">
+      <DependentUpon>CRMIssueProjectComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssueResolutionType.resx">
+      <DependentUpon>CRMIssueResolutionType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssueTracks .resx">
+      <DependentUpon>CRMIssueTracks .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMIssueTypes.resx">
+      <DependentUpon>CRMIssueTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMNotifyTxn.resx">
+      <DependentUpon>CRMNotifyTxn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMProjectType.resx">
+      <DependentUpon>CRMProjectType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocTemplate.resx">
+      <DependentUpon>FormDocTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormContractAdd.resx">
+      <DependentUpon>FormContractAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerAdd.resx">
+      <DependentUpon>FormCustomerAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDictionary.resx">
+      <DependentUpon>FormDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDynamicList.resx">
+      <DependentUpon>FormDynamicList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccountCode.resx">
+      <DependentUpon>FormAccountCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBacProduct.resx">
+      <DependentUpon>FormBacProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBankBranch.resx">
+      <DependentUpon>FormBankBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCloseType.resx">
+      <DependentUpon>FormCloseType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConProduct.resx">
+      <DependentUpon>FormConProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCurrency.resx">
+      <DependentUpon>FormCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustCity.resx">
+      <DependentUpon>FormCustCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustDistrict.resx">
+      <DependentUpon>FormCustDistrict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerMask.resx">
+      <DependentUpon>FormCustomerMask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerType.resx">
+      <DependentUpon>FormCustomerType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAutoNum.resx">
+      <DependentUpon>FormAutoNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBank.resx">
+      <DependentUpon>FormBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBranch.resx">
+      <DependentUpon>FormBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCountry.resx">
+      <DependentUpon>FormCountry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustRate.resx">
+      <DependentUpon>FormCustRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustSubDistrict.resx">
+      <DependentUpon>FormCustSubDistrict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFamilyType.resx">
+      <DependentUpon>FormFamilyType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFAType.resx">
+      <DependentUpon>FormFAType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFormula.resx">
+      <DependentUpon>FormFormula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIndustry.resx">
+      <DependentUpon>FormIndustry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInventoryType.resx">
+      <DependentUpon>FormInventoryType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLanguage.resx">
+      <DependentUpon>FormLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServMain.resx">
+      <DependentUpon>FormServMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShortcut.resx">
+      <DependentUpon>FormShortcut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStep.resx">
+      <DependentUpon>FormStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStepItem.resx">
+      <DependentUpon>FormStepItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSubIndustry.resx">
+      <DependentUpon>FormSubIndustry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTxn.resx">
+      <DependentUpon>FormTxn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTxnEntry.resx">
+      <DependentUpon>FormTxnEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTxnWrite.resx">
+      <DependentUpon>FormTxnWrite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUnitType.resx">
+      <DependentUpon>FormUnitType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDynReport.resx">
+      <DependentUpon>frmDynReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).pdb" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).dll" "..\..\..\..\Build\InfoPosAdmin"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

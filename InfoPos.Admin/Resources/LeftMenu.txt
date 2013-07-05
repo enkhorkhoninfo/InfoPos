@@ -1,0 +1,118 @@
+﻿2000;0;0;menu_customer;Customer;0;0;0;0;Харилцагч болон CRM
+2001;2000;2;menu_customeradd;CustomerProp;120002;InfoPos.Customer.dll;Main;CallCustomerProp;Харилцагч үүсгэх
+2002;2000;2;menu_customerlist;CustomerList;120000;InfoPos.List.dll;List;CallCustomerList;Харилцагчийн жагсаалт
+2003;2000;2;menu_customeradd;ContactProp;310127;InfoPos.Customer.dll;Main;CallCustomerInfo;Ирээдүйн харилцагч үүсгэх
+2004;2000;2;menu_customerlist;ContactList;310125;InfoPos.List.dll;List;CallContactList;Ирээдүйн харилцагчийн жагсаалт
+2005;2000;2;menu_customerlist;ContactCustomerList;310144;InfoPos.List.dll;List;CallCustomerContactList;Харилцагч болон ирээдүйн харилцагчийн жагсаалт
+3400;0;0;menu_add;Contract;0;0;0;0;Гэрээ
+3401;3400;2;menu_add;Contract;130003;InfoPos.Contract.dll;Main;CallContract;Гэрээ бүртгэх
+3402;3400;2;menu_list;ContractList;130001;InfoPos.List.dll;List;CallContractList;Гэрээний жагсаалт
+3403;3400;2;menu_list;ContractBulk;130022;InfoPos.Contract.dll;Main;CallContractBulk;Гэрээг xls ээс багцаар оруулах
+3500;0;0;menu_claim;Order;0;0;0;0;Захиалга
+3501;3500;2;menu_add;Order;130103;InfoPos.Order.dll;Main;CallOrder;Захиалгын бүртгэл
+3502;3500;2;menu_list;OrderList;130101;InfoPos.List.dll;List;CallOrderList;Захиалгын жагсаалт
+3900;0;10;menu_paramgreen;Parameter;0;0;0;0;Параметр
+3910;3900;11;menu_paramgreen;GeneralParam;0;0;0;0;Ерөнхий параметр
+3911;3910;12;menu_paramgreen;GeneralParamProp;140148;InfoPos.Parameter.dll;Main;CallFormGenParam;Ерөнхий параметр
+3912;3910;12;menu_paramgreen;Branch;140002;InfoPos.Parameter.dll;Main;CallBranch;Салбар
+3913;3910;12;menu_paramgreen;Country;140008;InfoPos.Parameter.dll;Main;CallCountry;Улс
+3914;3910;12;menu_paramgreen;Language;140013;InfoPos.Parameter.dll;Main;CallLanguage;Хэл
+3915;3910;12;menu_paramgreen;Currency;140018;InfoPos.Parameter.dll;Main;CallCurrency;Валютын ханш оруулах
+3916;3910;12;menu_paramgreen;CurrencyHistory;140200;InfoPos.List.dll;List;CallCurRateHistory;Валютын ханшийн түүх харах
+3917;3910;12;menu_paramgreen;Bank;140023;InfoPos.Parameter.dll;Main;CallBank;Банк
+3918;3910;12;menu_paramgreen;BankBranch;140098;InfoPos.Parameter.dll;Main;CallBankBranch;Банкны салбар
+3919;3910;12;menu_paramgreen;AutoNumber;140033;InfoPos.Parameter.dll;Main;CallAutoNum;Автомат дугаарлалт
+3922;3910;12;menu_paramgreen;DictionaryParam;140303;InfoPos.Parameter.dll;Main;CallFormDictionary;Жагсаалтын бүртгэл [Dictionary]
+3923;3910;12;menu_paramgreen;DynamicListParam;140308;InfoPos.Parameter.dll;Main;CallFormDynamicList;Динамик жагсаалтын бүртгэл
+3924;3910;12;menu_paramgreen;Shortcut;140323;InfoPos.Parameter.dll;Main;CallFormShortcut;Shortcut-ын бүртгэл
+3925;3910;12;menu_paramblue;PaBill;140192;InfoPos.Parameter.dll;Main;CallFormPaBill;Мөнгөн тэмдэгтийн дэвсгэр
+3930;3910;12;menu_paramblue;XlsReport;140352;InfoPos.Parameter.dll;Main;CallXlsReport;Excel-ээс унших тайлангийн параметрүүд
+4500;3900;11;menu_paramgreen;PosParam;0;0;0;0;Пос параметр
+3920;4500;12;menu_paramgreen;PATagSetup;140172;InfoPos.Parameter.dll;Main;CallPATagSetup;Тагийн төрлийн бүртгэл
+3921;4500;12;menu_paramblue;TagMain;140358;InfoPos.Parameter.dll;Main;CallTagMain;Тагын бүртгэл
+3926;4500;12;menu_paramblue;PAPayType;140202;InfoPos.Parameter.dll;Main;CallFormPAPayType;Төлбөрийн төрлийн код
+3927;4500;12;menu_paramblue;PaContractType;140233;InfoPos.Parameter.dll;Main;CallPaContractType;Гэрээний төрлийн бүртгэл
+3928;4500;12;menu_paramblue;PosTerminal;140078;InfoPos.Parameter.dll;Main;CallPosTerminal;ПОС-ын бүртгэл
+3929;4500;12;menu_paramblue;WorkArea;130130;InfoPos.Contract.dll;Main;CallWorkArea;Ажлын талбарын бүртгэл
+4000;3900;11;menu_paramblue;CustomerParam;CallFormReportGroup;0;0;0;Харилцагч
+4001;4000;12;menu_paramblue;CustomerType;140038;InfoPos.Parameter.dll;Main;CallCustomerType;Харилцагчийн төрөл
+4002;4000;12;menu_paramblue;CustomerAdd;120056;InfoPos.Parameter.dll;Main;CallCustomerAdd;Харилцагчийн нэмэлт мэдээллийн параметр
+4003;4000;12;menu_paramblue;CustomerRelation;140043;InfoPos.Parameter.dll;Main;CallFamilyType;Харилцагчийн хамаарлын төрөл
+4004;4000;12;menu_paramblue;Industry;140048;InfoPos.Parameter.dll;Main;CallIndustry;Үйл ажиллагааны чиглэл
+4005;4000;12;menu_paramblue;SubIndustry;140053;InfoPos.Parameter.dll;Main;CallSubIndustry;Үйл ажиллагааны дэд чиглэл
+4006;4000;12;menu_paramblue;CustCity;140058;InfoPos.Parameter.dll;Main;CallCustCity;Аймаг хотын бүртгэл
+4007;4000;12;menu_paramblue;CustDistrict;140063;InfoPos.Parameter.dll;Main;CallCustDistrict;Сум дүүргийн бүртгэл
+4008;4000;12;menu_paramblue;CustSubDistrict;140068;InfoPos.Parameter.dll;Main;CallCustSubDistrict;Баг хорооны бүртгэл
+4009;4000;12;menu_paramblue;CustomerRank;140073;InfoPos.Parameter.dll;Main;CallCustRate;Харилцагчийн зэрэглэл
+4010;4000;12;menu_paramblue;CustomerMask;140128;InfoPos.Parameter.dll;Main;CallFormCustomerMask;Харилцагчийн маск
+4011;4000;12;menu_paramblue;ContactType;120070;InfoPos.Parameter.dll;Main;CallFormCustContactType;Харилцагчтай холбоо барисан төрөл
+3934;4000;12;menu_paramgreen;Age;140371;InfoPos.Parameter.dll;Main;CallAge;Насны бүртгэл
+4100;3900;11;menu_paramgreen;Schedule;0;0;0;0;Календар
+4101;4100;12;menu_paramgreen;PaDaytype;140132;InfoPos.Parameter.dll;Main;CallFormPaDaytype;Өдрийн төрлийн бүртгэл
+4102;4100;12;menu_paramgreen;PAWeather;140142;InfoPos.Parameter.dll;Main;CallFormPAWeather;Цаг агаарын төрлийн бүртгэл
+4103;4100;12;menu_claim;Calendar;140208;InfoPos.Schedule.dll;Main;CallCalendar;Календарын бүртгэл
+4400;3900;11;menu_paramblue;INVFA;0;0;0;0;Бүтээгдэхүүн
+4401;4400;12;menu_paramblue;UnitType;140108;InfoPos.Parameter.dll;Main;CallUnitType;Бараа материалын нэгжийн төрөл
+4402;4400;12;menu_paramblue;ProdPriceHist;140366;InfoPos.List.dll;List;CallProdPriceHistList;Үнийн түүхиин жагсаалт
+4405;4400;12;menu_paramblue;PAInvType;140157;InfoPos.Parameter.dll;Main;CallFormPAInvType;Бараа материалын төрлийн бүртгэл
+4406;4400;12;menu_paramblue;PAServType;140187;InfoPos.Parameter.dll;Main;CallFormPAServType;Үйлчилгээний төрлийн бүртгэл
+4407;4400;12;menu_paramblue;PaBrand;140212;InfoPos.Parameter.dll;Main;CallFormPabrand;Брэндийн бүртгэл
+4408;4400;12;menu_paramblue;InvMain;140213;InfoPos.Parameter.dll;Main;CallFormInvMain;Барааны бүртгэл
+4409;4400;12;menu_paramblue;PaList;140211;InfoPos.List.dll;List;CallInventoryList;Бараа материалын жагсаалт
+4410;4400;12;menu_paramblue;PaScheduleType;140182;InfoPos.Parameter.dll;Main;CallFormPaScheduleType;Хувиарлалтын төрлийн бүртгэл
+4411;4400;12;menu_paramblue;PaInvCat;140218;InfoPos.Parameter.dll;Main;CallFormPaInvCat;Ангиллын төрлийн бүртгэл
+4412;4400;12;menu_paramblue;ServMain;140228;InfoPos.Parameter.dll;Main;CallFormServMain;Үйлчилгээний бүртгэл
+4413;4400;12;menu_paramblue;ServList;140226;InfoPos.List.dll;List;CallServiceList;Үйлчилгээний жагсаалт
+4414;4400;12;menu_paramblue;PackGroup;140297;InfoPos.Parameter.dll;Main;CallPaProductTree;Бүтээгдэхүүний бүлэглэлийн бүртгэл
+4415;4400;12;menu_paramblue;PackGroupDesc;140363;InfoPos.Parameter.dll;Main;CallPaProductTreeDesc;Бүлэглэлийн Тухайн мөчрийн бүртгэл
+4416;4400;12;menu_paramblue;PackMain;140248;InfoPos.Parameter.dll;Main;CallFormPackMain;Бүтээгдэхүүний багцын бүртгэл
+4417;4400;12;menu_paramblue;PackMainList;140246;InfoPos.List.dll;List;CallPackMainList;Бүтээгдэхүүний багцын бүртгэлийн жагсаалт
+4418;4400;12;menu_paramblue;PADamageType;140327;InfoPos.Parameter.dll;Main;CallPADamageType;Эвдрэлийн төрлийн бүртгэл
+4419;4400;12;menu_paramblue;CallPledgeType;140333;InfoPos.Parameter.dll;Main;CallPledgeType;Барьцааны төрөл
+4420;4400;12;menu_paramblue;FormRebateMaster;140338;InfoPos.Parameter.dll;Main;CallRebateMaster;Тооцоолол хийх матриц
+4421;4400;12;menu_paramblue;FormRebateDetail;140343;InfoPos.Parameter.dll;Main;CallRebateDetail;Тооцоолол хийх матриц бүтээгдэхүүний задаргаа
+4422;4400;12;menu_paramblue;FormRebateFormula;140348;InfoPos.Parameter.dll;Main;CallRebateFormula;Нөхцөлийн хүснэгт
+4700;3900;11;menu_paramgreen;TXNParam;0;0;0;0;Гүйлгээ
+4701;4700;12;menu_paramgreen;TXNCode;140163;InfoPos.Parameter.dll;Main;CallFormTxn;Гүйлгээний код
+4702;4700;12;menu_paramgreen;TXNCodeList;140161;InfoPos.List.dll;List;CallTxnList;Гүйлгээний кодын жагсаалт
+4703;4700;12;menu_paramgreen;TXNEntry;140168;InfoPos.Parameter.dll;Main;CallFormTxnEntry;Санхүүгийн бичилт
+4704;4700;12;menu_paramgreen;TxnTxnEntry;140178;InfoPos.Parameter.dll;Main;CallTxnEntry;Гүйлгээний санхүүгийн бичилт
+4900;3900;11;menu_paramgreen;StepParam;0;0;0;0;Дамжлага [Step]
+4901;4900;12;menu_paramgreen;StepItems;140278;InfoPos.Parameter.dll;Main;CallFormStepItem;Дамжлагын бүртгэл
+4902;4900;12;menu_paramgreen;StepProp;140283;InfoPos.Parameter.dll;Main;CallFormStep;Дамжлагын бүлгийн бүртгэл
+5100;3900;11;menu_paramgreen;CRMIssueTrack;;0;0; ;CRM & Issue Tracking
+5101;5100;12;menu_paramgreen;IssueProjectType;310002;InfoPos.Parameter.dll;Main;CallCRMProjectType;Төслийн төрөл
+5102;5100;12;menu_paramgreen;IssueProjectComp;310076;InfoPos.Parameter.dll;Main;CallCRMIssueProjectComp;Төслийн дэд төрөл
+5103;5100;12;menu_paramgreen;IssueType;310007;InfoPos.Parameter.dll;Main;CallCRMIssueTypes;Асуудлын төрөл
+5104;5100;12;menu_paramgreen;IssueTracks;310012;InfoPos.Parameter.dll;Main;CallCRMIssueTracks;Асуудлын алхамууд
+5105;5100;12;menu_paramgreen;IssueActionType;310022;InfoPos.Parameter.dll;Main;CallCRMIssueActionType;Асуудлын үйлдлийн төрөл
+5106;5100;12;menu_paramgreen;IssueResolutionType;310027;InfoPos.Parameter.dll;Main;CallCRMIssueResolutionType;Асуудлын хаагдсан төрөл
+5107;5100;12;menu_paramgreen;IssueMemberPurp;310032;InfoPos.Parameter.dll;Main;CallCRMIssueMemberPurp;Асуудлын холбоотой хүний үүргийн төрөл
+5108;5100;12;menu_paramgreen;IssuePriority;310037;InfoPos.Parameter.dll;Main;CallCRMIssuePriority;Асуудлын эрэмбэ
+5109;5100;12;menu_paramgreen;IssueLinkType;310042;InfoPos.Parameter.dll;Main;CallCRMIssueLinkType;Асуудлын холбоосын төрөл
+5110;5100;12;menu_paramgreen;IssueNotifyTxn;310047;InfoPos.Parameter.dll;Main;CallCRMIssueNotifyTxn;Мэдэгдэлийн схем болон мэдэгдэлийн схемийн гүйлгээ
+5111;5100;12;menu_paramgreen;IssuePermTxn;310052;InfoPos.Parameter.dll;Main;CallCRMIssuePermTxn;Эрхийн схем болон эрхийн схемийн гүйлгээ
+5200;0;0;menu_customerlist;Administrator;0;0;0;0;Администратор
+5201;5200;2;menu_useradd;UserProp;110102;InfoPos.Admin.dll;Main;CallUserProp;Хэрэглэгч шинээр бүртгэх
+5202;5200;2;menu_usergroup;UserGroupProp;110107;InfoPos.Admin.dll;Main;CallGroupProp;Хэрэглэгчийн бүлэг шинээр бүртгэх
+5203;5200;2;menu_customerlist;UserList;110100;InfoPos.List.dll;List;CallUserList;Хэрэглэгчийн жагсаалт
+5204;5200;2;menu_usergrouplist;UserGroupList;110105;InfoPos.List.dll;List;CallUserGroupList;Хэрэглэгчийн бүлгийн жагсаалт
+5205;5200;2;menu_paramgreen;PassOptions;110113;InfoPos.Admin.dll;Main;CallPassOptions;Нууц үгний тохиргоо
+5207;5200;2;menu_list;LogList;110200;InfoPos.List.dll;List;CallLogList;Логийн бүртгэлийн жагсаалт
+5208;5200;2;menu_pendtxn;Process;100004;InfoPos.EOD.dll;Main;CallEODProcess;Өдөр өндөрлөлт
+5209;5200;2;menu_pendtxn;Process;100005;InfoPos.PostingGL.dll;Main;CallPostingGL;ABACUS руу хөрвүүлэх
+5300;0;0;menu_customerlist; CRM & Issue Tracking;0;0;0;0;Issue Tracking
+5301;5300;2;menu_paramgreen;IssueProject;310071;InfoPos.Parameter.dll;Main;CallCRMIssueProject;Төслийн бүртгэл
+5302;5300;2;menu_paramgreen;IssueProjectList;310069;InfoPos.List.dll;List;CallIssueProjectList;Төслийн жагсаалт
+5303;5300;2;menu_paramgreen;IssueList;310079;InfoPos.List.dll;List;CallIssueList;Харилцагчийн асуудлын жагсаалт
+5304;5300;2;menu_paramgreen;IssueContactList;310142;InfoPos.List.dll;List;CallIssueContactList;Ирээдүйн харилцагчийн асуудлын жагсаалт
+5305;5300;2;menu_paramgreen;ProjectIssue;310143;InfoPos.List.dll;List;CallProjectIssueList;Асуудлын төслийн жагсаалт
+5400;0;0;menu_mails;Mail;0;0;0;0;Захиа
+5401;5400;2;menu_mail;Message;110115;InfoPos.Messages.dll;Main;CallMessage;Захиа
+5402;5400;2;menu_newmail;MessageSend;110117;InfoPos.Messages.dll;Main;CallSendMessage;Захиа илгээх
+5500;0;0;menu_pendtxn;ExcelReport;0;0;0;0;Тайлан & Жагсаалт
+5501;5500;2;menu_pendtxn;ExcelReports;249999;InfoPos.bo_Reports.dll;Main;CallReports;Excel Тайлан
+5502;5500;2;menu_pendtxn;DynamicReports;240000;InfoPos.Reports.dll;Main;CallDynamicReportTxn;Динамик тайлан
+5503;5500;2;menu_pendtxn;SalesMoreBOList;140367;InfoPos.List.dll;List;CallSalesMoreBOList;Борлуулалтын дэлгэрэнгүй жагсаалт
+5504;5500;2;menu_pendtxn;SalesProductBOList;140368;InfoPos.List.dll;List;CallSalesProductBOList;Борлуулсан бараа болон үйлчилгээний жагсаалт BO
+5505;5500;2;menu_pendtxn;SalesPayBOList;140369;InfoPos.List.dll;List;CallSalesPayBOList;Төлбөрийн жагсаалт BO

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85013575-CAAB-42B7-9EAF-AAEA6A63BED8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoPos.Core</RootNamespace>
+    <AssemblyName>InfoPos.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.Data.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.Utils.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraBars.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraEditors.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraGrid.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Client, Version=1.0.4569.18935, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\EServ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Shared, Version=1.0.4613.35414, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\EServ.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Resource">
+      <HintPath>..\..\Build\InfoPos\InfoPos.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.CUser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.CUser.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Lib, Version=1.0.4568.30440, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Template, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Touch">
+      <HintPath>..\..\Build\InfoPos\ISM.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeExcel">
+      <HintPath>..\..\Build\InfoPos\NativeExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="sit">
+      <HintPath>..\..\Build\InfoPos\sit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core.cs" />
+    <Compile Include="Devices.cs" />
+    <Compile Include="frmTagReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTagReader.Designer.cs">
+      <DependentUpon>frmTagReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JsonParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmTagReader.resx">
+      <DependentUpon>frmTagReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Message.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remotecontrol3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).pdb" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).dll" "..\..\..\..\Build\InfoPosAdmin"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -18,7 +18,7 @@ namespace ISM.Report
 {
     public class Generator
     {
-        HeavenPro.Core.Core _core;
+        InfoPos.Core.Core _core;
         /************* Error codes and descriptions **************
          * 10 - Ini file not found.
          * 20 - Empty report file name.
@@ -30,7 +30,7 @@ namespace ISM.Report
          * 30 - Report ini file not found.
          * 31 - Report is not prepared.
          ********************************************************/
-        public Generator(HeavenPro.Core.Core core)
+        public Generator(InfoPos.Core.Core core)
         {
 
             _core = core;
@@ -303,32 +303,32 @@ namespace ISM.Report
                                     if (Static.ToStr(pBranchCode) != "")
                                     {
                                         paramnames.Add("ppBranchCode");
-                                        paramvalues.Add(_core.User.BranchCode);
+                                        paramvalues.Add(_core.RemoteObject.User.BranchCode);
                                     }
                                     if (Static.ToStr(pUserNo) != "")
                                     {
                                         paramnames.Add("ppUserNo");
-                                        paramvalues.Add(_core.User.UserNo);
+                                        paramvalues.Add(_core.RemoteObject.User.UserNo);
                                     }
                                     if (Static.ToStr(LevelNo1) != "")
                                     {
                                         paramnames.Add("pLevelNo1");
-                                        paramvalues.Add(_core.User.Level1);
+                                        paramvalues.Add(_core.RemoteObject.User.Level1);
                                     }
                                     if (Static.ToStr(LevelNo2) != "")
                                     {
                                         paramnames.Add("pLevelNo2");
-                                        paramvalues.Add(_core.User.Level2);
+                                        paramvalues.Add(_core.RemoteObject.User.Level2);
                                     }
                                     if (Static.ToStr(LevelNo3) != "")
                                     {
                                         paramnames.Add("pLevelNo3");
-                                        paramvalues.Add(_core.User.Level3);
+                                        paramvalues.Add(_core.RemoteObject.User.Level3);
                                     }
                                     if (Static.ToStr(LevelNo4) != "")
                                     {
                                         paramnames.Add("pLevelNo4");
-                                        paramvalues.Add(_core.User.Level4);
+                                        paramvalues.Add(_core.RemoteObject.User.Level4);
                                     }
 
                                     if (Static.ToStr(Txndate) != "")

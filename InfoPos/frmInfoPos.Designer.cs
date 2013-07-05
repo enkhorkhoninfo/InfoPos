@@ -205,7 +205,7 @@
             // repositoryItemRichTextEdit1
             // 
             this.repositoryItemRichTextEdit1.Name = "repositoryItemRichTextEdit1";
-            this.repositoryItemRichTextEdit1.ShowCaretInReadOnly = false;
+            //this.repositoryItemRichTextEdit1.ShowCaretInReadOnly = false;
             // 
             // ribbonStatusBar
             // 

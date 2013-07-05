@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{325CA998-928E-4DCA-B7C8-BCEFA079AE19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoPos.List</RootNamespace>
+    <AssemblyName>InfoPos.List</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.Data.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.Utils.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraEditors.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraGrid.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraNavBar.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraVerticalGrid.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Client, Version=1.0.4569.18935, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\EServ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Shared, Version=1.0.4613.35414, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\EServ.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Admin, Version=1.0.4636.21780, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Enquiry, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Enquiry.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Issue, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Issue.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Resource, Version=1.0.4823.24677, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\InfoPos.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.CUser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.CUser.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Lib, Version=1.0.4568.30440, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Report, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Template, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountTxnList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountTxnList.Designer.cs">
+      <DependentUpon>AccountTxnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contact.designer.cs">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContractList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContractList.designer.cs">
+      <DependentUpon>ContractList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesPayBO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesPayBO.Designer.cs">
+      <DependentUpon>SalesPayBO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesProductBO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesProductBO.Designer.cs">
+      <DependentUpon>SalesProductBO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesMoreBO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesMoreBO.Designer.cs">
+      <DependentUpon>SalesMoreBO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProdPriceHist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProdPriceHist.Designer.cs">
+      <DependentUpon>ProdPriceHist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssueContactList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueContactList.designer.cs">
+      <DependentUpon>IssueContactList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssueList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueList.designer.cs">
+      <DependentUpon>IssueList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssueProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueProject.designer.cs">
+      <DependentUpon>IssueProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderList.designer.cs">
+      <DependentUpon>OrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackMainList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackMainList.Designer.cs">
+      <DependentUpon>PackMainList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectIssue.designer.cs">
+      <DependentUpon>ProjectIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesDetail.Designer.cs">
+      <DependentUpon>SalesDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesSearch.Designer.cs">
+      <DependentUpon>SalesSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceList.Designer.cs">
+      <DependentUpon>ServiceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function.cs" />
+    <Compile Include="CurRateHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurRateHistory.Designer.cs">
+      <DependentUpon>CurRateHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogList.Designer.cs">
+      <DependentUpon>LogList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerList.Designer.cs">
+      <DependentUpon>CustomerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocTemplate.Designer.cs">
+      <DependentUpon>DocTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeList.Designer.cs">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupUserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupUserList.Designer.cs">
+      <DependentUpon>GroupUserList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="InventoryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryList.Designer.cs">
+      <DependentUpon>InventoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportList.Designer.cs">
+      <DependentUpon>ReportList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TxnEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TxnEntry.Designer.cs">
+      <DependentUpon>TxnEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TxnList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TxnList.Designer.cs">
+      <DependentUpon>TxnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TxnYNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TxnYNote.Designer.cs">
+      <DependentUpon>TxnYNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserList.Designer.cs">
+      <DependentUpon>UserList.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AccountTxnList.resx">
+      <DependentUpon>AccountTxnList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contact.resx">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContractList.resx">
+      <DependentUpon>ContractList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesPayBO.resx">
+      <DependentUpon>SalesPayBO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesProductBO.resx">
+      <DependentUpon>SalesProductBO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesMoreBO.resx">
+      <DependentUpon>SalesMoreBO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProdPriceHist.resx">
+      <DependentUpon>ProdPriceHist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IssueContactList.resx">
+      <DependentUpon>IssueContactList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IssueList.resx">
+      <DependentUpon>IssueList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IssueProject.resx">
+      <DependentUpon>IssueProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderList.resx">
+      <DependentUpon>OrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackMainList.resx">
+      <DependentUpon>PackMainList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectIssue.resx">
+      <DependentUpon>ProjectIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesDetail.resx">
+      <DependentUpon>SalesDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesSearch.resx">
+      <DependentUpon>SalesSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceList.resx">
+      <DependentUpon>ServiceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurRateHistory.resx">
+      <DependentUpon>CurRateHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogList.resx">
+      <DependentUpon>LogList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerList.resx">
+      <DependentUpon>CustomerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocTemplate.resx">
+      <DependentUpon>DocTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeList.resx">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupUserList.resx">
+      <DependentUpon>GroupUserList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryList.resx">
+      <DependentUpon>InventoryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportList.resx">
+      <DependentUpon>ReportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TxnEntry.resx">
+      <DependentUpon>TxnEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TxnList.resx">
+      <DependentUpon>TxnList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TxnYNote.resx">
+      <DependentUpon>TxnYNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserList.resx">
+      <DependentUpon>UserList.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).pdb" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).dll" "..\..\..\..\Build\InfoPosAdmin"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

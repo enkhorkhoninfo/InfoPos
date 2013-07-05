@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F6D872EB-3950-4361-8EB8-B750E1BC7383}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoPos.fo_panels</RootNamespace>
+    <AssemblyName>InfoPos.fo_panels</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.Data.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.Utils.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraBars.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraEditors.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.2\Components\Sources\DevExpress.DLL\DevExpress.XtraGrid.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Client, Version=1.0.4569.18935, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\EServ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Shared, Version=1.0.4613.35414, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\EServ.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="GCIPPOSF">
+      <HintPath>..\..\Build\InfoPos\GCIPPOSF.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\InfoPos.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.fo_Customer">
+      <HintPath>..\..\Build\InfoPos\InfoPos.fo_Customer.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Resource">
+      <HintPath>..\..\Build\InfoPos\InfoPos.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.CUser">
+      <HintPath>..\..\Build\InfoPos\ISM.CUser.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Lib">
+      <HintPath>..\..\Build\InfoPos\ISM.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Template, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Touch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="sit">
+      <HintPath>..\..\Build\InfoPos\sit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMessage.Designer.cs">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTagReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTagReader.Designer.cs">
+      <DependentUpon>frmTagReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucNumpad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucNumpad.Designer.cs">
+      <DependentUpon>ucNumpad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSalesDetailSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmPledgeReceive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPledgeReceive.Designer.cs">
+      <DependentUpon>frmPledgeReceive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ucContractSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucContractSearch.Designer.cs">
+      <DependentUpon>ucContractSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMaster.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMaster.Designer.cs">
+      <DependentUpon>ucMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPledgeSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPledgeSearch.Designer.cs">
+      <DependentUpon>ucPledgeSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPledgeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPledgeList.Designer.cs">
+      <DependentUpon>ucPledgeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCalcSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCalcSales.designer.cs">
+      <DependentUpon>ucCalcSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucProductList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucProductList.Designer.cs">
+      <DependentUpon>ucProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSaleCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSaleCustomer.Designer.cs">
+      <DependentUpon>ucSaleCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSaleProdList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSaleProdList.Designer.cs">
+      <DependentUpon>ucSaleProdList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPayment.Designer.cs">
+      <DependentUpon>ucPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSalesCheckList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSalesCheckList.Designer.cs">
+      <DependentUpon>ucSalesCheckList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSalesDetailSearch.Designer.cs">
+      <DependentUpon>ucSalesDetailSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSalesPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSalesPayment.Designer.cs">
+      <DependentUpon>ucSalesPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSalesProd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSalesProd.Designer.cs">
+      <DependentUpon>ucSalesProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSalesProductList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSalesProductList.designer.cs">
+      <DependentUpon>ucSalesProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSearchList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSearchList.Designer.cs">
+      <DependentUpon>ucSearchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucTag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTag.Designer.cs">
+      <DependentUpon>ucTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRentReceive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentReceive.Designer.cs">
+      <DependentUpon>frmRentReceive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRentDeliver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentDeliver.Designer.cs">
+      <DependentUpon>frmRentDeliver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRentTag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRentTag.Designer.cs">
+      <DependentUpon>ucRentTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRentList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRentList.Designer.cs">
+      <DependentUpon>ucRentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCustSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCustSearch.Designer.cs">
+      <DependentUpon>ucCustSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucSaleSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSaleSearch.Designer.cs">
+      <DependentUpon>ucSaleSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTagClean.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTagClean.Designer.cs">
+      <DependentUpon>frmTagClean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucTagList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTagList.Designer.cs">
+      <DependentUpon>ucTagList.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmMessage.resx">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTagReader.resx">
+      <DependentUpon>frmTagReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPledgeReceive.resx">
+      <DependentUpon>frmPledgeReceive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucContractSearch.resx">
+      <DependentUpon>ucContractSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMaster.resx">
+      <DependentUpon>ucMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucNumpad.resx">
+      <DependentUpon>ucNumpad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPledgeSearch.resx">
+      <DependentUpon>ucPledgeSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPledgeList.resx">
+      <DependentUpon>ucPledgeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCalcSales.resx">
+      <DependentUpon>ucCalcSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucProductList.resx">
+      <DependentUpon>ucProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSaleCustomer.resx">
+      <DependentUpon>ucSaleCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSaleProdList.resx">
+      <DependentUpon>ucSaleProdList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPayment.resx">
+      <DependentUpon>ucPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSalesCheckList.resx">
+      <DependentUpon>ucSalesCheckList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSalesDetailSearch.resx">
+      <DependentUpon>ucSalesDetailSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSalesPayment.resx">
+      <DependentUpon>ucSalesPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSalesProd.resx">
+      <DependentUpon>ucSalesProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSalesProductList.resx">
+      <DependentUpon>ucSalesProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSearchList.resx">
+      <DependentUpon>ucSearchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTag.resx">
+      <DependentUpon>ucTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentReceive.resx">
+      <DependentUpon>frmRentReceive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentDeliver.resx">
+      <DependentUpon>frmRentDeliver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRentTag.resx">
+      <DependentUpon>ucRentTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRentList.resx">
+      <DependentUpon>ucRentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCustSearch.resx">
+      <DependentUpon>ucCustSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSaleSearch.resx">
+      <DependentUpon>ucSaleSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTagClean.resx">
+      <DependentUpon>frmTagClean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTagList.resx">
+      <DependentUpon>ucTagList.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard_cordless.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\..\Build\InfoPos"
+copy "$(TargetDir)$(TargetName).pdb" "..\..\..\..\Build\InfoPos"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
