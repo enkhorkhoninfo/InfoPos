@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5FF8FF52-698E-4AA3-9372-900538014C68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoPos.Resource</RootNamespace>
+    <AssemblyName>InfoPos.Resource</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ISM.Template, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resource.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\navigate_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\navigate_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\navigate_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\navigate_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\navigate_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\navigate_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ISM_Login.jpg" />
+    <EmbeddedResource Include="Resources\ISM_Splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HPro_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HPro_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\navigate_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\find_title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_camer.png" />
+    <EmbeddedResource Include="Resources\image_folder.png" />
+    <EmbeddedResource Include="Resources\image_ok.png" />
+    <EmbeddedResource Include="Resources\image_rotateleft.png" />
+    <EmbeddedResource Include="Resources\image_rotateright.png" />
+    <EmbeddedResource Include="Resources\image_save.gif" />
+    <EmbeddedResource Include="Resources\image_scan.png" />
+    <EmbeddedResource Include="Resources\image_zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\button_find.png" />
+    <EmbeddedResource Include="Resources\button_next.png" />
+    <EmbeddedResource Include="Resources\button_ok.png" />
+    <EmbeddedResource Include="Resources\button_prev.png" />
+    <EmbeddedResource Include="Resources\button_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\button_cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_parambig.png" />
+    <EmbeddedResource Include="Resources\menu_paramblue.png" />
+    <EmbeddedResource Include="Resources\menu_paramgreen.png" />
+    <EmbeddedResource Include="Resources\small_browse.png" />
+    <EmbeddedResource Include="Resources\small_save.png" />
+    <EmbeddedResource Include="Resources\menu_paramconf.png" />
+    <EmbeddedResource Include="Resources\menu_paramfind.png" />
+    <EmbeddedResource Include="Resources\menu_pendtxn.png" />
+    <EmbeddedResource Include="Resources\menu_office.png" />
+    <EmbeddedResource Include="Resources\menu_claim.png" />
+    <EmbeddedResource Include="Resources\menu_list.png" />
+    <EmbeddedResource Include="Resources\menu_txnback.png" />
+    <EmbeddedResource Include="Resources\menu_txn.png" />
+    <EmbeddedResource Include="Resources\menu_txnadd.png" />
+    <EmbeddedResource Include="Resources\menu_txncheck.png" />
+    <EmbeddedResource Include="Resources\menu_txnlist.png" />
+    <EmbeddedResource Include="Resources\menu_customeradd.png" />
+    <EmbeddedResource Include="Resources\menu_customerlist.png" />
+    <EmbeddedResource Include="Resources\menu_document_add.png" />
+    <EmbeddedResource Include="Resources\menu_document_check.png" />
+    <EmbeddedResource Include="Resources\menu_document_exchange.png" />
+    <EmbeddedResource Include="Resources\menu_document_find.png" />
+    <EmbeddedResource Include="Resources\menu_add.png" />
+    <EmbeddedResource Include="Resources\menu_check.png" />
+    <EmbeddedResource Include="Resources\menu_close.png" />
+    <EmbeddedResource Include="Resources\alarmclock.png" />
+    <EmbeddedResource Include="Resources\businessman.png" />
+    <EmbeddedResource Include="Resources\businessman2.png" />
+    <EmbeddedResource Include="Resources\image_about.png" />
+    <EmbeddedResource Include="Resources\image_branch.png" />
+    <EmbeddedResource Include="Resources\image_calculator.png" />
+    <EmbeddedResource Include="Resources\image_checks.png" />
+    <EmbeddedResource Include="Resources\menu_customer.png" />
+    <EmbeddedResource Include="Resources\HPro_SystemDate.png" />
+    <EmbeddedResource Include="Resources\image_export.png" />
+    <EmbeddedResource Include="Resources\image_help.png" />
+    <EmbeddedResource Include="Resources\image_help2.png" />
+    <EmbeddedResource Include="Resources\image_history.png" />
+    <EmbeddedResource Include="Resources\image_import.png" />
+    <EmbeddedResource Include="Resources\menu_insurance.png" />
+    <EmbeddedResource Include="Resources\image_linechart.png" />
+    <EmbeddedResource Include="Resources\image_lock.png" />
+    <EmbeddedResource Include="Resources\HPro_User.png" />
+    <EmbeddedResource Include="Resources\image_message.png" />
+    <EmbeddedResource Include="Resources\image_monitor.png" />
+    <EmbeddedResource Include="Resources\HPro_Home.png" />
+    <EmbeddedResource Include="Resources\menu_operator.png" />
+    <EmbeddedResource Include="Resources\image_printer.png" />
+    <EmbeddedResource Include="Resources\image_server.png" />
+    <EmbeddedResource Include="Resources\HPro_AppServer.png" />
+    <EmbeddedResource Include="Resources\HPro_Application.png" />
+    <EmbeddedResource Include="Resources\image_step.png" />
+    <EmbeddedResource Include="Resources\image_text_rich_colored.png" />
+    <EmbeddedResource Include="Resources\image_window.png" />
+    <EmbeddedResource Include="Resources\image_woman.png" />
+    <EmbeddedResource Include="Resources\image_zoomin.png" />
+    <EmbeddedResource Include="Resources\image_zoomout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_useradd.png" />
+    <EmbeddedResource Include="Resources\menu_usergroup.png" />
+    <EmbeddedResource Include="Resources\menu_usergrouplist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_callcenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_contract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_deal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_claimsmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_customersmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\paging_export.png" />
+    <EmbeddedResource Include="Resources\paging_filter.png" />
+    <EmbeddedResource Include="Resources\paging_first.png" />
+    <EmbeddedResource Include="Resources\paging_last.png" />
+    <EmbeddedResource Include="Resources\paging_next.png" />
+    <EmbeddedResource Include="Resources\paging_prev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\navigate_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_changepass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_dealadd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\object_add.png" />
+    <EmbeddedResource Include="Resources\object_copy.png" />
+    <EmbeddedResource Include="Resources\object_delete.png" />
+    <EmbeddedResource Include="Resources\object_edit.png" />
+    <EmbeddedResource Include="Resources\object_save.png" />
+    <EmbeddedResource Include="Resources\object_subadd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\object_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_cascade.png" />
+    <EmbeddedResource Include="Resources\image_horizontal.png" />
+    <EmbeddedResource Include="Resources\image_maximize.png" />
+    <EmbeddedResource Include="Resources\image_minimize.png" />
+    <EmbeddedResource Include="Resources\image_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dashboard_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dashboard_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dashboard_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dashboard_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dashboard_read.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\gl_error.png" />
+    <EmbeddedResource Include="Resources\gl_ok.png" />
+    <EmbeddedResource Include="Resources\gl_wait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\gl_start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dashboard_unread.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\issue_document.png" />
+    <EmbeddedResource Include="Resources\issue_image.png" />
+    <EmbeddedResource Include="Resources\issue_other.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\issue_assign.png" />
+    <EmbeddedResource Include="Resources\issue_inprogress.png" />
+    <EmbeddedResource Include="Resources\issue_inprogressbtn.png" />
+    <EmbeddedResource Include="Resources\issue_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\IssueProgress.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\insurance_doc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_pupdate.png" />
+    <EmbeddedResource Include="Resources\image_shortcut.png" />
+    <EmbeddedResource Include="Resources\image_windowadd.png" />
+    <EmbeddedResource Include="Resources\image_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\menu_mail.png" />
+    <EmbeddedResource Include="Resources\menu_mails.png" />
+    <EmbeddedResource Include="Resources\menu_mailsend.png" />
+    <EmbeddedResource Include="Resources\menu_newmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_deletemail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_replymail.png" />
+    <EmbeddedResource Include="Resources\image_forwardmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_exportxls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dashboard_unreadred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\image_more.png" />
+    <EmbeddedResource Include="Resources\image_object.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\date_add.png" />
+    <EmbeddedResource Include="Resources\date_delete.png" />
+    <EmbeddedResource Include="Resources\date_edit.png" />
+    <EmbeddedResource Include="Resources\date_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\table_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\config_big.png" />
+    <EmbeddedResource Include="Resources\frontmenu_cash_add.png" />
+    <EmbeddedResource Include="Resources\frontmenu_cash_back.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order_cancel.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order_confirm.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order_expend.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order_batch.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order_cust.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order_search.png" />
+    <EmbeddedResource Include="Resources\frontmenu_rent_search.png" />
+    <EmbeddedResource Include="Resources\frontmenu_pay_back.png" />
+    <EmbeddedResource Include="Resources\frontmenu_product_give.png" />
+    <EmbeddedResource Include="Resources\frontmenu_product_reception.png" />
+    <EmbeddedResource Include="Resources\frontmenu_tag_read.png" />
+    <EmbeddedResource Include="Resources\frontmenu_back.png" />
+    <EmbeddedResource Include="Resources\frontmenu_batch_choose.png" />
+    <EmbeddedResource Include="Resources\frontmenu_contract_choose.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order_choose.png" />
+    <EmbeddedResource Include="Resources\frontmenu_product_choose.png" />
+    <EmbeddedResource Include="Resources\frontmenu_sales_choose.png" />
+    <EmbeddedResource Include="Resources\frontmenu_sales_cust_search.png" />
+    <EmbeddedResource Include="Resources\frontmenu_sales_search.png" />
+    <EmbeddedResource Include="Resources\frontmenu_cash_close.png" />
+    <EmbeddedResource Include="Resources\frontmenu_cash_open.png" />
+    <EmbeddedResource Include="Resources\frontmenu_register.png" />
+    <EmbeddedResource Include="Resources\frontmenu_register_edit.png" />
+    <EmbeddedResource Include="Resources\frontmenu_product_find.png" />
+    <EmbeddedResource Include="Resources\frontmenu_bill.png" />
+    <EmbeddedResource Include="Resources\frontmenu_calendar.png" />
+    <EmbeddedResource Include="Resources\frontmenu_FAQ.png" />
+    <EmbeddedResource Include="Resources\frontmenu_rent.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order_edit.png" />
+    <EmbeddedResource Include="Resources\frontmenu_pay.png" />
+    <EmbeddedResource Include="Resources\frontmenu_order.png" />
+    <EmbeddedResource Include="Resources\frontmenu_tag.png" />
+    <EmbeddedResource Include="Resources\frontmenu_sales_add.png" />
+    <EmbeddedResource Include="Resources\frontmenu_sales_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_customer_add.png" />
+    <EmbeddedResource Include="Resources\frontmenu_master.png" />
+    <EmbeddedResource Include="Resources\frontmenu_passport_add.png" />
+    <EmbeddedResource Include="Resources\frontmenu_passport_remove.png" />
+    <EmbeddedResource Include="Resources\frontmenu_passport_search.png" />
+    <EmbeddedResource Include="Resources\frontmenu_tag_add.png" />
+    <EmbeddedResource Include="Resources\frontmenu_tag_remove.png" />
+    <EmbeddedResource Include="Resources\frontmenu_tag_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\edit-not-validated-icon.png" />
+    <EmbeddedResource Include="Resources\edit-validated-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\edit_undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\tag_purple_read.png" />
+    <EmbeddedResource Include="Resources\tag_purple_unread.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_customer_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_contract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_customer_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_refund.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\prodmenu_folder.png" />
+    <EmbeddedResource Include="Resources\prodmenu_inv.png" />
+    <EmbeddedResource Include="Resources\prodmenu_package.png" />
+    <EmbeddedResource Include="Resources\prodmenu_serv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_rent_deliver.png" />
+    <EmbeddedResource Include="Resources\frontmenu_rent_receive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_recycle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_rent_check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_rent_barcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_sales_unpack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_sales_proddel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\frontmenu_sales_exchange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\prodmenu_home.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).pdb" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).dll" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetPath)" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).pdb" "..\..\..\..\Build\InfoPosAdmin"
+copy "$(TargetDir)$(TargetName).dll" "..\..\..\..\Build\InfoPosAdmin"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
