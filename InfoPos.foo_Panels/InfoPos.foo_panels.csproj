@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D03CE945-C50D-4396-A92F-8ECFB1849C03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoPos.foo_panels</RootNamespace>
+    <AssemblyName>InfoPos.foo_panels</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EServ.Client, Version=1.0.4569.18935, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\EServ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="EServ.Shared, Version=1.0.4569.18908, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\EServ.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\InfoPos.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoPos.Resource, Version=1.0.4581.37232, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\InfoPos.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.CUser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.CUser.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Template, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="ISM.Touch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\InfoPos\ISM.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ucCalcSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCalcSales.Designer.cs">
+      <DependentUpon>ucCalcSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPayment.Designer.cs">
+      <DependentUpon>ucPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucProductList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucProductList.Designer.cs">
+      <DependentUpon>ucProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCustSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCustSearch.Designer.cs">
+      <DependentUpon>ucCustSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucSaleSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSaleSearch.Designer.cs">
+      <DependentUpon>ucSaleSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRentTagReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentTagReader.Designer.cs">
+      <DependentUpon>frmRentTagReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSalesProductList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSalesProductList.Designer.cs">
+      <DependentUpon>ucSalesProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucVeiwSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucVeiwSales.Designer.cs">
+      <DependentUpon>ucVeiwSales.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="ucCalcSales.resx">
+      <DependentUpon>ucCalcSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPayment.resx">
+      <DependentUpon>ucPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucProductList.resx">
+      <DependentUpon>ucProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCustSearch.resx">
+      <DependentUpon>ucCustSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSaleSearch.resx">
+      <DependentUpon>ucSaleSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentTagReader.resx">
+      <DependentUpon>frmRentTagReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSalesProductList.resx">
+      <DependentUpon>ucSalesProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucVeiwSales.resx">
+      <DependentUpon>ucVeiwSales.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\..\Build\InfoPos"
+copy "$(TargetDir)$(TargetName).pdb" "..\..\..\..\Build\InfoPos"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
