@@ -105,7 +105,8 @@ namespace ISM.Touch
             object value = dr[columnindex];
 
             GridViewInfo info = (GridViewInfo)view.GetViewInfo();
-            GridCellInfo cell = info.GetGridCellInfo(rowhandle, col);
+            //GridCellInfo cell = info.GetGridCellInfo(rowhandle, col); 
+            GridCellInfo cell = info.GetGridCellInfo(rowhandle, col.AbsoluteIndex); //Tuugii
             Rectangle r;
             if (cell != null) r = cell.Bounds;
             else r = Rectangle.Empty;
