@@ -1,0 +1,236 @@
+﻿1000;0;0;menu_operator;CallCenter;0;0;0;0;Оператор
+1001;1000;2;menu_document_add;CallCenterAdd;130003;HeavenPro.Operator.dll;Main;CallFormOperator;Дуудлага бүртгэх
+1002;1000;2;menu_document_exchange;CallCenterExchange;130006;HeavenPro.Operator.dll;Main;CallFormAssignee;Дуудлага шилжүүлэх
+1003;1000;2;menu_document_check;CallCenterClose;130007;HeavenPro.Operator.dll;Main;CallFormClose;Дуудлага хаах
+1004;1000;2;menu_document_check;CallCenterOpen;130009;HeavenPro.Operator.dll;Main;CallFormOpen;Дуудлага нээх
+1005;1000;2;menu_document_find;CallCenterList;130008;HeavenPro.List.dll;List;CallOperatorCallList;Дуудлагын жагсаалт
+2000;0;0;menu_customer;Customer;0;0;0;0;Харилцагч
+2001;2000;2;menu_customeradd;CustomerProp;120002;HeavenPro.Customer.dll;Main;CallCustomerProp;Харилцагч үүсгэх
+2002;2000;2;menu_customerlist;CustomerList;120000;HeavenPro.List.dll;List;CallCustomerList;Харилцагчийн жагсаалт
+3000;0;10;menu_insurance;Insurance;0;0;0;0;Даатгал
+3100;3000;11;menu_insurance;ContractDeal;0;0;0;0;Даатгал
+3101;3100;12;menu_add;ContractProp;200002;HeavenPro.Contract.dll;Main;CallContract;Даатгалын гэрээ үүсгэх
+3102;3100;12;menu_check;ContractApprove;200021;HeavenPro.Contract.dll;Main;CallContractApprove;Даатгалын гэрээ зөвшөөрөх
+3103;3100;12;menu_close;ContractClose;200024;HeavenPro.Contract.dll;Main;CallContractClose;Даатгалын гэрээ хаах
+3104;3100;12;menu_copy;ContractCopy;200449;HeavenPro.Contract.dll;Main;CallContractCopy;Даатгалын гэрээ хувилах
+3105;3100;12;menu_list;ContractList;200000;HeavenPro.List.dll;List;CallContractList;Даатгалын гэрээний жагсаалт
+3110;3000;11;menu_insurance;SepDeal;0;0;0;0;Даатгалын хэлцэл
+3111;3110;12;menu_add;DealAdd;200053;HeavenPro.Insurance.dll;Main;CallInsurance;Даатгалын хэлцэл үүсгэх
+3112;3110;12;menu_check;DealApprove;200086;HeavenPro.Insurance.dll;Main;CallInsuranceApprove;Даатгалын хэлцэл зөвшөөрөх
+3113;3110;12;menu_close;DealClose;200087;HeavenPro.Insurance.dll;Main;CallInsuranceClose;Даатгалын хэлцэл хаах
+3114;3110;12;menu_copy;DealCopy;200450;HeavenPro.Insurance.dll;Main;CallDealCopy;Даатгалын хэлцэл хувилах
+3115;3110;12;menu_list;DealList;200051;HeavenPro.List.dll;List;CallInsuranceList;Даатгалын хэлцлийн жагсаалт
+3120;3000;11;menu_insurance;ReContractReDeal;0;0;0;0;Давхар даатгал
+3121;3120;12;menu_add;ReContractProp;200203;HeavenPro.Contract.dll;Main;CallReContract;Д/Даатгалын гэрээ үүсгэх
+3122;3120;12;menu_check;ReContractApprove;200243;HeavenPro.Contract.dll;Main;CallReContractApprove;Д/Даатгалын гэрээ зөвшөөрөх
+3123;3120;12;menu_close;ReContractClose;200244;HeavenPro.Contract.dll;Main;CallReContractClose;Д/Даатгалын гэрээ хаах
+3124;3120;12;menu_list;ReContractList;200201;HeavenPro.List.dll;List;CallReInsuranceContractList;Д/Даатгалын гэрээний жагсаалт
+3130;3000;11;menu_insurance;SepReDeal;0;0;0;0;Д/Даатгалын хэлцэл
+3131;3130;12;menu_add;ReDealAdd;200303;HeavenPro.Insurance.dll;Main;CallReInsurance;Д/Даатгалын хэлцэл үүсгэх
+3132;3130;12;menu_check;ReDealApprove;200322;HeavenPro.Insurance.dll;Main;CallReInsuranceApprove;Д/Даатгалын хэлцэл зөвшөөрөх
+3133;3130;12;menu_close;ReDealClose;200323;HeavenPro.Insurance.dll;Main;CallReInsuranceClose;Д/Даатгалын хэлцэл хаах
+3134;3130;12;menu_list;ReDealList;200301;HeavenPro.List.dll;List;CallReInsuranceDealList;Д/Даатгалын хэлцлийн жагсаалт
+3140;3000;11;menu_insurance;PayMaster;200301;0;0;;Гэрээт баталгаа
+3141;3140;12;menu_add;InsurancePayMaster;270003;HeavenPro.Insurance.dll;Main;CallInsurancePaymaster;Няравын бүртгэл
+3142;3140;12;menu_close;InsurancePayMasterClose;270006;HeavenPro.Insurance.dll;Main;CallInsurancePaymasterClose;Няравын бүртгэл хүчингүй болгох
+3143;3140;12;menu_list;InsurancePayMasterList;270001;HeavenPro.List.dll;List;CallPayMaster;Няравын бүртгэлийн жагсаалт
+3144;3140;12;menu_add;InsuranceDeal;270009;HeavenPro.Insurance.dll;Main;CallInsuranceDeal;Гэрээт баталгааны бүртгэл
+3145;3140;12;menu_add;ChangeUser;270013;HeavenPro.ChangeUser.dll;Main;CallChangeUser;Гэрээт баталгааны харилцагч солих
+3146;3140;12;menu_list;PolicyList;270007;HeavenPro.List.dll;List;CallPolicyList;Гэрээт баталгааны жагсаалт
+3300;0;0;menu_txn;InsuranceTxns;0;0;0;0;Гүйлгээ
+3301;3300;2;menu_txnadd;InsuranceTxnAdd;232002;HeavenPro.Transaction.dll;Main;CallDealPayFee;Хураамжийн орлогын гүйлгээ
+3302;3300;2;menu_txnback;InsuranceTxnBack;232003;HeavenPro.Transaction.dll;Main;CallDealReturnPayFee;Хураамжийн орлого буцаах гүйлгээ
+3303;3300;2;menu_txnback;InsuranceTxnCorr;232004;HeavenPro.Transaction.dll;Main;CallDealCancelPayFee;Даатгалын хэлцэл цуцлах гүйлгээ
+0;0;3;0;PayMasterTxns;0;0;0;0;0
+3304;3300;2;menu_txnadd;CDealPayFree;270016;HeavenPro.Transaction.dll;Main;CallCDealPayFee;Гэрээт баталгааны хураамжийн орлогын гүйлгээ
+3305;3300;2;menu_txnback;CDealReturnPayFee;270017;HeavenPro.Transaction.dll;Main;CallCDealReturnPayFee;Гэрээт баталгааны хураамжийн орлого буцаах гүйлгээ
+3306;3300;2;menu_txnback;CDealCancelPayFee;270018;HeavenPro.Transaction.dll;Main;CallCDealCancelPayFee;Гэрээт баталгааны хураамжийн орлого цуцлах гүйлгээ
+0;0;3;menu_txnback;SepReInsuranceTxnAdd;0;0;0;0;0
+3307;3300;2;menu_txnadd;ReInsuranceTxnAdd;232007;HeavenPro.Transaction.dll;Main;CallReDealPayFee;Д/Д-ын хураамжийн орлогын гүйлгээ
+0;0;3;0;SepInsuranceTxnList;0;0;0;0;0
+3308;3300;2;menu_txnlist;InsuranceTxnList;232101;HeavenPro.Transaction.dll;Main;CallJournalDealTxnList;Хураамжийн орлогын гүйлгээ журнал лавлагаа
+3309;3300;2;menu_txnlist;ClaimTxnList;232102;HeavenPro.Transaction.dll;Main;CallJournalClaimTxnList;Нөхөн төлбөрийн гүйлгээ журнал лавлагаа
+0;0;3;0;SepInsuranceFundTxnList;0;0;0;0;0
+3310;3300;2;menu_txnlist;ClaimTxnList;250000;HeavenPro.Fund.dll;Main;CallFundTxn;Нөөцийн сангийн тооцоолол
+3311;3300;2;menu_txnlist;ClaimTxnList;250010;HeavenPro.Fund.dll;Main;CallFund1Txn;ОТНС тооцоолох
+3400;0;0;menu_claim;Claim;0;0;0;0;Нөхөн төлбөр
+3401;3400;2;menu_add;ClaimAdd;200123;HeavenPro.Claim.dll;Main;CallClaimProp;Даатгалын нөхөн төлбөр үүсгэх
+3402;3400;2;menu_check;ClaimApprove;200148;HeavenPro.Claim.dll;Main;CallClaimApprove;Даатгалын нөхөн төлбөр зөвшөөрөх
+3403;3400;2;menu_close;ClaimClose;200147;HeavenPro.Claim.dll;Main;CallClaimClose;Даатгалын нөхөн төлбөр цуцлах
+3404;3400;2;menu_list;ClaimList;200121;HeavenPro.List.dll;List;CallClaimList;Даатгалын нөхөн төлбөрийн жагсаалт
+0;0;3;0;SepReClaim;0;0;0;0;0
+3405;3400;2;menu_add;ReClaimAdd;200423;HeavenPro.Claim.dll;Main;CallReClaimProp;Д/Даатгалын нөхөн төлбөр үүсгэх
+3406;3400;2;menu_check;ReClaimApprove;200448;HeavenPro.Claim.dll;Main;CallReClaimApprove;Д/Даатгалын нөхөн төлбөр зөвшөөрөх
+3407;3400;2;menu_close;ReClaimClose;200447;HeavenPro.Claim.dll;Main;CallReClaimClose;Д/Даатгалын нөхөн төлбөр цуцлах
+3408;3400;2;menu_list;ReClaimList;200421;HeavenPro.List.dll;List;CallReInsuranceCLaimList;Д/Даатгалын нөхөн төлбөрийн жагсаалт
+3500;0;10;menu_office;Office;0;0;0;0;Байгууллага
+3510;3500;11;menu_office;BacAccount;0;0;0;0;Байгууллагын данс
+3511;3510;12;menu_add;BacAccountAdd;180008;HeavenPro.BacAccount.dll;Main;CallBacAccount;Байгууллагын данс бүртгэх
+3512;3510;12;menu_list;BacAccountList;180006;HeavenPro.List.dll;List;CallBACList;Байгууллагын дансны жагсаалт
+3520;3500;11;menu_office;CTA;0;0;0;0;Балансын гадуурх данс
+3521;3520;12;menu_add;CTAAdd;190003;HeavenPro.CTA.dll;Main;CallCTA;Балансын гадуурх дансны бүртгэх
+3522;3520;12;menu_list;CTAList;190001;HeavenPro.List.dll;List;CallConList;Балансын гадуурх дансны жагсаалт
+3530;3500;11;menu_office;FA;0;0;0;0;Үндсэн хөрөнгө
+3531;3530;12;menu_add;FAAdd;160003;HeavenPro.FA.dll;Main;CallFaReg;Үндсэн хөрөнгө бүртгэх
+3532;3530;12;menu_list;FAList;160001;HeavenPro.List.dll;List;CallFaList;Үндсэн хөрөнгийн жагсаалт
+3540;3500;11;menu_office;Inventory;0;0;0;0;Бараа материал
+3541;3540;12;menu_add;InventoryAdd;170003;HeavenPro.Inventory.dll;Main;CallInventoryProp;Бараа материал бүртгэх
+3542;3540;12;menu_list;InventoryList;170001;HeavenPro.List.dll;List;CallInventoryList;Бараа материалын жагсаалт
+3550;3500;11;menu_office;Employee;0;0;0;0;Ажилтан
+3551;3550;12;menu_add;EmployeeAdd;180003;HeavenPro.FA.dll;Main;CallEmployee;Ажилтан бүртгэх
+3552;3550;12;menu_list;EmployeeList;180001;HeavenPro.List.dll;List;CallEmployeeList;Ажилчдын жагсаалт
+3600;0;0;menu_txn;FinanceTxn;0;0;0;0;Санхүүгийн гүйлгээ
+3601;3600;2;menu_txnadd;BACTxn;231001;HeavenPro.Transaction.dll;Main;CallBACTxn;Байгууллагын данс хооронд гүйлгээ
+3602;3600;2;menu_txnadd;CTADebitTxn;231002;HeavenPro.Transaction.dll;Main;CallCONDebitTxn;Балансын гадуурх данс дебет гүйлгээ
+3603;3600;2;menu_txnadd;CTACreditTxn;231003;HeavenPro.Transaction.dll;Main;CallCONCreditTxn;Балансын гадуурх данс кредит гүйлгээ
+3604;3600;2;menu_list;TXNList;231010;HeavenPro.Transaction.dll;Main;CallJournalList;Гүйлгээний журналын лавлагаа
+0;0;3;0;SepFinanceTxnFa;0;0;0;0;0
+3605;3600;2;menu_txnadd;FATxn;231020;HeavenPro.Transaction.dll;Main;CallFATransaction;Үндсэн хөрөнгийн орлогын гүйлгээ
+3606;3600;2;menu_txnadd;FATxnExp;231022;HeavenPro.Transaction.dll;Main;CallFAExpTransaction;Үндсэн хөрөнгийн зарлага/актлах гүйлгээ
+3607;3600;2;menu_txnadd;FATxnDep;231023;HeavenPro.Transaction.dll;Main;CallFADepreciation;Үндсэн хөрөнгийн элэгдэл тооцох гүйлгээ
+3608;3600;2;menu_list;FATxnList;231018;HeavenPro.Transaction.dll;Main;CallFAJournalList;Үндсэн хөрөнгийн гүйлгээ лавлагаа
+0;0;3;0;SepFinanceTxnINV;0;0;0;0;0
+3609;3600;2;menu_txnadd;InventoryTxnImp;231030;HeavenPro.Transaction.dll;Main;CallInvImpTransaction;Бараа материалын орлогын гүйлгээ
+3610;3600;2;menu_txnadd;InventoryTxnExp;231039;HeavenPro.Transaction.dll;Main;CallExpImpTransaction;Бараа материалын зарлага гүйлгээ
+3611;3600;2;menu_list;InventoryTxnList;231017;HeavenPro.Transaction.dll;Main;CallINVJournalList;Бараа материалын гүйлгээ лавлагаа
+0;0;3;0;SepFinanceTxnPEND;0;0;0;0;0
+3612;3600;2;menu_pendtxn;PendTxnList;231092;HeavenPro.Transaction.dll;Main;CallPendJournalList;Хүлээлгийн гүйлгээний жагсаалт
+3613;3600;2;menu_pendtxn;BACTxnMany;231104;HeavenPro.Transaction.dll;Main;CallBACTxnMany;Байгууллагын дансны гүйлгээг хэсэгчлэн оруулах
+3614;3600;2;menu_importbactxn;ImportBACTxn;231009;HeavenPro.Transaction.dll;Main;CallImportBACTxn;Байгууллагын дансны гүйлгээг багцаар оруулах
+3615;3600;2;menu_importbactxn;ImportINVTxn;231048;HeavenPro.Transaction.dll;Main;CallImportTxn;ҮХ болон БМ-ын гүйлгээг багцаар оруулах
+3700;0;10;menu_pendtxn;GL;0;0;0;0;Ерөнхий дэвтэр
+3710;3700;11;menu_pendtxn;GLPROP;0;0;0;0;Бүртгэл
+3711;3710;12;menu_pendtxn;GLChartGroup;140123;HeavenPro.GL.dll;Main;CallChartGroup;Балансын дансны бүлгийн бүртгэл
+3712;3710;12;menu_pendtxn;GLChart;220011;HeavenPro.GL.dll;Main;CallChart;Балансын дансны бүртгэл
+3713;3710;12;menu_pendtxn;GLBudget;220006;HeavenPro.GL.dll;Main;CallChartBudget;Балансын дансны төсөв бүртгэл
+3720;3700;11;menu_pendtxn;GLTxn;0;0;0;0;Гүйлгээ
+3721;3720;12;menu_pendtxn;GLTxnImp;221001;HeavenPro.GLTxn.dll;Main;CallGLTxn;Балансын дансанд гүйлгээ оруулах
+3722;3720;12;menu_pendtxn;GLCorrTxn;221099;HeavenPro.GLTxn.dll;Main;CallGLCorrTxn;Балансын дансны гүйлгээ буцаалт
+3723;3720;12;menu_pendtxn;GLBulkTxn;221003;HeavenPro.GLTxn.dll;Main;CallGLBulkTxn;ЕД гүйлгээ оруулах файлаас
+3730;3700;11;menu_pendtxn;GLProccess;0;0;0;0;Ажилбар
+3731;3730;12;menu_pendtxn;GLRevRateTxn;221005;HeavenPro.GLTxn.dll;Main;CallGLRevRateTxn;Ханшийн тэгшитгэлийн олз гарз хаах
+3732;3730;12;menu_pendtxn;GLBulkTxn;221003;HeavenPro.GLTxn.dll;Main;CallGLBulkTxn;Багц гүйлгээ оруулах
+3733;3730;12;menu_pendtxn;GLCloseExchangeTxn;221007;HeavenPro.GLTxn.dll;Main;CallGLCloseExchangeTxn;Валют арилжааны олз гарз хаах
+3734;3730;12;menu_pendtxn;GLMoveIncomeExpTxn;221009;HeavenPro.GLTxn.dll;Main;CallGLMoveIncomeExpTxn;Орлого зарлагыг суурь валют руу хөрвүүлэх
+3735;3730;12;menu_pendtxn;GLEOYTxn;221011;HeavenPro.GLTxn.dll;Main;CallGLEOYTxn;Оны хаалт хийх
+3736;3730;12;menu_pendtxn;GLChangeStatus;221013;HeavenPro.GlTxn.dll;Main;CallGLChangeStatus;Ажилбарын төлөв солих
+3737;3730;12;menu_pendtxn;GLProcess;221015;HeavenPro.GlTxn.dll;Main;CallGLProcess;Ерөнхий дэвтрийн процесс
+3740;3700;11;menu_pendtxn;GLList;0;0;0;0;Жагсаалт
+3741;3740;12;menu_pendtxn;GLChartTxnList;220003;HeavenPro.GL.dll;Main;CallChartTxnList;Дансны гүйлгээ журнал
+3742;3740;12;menu_pendtxn;GLChartBalanceList;220001;HeavenPro.GL.dll;Main;CallChartBalanceList;Дансны сарын үлдэгдлийн жагсаалт
+3743;3740;12;menu_pendtxn;GLChartBalanceDailyList;220002;HeavenPro.GL.dll;Main;CallChartBalanceDailyList;Дансны өдрийн үлдэгдлийн жагсаалт
+3744;3740;12;menu_pendtxn;GLChartListB;220009;HeavenPro.GL.dll;Main;CallChartListB;Дансны төлөвлөгөөний жагсаалт
+3745;3740;12;menu_pendtxn;GLBudgetList;220004;HeavenPro.GL.dll;Main;CallChartList;Дансны төсвийн жагсаалт
+4800;3700;11;menu_pendtxn;ChartReport;0;0;0;0;Тайлан
+4801;4800;12;menu_pendtxn;ChartRep;260000;HeavenPro.GLRep.dll;Main;CallChartReport;Ерөнхий дэвтрийн тайлан
+3800;0;0;menu_pendtxn;TemplateReport;0;0;0;0;Тайлан
+3801;3800;2;menu_pendtxn;Template;150002;HeavenPro.DocUtility.dll;Main;CallDocUtility;Документ загвар
+3802;3800;2;menu_pendtxn;TemplateList;150000;HeavenPro.List.dll;List;CallDocTemplateList;Документ загварын жагсаалт
+3803;3800;2;menu_pendtxn;DynamicReport;240000;HeavenPro.Reports.dll;Main;CallDynamicReportTxn;Динамик тайлан
+3900;0;10;menu_paramgreen;Parameter;0;0;0;0;Параметр
+3910;3900;11;menu_paramgreen;GeneralParam;0;0;0;0;Ерөнхий параметр
+3911;3910;12;menu_paramgreen;GeneralParamProp;140148;HeavenPro.Parameter.dll;Main;CallFormGenParam;Ерөнхий параметр
+3912;3910;12;menu_paramgreen;Branch;140002;HeavenPro.Parameter.dll;Main;CallBranch;Салбар
+3913;3910;12;menu_paramgreen;Country;140008;HeavenPro.Parameter.dll;Main;CallCountry;Улс
+3914;3910;12;menu_paramgreen;Language;140013;HeavenPro.Parameter.dll;Main;CallLanguage;Хэл
+3915;3910;12;menu_paramgreen;Currency;140018;HeavenPro.Parameter.dll;Main;CallCurrency;Валютын ханш оруулах
+3916;3910;12;menu_paramgreen;CurrencyHistory;140200;HeavenPro.List.dll;List;CallCurRateHistory;Валютын ханшийн түүх харах
+3917;3910;12;menu_paramgreen;Bank;140023;HeavenPro.Parameter.dll;Main;CallBank;Банк
+3918;3910;12;menu_paramgreen;BankBranch;140098;HeavenPro.Parameter.dll;Main;CallBankBranch;Банкны салбар
+3919;3910;12;menu_paramgreen;AutoNumber;140033;HeavenPro.Parameter.dll;Main;CallAutoNum;Автомат дугаарлалт
+3920;3910;12;menu_paramgreen;ReInsuranceCompany;140263;HeavenPro.Parameter.dll;Main;CallInsuranceCompany;Даатгалын компаниуд
+3921;3910;12;menu_paramgreen;CompanyObject;140273;HeavenPro.Parameter.dll;Main;CallFormInstObject;Байгууллагын зүйлийн мэдээлэл
+3922;3910;12;menu_paramgreen;FundProp;140293;HeavenPro.Parameter.dll;Main;CallFund;Нөөцийн сангийн бүртгэл
+3923;3910;12;menu_paramgreen;DictionaryParam;140303;HeavenPro.Parameter.dll;Main;CallFormDictionary;Жагсаалтын бүртгэл [Dictionary]
+3924;3910;12;menu_paramgreen;DynamicListParam;140308;HeavenPro.Parameter.dll;Main;CallFormDynamicList;Динамик жагсаалтын бүртгэл
+3925;3910;12;menu_paramgreen;Shortcut;140323;HeavenPro.Parameter.dll;Main;CallFormShortcut;Shortcut-ын бүртгэл
+3926;3910;12;menu_paramgreen;DocTemplate;150004;HeavenPro.Parameter.dll;Main;CallFormDocTemplate;Документ загварын бүртгэл
+3927;3900;11;menu_paramblue;CustomerParam;0;0;0;0;Харилцагч
+3928;3927;12;menu_paramblue;CustomerType;140038;HeavenPro.Parameter.dll;Main;CallCustomerType;Харилцагчийн төрөл
+3929;3927;12;menu_paramblue;CustomerAdd;120056;HeavenPro.Parameter.dll;Main;CallCustomerAdd;Харилцагчийн нэмэлт мэдээллийн параметр
+3930;3927;12;menu_paramblue;CustomerRelation;140043;HeavenPro.Parameter.dll;Main;CallFamilyType;Харилцагчийн хамаарлын төрөл
+3931;3927;12;menu_paramblue;Industry;140048;HeavenPro.Parameter.dll;Main;CallIndustry;Үйл ажиллагааны чиглэл
+3932;3927;12;menu_paramblue;SubIndustry;140053;HeavenPro.Parameter.dll;Main;CallSubIndustry;Үйл ажиллагааны дэд чиглэл
+3933;3927;12;menu_paramblue;CustCity;140058;HeavenPro.Parameter.dll;Main;CallCustCity;Аймаг хотын бүртгэл
+3934;3927;12;menu_paramblue;CustDistrict;140063;HeavenPro.Parameter.dll;Main;CallCustDistrict;Сум дүүргийн бүртгэл
+3935;3927;12;menu_paramblue;CustSubDistrict;140068;HeavenPro.Parameter.dll;Main;CallCustSubDistrict;Баг хорооны бүртгэл
+3936;3927;12;menu_paramblue;CustomerRank;140073;HeavenPro.Parameter.dll;Main;CallCustRate;Харилцагчийн зэрэглэл
+3937;3927;12;menu_paramblue;CustomerMask;140128;HeavenPro.Parameter.dll;Main;CallFormCustomerMask;Харилцагчийн маск
+3938;3900;11;menu_paramgreen;ReInsurer;0;0;0;0;Давхар даатгагч
+3939;3938;12;menu_paramgreen;ReInrurerProp;140133;HeavenPro.Parameter.dll;Main;CallReInsurer;Давхар даатгагч үүсгэх
+3940;3938;12;menu_paramgreen;ReInrurerList;140131;HeavenPro.List.dll;List;CallReInsurerList;Давхар даатгагчийн жагсаалт
+3941;3900;11;menu_paramblue;InsuranceParam;0;0;0;0;Даатгал
+3942;3941;12;menu_paramblue;InsuranceType;140078;HeavenPro.Parameter.dll;Main;CallInsuranceType;Даатгалын төрөл
+3943;3941;12;menu_paramblue;InsuranceSubType;140083;HeavenPro.Parameter.dll;Main;CallFormSubInsuranceType;Даатгалын дэд төрөл
+3944;3941;12;menu_paramblue;InsuranceProduct;140143;HeavenPro.Parameter.dll;Main;CallPaProduct;Даатгалын бүтээгдэхүүн
+3945;3941;12;menu_paramblue;InsuranceProductList;140141;HeavenPro.List.dll;List;CallPaProductList;Даатгалын бүтээгдэхүүний жагсаалт
+3946;3941;12;menu_paramblue;ConditionProp;140203;HeavenPro.Parameter.dll;Main;CallRiskCond;Даатгалын эрсдлийн нөхцөл бүртгэх
+3947;3941;12;menu_paramblue;RiskProp;140173;HeavenPro.Parameter.dll;Main;CallFormRisk;Даатгалын эрсдэл буюу үйлчилгээ
+3948;3941;12;menu_paramblue;RiskGroup;140208;HeavenPro.Parameter.dll;Main;CallRiskGroup;Даатгалын эрсдлийг бүлэглэх
+3949;3941;12;menu_paramblue;RiskConditionLink;140213;HeavenPro.Parameter.dll;Main;CallRiskGroupCondLink;Даатгалын бүлэг дээр сонголтууд оруулах
+3950;3941;12;menu_paramblue;InsuranceAddParam;140198;HeavenPro.Parameter.dll;Main;CallContractAdd;Даатгалын гэрээний нэмэлт параметрын тохиргоо
+3951;3941;12;menu_paramblue;ContractCloseType;140093;HeavenPro.Parameter.dll;Main;CallCloseType;Гэрээний хаалтын төрөл
+3952;3941;12;menu_paramblue;ClaimExpenseType;140088;HeavenPro.Parameter.dll;Main;CallExtensyType;Нөхөн төлбөрийн зардлын төрөл
+3953;3941;12;menu_paramblue;ClaimCloseType;140158;HeavenPro.Parameter.dll;Main;CallFormClaimCloseType;Нөхөн төлбөрийн хаалтын төрөл
+3954;3941;12;menu_paramblue;ClaimObjectType;140268;HeavenPro.Parameter.dll;Main;CallFormClaimObjectType;Нөхөн төлбөрийн зүйлийн төрлийн бүртгэл
+3955;3941;12;menu_paramblue;Formula;140183;HeavenPro.Parameter.dll;Main;CallFormFormula;Нөөцийн сангийн томъёо
+3956;3900;11;menu_paramgreen;ReInsuranceParam;0;0;0;0;Давхар даатгал
+3957;3956;12;menu_paramgreen;ReContractType;140188;HeavenPro.Parameter.dll;Main;CallFormContractType;Давхар даатгалын гэрээний төрөл
+3958;3956;12;menu_paramgreen;ReContractAdd;140198;HeavenPro.Parameter.dll;Main;CallReContractAdd;Давхар даатгалын гэрээний нэмэлт параметрын тохиргоо
+3959;3956;12;menu_paramgreen;ReProductType;140248;HeavenPro.Parameter.dll;Main;CallFormReInsuranceType;Давхар даатгалын бүтээгдэхүүний төрөл
+3960;3956;12;menu_paramgreen;ReProductSubType;140253;HeavenPro.Parameter.dll;Main;CallFormSubReInsuranceType;Давхар даатгалын бүтээгдэхүүний дэд төрөл
+3961;3956;12;menu_paramgreen;ReProductProp;140258;HeavenPro.Parameter.dll;Main;CallFormReInsuranceProduct;Давхар даатгалын бүтээгдэхүүн
+3962;3956;12;menu_paramgreen;ReProductList;140256;HeavenPro.List.dll;List;CallReProductList;Давхар даатгалын бүтээгдэхүүний жагсаалт
+3963;3900;11;menu_paramblue;INVFA;0;0;0;0;Бараа материал&Үндсэн хөрөнгө
+3964;3963;12;menu_paramblue;UnitType;140108;HeavenPro.Parameter.dll;Main;CallUnitType;Бараа материалын нэгжийн төрөл
+3965;3963;12;menu_paramblue;INVType;140103;HeavenPro.Parameter.dll;Main;CallInventoryType;Бараа материалын төрөл
+3966;3963;12;menu_paramblue;FAType;140138;HeavenPro.Parameter.dll;Main;CallFormFAType;Үндсэн хөрөнгийн төрөл
+3967;3963;12;menu_paramblue;INVFAPosition;140243;HeavenPro.Parameter.dll;Main;CallFaPosition;Ү/Х болон Б/М-ын байршлын бүртгэл
+3968;3900;11;menu_paramgreen;BACAccount;0;0;0;0;Байгууллагын данс
+3969;3968;12;menu_paramgreen;BACProduct;140113;HeavenPro.Parameter.dll;Main;CallBacProduct;Байгууллагын дансны бүтээгдэхүүн
+3970;3968;12;menu_paramgreen;CONProduct;140118;HeavenPro.Parameter.dll;Main;CallConProduct;Балансын гадуурх дансны бүтээгдэхүүн
+3971;3900;11;menu_paramblue;GLParam;0;0;0;0;Ерөнхий дэвтэр
+3972;3971;12;menu_paramblue;GLAccountProp;140028;HeavenPro.Parameter.dll;Main;CallFormAccountCode;Түр дансны бүртгэл
+3973;3900;11;menu_paramgreen;TXNParam;0;0;0;0;Гүйлгээ
+3974;3973;12;menu_paramgreen;TXNCode;140163;HeavenPro.Parameter.dll;Main;CallFormTxn;Гүйлгээний код
+3975;3973;12;menu_paramgreen;TXNCodeList;140161;HeavenPro.List.dll;List;CallTxnList;Гүйлгээний кодын жагсаалт
+3976;3973;12;menu_paramgreen;TXNEntry;140168;HeavenPro.Parameter.dll;Main;CallFormTxnEntry;Санхүүгийн бичилт
+3977;3973;12;menu_paramgreen;TxnTxnEntry;140178;HeavenPro.Parameter.dll;Main;CallTxnEntry;Гүйлгээний санхүүгийн бичилт
+3978;3900;11;menu_paramblue;ObjectParam;0;0;0;0;Зүйл
+3979;3978;12;menu_paramblue;ObjectClass;140238;HeavenPro.Parameter.dll;Main;CallObjectClass;Зүйлийн бүлэг
+3980;3978;12;menu_paramblue;ObjectProp;140193;HeavenPro.Parameter.dll;Main;CallFormObject;Зүйлийн бүртгэл
+3981;3978;12;menu_paramblue;ObjectItems;140196;HeavenPro.Parameter.dll;Main;CallFormObjectItem;Зүйлийн үзүүлэлтүүдийн бүртгэл
+3982;3978;12;menu_paramblue;ObjectList;140191;HeavenPro.List.dll;List;CallObjectList;Зүйлийн жагсаалт
+3983;3900;11;menu_paramgreen;StepParam;0;0;0;0;Дамжлага [Step]
+3984;3983;12;menu_paramgreen;StepItems;140278;HeavenPro.Parameter.dll;Main;CallFormStepItem;Дамжлагын бүртгэл
+3985;3983;12;menu_paramgreen;StepProp;140283;HeavenPro.Parameter.dll;Main;CallFormStep;Дамжлагын бүлгийн бүртгэл
+3986;3900;11;menu_paramblue;AgentParam;0;0;0;0;Агент
+4000;3986;12;menu_paramblue;AgentCorp;280003;HeavenPro.Parameter.dll;Main;CallFormAgentCorp;Агент байгууллага
+4001;3986;12;menu_paramblue;AgentBranch;280102;HeavenPro.Parameter.dll;Main;CallFormAgentBranch;Агент байгууллагын салбар
+4020;3900;11;menu_paramgreen;CRMIssueTrack;;0;0; ;CRM & Issue Tracking
+4021;4020;12;menu_paramgreen;IssueProjectType;310002;HeavenPro.Parameter.dll;Main;CallCRMProjectType;Төслийн төрөл
+4022;4020;12;menu_paramgreen;IssueProjectComp;310076;HeavenPro.Parameter.dll;Main;CallCRMIssueProjectComp;Төслийн дэд төрөл
+4025;4020;12;menu_paramgreen;IssueType;310007;HeavenPro.Parameter.dll;Main;CallCRMIssueTypes;Асуудлын төрөл
+4026;4020;12;menu_paramgreen;IssueTracks;310012;HeavenPro.Parameter.dll;Main;CallCRMIssueTracks;Асуудлын алхамууд
+4027;4020;12;menu_paramgreen;IssueActionType;310022;HeavenPro.Parameter.dll;Main;CallCRMIssueActionType;Асуудлын үйлдлийн төрөл
+4028;4020;12;menu_paramgreen;IssueResolutionType;310027;HeavenPro.Parameter.dll;Main;CallCRMIssueResolutionType;Асуудлын хаагдсан төрөл
+4029;4020;12;menu_paramgreen;IssueMemberPurp;310032;HeavenPro.Parameter.dll;Main;CallCRMIssueMemberPurp;Асуудлын холбоотой хүний үүргийн төрөл
+4030;4020;12;menu_paramgreen;IssuePriority;310037;HeavenPro.Parameter.dll;Main;CallCRMIssuePriority;Асуудлын эрэмбэ
+4031;4020;12;menu_paramgreen;IssueLinkType;310042;HeavenPro.Parameter.dll;Main;CallCRMIssueLinkType;Асуудлын холбоосын төрөл
+4032;4020;12;menu_paramgreen;IssueNotifyTxn;310047;HeavenPro.Parameter.dll;Main;CallCRMIssueNotifyTxn;Мэдэгдэлийн схем болон мэдэгдэлийн схемийн гүйлгээ
+4033;4020;12;menu_paramgreen;IssuePermTxn;310052;HeavenPro.Parameter.dll;Main;CallCRMIssuePermTxn;Эрхийн схем болон эрхийн схемийн гүйлгээ
+4040;0;0;menu_customerlist;Administrator;0;0;0;0;Администратор
+4041;4040;2;menu_useradd;UserProp;110102;HeavenPro.Admin.dll;Main;CallUserProp;Хэрэглэгч шинээр бүртгэх
+4042;4040;2;menu_usergroup;UserGroupProp;110107;HeavenPro.Admin.dll;Main;CallGroupProp;Хэрэглэгчийн бүлэг шинээр бүртгэх
+4043;4040;2;menu_customerlist;UserList;110100;HeavenPro.List.dll;List;CallUserList;Хэрэглэгчийн жагсаалт
+4044;4040;2;menu_usergrouplist;UserGroupList;110105;HeavenPro.List.dll;List;CallUserGroupList;Хэрэглэгчийн бүлгийн жагсаалт
+4045;4040;2;menu_paramgreen;PassOptions;110113;HeavenPro.Admin.dll;Main;CallPassOptions;Нууц үгний тохиргоо
+4046;4040;2;menu_paramgreen;AgentProp;111115;HeavenPro.Admin.dll;Main;CallAgentProp;Агент хэрэглэгчийн данс болон харилцагч бүртгэх
+4047;4040;2;menu_list;LogList;110200;HeavenPro.List.dll;List;CallLogList;Логийн бүртгэлийн жагсаалт
+4048;4040;2;menu_pendtxn;Process;100004;HeavenPro.EOD.dll;Main;CallEODProcess;Өдөр өндөрлөлт
+4050;0;0;menu_customerlist; CRM & Issue Tracking;0;0;0;0; CRM & Issue Tracking
+4051;4050;2;menu_paramgreen;IssueProject;310071;HeavenPro.Parameter.dll;Main;CallCRMIssueProject;Төслийн бүртгэл
+4052;4050;2;menu_paramgreen;IssueProjectList;310069;HeavenPro.List.dll;List;CallIssueProjectList;Төслийн жагсаалт
+4100;0;0;menu_mails;Mail;0;0;0;0;Захиа
+4101;4100;2;menu_mail;Message;110115;HeavenPro.Messages.dll;Main;CallMessage;Захиа
+4102;4100;2;menu_newmail;MessageSend;110117;HeavenPro.Messages.dll;Main;CallSendMessage;Захиа илгээх
