@@ -94,7 +94,12 @@ namespace IPos.Core
             }
             else
             {
-                return null;
+                if (_AutoNums.ContainsKey(Static.ToStr(ID) + "-" + ""))
+                {
+                    return (AutoNum)_AutoNums[Static.ToStr(ID) + "-" + ""];
+                }
+                else
+                    return null;
             }
         }
         public Result GetNextNumber(DbConnections db, long ID, string Code, AutoNumEnum anumenum)
@@ -282,7 +287,12 @@ namespace IPos.Core
             }
             else
             {
-                return null;
+                if (_AutoNumValues.ContainsKey(Static.ToStr(id) + "-" + "" + "-" + key))
+                {
+                    return (AutoNumValue)_AutoNumValues[Static.ToStr(id) + "-" + "" + "-" + key];
+                }
+                else
+                    return null;
             }
         }
         public long GetNext(DbConnections db, long id, string code, string key)
@@ -298,15 +308,26 @@ namespace IPos.Core
             }
             else
             {
-                AutoNumValue newcode = new AutoNumValue();
-                newcode.ID = id;
-                newcode.Code = code;
-                newcode.Key = key;
-                newcode.Value = 0;
+                if (_AutoNumValues.ContainsKey(Static.ToStr(id) + "-" + "" + "-" + key))
+                {
+                    value = ((AutoNumValue)_AutoNumValues[Static.ToStr(id) + "-" + "" + "-" + key]).Value + 1;
+                    ((AutoNumValue)_AutoNumValues[Static.ToStr(id) + "-" + "" + "-" + key]).Value = value;
 
-                _AutoNumValues.Add(Static.ToStr(id) + "-" + code + "-" + key, newcode);
-                Result res = IPos.DB.Main.DB202312(db, new object[] { id, code, key, 0 });
-               return 0;
+                    Result res = IPos.DB.Main.DB202313(db, new object[] { id, "", key, value });
+                    return value;
+                }
+                else
+                {
+                    AutoNumValue newcode = new AutoNumValue();
+                    newcode.ID = id;
+                    newcode.Code = code;
+                    newcode.Key = key;
+                    newcode.Value = 0;
+
+                    _AutoNumValues.Add(Static.ToStr(id) + "-" + code + "-" + key, newcode);
+                    Result res = IPos.DB.Main.DB202312(db, new object[] { id, code, key, 0 });
+                    return 0;
+                }
             }
         }
         #endregion

@@ -507,7 +507,7 @@ where s.salesno=:1";
 
                 IPos.Core.AutoNumEnum autonum = new AutoNumEnum();
                 autonum.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 5, autonum);
+                res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 5, "", autonum);
                 if (res != null && res.ResultNo != 0) goto OnExit;
 
                 _salesno = res.ResultDesc;
@@ -990,7 +990,7 @@ where salesno=:1 and custno=:2 and prodno=:3 and prodtype=1";
 
                 IPos.Core.AutoNumEnum enums = new IPos.Core.AutoNumEnum();
                 enums.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 9, enums);
+                res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 9, "", enums);
                 if (res != null && res.ResultNo != 0) return res;
 
                 //string paymentno = string.Format("{0}-{1}", ri.ReceivedParam[2], res.ResultDesc);

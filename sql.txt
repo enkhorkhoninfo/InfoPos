@@ -6,3 +6,4 @@ CREATE UNIQUE INDEX AUTONUM_IDX ON INFOPOSNEW.AUTONUM (ID, CODE);
 ALTER TABLE AUTONUMVALUE ADD (CODE  VARCHAR2(20));
 CREATE UNIQUE INDEX AUTONUMVALUE_IDX ON INFOPOSNEW.AUTONUMVALUE (ID, CODE, KEY);
 
+insert into generalparam(key, Typecode, name, itemvalue, description, itemtype, itemlen, mask, orderno) values('ImplementYear',10,'Анх нэвтрүүлсэн он','2008','Анх нэвтрүүлэсэн он','0', '0', '', '29');

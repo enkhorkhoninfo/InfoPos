@@ -56,6 +56,7 @@ namespace IPos.Core
         private static string _VatAccountNo;
         private static string _SaleAccountNo;
         private static int _PaymentTran;
+        private static int _ImplementYear;
         #endregion
         #region [ Propreties ]
         static public DateTime TxnDate
@@ -318,6 +319,11 @@ namespace IPos.Core
         {
             get { return _PaymentTran; }
             set { _PaymentTran = value; }
+        }
+        static public int ImplementYear
+        {
+            get { return _ImplementYear; }
+            set { _ImplementYear = value; }
         }
         #endregion
         #region [ Collections ]

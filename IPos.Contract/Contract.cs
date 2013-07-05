@@ -219,6 +219,7 @@ namespace IPos.Contract
                 ISM.Lib.Static.WriteToLogFile("IPos.Contract", "\r\n<<Start:" + Static.ToStr(first) + ">>\r\n UserNo:" + Static.ToStr(ri.UserNo) + "\r\n Description:" + Static.ToStr(lg.item.Desc) + "\r\n ResultNo:" + Static.ToStr(res.ResultNo) + "\r\n ResultDescription:" + ResultDesk + "\r\n<<End " + Static.ToStr(second) + ">>");
             }
         }
+        #region [ Гэрээний функцүүд]
         #region [Гэрээний үндсэн бүртгэл]
         public Result Txn130001(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
@@ -279,7 +280,11 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204003(db, ri.ReceivedParam);
+                string contractno = Static.ToStr(ri.ReceivedParam[0]).Trim();
+                if (contractno!="" && contractno!="0")
+                    res = DBIO.DB204003(db, ri.ReceivedParam, 1, contractno);
+                else
+                    res = DBIO.DB204003(db, ri.ReceivedParam, 0, "");
                 return res;
             }
             catch (Exception ex)
@@ -880,6 +885,8 @@ namespace IPos.Contract
             }
         }
         #endregion
+        #endregion
+        #region [ Захиалгын функцүүд]
         #region [Захиалгын бүртгэл]
         public Result Txn130101(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
@@ -935,7 +942,11 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204103(db, ri.ReceivedParam);
+                string orderno = Static.ToStr(ri.ReceivedParam[0]).Trim();
+                if (orderno != "" && orderno != "0")
+                    res = DBIO.DB204103(db, ri.ReceivedParam, 1, orderno);
+                else
+                    res = DBIO.DB204103(db, ri.ReceivedParam, 0, "");
                 return res;
             }
             catch (Exception ex)
@@ -1673,7 +1684,11 @@ namespace IPos.Contract
                                     obj[25] = 0;
                                     obj[26] = 0;
 
-                                    res = DBIO.DB204022(db, obj, pPrefix);
+                                    string contractno = Static.ToStr(obj[0]).Trim();
+                                    if (contractno != "" && contractno != "0")
+                                        res = DBIO.DB204022(db, obj, 1, contractno);
+                                    else
+                                        res = DBIO.DB204022(db, obj, 0, "");
                                     if (res.ResultNo != 0)
                                         return res;
                                 }
@@ -2108,5 +2123,6 @@ where a.type=3 and a.areacode=:1 order by name";
                 lg.item.Desc = "Захиалга доторх багц дах бүтээгдэхүүн устгах";
             }
         }
+        #endregion
     }
 }

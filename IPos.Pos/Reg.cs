@@ -273,7 +273,8 @@ order by pd.holddate desc, pd.custname
 
                 IPos.Core.AutoNumEnum enums = new IPos.Core.AutoNumEnum();
                 enums.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 8, enums);
+                enums.L = Static.ToStr(typeid);
+                res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 8, "", enums);
                 if (res != null && res.ResultNo != 0)
                 {
                     if (string.IsNullOrEmpty(res.ResultDesc))

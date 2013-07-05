@@ -666,7 +666,7 @@ namespace IPos.Pos
                     string _billno = "";
                     IPos.Core.AutoNumEnum enums = new AutoNumEnum();
                     enums.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                    Result Batchres = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 13, enums);
+                    Result Batchres = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 13, "", enums);
 
                     if (Batchres.ResultNo == 0)
                     {

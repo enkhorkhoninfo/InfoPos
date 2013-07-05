@@ -133,6 +133,7 @@ namespace IPos.Core
                         case "VATACCOUNTNO": SystemProp.VatAccountNo = Static.ToStr(DR["ItemValue"]); break;
                         case "SALEACCOUNTNO": SystemProp.SaleAccountNo = Static.ToStr(DR["ItemValue"]); break;
                         case "PAYMENTTRAN": SystemProp.PaymentTran = Static.ToInt(DR["ItemValue"]); break;
+                        case "ImplementYear": SystemProp.ImplementYear = Static.ToInt(DR["ItemValue"]); break;
                     }
                 }
                 #endregion
