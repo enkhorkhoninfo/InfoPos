@@ -376,7 +376,7 @@ namespace IPos.Panels
                 {
                     IPos.Core.AutoNumEnum enums = new IPos.Core.AutoNumEnum();
                     enums.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                    res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 8, enums);
+                    res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 8, "",enums);
 
                     if (res.ResultNo == 0)
                     {
@@ -954,7 +954,7 @@ namespace IPos.Panels
                 {
                     IPos.Core.AutoNumEnum enums = new IPos.Core.AutoNumEnum();
                     enums.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                    res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 9, enums);
+                    res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 9, "", enums);
                     if (res.ResultNo != 0) goto OnExit;
                     payno = string.Format("{0}-{1}", frstpaynno, res.ResultDesc);
 
@@ -1231,7 +1231,7 @@ namespace IPos.Panels
                     # region PaymentNo
                     IPos.Core.AutoNumEnum enums = new IPos.Core.AutoNumEnum();
                     enums.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                    res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 9, enums);
+                    res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 9, "", enums);
                     if (res.ResultNo != 0) return res;
                     paymentno = string.Format("{0}-{1}", ri.ReceivedParam[2], res.ResultDesc);
                     #endregion
@@ -1404,7 +1404,7 @@ where a.salesno=:1
                                 //PaymentNo авч байна.
                                 IPos.Core.AutoNumEnum enums = new IPos.Core.AutoNumEnum();
                                 enums.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                                res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 9, enums);
+                                res = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 9, "", enums);
                                 if (res.ResultNo != 0) return res;
                                 paymentno = string.Format("{0}-{1}", ri.ReceivedParam[3], res.ResultDesc);
 

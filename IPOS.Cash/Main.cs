@@ -908,7 +908,7 @@ where sp.salesno=:1";
                 {
                     IPos.Core.AutoNumEnum enums = new AutoNumEnum();
                     enums.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                    Result Batchres = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 6, enums);
+                    Result Batchres = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 6, "", enums);
 
                     if (Batchres.ResultNo == 0)
                     {
@@ -949,7 +949,7 @@ where sp.salesno=:1";
                         {
                             IPos.Core.AutoNumEnum enumss = new AutoNumEnum();
                             enumss.Y = Static.ToStr(Static.ToDate(DateTime.Now).Year);
-                            Result Salesres = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 5, enumss);
+                            Result Salesres = IPos.Core.SystemProp.gAutoNum.GetNextNumber(db, 5, "", enumss);
 
                             if (Salesres.ResultNo == 0)
                             {
