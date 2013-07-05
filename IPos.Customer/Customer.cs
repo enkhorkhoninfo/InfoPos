@@ -365,29 +365,32 @@ namespace IPos.Customer
             try
             {
                 object[] obj = (object[])ri.ReceivedParam[0];
-                string pContractNo = "";
-
-                if (Static.ToInt(ri.ReceivedParam[2]) == 0)
+                //string pContractNo = "";
+                
+                if (Static.ToInt(ri.ReceivedParam[2]) == 0)         // BackOffice-оос бүртгэсэн
                 {
-                    pContractNo = Static.ToStr(obj[46]);
-                    if (pContractNo != "")
-                    {
-                        res = CheckContractNo(db, pContractNo);
-                        if (res.ResultNo != 0)
-                            return res;
-                    }
-                    res = IPos.DB.Main.DB205003(db, obj);
+                    //pContractNo = Static.ToStr(obj[46]);
+                    //if (pContractNo != "")
+                    //{
+                    //    res = CheckContractNo(db, pContractNo);
+                    //    if (res.ResultNo != 0)
+                    //        return res;
+                    //}
+                    if (Static.ToStr(obj[0]).Trim() != "" && Static.ToStr(obj[0]).Trim() != "0")
+                        res = IPos.DB.Main.DB205003(db, obj, 1, Static.ToStr(obj[0]));
+                    else
+                        res = IPos.DB.Main.DB205003(db, obj, 0, "");
                 }
                 else
-                {
-                    pContractNo = Static.ToStr(obj[13]);
-                    if (pContractNo != "")
-                    {
-                        res = CheckContractNo(db, pContractNo);
-                        if (res.ResultNo != 0)
-                            return res;
-                    }
-                    res = IPos.DB.Main.DB227004(db, obj);
+                {                                                   // FrontOffice-оос бүртгэсэн
+                    //pContractNo = Static.ToStr(obj[13]);
+                    //if (pContractNo != "")
+                    //{
+                    //    res = CheckContractNo(db, pContractNo);
+                    //    if (res.ResultNo != 0)
+                    //        return res;
+                    //}
+                    res = IPos.DB.Main.DB227004(db, obj, 0, "");
                 }
 
                 if (res.ResultNo == 0)

@@ -12,20 +12,19 @@ namespace IPos.Core
 {
     public static class SystemProp
     {
+        #region [ Const & Enums ]
         enum ProcessStateFlag : int 
         { 
             Normal = 0,
             Process = 1
         };
-
+        #endregion
+        #region [ Variables ]
         private static DateTime _TxnDate;
-
         private static DateTime _GLTxnDate;
         private static int _GLProcessStart;
         private static int _EODProcessStart;
-
         private static DataTable _GenList;
-
         private static int _SystemState = 0;
         private static int _GLProcessStatus = 0;
         private static int _SystemBranchNo = 0;
@@ -41,28 +40,24 @@ namespace IPos.Core
         private static long _YearProfitGLNumber;
         private static long _YearLossGLNumber;
         private static string _PolicyMask;
-
         private static string _PathTerminal;
         private static string _PathDynamicRpt;
         private static string _PathDynamicDoc;
         private static string _PathSlips;
         private static string _UpdateExtention;
-
         private static Hashtable _ProcessStates;
         private static Hashtable _GLProcessStates;
-
         private static int _MServerPort;
         private static string _MServerName;
         private static string _MailUserName;
         private static string _MailUserPass;
         private static string _FromUser;
-
         private static long _VAT;
-
         private static string _VatAccountNo;
         private static string _SaleAccountNo;
         private static int _PaymentTran;
-
+        #endregion
+        #region [ Propreties ]
         static public DateTime TxnDate
         {
             get { return _TxnDate; }
@@ -75,7 +70,6 @@ namespace IPos.Core
                 catch { }
             }
         }
-
         static public DateTime GLTxnDate
         {
             get { return _GLTxnDate; }
@@ -112,13 +106,6 @@ namespace IPos.Core
                 catch { }
             }
         }
-
-        static public DataTable GenList
-        {
-            get { return _GenList; }
-            set { _GenList = value; }
-        }
-
         static public int SystemState
         {
             get { return _SystemState; }
@@ -128,12 +115,6 @@ namespace IPos.Core
         {
             get { return _GLProcessStatus; }
             set { _GLProcessStatus = value; }
-        }
-        static public Result SetGLProcessStatus(DbConnections db, int status)
-        {
-            //asdResult res = HPro.DB.ProcessDB.DB213011(db, new object[] { status });
-                Result res = null;
-            return res;
         }
         static public int SystemBranchNo
         {
@@ -236,7 +217,6 @@ namespace IPos.Core
         {
             get { return EServ.Interface.Sequence.NextByVal("IV", 18); }
         }
-
         static public string PathTerminal
         {
             get { return _PathTerminal; }
@@ -262,30 +242,6 @@ namespace IPos.Core
             get { return _UpdateExtention; }
             set { _UpdateExtention = value; }
         }
-
-        public static Hashtable ProcessStates
-        {
-            get
-            {
-                return _ProcessStates;
-            }
-            set
-            {
-                _ProcessStates = value;
-            }
-        }
-        public static Hashtable GLProcessStates
-        {
-          get
-          {
-            return _GLProcessStates;
-          }
-          set
-          {
-            _GLProcessStates = value;
-          }
-        }
-
         public static string MServerName
         {
             get
@@ -343,13 +299,11 @@ namespace IPos.Core
                 _FromUser = value;
             }
         }
-
         static public long VAT
         {
             get { return _VAT; }
             set { _VAT = value; }
         }
-
         static public string VatAccountNo
         {
             get { return _VatAccountNo; }
@@ -365,7 +319,36 @@ namespace IPos.Core
             get { return _PaymentTran; }
             set { _PaymentTran = value; }
         }
+        #endregion
+        #region [ Collections ]
+        public static Hashtable ProcessStates
+        {
+            get
+            {
+                return _ProcessStates;
+            }
+            set
+            {
+                _ProcessStates = value;
+            }
+        }
+        public static Hashtable GLProcessStates
+        {
+          get
+          {
+            return _GLProcessStates;
+          }
+          set
+          {
+            _GLProcessStates = value;
+          }
+        }
 
+        static public DataTable GenList
+        {
+            get { return _GenList; }
+            set { _GenList = value; }
+        }
         static public BACProd gBACProd = new BACProd();
         static public CONProd gCONProd = new CONProd(); 
         static public Cur gCur = new Cur();
@@ -373,12 +356,10 @@ namespace IPos.Core
         static public FAType gFAType = new FAType();
         static public InvType gInvType = new InvType(); 
         static public FinTxn gFinTxn = new FinTxn();
-        //static public DealProduct gDealProduct = new DealProduct();
         static public ChartGroup gChartGroup = new ChartGroup();
         static public Branch gBranch = new Branch();
-        //static public FundProduct gFundProduct = new FundProduct();
-        //static public Fund gFund = new Fund();
         static public AutoNum gAutoNum = new AutoNum();
         static public AutoNumValue gAutoNumValue = new AutoNumValue();
+        #endregion
     }
 }

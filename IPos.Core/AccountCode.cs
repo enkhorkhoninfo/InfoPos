@@ -12,6 +12,7 @@ namespace IPos.Core
 {
     public class AccountCode
     {
+        #region [ Variables & properties ]
         string _Code;
         string _Currency;
         int _BranchNo;
@@ -34,7 +35,8 @@ namespace IPos.Core
                 _AccountCodes = value;
             }
         }
-
+        #endregion
+        #region [ Functions ]
         public Result Init(DbConnections db)
         {
             Result res = new Result();
@@ -87,5 +89,6 @@ namespace IPos.Core
                 return null;
             }
         }
+        #endregion
     }
 }

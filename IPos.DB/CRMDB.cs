@@ -2078,7 +2078,7 @@ where i.ProjectID=:1";
                 Core.AutoNumEnum enums = new AutoNumEnum();
        
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 18, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 18,"", enums);
 
                 if (seqres.ResultNo == 0)
                 {
@@ -2449,7 +2449,7 @@ where ii.issueid=:1";
                 Core.AutoNumEnum enums = new AutoNumEnum();
 
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 17, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 17, "",enums);
 
                 if (seqres.ResultNo == 0)
                 {
@@ -3599,7 +3599,7 @@ where CustomerNo=:1";
                 //enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[20])).CurrencyCode);
                 //enums.P = Static.ToStr(pParam[5]);
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 12, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 12, "",enums);
                 //ISM.Lib.Static.WriteToLogFile("GetSeq:" + seqres.ResultDesc);
 
                 if (seqres.ResultNo == 0)

@@ -63,7 +63,6 @@ namespace IPos.DB
             }
         }
         #endregion
-
         #region [ DB200 - hpro.core.dll ]
         #region [ DB200001 - Select General List ]
         public static Result DB200001(DbConnections pDB)
@@ -86,7 +85,6 @@ namespace IPos.DB
         }
         #endregion
         #endregion
-
         #region [ DB201 - hpro.docutility.dll ]
         #region [ DB201001 - Document template-ийн жагсаалт авах ]
         public static Result DB201001(DbConnections pDB, int pageindex, int pagerows, object[] pParam)
@@ -884,7 +882,6 @@ order by d.id";
 
 
         #endregion
-
         #region [ DB202 - Parameter ]
         #region [ Parameter-1-1 ]
         #region [ DB202001 - Салбарын жагсаалт авах ]
@@ -1663,11 +1660,9 @@ WHERE CODE=:1";
             Result res = new Result();
             try
             {
-                string sql =
-@"SELECT ID, NAME, NAME2, MASK, KEY 
-FROM AUTONUM
-order by ID";
-
+                string sql =@"SELECT ID, CODE, NAME, NAME2, MASK, KEY, NOTE
+                            FROM AUTONUM
+                            order by ID";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202031", null);
 
                 return res;
@@ -8427,7 +8422,7 @@ WHERE KEY=:1 AND ID=:2 AND NAME=:3 and FORMULA=:4 and RATE=:5";
             try
             {
                 string sql =
-@"SELECT ID, KEY, VALUE
+@"SELECT ID, CODE, KEY, VALUE
 FROM AUTONUMVALUE";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202311", null);
@@ -8450,7 +8445,7 @@ FROM AUTONUMVALUE";
             try
             {
                 string sql =
-@"INSERT INTO AUTONUMVALUE(ID, KEY, VALUE)
+@"INSERT INTO AUTONUMVALUE(ID, CODE, KEY, VALUE)
 VALUES(:1, :2, :3)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202312", pParam);
@@ -8477,7 +8472,7 @@ VALUES(:1, :2, :3)";
     AUTONUMVALUE
 set VALUE=:3
 where
-    ID=:1 AND KEY=:2";
+    ID=:1 AND CODE=:2 AND KEY=:3";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202313", pParam);
                 res = F_Error(res);
@@ -9437,7 +9432,6 @@ WHERE itemid=:1";
 
         #endregion
         #endregion
-
         #region [ DB203 - Admin&LG ]
         #region [ Admin ]
         #region [ DB203001 - Хэрэглэгчийн жагсаалт авах ]
@@ -10225,7 +10219,6 @@ WHERE LOGID=:1 ORDER BY LOGID, TABLENAME, FIELDNAME";
         #endregion
         #endregion
         #endregion
-
         #region [ DB204 - Contract & Orders ]
         #region [ Contract ]
         #region [ DB204001 - Гэрээний үндсэн бүртгэл жагсаалт авах ]
@@ -10322,7 +10315,7 @@ where ContractNo=:1";
                 enums.P = Static.ToStr(pParam[1]);
                 enums.Y = Static.ToStr(Static.ToDate(pParam[14]).Year);
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, "",enums);
 
                 if (seqres.ResultNo == 0)
                 {
@@ -10829,7 +10822,7 @@ WHERE ContractNo=:1 and Day=:2";
                     enums.P = Static.ToStr(obj[1]);
                     enums.Y = Static.ToStr(Static.ToDate(obj[21]).Year);
 
-                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, enums);
+                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, "",enums);
 
                     if (seqres.ResultNo == 0)
                     {
@@ -11041,7 +11034,7 @@ where OrderNo=:1";
                 //enums.P = Static.ToStr(pParam[1]);
                 enums.Y = Static.ToStr(Static.ToDate(pParam[12]).Year);
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 4, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 4, "",enums);
 
                 if (seqres.ResultNo == 0)
                 {
@@ -11786,7 +11779,6 @@ WHERE orderno=:1";
 
         #endregion
         #endregion
-
         #region [ DB205 - Customer ]
         #region [ DB205001 - Харилцагч жагсаалт авах ]
         public static Result DB205001(DbConnections pDB, int pageindex, int pagerows, object[] pParam)
@@ -11873,37 +11865,44 @@ where CustomerNo=:1";
         }
         #endregion
         #region [ DB205003 - Харилцагч шинээр нэмэх ]
-        public static Result DB205003(DbConnections pDB, object[] pParam)
+        public static Result DB205003(DbConnections pDB, object[] pParam, int flag, string custno)
         {
             Result res = new Result();
             try
             {
-                long seq = 0;
-                Core.AutoNumEnum enums = new AutoNumEnum();
-                enums.B = Static.ToStr(pParam[37]); //Branch
-                enums.Y = Static.ToStr(Static.ToDate(pParam[40]).Year); //CreateDate
-                enums.C = Static.ToStr(pParam[1]); //ClassCode
-                enums.G = Static.ToStr(pParam[2]); //TypeCode
-                enums.P = Static.ToStr(pParam[45]); //MemberType
-
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 12, enums);
-                //ISM.Lib.Static.WriteToLogFile("GetSeq:" + seqres.ResultDesc);
-
-                if (seqres.ResultNo == 0)
+                if (flag == 0)
                 {
-                    seq = Static.ToLong(seqres.ResultDesc);
-                    if (seq == 0)
+                    //[B02[Y04][F1][G1][P02][S06]	BYFGPS	"B=Branch; Y=Year; F=ClassCode; G=TypeCode; P=MemberType; S=Sequence (CODE=MemberType)"
+                    long seq = 0;
+                    Core.AutoNumEnum enums = new AutoNumEnum();
+                    enums.B = Static.ToStr(pParam[37]); //Branch
+                    enums.Y = Static.ToStr(Static.ToDate(pParam[40]).Year); //CreateDate
+                    enums.F = Static.ToStr(pParam[1]); //ClassCode
+                    enums.G = Static.ToStr(pParam[2]); //TypeCode
+                    //enums.P = Static.ToStr(pParam[45]); //MemberType
+
+                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 12, "",enums);
+                    if (seqres.ResultNo == 0)
                     {
-                        seqres.ResultNo = 9110068;
-                        seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:12][" + seqres.ResultDesc + "]";
-                        return seqres;
+                        seq = Static.ToLong(seqres.ResultDesc);
+                        if (seq == 0)
+                        {
+                            seqres.ResultNo = 9110068;
+                            seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:12][" + seqres.ResultDesc + "]";
+                            return seqres;
+                        }
                     }
+                    else
+                        return seqres;
+
+                    pParam[0] = seq;
                 }
                 else
-                    return seqres;
-
-                pParam[0] = seq;
-
+                {
+                    pParam[0] = custno;
+                }
+                pParam[45] = 0;
+                pParam[46] = "";
                 string sql =
 @"INSERT INTO Customer(CustomerNo, ClassCode, TypeCode, InduTypeCode, InduSubTypeCode, FirstName, LastName, MiddleName, CorporateName, CorporateName2,
 RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, DirFirstName, DirLastName, DirMiddleName, DirRegisterNo, DirPassNo,
@@ -11915,7 +11914,6 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 :23, :24, :25, :26, :27, :28, :29, :30, :31, :32, :33, :34,
 :35, :36, :37, :38, :39, :40, :41, :42, :43, :44, :45, :46,
 :47)";
-
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB205003", pParam);
 
 
@@ -13710,7 +13708,6 @@ WHERE CustomerNo=:1 and SeqNo=:2";
 
 
         #endregion
-
         #region [ DB207 - FA ]
         #region [ DB207001 - Үндсэн хөрөнгийн жагсаалт авах ]
         public static Result DB207001(DbConnections pDB, int pageindex, int pagerows, object[] pParam)
@@ -13820,7 +13817,7 @@ where FAID = :1";
                 enums.P = Static.ToStr(pParam[1]);
                 enums.Y = Static.ToStr(Static.ToDate(pParam[5]).Year);
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 14, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 14, "",enums);
 
                 if (seqres.ResultNo == 0)
                 {
@@ -14108,7 +14105,6 @@ where faid=:1";
         //
 
         #endregion
-
         #region [ DB208 - Employee&BACACCOUNT Байгууллагын данс ]
         #region [ DB208001 - Ажилчидийн бүртгэлийн жагсаалт авах ]
         public static Result DB208001(DbConnections pDB, int pageindex, int pagerows, object[] pParam)
@@ -14201,7 +14197,7 @@ where EMPNO = :1";
                 //enums.P = Static.ToStr(pParam[4]);
                 //enums.G = Static.ToStr(pParam[4]);
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 16, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 16,"", enums);
 
                 if (seqres.ResultNo == 0)
                 {
@@ -14383,7 +14379,7 @@ where ACCOUNTNO = :1";
                 enums.R = Static.ToStr(pParam[14]);
                 //enums.G = Static.ToStr(pParam[4]);
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 1, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 1, "",enums);
                 //ISM.Lib.Static.WriteToLogFile("GetSeq:" + seqres.ResultDesc);
 
                 if (seqres.ResultNo == 0)
@@ -14511,7 +14507,6 @@ where a.CustomerNo=:1";
         }
         #endregion
         #endregion
-
         #region [ DB209 - CTA Балансын гадуурх данс CONACCOUNT ]
         #region [ DB209001 - Балансын гадуурх дансны бүртгэлийн жагсаалт авах ]
         public static Result DB209001(DbConnections pDB, object[] pParam)
@@ -14609,7 +14604,7 @@ where ACCOUNTNO = :1";
                 enums.Y = Static.ToStr(Static.ToDate(pParam[9]).Year);
                 //enums.G = Static.ToStr(pParam[4]);
 
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 2, enums);
+                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 2, "",enums);
                 //ISM.Lib.Static.WriteToLogFile("GetSeq:" + seqres.ResultDesc);
 
                 if (seqres.ResultNo == 0)
@@ -14706,7 +14701,6 @@ WHERE ACCOUNTNO=:1";
         }
         #endregion
         #endregion
-
         #region [ DB214 - Динамик тайлан ]
         #region [ DB214000 - Динамик тайлангуудын жагсаалт авах ]
         public static Result DB214000(DbConnections pDB, int pageindex, int pagerows, int pUserNo, DateTime pTxnDate, object[] pParam)
@@ -15046,7 +15040,6 @@ WHERE groupid=:1 and id=:2";
         
         
         #endregion
-
         #region [ DB216 - PassPolicy ]
         #region [ DB216001 - Нууц үгийн бүртгэлийн мэдээлэл авах ]
         public static Result DB216001(DbConnections pDB)
@@ -15115,7 +15108,6 @@ values (1, :1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
         }
         #endregion
         #endregion
-
         #region [ DB210009 - Санхүүгийн гүйлгээний жагсаалт ]
         public static Result DB210009(DbConnections pDB)
         {
@@ -15138,7 +15130,6 @@ order by OrderNo ";
             }
         }
         #endregion
-
         #region [ DB227 - InfoPos FrontOffice ]
         #region [ DB227000 - Гэрээний дугаараар гэрээ байгаа эсэхийг шалгах ]
         public static Result DB227000(DbConnections pDB, string pContractNo)
@@ -15304,42 +15295,50 @@ where CustomerNo=:1";
         }
         #endregion
         #region [ DB227004 - Харилцагч шинээр нэмэх ]
-        public static Result DB227004(DbConnections pDB, object[] pParam)
+        public static Result DB227004(DbConnections pDB, object[] pParam, int flag, string custno)
         {
             Result res = new Result();
             try
             {
-                long seq = 0;
-                Core.AutoNumEnum enums = new AutoNumEnum();
-
-                enums.B = Static.ToStr(Core.SystemProp.SystemBranchNo); //Branch
-                enums.Y = Static.ToStr(Static.ToDate(pParam[8]).Year); //CreateDate
-                enums.C = Static.ToStr(pParam[1]); //ClassCode
-                enums.G = Static.ToStr(pParam[12]); //TypeCode
-                enums.P = Static.ToStr(pParam[14]); //MemberType
-
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 12, enums);
-                //ISM.Lib.Static.WriteToLogFile("GetSeq:" + seqres.ResultDesc);
-
-                if (seqres.ResultNo == 0)
+                if (flag == 0)
                 {
-                    seq = Static.ToLong(seqres.ResultDesc);
-                    if (seq == 0)
+                    //[B02[Y04][F1][G1][P02][S06]	BYFGPS	"B=Branch; Y=Year; F=ClassCode; G=TypeCode; P=MemberType; S=Sequence (CODE=MemberType)"
+                    long seq = 0;
+                    Core.AutoNumEnum enums = new AutoNumEnum();
+
+                    enums.B = Static.ToStr(Core.SystemProp.SystemBranchNo); //Branch
+                    enums.Y = Static.ToStr(Static.ToDate(pParam[8]).Year); //CreateDate
+                    enums.F = Static.ToStr(pParam[1]); //ClassCode
+                    enums.G = Static.ToStr(pParam[12]); //TypeCode
+                    //enums.P = Static.ToStr(pParam[14]); //MemberType
+
+                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 12, "", enums);
+                    if (seqres.ResultNo == 0)
                     {
-                        seqres.ResultNo = 9110068;
-                        seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:12][" + seqres.ResultDesc + "]";
-                        return seqres;
+                        seq = Static.ToLong(seqres.ResultDesc);
+                        if (seq == 0)
+                        {
+                            seqres.ResultNo = 9110068;
+                            seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:12][" + seqres.ResultDesc + "]";
+                            return seqres;
+                        }
                     }
+                    else
+                        return seqres;
+
+                    pParam[0] = seq;
                 }
                 else
-                    return seqres;
-
-                pParam[0] = seq;
+                {
+                    pParam[0] = custno;
+                }
+                pParam[13] = 0;
+                pParam[14] = "";
 
                 string sql =
 @"INSERT INTO Customer(CustomerNo, ClassCode, FirstName, LastName, CorporateName,
 RegisterNo, Sex, Mobile, CreateDate, CreateUser,
-Height, Foot, typecode, MEMBERCONTRACTNO, membertype)
+Height, Foot, typecode, membertype, MEMBERCONTRACTNO)
 VALUES(:1, :2, :3, :4, :5,
 :6, :7, :8, :9, :10, 
 :11, :12, :13, :14, :15)";
