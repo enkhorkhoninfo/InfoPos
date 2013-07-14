@@ -737,14 +737,21 @@ namespace InfoPos.Core
                 _PosStatus = lib.ToInt(dt.Rows[0]["STATUS"]);
                 #endregion
                 #region DayType
-                _dtDayInfo = res.Data.Tables[1];
-                if (_dtDayInfo != null && _dtDayInfo.Rows.Count > 0)
+                if (res.Data.Tables.Count > 1)
                 {
-                    _DayType = lib.ToStr(_dtDayInfo.Rows[0]["DAYTYPE"]);
+                    if (res.Data.Tables[1] != null)
+                    {
+                        _dtDayInfo = res.Data.Tables[1];
+                        if (_dtDayInfo != null && _dtDayInfo.Rows.Count > 0)
+                        {
+                            _DayType = lib.ToStr(_dtDayInfo.Rows[0]["DAYTYPE"]);
+                        }
+                    }
                 }
                 #endregion
                 #region Product info
-                _dtProdInfo = res.Data.Tables[2];
+                if (res.Data.Tables.Count > 2)
+                    _dtProdInfo = res.Data.Tables[2];
                 #endregion
             }
             catch (Exception ex)

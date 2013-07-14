@@ -92,12 +92,12 @@
             // 
             // splitterControl1
             // 
-            this.splitterControl1.Location = new System.Drawing.Point(259, 0);
-            this.splitterControl1.Size = new System.Drawing.Size(5, 317);
+            this.splitterControl1.Location = new System.Drawing.Point(258, 0);
+            this.splitterControl1.Size = new System.Drawing.Size(6, 317);
             // 
             // panelControl2
             // 
-            this.panelControl2.Size = new System.Drawing.Size(259, 317);
+            this.panelControl2.Size = new System.Drawing.Size(258, 317);
             // 
             // panelControl3
             // 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.numClassCode = new DevExpress.XtraEditors.TextEdit();
             this.numTypeCode = new DevExpress.XtraEditors.TextEdit();
             this.txtName2 = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -40,6 +39,7 @@
             this.numOrderNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtRecvAcntNo = new DevExpress.XtraEditors.TextEdit();
+            this.numClassCode = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -47,12 +47,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numClassCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTypeCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrderNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRecvAcntNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numClassCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -97,27 +97,17 @@
             // 
             // splitterControl1
             // 
-            this.splitterControl1.Location = new System.Drawing.Point(256, 0);
-            this.splitterControl1.Size = new System.Drawing.Size(5, 226);
+            this.splitterControl1.Location = new System.Drawing.Point(255, 0);
+            this.splitterControl1.Size = new System.Drawing.Size(6, 226);
             // 
             // panelControl2
             // 
-            this.panelControl2.Size = new System.Drawing.Size(256, 226);
+            this.panelControl2.Size = new System.Drawing.Size(255, 226);
             // 
             // panelControl3
             // 
             this.panelControl3.Location = new System.Drawing.Point(261, 0);
             this.panelControl3.Size = new System.Drawing.Size(503, 226);
-            // 
-            // numClassCode
-            // 
-            this.numClassCode.Location = new System.Drawing.Point(189, 64);
-            this.numClassCode.Name = "numClassCode";
-            this.numClassCode.Properties.Mask.EditMask = "\\d{0,1}";
-            this.numClassCode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.numClassCode.Size = new System.Drawing.Size(268, 20);
-            this.numClassCode.TabIndex = 2;
-            this.numClassCode.ToolTipTitle = "Класс код оруулна уу";
             // 
             // numTypeCode
             // 
@@ -218,6 +208,17 @@
             this.txtRecvAcntNo.Size = new System.Drawing.Size(268, 20);
             this.txtRecvAcntNo.TabIndex = 11;
             // 
+            // numClassCode
+            // 
+            this.numClassCode.Location = new System.Drawing.Point(189, 64);
+            this.numClassCode.Name = "numClassCode";
+            this.numClassCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.numClassCode.Properties.NullText = "";
+            this.numClassCode.Size = new System.Drawing.Size(268, 20);
+            this.numClassCode.TabIndex = 2;
+            this.numClassCode.ToolTipTitle = "Класс код оруулна уу";
+            // 
             // FormCustomerType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,7 +226,7 @@
             this.ClientSize = new System.Drawing.Size(788, 277);
             this.KeyPreview = true;
             this.Name = "FormCustomerType";
-            this.Text = "Харилцагчийн төрөл";
+            this.Text = "Харилцагчийн ангилал";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCustomerType_FormClosing);
             this.Load += new System.EventHandler(this.FormCustomerType_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormCustomerType_KeyDown);
@@ -237,12 +238,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numClassCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTypeCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrderNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRecvAcntNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numClassCode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,10 +257,10 @@
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.TextEdit txtName2;
         private DevExpress.XtraEditors.TextEdit numTypeCode;
-        private DevExpress.XtraEditors.TextEdit numClassCode;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit numOrderNo;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtRecvAcntNo;
+        private DevExpress.XtraEditors.LookUpEdit numClassCode;
     }
 }

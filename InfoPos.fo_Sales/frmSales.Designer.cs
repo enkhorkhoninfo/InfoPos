@@ -113,7 +113,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.splitProd);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1000, 443);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1001, 445);
             this.splitContainerControl1.SplitterPosition = 489;
             this.splitContainerControl1.TabIndex = 15;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -133,7 +133,7 @@
             this.panelControl2.Controls.Add(this.numSales);
             this.panelControl2.Controls.Add(this.numVat);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 347);
+            this.panelControl2.Location = new System.Drawing.Point(0, 349);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(489, 96);
             this.panelControl2.TabIndex = 1;
@@ -409,7 +409,6 @@
             this.gridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
-            //this.gridView1.OptionsView.ShowPreviewRowLines = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowOnlyInEditor;
             // 
             // splitProd
@@ -442,14 +441,6 @@
             this.galleryCust.Gallery.AllowFilter = false;
             this.galleryCust.Gallery.AllowHoverImages = true;
             this.galleryCust.Gallery.AllowMarqueeSelection = true;
-            
-            //tuugii
-            //this.galleryCust.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseTextOptions = true;
-            //this.galleryCust.Gallery.Appearance.ItemCaptionAppearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            //this.galleryCust.Gallery.Appearance.ItemDescriptionAppearance.Normal.Options.UseTextOptions = true;
-            //this.galleryCust.Gallery.Appearance.ItemDescriptionAppearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            //this.galleryCust.Gallery.Appearance.ItemDescriptionAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            
             this.galleryCust.Gallery.AutoFitColumns = false;
             this.galleryCust.Gallery.CheckDrawMode = DevExpress.XtraBars.Ribbon.Gallery.CheckDrawMode.ImageAndText;
             this.galleryCust.Gallery.ColumnCount = 2;
@@ -562,9 +553,9 @@
             // 
             // tabProd
             // 
-            this.tabProd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabProd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabProd.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.True;
             this.tabProd.HeaderButtons = ((DevExpress.XtraTab.TabButtons)((DevExpress.XtraTab.TabButtons.Next | DevExpress.XtraTab.TabButtons.Default)));
             this.tabProd.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.Never;
@@ -582,14 +573,14 @@
             // 
             this.tabProdPage1.Controls.Add(this.galleryProd);
             this.tabProdPage1.Name = "tabProdPage1";
-            this.tabProdPage1.Size = new System.Drawing.Size(297, 243);
+            this.tabProdPage1.Size = new System.Drawing.Size(298, 245);
             this.tabProdPage1.Text = "Бараа сонголт";
             // 
             // galleryProd
             // 
-            this.galleryProd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.galleryProd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.galleryProd.Controls.Add(this.galleryControlClient2);
             this.galleryProd.DesignGalleryGroupIndex = 0;
             this.galleryProd.DesignGalleryItemIndex = 0;
@@ -622,7 +613,7 @@
             // tabProdPage2
             // 
             this.tabProdPage2.Name = "tabProdPage2";
-            this.tabProdPage2.Size = new System.Drawing.Size(297, 243);
+            this.tabProdPage2.Size = new System.Drawing.Size(298, 245);
             this.tabProdPage2.Text = "Бараа хайлт";
             // 
             // imageCheck
@@ -648,7 +639,7 @@
             // 
             this.tabMainPage2.Controls.Add(this.splitContainerControl1);
             this.tabMainPage2.Name = "tabMainPage2";
-            this.tabMainPage2.Size = new System.Drawing.Size(1000, 443);
+            this.tabMainPage2.Size = new System.Drawing.Size(1001, 445);
             this.tabMainPage2.Text = "Борлуулалт";
             // 
             // tabMainPage1
@@ -656,13 +647,13 @@
             this.tabMainPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabMainPage1.Name = "tabMainPage1";
             this.tabMainPage1.PageVisible = false;
-            this.tabMainPage1.Size = new System.Drawing.Size(1000, 443);
+            this.tabMainPage1.Size = new System.Drawing.Size(1001, 445);
             this.tabMainPage1.Text = "Үйлчилгээний төрөл";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.21942F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.56116F));

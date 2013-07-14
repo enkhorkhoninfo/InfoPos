@@ -202,6 +202,11 @@ namespace InfoPos.Parameter
         {
             FormUtility.RestoreStateForm(appname, ref FormName);
             FormUtility.RestoreStateGrid(appname, formname, ref gridControl1);
+
+            FormUtility.LookUpEdit_SetList(ref numClassCode, 0, "ИРГЭН");
+            FormUtility.LookUpEdit_SetList(ref numClassCode, 1, "БАЙГУУЛЛАГА");
+            FormUtility.LookUpEdit_SetList(ref numClassCode, 2, "ИРГЭН / БАЙГУУЛЛАГА");
+
         }
         #endregion
        

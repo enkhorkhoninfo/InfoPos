@@ -307,7 +307,7 @@ namespace InfoPos.Parameter
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult DR = MessageBox.Show(MSG.Messages(_core.Lang, 10007), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult DR = MessageBox.Show("Устгахдаа итгэлтэй байна уу", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DR == System.Windows.Forms.DialogResult.No) return;
             else
             {
@@ -327,7 +327,7 @@ namespace InfoPos.Parameter
                         }
                         else
                         {
-                            MessageBox.Show(MSG.Messages(_core.Lang, 10003));
+                            MessageBox.Show("Амжилттай устгагдлаа.");
                             RefreshNotifySchema();
                             btn = 1;
                         }
@@ -358,7 +358,7 @@ namespace InfoPos.Parameter
         }
         private void btnDeleteTxn_Click(object sender, EventArgs e)
         {
-            DialogResult DR = MessageBox.Show(MSG.Messages(_core.Lang, 10007), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult DR = MessageBox.Show("Устгахдаа итгэлтэй байна уу", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DR == System.Windows.Forms.DialogResult.No) return;
             else
             {
@@ -371,7 +371,7 @@ namespace InfoPos.Parameter
                         }
                         else
                         {
-                            MessageBox.Show(MSG.Messages(_core.Lang, 10003));
+                            MessageBox.Show("Амжилттай устгагдлаа.");
                             RefreshNotifyTxn(Static.ToInt(numSchemaID.EditValue));
                             DataRow _dr = gvwNotifyTxn.GetDataRow(gvwNotifyTxn.FocusedRowHandle);
                             if (_dr != null)

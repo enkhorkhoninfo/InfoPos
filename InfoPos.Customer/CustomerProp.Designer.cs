@@ -509,7 +509,7 @@
             // 
             this.tabAdd.Controls.Add(this.ucAdd);
             this.tabAdd.Name = "tabAdd";
-            this.tabAdd.Size = new System.Drawing.Size(818, 483);
+            this.tabAdd.Size = new System.Drawing.Size(819, 484);
             this.tabAdd.Text = "Нэмэлт мэдээлэл";
             // 
             // ucAdd
@@ -519,7 +519,7 @@
             this.ucAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucAdd.Location = new System.Drawing.Point(0, 0);
             this.ucAdd.Name = "ucAdd";
-            this.ucAdd.Size = new System.Drawing.Size(818, 483);
+            this.ucAdd.Size = new System.Drawing.Size(819, 484);
             this.ucAdd.TabIndex = 0;
             this.ucAdd.ToggleShowDelete = false;
             this.ucAdd.ToggleShowEdit = false;
@@ -536,7 +536,7 @@
             this.ucDynamicDataPanel1.LinkId = "0";
             this.ucDynamicDataPanel1.Location = new System.Drawing.Point(3, 3);
             this.ucDynamicDataPanel1.Name = "ucDynamicDataPanel1";
-            this.ucDynamicDataPanel1.Size = new System.Drawing.Size(778, 473);
+            this.ucDynamicDataPanel1.Size = new System.Drawing.Size(779, 474);
             this.ucDynamicDataPanel1.TabIndex = 18;
             this.ucDynamicDataPanel1.TableRowKey = ((ulong)(0ul));
             this.ucDynamicDataPanel1.TableTypeId = ((ulong)(0ul));
@@ -545,7 +545,7 @@
             // 
             this.btnAddSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddSave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAddSave.Location = new System.Drawing.Point(787, 3);
+            this.btnAddSave.Location = new System.Drawing.Point(788, 3);
             this.btnAddSave.Name = "btnAddSave";
             this.btnAddSave.Size = new System.Drawing.Size(24, 24);
             this.btnAddSave.TabIndex = 19;
@@ -555,7 +555,7 @@
             // 
             this.tabNote.Controls.Add(this.ucNote);
             this.tabNote.Name = "tabNote";
-            this.tabNote.Size = new System.Drawing.Size(818, 483);
+            this.tabNote.Size = new System.Drawing.Size(819, 484);
             this.tabNote.Text = "Товч дүгнэлт";
             // 
             // ucNote
@@ -564,7 +564,7 @@
             this.ucNote.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucNote.Location = new System.Drawing.Point(0, 0);
             this.ucNote.Name = "ucNote";
-            this.ucNote.Size = new System.Drawing.Size(818, 483);
+            this.ucNote.Size = new System.Drawing.Size(819, 484);
             this.ucNote.TabIndex = 0;
             this.ucNote.ToggleShowDelete = false;
             this.ucNote.ToggleShowEdit = false;
@@ -583,7 +583,7 @@
             this.panelControl17.Controls.Add(this.panelControl18);
             this.panelControl17.Location = new System.Drawing.Point(0, 3);
             this.panelControl17.Name = "panelControl17";
-            this.panelControl17.Size = new System.Drawing.Size(808, 447);
+            this.panelControl17.Size = new System.Drawing.Size(809, 448);
             this.panelControl17.TabIndex = 18;
             // 
             // splitterControl9
@@ -591,7 +591,7 @@
             this.splitterControl9.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl9.Location = new System.Drawing.Point(350, 2);
             this.splitterControl9.Name = "splitterControl9";
-            this.splitterControl9.Size = new System.Drawing.Size(5, 443);
+            this.splitterControl9.Size = new System.Drawing.Size(6, 444);
             this.splitterControl9.TabIndex = 1;
             this.splitterControl9.TabStop = false;
             // 
@@ -601,7 +601,7 @@
             this.grdNote.Location = new System.Drawing.Point(2, 2);
             this.grdNote.MainView = this.gvwNote;
             this.grdNote.Name = "grdNote";
-            this.grdNote.Size = new System.Drawing.Size(353, 443);
+            this.grdNote.Size = new System.Drawing.Size(354, 444);
             this.grdNote.TabIndex = 0;
             this.grdNote.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwNote,
@@ -628,9 +628,9 @@
             this.panelControl18.Controls.Add(this.labelControl77);
             this.panelControl18.Controls.Add(this.mmeTab10Note);
             this.panelControl18.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl18.Location = new System.Drawing.Point(355, 2);
+            this.panelControl18.Location = new System.Drawing.Point(356, 2);
             this.panelControl18.Name = "panelControl18";
-            this.panelControl18.Size = new System.Drawing.Size(451, 443);
+            this.panelControl18.Size = new System.Drawing.Size(451, 444);
             this.panelControl18.TabIndex = 2;
             // 
             // numTab10UserNo
@@ -693,7 +693,7 @@
             // 
             this.tabAccount.Controls.Add(this.ucAccount);
             this.tabAccount.Name = "tabAccount";
-            this.tabAccount.Size = new System.Drawing.Size(818, 483);
+            this.tabAccount.Size = new System.Drawing.Size(819, 484);
             this.tabAccount.Text = "Харилцагчийн дансны мэдээлэл";
             // 
             // ucAccount
@@ -702,7 +702,7 @@
             this.ucAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucAccount.Location = new System.Drawing.Point(0, 0);
             this.ucAccount.Name = "ucAccount";
-            this.ucAccount.Size = new System.Drawing.Size(818, 483);
+            this.ucAccount.Size = new System.Drawing.Size(819, 484);
             this.ucAccount.TabIndex = 0;
             this.ucAccount.ToggleShowDelete = false;
             this.ucAccount.ToggleShowEdit = false;
@@ -721,7 +721,7 @@
             this.panelControl13.Controls.Add(this.panelControl14);
             this.panelControl13.Location = new System.Drawing.Point(0, 3);
             this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Size = new System.Drawing.Size(808, 446);
+            this.panelControl13.Size = new System.Drawing.Size(809, 447);
             this.panelControl13.TabIndex = 18;
             // 
             // splitterControl7
@@ -729,7 +729,7 @@
             this.splitterControl7.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl7.Location = new System.Drawing.Point(445, 2);
             this.splitterControl7.Name = "splitterControl7";
-            this.splitterControl7.Size = new System.Drawing.Size(5, 442);
+            this.splitterControl7.Size = new System.Drawing.Size(6, 443);
             this.splitterControl7.TabIndex = 1;
             this.splitterControl7.TabStop = false;
             // 
@@ -739,7 +739,7 @@
             this.grdAccount.Location = new System.Drawing.Point(2, 2);
             this.grdAccount.MainView = this.gvwAccount;
             this.grdAccount.Name = "grdAccount";
-            this.grdAccount.Size = new System.Drawing.Size(448, 442);
+            this.grdAccount.Size = new System.Drawing.Size(449, 443);
             this.grdAccount.TabIndex = 0;
             this.grdAccount.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAccount,
@@ -768,9 +768,9 @@
             this.panelControl14.Controls.Add(this.cboTab8BankNo);
             this.panelControl14.Controls.Add(this.cboTab8CurCode);
             this.panelControl14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl14.Location = new System.Drawing.Point(450, 2);
+            this.panelControl14.Location = new System.Drawing.Point(451, 2);
             this.panelControl14.Name = "panelControl14";
-            this.panelControl14.Size = new System.Drawing.Size(356, 442);
+            this.panelControl14.Size = new System.Drawing.Size(356, 443);
             this.panelControl14.TabIndex = 2;
             // 
             // txtTab8AccountNo
@@ -855,7 +855,7 @@
             // 
             this.tabContact.Controls.Add(this.ucContact);
             this.tabContact.Name = "tabContact";
-            this.tabContact.Size = new System.Drawing.Size(818, 483);
+            this.tabContact.Size = new System.Drawing.Size(819, 484);
             this.tabContact.Text = "Холбоо барьсан мэдээлэл";
             // 
             // ucContact
@@ -864,7 +864,7 @@
             this.ucContact.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucContact.Location = new System.Drawing.Point(0, 0);
             this.ucContact.Name = "ucContact";
-            this.ucContact.Size = new System.Drawing.Size(818, 483);
+            this.ucContact.Size = new System.Drawing.Size(819, 484);
             this.ucContact.TabIndex = 0;
             this.ucContact.ToggleShowDelete = false;
             this.ucContact.ToggleShowEdit = false;
@@ -883,7 +883,7 @@
             this.panelControl11.Controls.Add(this.panelControl12);
             this.panelControl11.Location = new System.Drawing.Point(0, 3);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(811, 447);
+            this.panelControl11.Size = new System.Drawing.Size(812, 448);
             this.panelControl11.TabIndex = 18;
             // 
             // splitterControl6
@@ -891,7 +891,7 @@
             this.splitterControl6.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl6.Location = new System.Drawing.Point(389, 2);
             this.splitterControl6.Name = "splitterControl6";
-            this.splitterControl6.Size = new System.Drawing.Size(5, 443);
+            this.splitterControl6.Size = new System.Drawing.Size(6, 444);
             this.splitterControl6.TabIndex = 1;
             this.splitterControl6.TabStop = false;
             // 
@@ -901,7 +901,7 @@
             this.grdContact.Location = new System.Drawing.Point(2, 2);
             this.grdContact.MainView = this.gvwContact;
             this.grdContact.Name = "grdContact";
-            this.grdContact.Size = new System.Drawing.Size(392, 443);
+            this.grdContact.Size = new System.Drawing.Size(393, 444);
             this.grdContact.TabIndex = 0;
             this.grdContact.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwContact,
@@ -932,9 +932,9 @@
             this.panelControl12.Controls.Add(this.cboTab7ContactType);
             this.panelControl12.Controls.Add(this.txtTab7Note);
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl12.Location = new System.Drawing.Point(394, 2);
+            this.panelControl12.Location = new System.Drawing.Point(395, 2);
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(415, 443);
+            this.panelControl12.Size = new System.Drawing.Size(415, 444);
             this.panelControl12.TabIndex = 2;
             // 
             // txtTab7BriefDesc
@@ -1039,7 +1039,7 @@
             // 
             this.tabFamily.Controls.Add(this.ucFamily);
             this.tabFamily.Name = "tabFamily";
-            this.tabFamily.Size = new System.Drawing.Size(818, 483);
+            this.tabFamily.Size = new System.Drawing.Size(819, 484);
             this.tabFamily.Text = "Хамаатан садан";
             // 
             // ucFamily
@@ -1048,7 +1048,7 @@
             this.ucFamily.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucFamily.Location = new System.Drawing.Point(0, 0);
             this.ucFamily.Name = "ucFamily";
-            this.ucFamily.Size = new System.Drawing.Size(818, 483);
+            this.ucFamily.Size = new System.Drawing.Size(819, 484);
             this.ucFamily.TabIndex = 0;
             this.ucFamily.ToggleShowDelete = false;
             this.ucFamily.ToggleShowEdit = false;
@@ -1067,7 +1067,7 @@
             this.panelControl5.Controls.Add(this.panelControl6);
             this.panelControl5.Location = new System.Drawing.Point(0, 3);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(815, 444);
+            this.panelControl5.Size = new System.Drawing.Size(816, 445);
             this.panelControl5.TabIndex = 18;
             // 
             // splitterControl3
@@ -1075,7 +1075,7 @@
             this.splitterControl3.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl3.Location = new System.Drawing.Point(249, 2);
             this.splitterControl3.Name = "splitterControl3";
-            this.splitterControl3.Size = new System.Drawing.Size(5, 440);
+            this.splitterControl3.Size = new System.Drawing.Size(6, 441);
             this.splitterControl3.TabIndex = 1;
             this.splitterControl3.TabStop = false;
             // 
@@ -1085,7 +1085,7 @@
             this.grdFamily.Location = new System.Drawing.Point(2, 2);
             this.grdFamily.MainView = this.gvwFamily;
             this.grdFamily.Name = "grdFamily";
-            this.grdFamily.Size = new System.Drawing.Size(252, 440);
+            this.grdFamily.Size = new System.Drawing.Size(253, 441);
             this.grdFamily.TabIndex = 0;
             this.grdFamily.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwFamily,
@@ -1130,9 +1130,9 @@
             this.panelControl6.Controls.Add(this.numTab4Mobile);
             this.panelControl6.Controls.Add(this.cboTab4FamilyType);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl6.Location = new System.Drawing.Point(254, 2);
+            this.panelControl6.Location = new System.Drawing.Point(255, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(559, 440);
+            this.panelControl6.Size = new System.Drawing.Size(559, 441);
             this.panelControl6.TabIndex = 2;
             // 
             // btnTab4Find
@@ -1405,7 +1405,7 @@
             // 
             this.tabPicture.Controls.Add(this.ucPicture);
             this.tabPicture.Name = "tabPicture";
-            this.tabPicture.Size = new System.Drawing.Size(818, 483);
+            this.tabPicture.Size = new System.Drawing.Size(819, 484);
             this.tabPicture.Text = "Зураг";
             // 
             // ucPicture
@@ -1414,7 +1414,7 @@
             this.ucPicture.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucPicture.Location = new System.Drawing.Point(0, 0);
             this.ucPicture.Name = "ucPicture";
-            this.ucPicture.Size = new System.Drawing.Size(818, 483);
+            this.ucPicture.Size = new System.Drawing.Size(819, 484);
             this.ucPicture.TabIndex = 0;
             this.ucPicture.ToggleShowDelete = false;
             this.ucPicture.ToggleShowEdit = false;
@@ -1433,7 +1433,7 @@
             this.panelControl3.Controls.Add(this.panelControl4);
             this.panelControl3.Location = new System.Drawing.Point(0, 3);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(815, 446);
+            this.panelControl3.Size = new System.Drawing.Size(816, 447);
             this.panelControl3.TabIndex = 18;
             // 
             // splitterControl2
@@ -1441,7 +1441,7 @@
             this.splitterControl2.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl2.Location = new System.Drawing.Point(382, 2);
             this.splitterControl2.Name = "splitterControl2";
-            this.splitterControl2.Size = new System.Drawing.Size(5, 442);
+            this.splitterControl2.Size = new System.Drawing.Size(6, 443);
             this.splitterControl2.TabIndex = 1;
             this.splitterControl2.TabStop = false;
             // 
@@ -1451,7 +1451,7 @@
             this.grdPicture.Location = new System.Drawing.Point(2, 2);
             this.grdPicture.MainView = this.gvwPicture;
             this.grdPicture.Name = "grdPicture";
-            this.grdPicture.Size = new System.Drawing.Size(385, 442);
+            this.grdPicture.Size = new System.Drawing.Size(386, 443);
             this.grdPicture.TabIndex = 0;
             this.grdPicture.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwPicture,
@@ -1481,9 +1481,9 @@
             this.panelControl4.Controls.Add(this.labelControl31);
             this.panelControl4.Controls.Add(this.cboPictureType);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(387, 2);
+            this.panelControl4.Location = new System.Drawing.Point(388, 2);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(426, 442);
+            this.panelControl4.Size = new System.Drawing.Size(426, 443);
             this.panelControl4.TabIndex = 2;
             // 
             // btnZoom
@@ -1573,7 +1573,7 @@
             // 
             this.tabAddress.Controls.Add(this.ucAddress);
             this.tabAddress.Name = "tabAddress";
-            this.tabAddress.Size = new System.Drawing.Size(818, 483);
+            this.tabAddress.Size = new System.Drawing.Size(819, 484);
             this.tabAddress.Text = "Хаяг";
             // 
             // ucAddress
@@ -1582,7 +1582,7 @@
             this.ucAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucAddress.Location = new System.Drawing.Point(0, 0);
             this.ucAddress.Name = "ucAddress";
-            this.ucAddress.Size = new System.Drawing.Size(818, 483);
+            this.ucAddress.Size = new System.Drawing.Size(819, 484);
             this.ucAddress.TabIndex = 0;
             this.ucAddress.ToggleShowDelete = false;
             this.ucAddress.ToggleShowEdit = false;
@@ -1601,7 +1601,7 @@
             this.panelControl1.Controls.Add(this.panelControl2);
             this.panelControl1.Location = new System.Drawing.Point(1, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(817, 450);
+            this.panelControl1.Size = new System.Drawing.Size(818, 451);
             this.panelControl1.TabIndex = 1;
             // 
             // splitterControl1
@@ -1609,7 +1609,7 @@
             this.splitterControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl1.Location = new System.Drawing.Point(477, 2);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 446);
+            this.splitterControl1.Size = new System.Drawing.Size(6, 447);
             this.splitterControl1.TabIndex = 1;
             this.splitterControl1.TabStop = false;
             // 
@@ -1619,7 +1619,7 @@
             this.grdAddress.Location = new System.Drawing.Point(2, 2);
             this.grdAddress.MainView = this.gvwAddress;
             this.grdAddress.Name = "grdAddress";
-            this.grdAddress.Size = new System.Drawing.Size(480, 446);
+            this.grdAddress.Size = new System.Drawing.Size(481, 447);
             this.grdAddress.TabIndex = 0;
             this.grdAddress.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAddress,
@@ -1654,9 +1654,9 @@
             this.panelControl2.Controls.Add(this.labelControl8);
             this.panelControl2.Controls.Add(this.txtAdd);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl2.Location = new System.Drawing.Point(482, 2);
+            this.panelControl2.Location = new System.Drawing.Point(483, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(333, 446);
+            this.panelControl2.Size = new System.Drawing.Size(333, 447);
             this.panelControl2.TabIndex = 2;
             // 
             // cboSubDist
@@ -1782,7 +1782,7 @@
             // 
             this.tabGeneral.Controls.Add(this.ucCustGeneral);
             this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Size = new System.Drawing.Size(818, 483);
+            this.tabGeneral.Size = new System.Drawing.Size(819, 484);
             this.tabGeneral.Text = "Үндсэн мэдээлэл";
             // 
             // ucCustGeneral
@@ -1792,7 +1792,7 @@
             this.ucCustGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucCustGeneral.Location = new System.Drawing.Point(0, 0);
             this.ucCustGeneral.Name = "ucCustGeneral";
-            this.ucCustGeneral.Size = new System.Drawing.Size(818, 483);
+            this.ucCustGeneral.Size = new System.Drawing.Size(819, 484);
             this.ucCustGeneral.TabIndex = 0;
             this.ucCustGeneral.ToggleShowDelete = false;
             this.ucCustGeneral.ToggleShowEdit = false;
@@ -1851,7 +1851,7 @@
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Location = new System.Drawing.Point(3, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(811, 236);
+            this.groupControl1.Size = new System.Drawing.Size(812, 236);
             this.groupControl1.TabIndex = 174;
             this.groupControl1.Text = "Ерөнхий мэдээлэл";
             // 
@@ -2252,7 +2252,7 @@
             this.xtraTabGeneral.Location = new System.Drawing.Point(3, 246);
             this.xtraTabGeneral.Name = "xtraTabGeneral";
             this.xtraTabGeneral.SelectedTabPage = this.Tab1;
-            this.xtraTabGeneral.Size = new System.Drawing.Size(815, 202);
+            this.xtraTabGeneral.Size = new System.Drawing.Size(816, 203);
             this.xtraTabGeneral.TabIndex = 175;
             this.xtraTabGeneral.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.Tab1,
@@ -2278,7 +2278,7 @@
             this.Tab1.Controls.Add(this.txtCorFax);
             this.Tab1.Controls.Add(this.txtCorPhone);
             this.Tab1.Name = "Tab1";
-            this.Tab1.Size = new System.Drawing.Size(809, 175);
+            this.Tab1.Size = new System.Drawing.Size(811, 177);
             this.Tab1.Text = "Холбоо барих мэдээлэл";
             // 
             // labelControl21
@@ -2857,7 +2857,7 @@
             // 
             this.tabDirector.Controls.Add(this.ucDirector);
             this.tabDirector.Name = "tabDirector";
-            this.tabDirector.Size = new System.Drawing.Size(818, 483);
+            this.tabDirector.Size = new System.Drawing.Size(819, 484);
             this.tabDirector.Text = "Захирлын мэдээлэл";
             // 
             // ucDirector
@@ -2866,7 +2866,7 @@
             this.ucDirector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucDirector.Location = new System.Drawing.Point(0, 0);
             this.ucDirector.Name = "ucDirector";
-            this.ucDirector.Size = new System.Drawing.Size(818, 483);
+            this.ucDirector.Size = new System.Drawing.Size(819, 484);
             this.ucDirector.TabIndex = 1;
             this.ucDirector.ToggleShowDelete = false;
             this.ucDirector.ToggleShowEdit = false;
@@ -2885,7 +2885,7 @@
             this.panelControl10.Controls.Add(this.panelControl15);
             this.panelControl10.Location = new System.Drawing.Point(0, 3);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(815, 444);
+            this.panelControl10.Size = new System.Drawing.Size(816, 445);
             this.panelControl10.TabIndex = 18;
             // 
             // splitterControl8
@@ -2893,7 +2893,7 @@
             this.splitterControl8.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl8.Location = new System.Drawing.Point(277, 2);
             this.splitterControl8.Name = "splitterControl8";
-            this.splitterControl8.Size = new System.Drawing.Size(5, 440);
+            this.splitterControl8.Size = new System.Drawing.Size(6, 441);
             this.splitterControl8.TabIndex = 1;
             this.splitterControl8.TabStop = false;
             // 
@@ -2903,7 +2903,7 @@
             this.grdDirector.Location = new System.Drawing.Point(2, 2);
             this.grdDirector.MainView = this.gvwDirector;
             this.grdDirector.Name = "grdDirector";
-            this.grdDirector.Size = new System.Drawing.Size(280, 440);
+            this.grdDirector.Size = new System.Drawing.Size(281, 441);
             this.grdDirector.TabIndex = 0;
             this.grdDirector.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwDirector,
@@ -2948,9 +2948,9 @@
             this.panelControl15.Controls.Add(this.labelControl102);
             this.panelControl15.Controls.Add(this.numTabDirRegisterNo);
             this.panelControl15.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl15.Location = new System.Drawing.Point(282, 2);
+            this.panelControl15.Location = new System.Drawing.Point(283, 2);
             this.panelControl15.Name = "panelControl15";
-            this.panelControl15.Size = new System.Drawing.Size(531, 440);
+            this.panelControl15.Size = new System.Drawing.Size(531, 441);
             this.panelControl15.TabIndex = 2;
             // 
             // labelControl109
@@ -3183,7 +3183,7 @@
             // 
             this.tabacnt.Controls.Add(this.ucAcnt);
             this.tabacnt.Name = "tabacnt";
-            this.tabacnt.Size = new System.Drawing.Size(818, 483);
+            this.tabacnt.Size = new System.Drawing.Size(819, 484);
             this.tabacnt.Text = "Харилцагчийн дотоод данс";
             // 
             // ucAcnt
@@ -3192,7 +3192,7 @@
             this.ucAcnt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucAcnt.Location = new System.Drawing.Point(0, 0);
             this.ucAcnt.Name = "ucAcnt";
-            this.ucAcnt.Size = new System.Drawing.Size(818, 483);
+            this.ucAcnt.Size = new System.Drawing.Size(819, 484);
             this.ucAcnt.TabIndex = 0;
             this.ucAcnt.ToggleShowDelete = false;
             this.ucAcnt.ToggleShowEdit = false;
@@ -3211,7 +3211,7 @@
             this.panelControl9.Controls.Add(this.panelControl8);
             this.panelControl9.Location = new System.Drawing.Point(0, 0);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(818, 449);
+            this.panelControl9.Size = new System.Drawing.Size(819, 450);
             this.panelControl9.TabIndex = 21;
             // 
             // panelControl7
@@ -3220,7 +3220,7 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(2, 2);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(469, 445);
+            this.panelControl7.Size = new System.Drawing.Size(469, 446);
             this.panelControl7.TabIndex = 18;
             // 
             // grdAcnt
@@ -3229,7 +3229,7 @@
             this.grdAcnt.Location = new System.Drawing.Point(2, 2);
             this.grdAcnt.MainView = this.gvwAcnt;
             this.grdAcnt.Name = "grdAcnt";
-            this.grdAcnt.Size = new System.Drawing.Size(465, 441);
+            this.grdAcnt.Size = new System.Drawing.Size(465, 442);
             this.grdAcnt.TabIndex = 0;
             this.grdAcnt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAcnt});
@@ -3245,7 +3245,7 @@
             this.splitterControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl4.Location = new System.Drawing.Point(471, 2);
             this.splitterControl4.Name = "splitterControl4";
-            this.splitterControl4.Size = new System.Drawing.Size(5, 445);
+            this.splitterControl4.Size = new System.Drawing.Size(6, 446);
             this.splitterControl4.TabIndex = 20;
             this.splitterControl4.TabStop = false;
             // 
@@ -3256,9 +3256,9 @@
             this.panelControl8.Controls.Add(this.numAcntAccountNo);
             this.panelControl8.Controls.Add(this.labelControl45);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl8.Location = new System.Drawing.Point(476, 2);
+            this.panelControl8.Location = new System.Drawing.Point(477, 2);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(340, 445);
+            this.panelControl8.Size = new System.Drawing.Size(340, 446);
             this.panelControl8.TabIndex = 19;
             // 
             // txtAcntAccountName
@@ -3303,7 +3303,7 @@
             this.tabAccountList.Controls.Add(this.grdAccountList);
             this.tabAccountList.Name = "tabAccountList";
             this.tabAccountList.PageVisible = false;
-            this.tabAccountList.Size = new System.Drawing.Size(818, 483);
+            this.tabAccountList.Size = new System.Drawing.Size(819, 484);
             this.tabAccountList.Text = "Дансны жагсаалт";
             // 
             // grdAccountList
@@ -3312,7 +3312,7 @@
             this.grdAccountList.Location = new System.Drawing.Point(0, 0);
             this.grdAccountList.MainView = this.gvwAccountList;
             this.grdAccountList.Name = "grdAccountList";
-            this.grdAccountList.Size = new System.Drawing.Size(818, 483);
+            this.grdAccountList.Size = new System.Drawing.Size(819, 484);
             this.grdAccountList.TabIndex = 20;
             this.grdAccountList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAccountList});

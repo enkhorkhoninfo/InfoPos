@@ -60,7 +60,7 @@ namespace InfoPos.Parameter
         #region [ Events ]
         void FaPosition_EventDelete()
         {
-            DialogResult DR = MessageBox.Show(MSG.Messages(_core.Lang,10007), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult DR = MessageBox.Show("Устгахдаа итгэлтэй байна уу", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DR == System.Windows.Forms.DialogResult.No) return;
             else
             {
@@ -73,7 +73,7 @@ namespace InfoPos.Parameter
                     }
                     else
                     {
-                        MessageBox.Show(MSG.Messages(_core.Lang, 10003));
+                        MessageBox.Show("Амжилттай устгагдлаа.");
                         btn = 1;
                     }
                 }
@@ -107,14 +107,14 @@ namespace InfoPos.Parameter
                     {
                         object[] NewValue = { Static.ToInt(numTypeCode.EditValue), Static.ToStr(txtPosition.EditValue), Static.ToInt(numOrderNo.EditValue) };
                         r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140244, 140244, new object[] { NewValue, OldValue, FieldName });
-                        MessageBox.Show(MSG.Messages(_core.Lang, 10001));
+                        MessageBox.Show("Амжилттай хадгаллаа.");
                     }
 
                     else
                     {
                         object[] NewValue = { Static.ToInt(numTypeCode.EditValue), Static.ToStr(txtPosition.EditValue), Static.ToInt(numOrderNo.EditValue) };
                         r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140243, 140243, new object[] {NewValue,FieldName});
-                        MessageBox.Show(MSG.Messages(_core.Lang, 10000));
+                        MessageBox.Show("Амжилттай хадгаллаа.");
                     }
                     if (r.ResultNo != 0)
                     {

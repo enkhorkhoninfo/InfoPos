@@ -31,7 +31,7 @@ namespace InfoPos.Admin
         }
         private void frmOption_Load(object sender, EventArgs e)
         {
-            this.Icon = _core.icon;
+            //this.Icon = _core.RemoteObject..icon;
             string mstrRegPath = ISM.CUser.Remote.mstrRegPath;
             string DefaultPathIn = _core.ApplicationPath;
             string DefaultPathOut = _core.ApplicationPath;

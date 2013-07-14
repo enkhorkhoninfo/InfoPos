@@ -65,7 +65,7 @@ namespace InfoPos.Parameter
         #region [ Events ]
         void CRMIssueTrack_EventDelete()
         {
-            DialogResult DR = MessageBox.Show(MSG.Messages(_core.Lang, 10007), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult DR = MessageBox.Show("Устгахдаа итгэлтэй байна уу", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DR == System.Windows.Forms.DialogResult.No) return;
             else
             {
@@ -80,7 +80,7 @@ namespace InfoPos.Parameter
                         }
                         else
                         {
-                            MessageBox.Show(MSG.Messages(_core.Lang, 10003));
+                            MessageBox.Show("Амжилттай устгагдлаа.");
                             btn = 1;
                         }
                     }
@@ -124,7 +124,7 @@ namespace InfoPos.Parameter
                             r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, EditTxn, EditTxn, new object[] { NewValue, OldValue, FieldName });
                             if (r.ResultNo == 0)
                             {
-                                MessageBox.Show(MSG.Messages(_core.Lang, 10001));
+                                MessageBox.Show("Амжилттай хадгаллаа.");
                             }
                             else
                             {
@@ -144,7 +144,7 @@ namespace InfoPos.Parameter
                             r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, AddTxn, AddTxn, new object[] { NewValue, FieldName });
                             if (r.ResultNo == 0)
                             {
-                                MessageBox.Show(MSG.Messages(_core.Lang, 10000));
+                                MessageBox.Show("Амжилттай хадгаллаа.");
                             }
                             else
                             {

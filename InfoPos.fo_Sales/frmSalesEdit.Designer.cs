@@ -36,6 +36,8 @@
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.numExtendAmount = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.numVat = new DevExpress.XtraEditors.CalcEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -55,8 +57,6 @@
             this.btnTab1Cust = new DevExpress.XtraEditors.SimpleButton();
             this.btnTab1Contract = new DevExpress.XtraEditors.SimpleButton();
             this.btnTab1Order = new DevExpress.XtraEditors.SimpleButton();
-            this.numExtendAmount = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -67,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtendAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPaid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRemain.Properties)).BeginInit();
@@ -78,7 +79,6 @@
             this.tabMainPage2.SuspendLayout();
             this.tabMainPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numExtendAmount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -97,7 +97,7 @@
             this.splitContainerControl1.Panel2.ShowCaption = true;
             this.splitContainerControl1.Panel2.Text = "Төлбөрийн гүйлгээ";
             this.splitContainerControl1.ShowCaption = true;
-            this.splitContainerControl1.Size = new System.Drawing.Size(945, 375);
+            this.splitContainerControl1.Size = new System.Drawing.Size(946, 377);
             this.splitContainerControl1.SplitterPosition = 481;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -135,7 +135,6 @@
             this.gridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
-            //this.gridView1.OptionsView.ShowPreviewRowLines = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.RowHeight = 28;
             this.gridView1.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowOnlyInEditor;
             // 
@@ -157,9 +156,9 @@
             // 
             // gridControl2
             // 
-            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl2.DataMember = "_cart";
             this.gridControl2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridControl2.Location = new System.Drawing.Point(16, 12);
@@ -191,8 +190,6 @@
             this.gridView2.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowIndicator = false;
-            //tuugii
-            //this.gridView2.OptionsView.ShowPreviewRowLines = DevExpress.Utils.DefaultBoolean.False;
             this.gridView2.RowHeight = 28;
             this.gridView2.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowOnlyInEditor;
             // 
@@ -227,10 +224,49 @@
             this.panelControl1.Controls.Add(this.numSales);
             this.panelControl1.Controls.Add(this.labelControl2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 375);
+            this.panelControl1.Location = new System.Drawing.Point(0, 377);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(945, 68);
+            this.panelControl1.Size = new System.Drawing.Size(946, 68);
             this.panelControl1.TabIndex = 0;
+            // 
+            // numExtendAmount
+            // 
+            this.numExtendAmount.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numExtendAmount.Location = new System.Drawing.Point(822, 5);
+            this.numExtendAmount.Name = "numExtendAmount";
+            this.numExtendAmount.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.numExtendAmount.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+            this.numExtendAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numExtendAmount.Properties.Appearance.Options.UseBackColor = true;
+            this.numExtendAmount.Properties.Appearance.Options.UseBorderColor = true;
+            this.numExtendAmount.Properties.Appearance.Options.UseFont = true;
+            this.numExtendAmount.Properties.AutoHeight = false;
+            this.numExtendAmount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.numExtendAmount.Properties.DisplayFormat.FormatString = "#,###,##0.00";
+            this.numExtendAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.numExtendAmount.Properties.EditFormat.FormatString = "#,###,##0.00";
+            this.numExtendAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.numExtendAmount.Properties.ReadOnly = true;
+            this.numExtendAmount.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.numExtendAmount.Size = new System.Drawing.Size(141, 29);
+            this.numExtendAmount.TabIndex = 13;
+            this.numExtendAmount.TabStop = false;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.BorderColor = System.Drawing.Color.Gray;
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl4.Location = new System.Drawing.Point(731, 5);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(92, 29);
+            this.labelControl4.TabIndex = 12;
+            this.labelControl4.Text = " Сунгалт:";
             // 
             // numVat
             // 
@@ -480,7 +516,7 @@
             this.tabMainPage2.Controls.Add(this.splitContainerControl1);
             this.tabMainPage2.Controls.Add(this.panelControl1);
             this.tabMainPage2.Name = "tabMainPage2";
-            this.tabMainPage2.Size = new System.Drawing.Size(945, 443);
+            this.tabMainPage2.Size = new System.Drawing.Size(946, 445);
             this.tabMainPage2.Text = "Борлуулалт";
             // 
             // tabMainPage1
@@ -488,13 +524,13 @@
             this.tabMainPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabMainPage1.Name = "tabMainPage1";
             this.tabMainPage1.PageVisible = false;
-            this.tabMainPage1.Size = new System.Drawing.Size(945, 443);
+            this.tabMainPage1.Size = new System.Drawing.Size(946, 445);
             this.tabMainPage1.Text = "Үйлчилгээний төрөл";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.21942F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.56116F));
@@ -550,45 +586,6 @@
             this.btnTab1Order.TabIndex = 8;
             this.btnTab1Order.Text = "Захиалга";
             // 
-            // numExtendAmount
-            // 
-            this.numExtendAmount.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.numExtendAmount.Location = new System.Drawing.Point(822, 5);
-            this.numExtendAmount.Name = "numExtendAmount";
-            this.numExtendAmount.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.numExtendAmount.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-            this.numExtendAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numExtendAmount.Properties.Appearance.Options.UseBackColor = true;
-            this.numExtendAmount.Properties.Appearance.Options.UseBorderColor = true;
-            this.numExtendAmount.Properties.Appearance.Options.UseFont = true;
-            this.numExtendAmount.Properties.AutoHeight = false;
-            this.numExtendAmount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.numExtendAmount.Properties.DisplayFormat.FormatString = "#,###,##0.00";
-            this.numExtendAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.numExtendAmount.Properties.EditFormat.FormatString = "#,###,##0.00";
-            this.numExtendAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.numExtendAmount.Properties.ReadOnly = true;
-            this.numExtendAmount.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.numExtendAmount.Size = new System.Drawing.Size(141, 29);
-            this.numExtendAmount.TabIndex = 13;
-            this.numExtendAmount.TabStop = false;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.BorderColor = System.Drawing.Color.Gray;
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl4.Location = new System.Drawing.Point(731, 5);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(92, 29);
-            this.labelControl4.TabIndex = 12;
-            this.labelControl4.Text = " Сунгалт:";
-            // 
             // frmSalesEdit
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -607,6 +604,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numExtendAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPaid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRemain.Properties)).EndInit();
@@ -618,7 +616,6 @@
             this.tabMainPage2.ResumeLayout(false);
             this.tabMainPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numExtendAmount.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

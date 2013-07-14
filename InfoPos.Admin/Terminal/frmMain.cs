@@ -131,17 +131,19 @@ namespace InfoPos.Admin
             MainForm._splash.SetStatus("Building parameter...");
             System.Windows.Forms.Application.DoEvents();
 
-            _core.InitALL();
+            //_core.RemoteObject.InitALL();
+            _core.InitAll();
             #endregion
             #region [ Set status ]
             MainForm._splash.SetStatus("Building status ...");
             System.Windows.Forms.Application.DoEvents();
 
-            Stream stream = _core.Resource.GetStream("hpro_icon");
-            _core.icon = new System.Drawing.Icon(stream);
+            //Stream stream = _core.Resource.GetStream("hpro_icon");
+            
+            //_core.icon = new System.Drawing.Icon(stream);
 
             this.Text = "InfoPos";
-            this.Icon = _core.icon;
+            //this.Icon = _core.icon;
 
             #endregion
             #region [ Set Menu Settings ]
@@ -200,12 +202,12 @@ namespace InfoPos.Admin
             {
                 InfoPos.Admin.MainForm._splash.Close();
                 InfoPos.Admin.MainForm._splash.Dispose();
-                if (_core.MessageFileCheck == false)
-                {
-                    MessageBox.Show("Message файл олдсонгүй .");
-                    this.Close();
-                }
-                else
+                //if (_core.MessageFileCheck == false)
+                //{
+                //    MessageBox.Show("Message файл олдсонгүй .");
+                //    this.Close();
+                //}
+                //else
                 {
                     this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
                 }

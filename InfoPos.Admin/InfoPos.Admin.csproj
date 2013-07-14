@@ -85,6 +85,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Build\InfoPosAdmin\EServ.Client.dll</HintPath>
     </Reference>
+    <Reference Include="EServ.Interface">
+      <HintPath>..\..\Build\InfoPosAdmin\EServ.Interface.dll</HintPath>
+    </Reference>
     <Reference Include="EServ.Shared, Version=1.0.4346.38513, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Build\InfoPosAdmin\EServ.Shared.dll</HintPath>
@@ -337,6 +340,7 @@
     <EmbeddedResource Include="DashBoard\frmReInsuraceSet.resx">
       <DependentUpon>frmReInsuraceSet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Terminal\frmParameterUpdate.resx">
       <DependentUpon>frmParameterUpdate.cs</DependentUpon>
     </EmbeddedResource>
