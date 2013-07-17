@@ -53,7 +53,8 @@ namespace InfoPos.Parameter
                 this.FieldLinkAdd("numClassCode", "classcode", "", true, false);
                 this.FieldLinkAdd("txtName", "name", "", true, false);
                 this.FieldLinkAdd("txtName2", "name2", "", false, false);
-                this.FieldLinkAdd("txtRecvAcntNo", "recvacntno", "", true, false);
+                this.FieldLinkAdd("txtAccountNo", "AccountNo", "", false, false);
+                this.FieldLinkAdd("txtIncomeAccountNo", "IncomeAccountNo", "", false, false);
                 this.FieldLinkAdd("numOrderNo", "orderno", "", true, false);
             }
             catch(Exception ex)
@@ -78,7 +79,7 @@ namespace InfoPos.Parameter
             Result r;
             try
             {
-                object[] NewValue = { numTypeCode.EditValue, numClassCode.EditValue, txtName.EditValue, txtName2.EditValue, numOrderNo.EditValue, txtRecvAcntNo.EditValue };
+                object[] NewValue = { numTypeCode.EditValue, numClassCode.EditValue, txtName.EditValue, txtName2.EditValue, numOrderNo.EditValue, txtAccountNo.EditValue, txtIncomeAccountNo.EditValue };
                 if (!isnew)
                 {
                     r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 2021, EditTxnCode, EditTxnCode, new object[] { NewValue, OldValue, FieldName });
@@ -130,7 +131,7 @@ namespace InfoPos.Parameter
         }
         void FormAccountCode_EventEdit(ref bool cancel)
         {
-            object[] Value = { numTypeCode.EditValue,numClassCode.EditValue ,txtName.EditValue, txtName2.EditValue, numOrderNo.EditValue, txtRecvAcntNo.EditValue };
+            object[] Value = { numTypeCode.EditValue, numClassCode.EditValue, txtName.EditValue, txtName2.EditValue, numOrderNo.EditValue, txtAccountNo.EditValue, txtIncomeAccountNo.EditValue };
             OldValue = Value;
         }     
         void FormAccountCode_EventRefreshAfter()
@@ -142,6 +143,7 @@ namespace InfoPos.Parameter
             this.FieldLinkSetColumnCaption(3, "Төрлийн 2-р нэр", true);
             this.FieldLinkSetColumnCaption(4, "Авлагын данс", true);
             this.FieldLinkSetColumnCaption(5, "Жагсаалтын эрэмбэ");
+            this.FieldLinkSetColumnCaption(6, "Орлогын данс", true);
             switch (btn)
             {
                 case 0: gridView1.FocusedRowHandle = rowhandle; break;

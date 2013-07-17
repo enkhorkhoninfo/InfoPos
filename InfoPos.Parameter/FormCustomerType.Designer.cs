@@ -38,8 +38,10 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.numOrderNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.txtRecvAcntNo = new DevExpress.XtraEditors.TextEdit();
+            this.txtAccountNo = new DevExpress.XtraEditors.TextEdit();
             this.numClassCode = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.txtIncomeAccountNo = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -51,14 +53,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrderNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRecvAcntNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAccountNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numClassCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIncomeAccountNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControl7);
+            this.groupControl1.Controls.Add(this.txtIncomeAccountNo);
             this.groupControl1.Controls.Add(this.labelControl6);
-            this.groupControl1.Controls.Add(this.txtRecvAcntNo);
+            this.groupControl1.Controls.Add(this.txtAccountNo);
             this.groupControl1.Controls.Add(this.numOrderNo);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl5);
@@ -69,45 +74,45 @@
             this.groupControl1.Controls.Add(this.txtName2);
             this.groupControl1.Controls.Add(this.numTypeCode);
             this.groupControl1.Controls.Add(this.numClassCode);
-            this.groupControl1.Size = new System.Drawing.Size(499, 222);
+            this.groupControl1.Size = new System.Drawing.Size(499, 294);
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(12, 244);
+            this.btnRefresh.Location = new System.Drawing.Point(12, 316);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(117, 244);
+            this.btnAdd.Location = new System.Drawing.Point(117, 316);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(222, 244);
+            this.btnEdit.Location = new System.Drawing.Point(222, 316);
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(327, 244);
+            this.btnRemove.Location = new System.Drawing.Point(327, 316);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(432, 244);
+            this.btnExit.Location = new System.Drawing.Point(432, 316);
             // 
             // panelControl1
             // 
-            this.panelControl1.Size = new System.Drawing.Size(764, 226);
+            this.panelControl1.Size = new System.Drawing.Size(760, 298);
             // 
             // splitterControl1
             // 
-            this.splitterControl1.Location = new System.Drawing.Point(255, 0);
-            this.splitterControl1.Size = new System.Drawing.Size(6, 226);
+            this.splitterControl1.Location = new System.Drawing.Point(252, 0);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 298);
             // 
             // panelControl2
             // 
-            this.panelControl2.Size = new System.Drawing.Size(255, 226);
+            this.panelControl2.Size = new System.Drawing.Size(252, 298);
             // 
             // panelControl3
             // 
-            this.panelControl3.Location = new System.Drawing.Point(261, 0);
-            this.panelControl3.Size = new System.Drawing.Size(503, 226);
+            this.panelControl3.Location = new System.Drawing.Point(257, 0);
+            this.panelControl3.Size = new System.Drawing.Size(503, 298);
             // 
             // numTypeCode
             // 
@@ -167,7 +172,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(30, 168);
+            this.labelControl5.Location = new System.Drawing.Point(30, 194);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(107, 13);
             this.labelControl5.TabIndex = 9;
@@ -183,30 +188,30 @@
             // 
             // numOrderNo
             // 
-            this.numOrderNo.Location = new System.Drawing.Point(189, 165);
+            this.numOrderNo.Location = new System.Drawing.Point(189, 191);
             this.numOrderNo.Name = "numOrderNo";
             this.numOrderNo.Properties.Mask.EditMask = "\\d{0,4}";
             this.numOrderNo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.numOrderNo.Size = new System.Drawing.Size(268, 20);
-            this.numOrderNo.TabIndex = 5;
+            this.numOrderNo.TabIndex = 7;
             this.numOrderNo.ToolTipTitle = "Жагсаалтын эрэмбэ оруулна уу";
             // 
             // labelControl6
             // 
             this.labelControl6.Location = new System.Drawing.Point(30, 142);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(109, 13);
+            this.labelControl6.Size = new System.Drawing.Size(123, 13);
             this.labelControl6.TabIndex = 12;
-            this.labelControl6.Text = "Авлага данс дугаар :";
+            this.labelControl6.Text = "Авлага дансны дугаар :";
             // 
-            // txtRecvAcntNo
+            // txtAccountNo
             // 
-            this.txtRecvAcntNo.Location = new System.Drawing.Point(189, 139);
-            this.txtRecvAcntNo.Name = "txtRecvAcntNo";
-            this.txtRecvAcntNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRecvAcntNo.Properties.MaxLength = 16;
-            this.txtRecvAcntNo.Size = new System.Drawing.Size(268, 20);
-            this.txtRecvAcntNo.TabIndex = 11;
+            this.txtAccountNo.Location = new System.Drawing.Point(189, 139);
+            this.txtAccountNo.Name = "txtAccountNo";
+            this.txtAccountNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtAccountNo.Properties.MaxLength = 16;
+            this.txtAccountNo.Size = new System.Drawing.Size(268, 20);
+            this.txtAccountNo.TabIndex = 5;
             // 
             // numClassCode
             // 
@@ -219,11 +224,28 @@
             this.numClassCode.TabIndex = 2;
             this.numClassCode.ToolTipTitle = "Класс код оруулна уу";
             // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(30, 168);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(132, 13);
+            this.labelControl7.TabIndex = 14;
+            this.labelControl7.Text = "Орлогын дансны дугаар :";
+            // 
+            // txtIncomeAccountNo
+            // 
+            this.txtIncomeAccountNo.Location = new System.Drawing.Point(189, 165);
+            this.txtIncomeAccountNo.Name = "txtIncomeAccountNo";
+            this.txtIncomeAccountNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIncomeAccountNo.Properties.MaxLength = 16;
+            this.txtIncomeAccountNo.Size = new System.Drawing.Size(268, 20);
+            this.txtIncomeAccountNo.TabIndex = 6;
+            // 
             // FormCustomerType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 277);
+            this.ClientSize = new System.Drawing.Size(784, 349);
             this.KeyPreview = true;
             this.Name = "FormCustomerType";
             this.Text = "Харилцагчийн ангилал";
@@ -242,8 +264,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrderNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRecvAcntNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAccountNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numClassCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIncomeAccountNo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,7 +283,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit numOrderNo;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.TextEdit txtRecvAcntNo;
+        private DevExpress.XtraEditors.TextEdit txtAccountNo;
         private DevExpress.XtraEditors.LookUpEdit numClassCode;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.TextEdit txtIncomeAccountNo;
     }
 }

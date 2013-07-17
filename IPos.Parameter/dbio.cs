@@ -1858,7 +1858,7 @@ WHERE POSNo=:1 and PayTypeId=:2";
             try
             {
                 string sql =
-@"SELECT TYPECODE, CLASSCODE, NAME, NAME2, RECVAcntNo, ORDERNO
+@"SELECT TYPECODE, CLASSCODE, NAME, NAME2, Accountno, ORDERNO, IncomeAccountno
 FROM CUSTOMERTYPE 
 ORDER BY ORDERNO";
 
@@ -1882,7 +1882,7 @@ ORDER BY ORDERNO";
             try
             {
                 string sql =
-@"SELECT TYPECODE, CLASSCODE, NAME, NAME2, RECVAcntNo, ORDERNO
+@"SELECT TYPECODE, CLASSCODE, NAME, NAME2, Accountno, ORDERNO, IncomeAccountno
 FROM CUSTOMERTYPE 
 WHERE TYPECODE = :1";
 
@@ -1906,8 +1906,8 @@ WHERE TYPECODE = :1";
             try
             {
                 string sql =
-@"INSERT INTO CUSTOMERTYPE(TYPECODE, CLASSCODE, NAME, NAME2, ORDERNO, RECVACNTNO)
-VALUES(:1, :2, :3, :4, :5, :6)";
+@"INSERT INTO CUSTOMERTYPE(TYPECODE, CLASSCODE, NAME, NAME2, ORDERNO, Accountno, IncomeAccountno)
+VALUES(:1, :2, :3, :4, :5, :6, :7)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202038", pParam);
                 res = F_Error(res);
@@ -1930,7 +1930,7 @@ VALUES(:1, :2, :3, :4, :5, :6)";
             {
                 string sql =
 @"UPDATE CUSTOMERTYPE SET
-CLASSCODE=:2, NAME=:3, NAME2=:4, ORDERNO=:5, RECVACNTNO=:6
+CLASSCODE=:2, NAME=:3, NAME2=:4, ORDERNO=:5, Accountno=:6, IncomeAccountno=:7
 WHERE TYPECODE=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202039", pParam);

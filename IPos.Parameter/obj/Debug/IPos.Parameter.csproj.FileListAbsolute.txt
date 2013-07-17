@@ -115,3 +115,5 @@ D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.Parameter.pdb
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Parameter\obj\Debug\ResolveAssemblyReference.cache
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Parameter\obj\Debug\IPos.Parameter.dll
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Parameter\obj\Debug\IPos.Parameter.pdb
+D:\Infosoft\InfoPosNew\Build\server\IPos.Parameter.dll
+D:\Infosoft\InfoPosNew\Build\server\IPos.Parameter.pdb

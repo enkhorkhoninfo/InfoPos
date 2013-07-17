@@ -180,7 +180,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Build\InfoPosAdmin\ISM.Report.dll</HintPath>
     </Reference>
-    <Reference Include="ISM.Template">
+    <Reference Include="ISM.Template, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Build\InfoPosAdmin\ISM.Template.dll</HintPath>
     </Reference>
     <Reference Include="ISM.Touch">

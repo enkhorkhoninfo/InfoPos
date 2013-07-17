@@ -387,6 +387,10 @@ namespace InfoPos.Customer
                     ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
                     ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
                     ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false,true);
+
+                    ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
+                    ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
+
                     #endregion
                 }
                 else
@@ -725,7 +729,7 @@ namespace InfoPos.Customer
         }
         void ucCustGeneral_EventEdit(ref bool cancel)
         {
-            object[] Value = new object[47];
+            object[] Value = new object[49];
             _customerno = Static.ToLong(txtCustomerNo.EditValue);
             if (EditValueClassCode == 0)
             {
@@ -777,6 +781,8 @@ namespace InfoPos.Customer
                 Value[44] = Static.ToDecimal(numFootSize.EditValue);    //FootSize
                 Value[45] = Static.ToInt(cboMemberType.EditValue);     //MemberType
                 Value[46] = Static.ToStr(numMemberContractNo.EditValue);    //MemberContractNo
+                Value[47] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                Value[48] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                 #endregion
             }
             else
@@ -889,7 +895,7 @@ namespace InfoPos.Customer
         void SaveCustomerData(bool isnew, ref bool cancel)
         {
             Result res = new Result();
-            object[] obj = new object[47];
+            object[] obj = new object[49];
             string msg = "";
             try
             {
@@ -944,6 +950,8 @@ namespace InfoPos.Customer
                     obj[44] = Static.ToDecimal(numFootSize.EditValue);    //Foot
                     obj[45] = Static.ToInt(cboMemberType.EditValue);     //MemberType
                     obj[46] = Static.ToStr(numMemberContractNo.EditValue);    //MemberContractNo
+                    obj[47] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                    obj[48] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                     #endregion
                 }
                 else
@@ -1003,7 +1011,8 @@ namespace InfoPos.Customer
                                          "Sex","BirthDay","Company","Position","Experience","DirFirstName","DirLastName",
                                          "DirMiddleName","DirRegisterNo","DirPassNo","DirSex","DirBirthDay","Email","Telephone",
                                          "Mobile","HomePhone","Fax","WebSite","SpecialApproval","RateCode","CountryCode","LanguageCode",
-                                         "isOtherInsurance","isHInsurance","isSInsurance","Branch","Status","DriverNo","CreateTime","CreateUser","OldId","Height","Foot","MemberType","MemberContractNo"};
+                                         "isOtherInsurance","isHInsurance","isSInsurance","Branch","Status","DriverNo","CreateTime","CreateUser","OldId","Height","Foot","MemberType","MemberContractNo",
+                                     "AccountNo", "IncomeAccountNo"};
                 if (isnew)
                 {
                     res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 205, TxnCodeT1Save, TxnCodeT1Save, new object[] { obj, FieldName, 0 });
@@ -2745,6 +2754,8 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
             ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
             ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false, true);
+            ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
+            ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
         }
         void IndividualTrue()
         {
@@ -2876,6 +2887,8 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
             ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
             ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false, true);
+            ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
+            ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
         }
         void Corporate()
         {
@@ -3011,6 +3024,8 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
             ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
             ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false, true);
+            ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
+            ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
         }
         void CorporateTrue()
         {
@@ -3154,6 +3169,8 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
             ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
             ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false, true);
+            ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
+            ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
         }
         void LoadFunction()
         {

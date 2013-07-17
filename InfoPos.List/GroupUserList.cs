@@ -49,12 +49,12 @@ namespace InfoPos.List
         {
           
             ucGroupUserList.FieldLinkSetColumnCaption(0, "Гүйлгээний эрхийн бүлгийн код");
-            ucGroupUserList.FieldLinkSetColumnCaption(1, "Гүйлгээний нэр");
+            ucGroupUserList.FieldLinkSetColumnCaption(1, "Бүлгийн нэр");
             //ucGroupUserList.gridView1.Columns[1].Width = 180;
-            ucGroupUserList.FieldLinkSetColumnCaption(2, "Гүйлгээний нэр 2");
+            ucGroupUserList.FieldLinkSetColumnCaption(2, "Бүлгийн нэр 2");
             //ucGroupUserList.gridView1.Columns[2].Width = 100;
-            ucGroupUserList.FieldLinkSetColumnCaption(3, "Зөвхөн өөрийн салбар");
-            ucGroupUserList.FieldLinkSetColumnCaption(4, "Зэрэглэлийн түвшин");
+            ucGroupUserList.FieldLinkSetColumnCaption(3, "Эрэмбэ");
+            ucGroupUserList.FieldLinkSetColumnCaption(4, "Зэрэглэл");
             //ucGroupUserList.gridView1.Columns[3].Width = 100;
             FormUtility.RestoreStateGrid(appname, formname, ref ucGroupUserList.gridView1);
             FormUtility.RestoreStateVGrid(appname, formname, ref ucGroupUserList.ucParameterPanel1.vGridControl1, ref ucGroupUserList.groupControl1);

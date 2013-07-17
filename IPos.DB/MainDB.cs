@@ -11847,7 +11847,7 @@ From V_Customerlist
 RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, DirFirstName, DirLastName, DirMiddleName, DirRegisterNo, DirPassNo,
 DirSex, DirBirthDay, Email, Telephone, Mobile, HomePhone, Fax, WebSite, SpecialApproval, RateCode, CountryCode, LanguageCode,
 isOtherInsurance, isHInsurance, isSInsurance, BranchNo, Status, decode(Status, 0, 'Идэвхгүй', 'Идэвхтэй') as StatusName, DriverNo, createdate, createuser, oldid, Height, Foot,
-MemberType, decode(MemberType, 0, 'Гишүүн бус', 1, 'Гишүүн') as MemberTypeName, MemberContractNo
+MemberType, decode(MemberType, 0, 'Гишүүн бус', 1, 'Гишүүн') as MemberTypeName, MemberContractNo, Accountno, IncomeAccountno
 From Customer
 where CustomerNo=:1";
 
@@ -11908,12 +11908,12 @@ where CustomerNo=:1";
 RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, DirFirstName, DirLastName, DirMiddleName, DirRegisterNo, DirPassNo,
 DirSex, DirBirthDay, Email, Telephone, Mobile, HomePhone, Fax, WebSite, SpecialApproval, RateCode, CountryCode, LanguageCode,
 isOtherInsurance, isHInsurance, isSInsurance, BranchNo, Status, DriverNo, createdate, createuser, oldid, Height, Foot, MemberType,
-MemberContractNo)
+MemberContractNo, Accountno, IncomeAccountno)
 VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 :11, :12, :13, :14, :15, :16, :17, :18, :19, :20, :21, :22,
 :23, :24, :25, :26, :27, :28, :29, :30, :31, :32, :33, :34,
 :35, :36, :37, :38, :39, :40, :41, :42, :43, :44, :45, :46,
-:47)";
+:47, :48, :49)";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB205003", pParam);
 
 
@@ -11950,7 +11950,8 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 ClassCode=:2, TypeCode=:3, InduTypeCode=:4, InduSubTypeCode=:5, FirstName=:6, LastName=:7, MiddleName=:8, CorporateName=:9, CorporateName2=:10,
 RegisterNo=:11, PassNo=:12, Sex=:13, BirthDay=:14, Company=:15, Position=:16, Experience=:17, DirFirstName=:18, DirLastName=:19, DirMiddleName=:20, DirRegisterNo=:21, DirPassNo=:22,
 DirSex=:23, DirBirthDay=:24, Email=:25, Telephone=:26, Mobile=:27, HomePhone=:28, Fax=:29, WebSite=:30, SpecialApproval=:31, RateCode=:32, CountryCode=:33, LanguageCode=:34,
-isOtherInsurance=:35, isHInsurance=:36, isSInsurance=:37, BranchNo=:38, Status=:39, DriverNo=:40, createdate=:41, createuser=:42, oldid=:43, Height=:44, Foot=:45, MemberType=:46, MemberContractNo=:47
+isOtherInsurance=:35, isHInsurance=:36, isSInsurance=:37, BranchNo=:38, Status=:39, DriverNo=:40, createdate=:41, createuser=:42, oldid=:43, Height=:44, Foot=:45, MemberType=:46, 
+MemberContractNo=:47, Accountno=:48, IncomeAccountno=:49
 WHERE CustomerNo=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB205004", pParam);
