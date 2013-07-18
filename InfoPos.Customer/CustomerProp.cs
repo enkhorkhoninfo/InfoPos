@@ -22,7 +22,7 @@ namespace InfoPos.Customer
         long _customerid;
         long _customerno;
         bool loadAddress = true, loadPicture = true, loadFamily = true, loadDirector = true, 
-        loadUV = true, loadIT = true, loadContact = true, loadAccount = true, loadAcnt = true;
+        loadUV = true, loadIT = true, loadContact = true, loadAccount = true, loadAcnt = false;
         int TablePrivSelect = 120006;
         int TablePrivFileSelect = 120048;
         int TablePrivUpdate = 120009;
@@ -379,14 +379,14 @@ namespace InfoPos.Customer
                     ucCustGeneral.FieldLinkAdd("txtPosition", 0, "Position", "", false, false);
                     ucCustGeneral.FieldLinkAdd("mmoExperience", 0, "Experience", "", false, false);
                     ucCustGeneral.FieldLinkAdd("txtDriverNo", 0, "DriverNo", "", false, false);
-                    ucCustGeneral.FieldLinkAdd("cboRateCode", 0, "RateCode", "", false, false);
+                    ucCustGeneral.FieldLinkAdd("cboLevelNo", 0, "LevelNo", "", false, false);
                     ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
                     ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
                     ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
                     ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
                     ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
                     ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
-                    ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false,true);
+                    ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
 
                     ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
                     ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
@@ -561,17 +561,22 @@ namespace InfoPos.Customer
                 FormUtility.LookUpEdit_SetList(ref cboClassCode, 0, "ИРГЭН");
                 FormUtility.LookUpEdit_SetList(ref cboClassCode, 1, "БАЙГУУЛЛАГА");
 
-                FormUtility.LookUpEdit_SetList(ref cboMemberType, 0, "Гишүүн бус");
-                FormUtility.LookUpEdit_SetList(ref cboMemberType, 1, "Гишүүн");
+                //FormUtility.LookUpEdit_SetList(ref cboMemberType, 0, "Гишүүн бус");
+                //FormUtility.LookUpEdit_SetList(ref cboMemberType, 1, "Гишүүн");
 
                 FormUtility.LookUpEdit_SetList(ref cboSex, 0, "Эр");
                 FormUtility.LookUpEdit_SetList(ref cboSex, 1, "Эм");
 
-                FormUtility.LookUpEdit_SetList(ref cboStatus, 0, "Гэрээ хийгээгүй");
-                FormUtility.LookUpEdit_SetList(ref cboStatus, 1, "Гэрээ хийсэн");
+                FormUtility.LookUpEdit_SetList(ref cboStatus, 0, "Идэвхгүй");
+                FormUtility.LookUpEdit_SetList(ref cboStatus, 1, "Идэвхтэй");
 
-                SetCombo("RATECODE", "NAME", cboRateCode, DS.Tables["CUSTRATE"], null);
-                SetCombo("TYPECODE", "NAME", cboTypeCode, DS.Tables["CUSTOMERTYPECODE"], new int[] { 1 });
+                for (int i = 0; i < 10; i++)
+                {
+                    FormUtility.LookUpEdit_SetList(ref cboLevelNo, i, i + " - зэрэглэл");
+                }
+
+                    //SetCombo("RATECODE", "NAME", cboLevelNo, DS.Tables["CUSTRATE"], null);
+                    SetCombo("TYPECODE", "NAME", cboTypeCode, DS.Tables["CUSTOMERTYPECODE"], new int[] { 1 });
                 #endregion
                 #region[ Хаяг ]
                 SetCombo("SUBDISTCODE", "NAME", cboSubDist, DS.Tables["CUSTSUBDISTRICT"], new int[] { 1, 2 });
@@ -605,11 +610,6 @@ namespace InfoPos.Customer
                 SetCombo("BANKID", "NAME", cboTab8BankNo, DS.Tables["BANK"], null);
                 SetCombo("CURRENCY", "NAME", cboTab8CurCode, DS.Tables["CURRENCY"], null);
                 #endregion
-                #region[ Захирал ]
-                FormUtility.LookUpEdit_SetList(ref cboDirSex, 0, "Эр");
-                FormUtility.LookUpEdit_SetList(ref cboDirSex, 1, "Эм");
-                #endregion
-
             }
         }
         private void xtraTabCustomer_Deselecting(object sender, DevExpress.XtraTab.TabPageCancelEventArgs e)
@@ -729,7 +729,7 @@ namespace InfoPos.Customer
         }
         void ucCustGeneral_EventEdit(ref bool cancel)
         {
-            object[] Value = new object[49];
+            object[] Value = new object[38];
             _customerno = Static.ToLong(txtCustomerNo.EditValue);
             if (EditValueClassCode == 0)
             {
@@ -751,38 +751,27 @@ namespace InfoPos.Customer
                 Value[14] = txtCompany.EditValue;                  //Company
                 Value[15] = txtPosition.EditValue;                 //Position
                 Value[16] = mmoExperience.EditValue;               //Experience
-                Value[17] = "";                               //DirFirstName
-                Value[18] = "";                               //DirLastName
-                Value[19] = "";                               //DirMiddleName
-                Value[20] = txtDirRegisterNo.EditValue;                               //DirRegisterNo
-                Value[21] = "";                               //DirPassNo
-                Value[22] = "";                               //DirSex
-                Value[23] = "";                               //DirBirthDay
-                Value[24] = txtEmail.EditValue;                    //Email
-                Value[25] = txtTelephone.EditValue;                //Telephone
-                Value[26] = txtMobile.EditValue;                   //Mobile
-                Value[27] = txtHomePhone.EditValue;                //HomePhone
-                Value[28] = txtFax.EditValue;                      //Fax
-                Value[29] = "";                               //WebSite
-                Value[30] = "";                               //SpecialApproval
-                Value[31] = cboRateCode.EditValue;            //RateCode
-                Value[32] = 0;                                //CountryCode
-                Value[33] = 0;                                //LanguageCode
-                Value[34] = 0;                                //isOtherInsurance
-                Value[35] = 0;                                //isHInsurance
-                Value[36] = 0;                                //isSInsurance
-                Value[37] = cboBranch.EditValue;              //Branch                
-                Value[38] = cboStatus.EditValue;              //Status
-                Value[39] = Static.ToStr(txtDriverNo.EditValue);            //DriverNo
-                Value[40] = Convert.ToDateTime(_core.TxnDate);     //CreateTime
-                Value[41] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
-                Value[42] = Static.ToStr(txtOldID.EditValue);    //OldID
-                Value[43] = Static.ToInt(numHeight.EditValue);     //Height
-                Value[44] = Static.ToDecimal(numFootSize.EditValue);    //FootSize
-                Value[45] = Static.ToInt(cboMemberType.EditValue);     //MemberType
-                Value[46] = Static.ToStr(numMemberContractNo.EditValue);    //MemberContractNo
-                Value[47] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
-                Value[48] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
+                Value[17] = txtEmail.EditValue;                    //Email
+                Value[18] = txtTelephone.EditValue;                //Telephone
+                Value[19] = txtMobile.EditValue;                   //Mobile
+                Value[20] = txtHomePhone.EditValue;                //HomePhone
+                Value[21] = txtFax.EditValue;                      //Fax
+                Value[22] = "";                               //WebSite
+                Value[23] = "";                               //SpecialApproval
+                Value[24] = cboLevelNo.EditValue;            //levelno
+                Value[25] = 0;                                //CountryCode
+                Value[26] = 0;                                //LanguageCode
+                Value[27] = cboBranch.EditValue;              //Branch                
+                Value[28] = cboStatus.EditValue;              //Status
+                Value[29] = Static.ToStr(txtDriverNo.EditValue);            //DriverNo
+                Value[30] = Convert.ToDateTime(_core.TxnDate);     //CreateTime
+                Value[31] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
+                Value[32] = Static.ToStr(txtOldID.EditValue);    //OldID
+                Value[33] = Static.ToInt(numHeight.EditValue);     //Height
+                Value[34] = Static.ToDecimal(numFootSize.EditValue);    //FootSize
+                Value[35] = Static.ToStr(numContractNo.EditValue);    //ContractNo
+                Value[36] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                Value[37] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                 #endregion
             }
             else
@@ -806,36 +795,27 @@ namespace InfoPos.Customer
                 Value[14] = "";                               //Company
                 Value[15] = "";                               //Position
                 Value[16] = mmoExperience.EditValue;               //Experience
-                Value[17] = txtDirFirstName.EditValue;             //DirFirstName
-                Value[18] = txtDirLastName.EditValue;              //DirLastName
-                Value[19] = txtDirMiddleName.EditValue;            //DirMiddleName
-                Value[20] = txtDirRegisterNo.EditValue;            //DirRegisterNo
-                Value[21] = txtDirPassNo.EditValue;                //DirPassNo
-                Value[22] = cboDirSex.EditValue;                   //DirSex
-                Value[23] = Static.ToDate(dteDirBirthDay.EditValue);              //DirBirthDay
-                Value[24] = txtCorEmail.EditValue;                 //Email
-                Value[25] = txtCorPhone.EditValue;                 //Telephone
-                Value[26] = "";                               //Mobile
-                Value[27] = "";                               //HomePhone
-                Value[28] = txtCorFax.EditValue;                   //Fax
-                Value[29] = txtCorWebSite.EditValue;               //WebSite
-                Value[30] = "";                               //SpecialApproval
-                Value[31] = cboRateCode.EditValue;            //RateCode
-                Value[32] = 0;                                //CountryCode
-                Value[33] = 0;                                //LanguageCode
-                Value[34] = 0;                                //isOtherInsurance
-                Value[35] = 0;                                //isHInsurance
-                Value[36] = 0;                                //isSInsurance
-                Value[37] = cboBranch.EditValue;                   //Branch                
-                Value[38] = cboStatus.EditValue;                   //Status
-                Value[39] = Static.ToStr(txtDriverNo.EditValue);                 //DriverNo
-                Value[40] = Convert.ToDateTime(_core.TxnDate);           //CreateTime
-                Value[41] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
-                Value[42] = Static.ToStr(txtOldID.EditValue);    //OldID
-                Value[43] = 0;                                   //Height
-                Value[44] = 0;                                   //FootSize
-                Value[45] = "";     //MemberType
-                Value[46] = "";  //MemberContractNo
+                Value[17] = txtCorEmail.EditValue;                 //Email
+                Value[18] = txtCorPhone.EditValue;                 //Telephone
+                Value[19] = "";                               //Mobile
+                Value[20] = "";                               //HomePhone
+                Value[21] = txtCorFax.EditValue;                   //Fax
+                Value[22] = txtCorWebSite.EditValue;               //WebSite
+                Value[23] = "";                               //SpecialApproval
+                Value[24] = cboLevelNo.EditValue;            //levelno
+                Value[25] = 0;                                //CountryCode
+                Value[26] = 0;                                //LanguageCode
+                Value[27] = cboBranch.EditValue;                   //Branch                
+                Value[28] = cboStatus.EditValue;                   //Status
+                Value[29] = Static.ToStr(txtDriverNo.EditValue);                 //DriverNo
+                Value[30] = Convert.ToDateTime(_core.TxnDate);           //CreateTime
+                Value[31] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
+                Value[32] = Static.ToStr(txtOldID.EditValue);    //OldID
+                Value[33] = 0;                                   //Height
+                Value[34] = 0;                                   //FootSize
+                Value[35] = Static.ToStr(numContractNo.EditValue);    //ContractNo
+                Value[36] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                Value[37] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                 #endregion
             }
             OldValue = Value;
@@ -876,7 +856,7 @@ namespace InfoPos.Customer
                         if (_core.RemoteObject.GetTxn(120002))
                         {
                             cboTypeCode.Enabled = true;
-                            cboRateCode.Enabled = true;
+                            cboLevelNo.Enabled = true;
                             ucCustGeneral.DataSource = res.Data;
                             ucCustGeneral.FieldLinkSetValues();
                         }
@@ -895,24 +875,24 @@ namespace InfoPos.Customer
         void SaveCustomerData(bool isnew, ref bool cancel)
         {
             Result res = new Result();
-            object[] obj = new object[49];
+            object[] obj = new object[38];
             string msg = "";
             try
             {
                 _customerno = Static.ToLong(txtCustomerNo.EditValue);
                 if (Static.ToInt(cboClassCode.EditValue) == 0)
                 {
-                    #region[ obj хувь хүн]
-                    obj[0] = _customerno;                            //CustomerNo
-                    obj[1] = Static.ToInt(cboClassCode.EditValue);   //ClassCode
-                    obj[2] = Static.ToInt(cboTypeCode.EditValue);   //TypeCode
+                    #region[ Value хувь хүн]
+                    obj[0] = _customerno;                       //CustomerNo
+                    obj[1] = 0;                                 //ClassCode
+                    obj[2] = Static.ToInt(cboClassCode.EditValue);    //TypeCode
                     obj[3] = Static.ToInt(cboIndustry.EditValue);    //InduTypeCode
                     obj[4] = Static.ToInt(cboSubIndustry.EditValue); //InduSubTypeCode
                     obj[5] = txtFirstName.EditValue;                 //FirstName
                     obj[6] = txtLastName.EditValue;                  //LastName
                     obj[7] = txtMiddleName.EditValue;                //MiddleName
-                    obj[8] = "";                                     //CorporateName
-                    obj[9] = "";                                     //CorporateName2
+                    obj[8] = "";                                //CorporateName
+                    obj[9] = "";                                //CorporateName2
                     obj[10] = txtRegisterNo.EditValue;               //RegisterNo
                     obj[11] = txtPassNo.EditValue;                   //PassNo
                     obj[12] = Static.ToInt(cboSex.EditValue);        //Sex
@@ -920,46 +900,35 @@ namespace InfoPos.Customer
                     obj[14] = txtCompany.EditValue;                  //Company
                     obj[15] = txtPosition.EditValue;                 //Position
                     obj[16] = mmoExperience.EditValue;               //Experience
-                    obj[17] = "";                               //DirFirstName
-                    obj[18] = "";                               //DirLastName
-                    obj[19] = "";                               //DirMiddleName
-                    obj[20] = txtDirRegisterNo.EditValue;        //DirRegisterNo
-                    obj[21] = "";                               //DirPassNo
-                    obj[22] = "";                               //DirSex
-                    obj[23] = "";                               //DirBirthDay
-                    obj[24] = txtEmail.EditValue;                    //Email
-                    obj[25] = txtTelephone.EditValue;                //Telephone
-                    obj[26] = txtMobile.EditValue;                   //Mobile
-                    obj[27] = txtHomePhone.EditValue;                //HomePhone
-                    obj[28] = txtFax.EditValue;                      //Fax
-                    obj[29] = "";                               //WebSite
-                    obj[30] = "";                               //SpecialApproval
-                    obj[31] = cboRateCode.EditValue;            //RateCode
-                    obj[32] = 0;                                //CountryCode
-                    obj[33] = 0;                                //LanguageCode
-                    obj[34] = 0;                                //isOtherInsurance
-                    obj[35] = 0;                                //isHInsurance
-                    obj[36] = 0;                                //isSInsurance
-                    obj[37] = cboBranch.EditValue;              //Branch                
-                    obj[38] = cboStatus.EditValue;              //Status
-                    obj[39] = Static.ToStr(txtDriverNo.EditValue);  //DriverNo
-                    obj[40] = Convert.ToDateTime(_core.TxnDate);      //CreateTime
-                    obj[41] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
-                    obj[42] = Static.ToDecimal(txtOldID.EditValue);    //OldID
-                    obj[43] = Static.ToInt(numHeight.EditValue);     //Height
-                    obj[44] = Static.ToDecimal(numFootSize.EditValue);    //Foot
-                    obj[45] = Static.ToInt(cboMemberType.EditValue);     //MemberType
-                    obj[46] = Static.ToStr(numMemberContractNo.EditValue);    //MemberContractNo
-                    obj[47] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
-                    obj[48] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
+                    obj[17] = txtEmail.EditValue;                    //Email
+                    obj[18] = txtTelephone.EditValue;                //Telephone
+                    obj[19] = txtMobile.EditValue;                   //Mobile
+                    obj[20] = txtHomePhone.EditValue;                //HomePhone
+                    obj[21] = txtFax.EditValue;                      //Fax
+                    obj[22] = "";                               //WebSite
+                    obj[23] = "";                               //SpecialApproval
+                    obj[24] = cboLevelNo.EditValue;            //levelno
+                    obj[25] = 0;                                //CountryCode
+                    obj[26] = 0;                                //LanguageCode
+                    obj[27] = cboBranch.EditValue;              //Branch                
+                    obj[28] = cboStatus.EditValue;              //Status
+                    obj[29] = Static.ToStr(txtDriverNo.EditValue);            //DriverNo
+                    obj[30] = Convert.ToDateTime(_core.TxnDate);     //CreateTime
+                    obj[31] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
+                    obj[32] = Static.ToStr(txtOldID.EditValue);    //OldID
+                    obj[33] = Static.ToInt(numHeight.EditValue);     //Height
+                    obj[34] = Static.ToDecimal(numFootSize.EditValue);    //FootSize
+                    obj[35] = Static.ToStr(numContractNo.EditValue);    //ContractNo
+                    obj[36] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                    obj[37] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                     #endregion
                 }
                 else
                 {
-                    #region[ obj байгууллага]
-                    obj[0] = _customerno;                       //CustomerNo
-                    obj[1] = Static.ToInt(cboClassCode.EditValue);                           //ClassCode
-                    obj[2] = Static.ToInt(cboTypeCode.EditValue);    //TypeCode
+                    #region[ Value байгууллага]
+                    obj[0] = _customerno;                    //CustomerNo
+                    obj[1] = 1;                                 //ClassCode
+                    obj[2] = Static.ToInt(cboClassCode.EditValue);    //TypeCode
                     obj[3] = Static.ToInt(cboIndustry.EditValue);    //InduTypeCode
                     obj[4] = Static.ToInt(cboSubIndustry.EditValue); //InduSubTypeCode
                     obj[5] = "";                                //FirstName
@@ -974,45 +943,33 @@ namespace InfoPos.Customer
                     obj[14] = "";                               //Company
                     obj[15] = "";                               //Position
                     obj[16] = mmoExperience.EditValue;               //Experience
-                    obj[17] = txtDirFirstName.EditValue;             //DirFirstName
-                    obj[18] = txtDirLastName.EditValue;              //DirLastName
-                    obj[19] = txtDirMiddleName.EditValue;            //DirMiddleName
-                    obj[20] = txtDirRegisterNo.EditValue;            //DirRegisterNo
-                    obj[21] = txtDirPassNo.EditValue;                //DirPassNo
-                    obj[22] = cboDirSex.EditValue;                   //DirSex
-                    obj[23] = Static.ToDate(dteDirBirthDay.EditValue);              //DirBirthDay
-                    obj[24] = txtCorEmail.EditValue;                 //Email
-                    obj[25] = txtCorPhone.EditValue;                 //Telephone
-                    obj[26] = "";                               //Mobile
-                    obj[27] = "";                               //HomePhone
-                    obj[28] = txtCorFax.EditValue;                   //Fax
-                    obj[29] = txtCorWebSite.EditValue;               //WebSite
-                    obj[30] = "";                               //SpecialApproval
-                    obj[31] = cboRateCode.EditValue;            //RateCode
-                    obj[32] = 0;                                //CountryCode
-                    obj[33] = 0;                                //LanguageCode
-                    obj[34] = 0;                                //isOtherInsurance
-                    obj[35] = 0;                                //isHInsurance
-                    obj[36] = 0;                                //isSInsurance
-                    obj[37] = cboBranch.EditValue;                   //Branch                
-                    obj[38] = cboStatus.EditValue;                   //Status
-                    obj[39] = Static.ToStr(txtDriverNo.EditValue);   //DriverNo
-                    obj[40] = Convert.ToDateTime(_core.TxnDate);      //CreateTime
-                    obj[41] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
-                    obj[42] = Static.ToStr(txtOldID.EditValue);    //OldID
-                    obj[43] = Static.ToInt(numHeight.EditValue);     //Height
-                    obj[44] = Static.ToDecimal(numFootSize.EditValue);    //Foot
-                    obj[45] = "";                                         //MemberType
-                    obj[46] = "";                                         //MemberContractNo
+                    obj[17] = txtCorEmail.EditValue;                 //Email
+                    obj[18] = txtCorPhone.EditValue;                 //Telephone
+                    obj[19] = "";                               //Mobile
+                    obj[20] = "";                               //HomePhone
+                    obj[21] = txtCorFax.EditValue;                   //Fax
+                    obj[22] = txtCorWebSite.EditValue;               //WebSite
+                    obj[23] = "";                               //SpecialApproval
+                    obj[24] = cboLevelNo.EditValue;            //levelno
+                    obj[25] = 0;                                //CountryCode
+                    obj[26] = 0;                                //LanguageCode
+                    obj[27] = cboBranch.EditValue;                   //Branch                
+                    obj[28] = cboStatus.EditValue;                   //Status
+                    obj[29] = Static.ToStr(txtDriverNo.EditValue);                 //DriverNo
+                    obj[30] = Convert.ToDateTime(_core.TxnDate);           //CreateTime
+                    obj[31] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
+                    obj[32] = Static.ToStr(txtOldID.EditValue);    //OldID
+                    obj[33] = 0;                                   //Height
+                    obj[34] = 0;                                   //FootSize
+                    obj[35] = Static.ToStr(numContractNo.EditValue);    //ContractNo
+                    obj[36] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                    obj[37] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                     #endregion
                 }
-                object[] FieldName = {"CustomerNo","ClassCode","TypeCode","InduTypeCode","InduSubTypeCode","FirstName",
-                                         "LastName","MiddleName","CorporateName","CorporateName2","RegisterNo","PassNo",
-                                         "Sex","BirthDay","Company","Position","Experience","DirFirstName","DirLastName",
-                                         "DirMiddleName","DirRegisterNo","DirPassNo","DirSex","DirBirthDay","Email","Telephone",
-                                         "Mobile","HomePhone","Fax","WebSite","SpecialApproval","RateCode","CountryCode","LanguageCode",
-                                         "isOtherInsurance","isHInsurance","isSInsurance","Branch","Status","DriverNo","CreateTime","CreateUser","OldId","Height","Foot","MemberType","MemberContractNo",
-                                     "AccountNo", "IncomeAccountNo"};
+                object[] FieldName = {"CustomerNo","ClassCode","TypeCode","InduTypeCode","InduSubTypeCode","FirstName","LastName","MiddleName","CorporateName","CorporateName2",
+                                         "RegisterNo","PassNo","Sex","BirthDay","Company","Position","Experience","Email","Telephone","Mobile",
+                                         "HomePhone","Fax", "WebSite","SpecialApproval","levelno","CountryCode","LanguageCode", "Branch","Status","DriverNo",
+                                         "CreateTime","CreateUser", "OldId","Height","Foot","ContractNo","AccountNo","IncomeAccountNo"};
                 if (isnew)
                 {
                     res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 205, TxnCodeT1Save, TxnCodeT1Save, new object[] { obj, FieldName, 0 });
@@ -1155,7 +1112,7 @@ namespace InfoPos.Customer
                     FormUtility.LookUpEdit_SetValue(ref cboBranch, _core.RemoteObject.User.BranchCode);
                     cboDriverNoMask.ItemIndex = 0;
                     cboStatus.ItemIndex = 0;
-                    cboRateCode.ItemIndex = 0;
+                    cboLevelNo.ItemIndex = 0;
                     cboIndustry.ItemIndex = 0;
                 }
                 else
@@ -1168,28 +1125,6 @@ namespace InfoPos.Customer
                 EditValueClassCode = _CLASSCODE;
             }
 
-        }
-        private void cboCorRegisterMask_EditValueChanged(object sender, EventArgs e)
-        {
-            if (cboCorRegisterMask.GetSelectedDataRow() != null)
-            {
-                txtDirRegisterNo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                DataRowView drv = (DataRowView)cboCorRegisterMask.GetSelectedDataRow();
-
-                if (Static.ToStr(drv["MaskValue"]) != "")
-                    txtDirRegisterNo.Properties.Mask.EditMask = Static.ToStr(drv["MaskValue"]);
-            }
-        }
-        private void cboCorPassMask_EditValueChanged(object sender, EventArgs e)
-        {
-            if (cboCorPassMask.GetSelectedDataRow() != null)
-            {
-                txtDirPassNo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                DataRowView drv = (DataRowView)cboCorPassMask.GetSelectedDataRow();
-
-                if (Static.ToStr(drv["MaskValue"]) != "")
-                    txtDirPassNo.Properties.Mask.EditMask = Static.ToStr(drv["MaskValue"]);
-            }
         }
         private void cboDriverNoMask_EditValueChanged(object sender, EventArgs e)
         {
@@ -2742,24 +2677,23 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("txtEmail", 0, "Email", "", false, false);
             ucCustGeneral.FieldLinkAdd("cboIndustry", 0, "InduTypeCode", "", false, false);
             ucCustGeneral.FieldLinkAdd("cboSubIndustry", 0, "InduSubTypeCode", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtCompany", 0, "Company", "",false, true);
+            ucCustGeneral.FieldLinkAdd("txtCompany", 0, "Company", "",false, false);
             ucCustGeneral.FieldLinkAdd("txtPosition", 0, "Position", "", false, false);
             ucCustGeneral.FieldLinkAdd("mmoExperience", 0, "Experience", "", false, false);
             ucCustGeneral.FieldLinkAdd("txtDriverNo", 0, "DriverNo", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboRateCode", 0, "RateCode", "", false, false);
+            ucCustGeneral.FieldLinkAdd("cboLevelNo", 0, "LevelNo", "", false, false);
             ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
             ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
-            ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false, true);
+            //ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
+            ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
             ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
         }
         void IndividualTrue()
         {
-            btnGeneralFind.Visible = true;
             SetCombo("TYPECODE", "NAME", cboTab4FamilyType, DS.Tables["FAMILYTYPECODE"], "CLASSCODE=1", new int[] { 1 });
             Tab2.Text = "Ажил эрхлэлтийн байдал";
             tabDirector.PageVisible = false;
@@ -2875,18 +2809,18 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("txtEmail", 0, "Email", "", false, false);
             ucCustGeneral.FieldLinkAdd("cboIndustry", 0, "InduTypeCode", "", false, false);
             ucCustGeneral.FieldLinkAdd("cboSubIndustry", 0, "InduSubTypeCode", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtCompany", 0, "Company", "", false, true);
+            ucCustGeneral.FieldLinkAdd("txtCompany", 0, "Company", "", false, false);
             ucCustGeneral.FieldLinkAdd("txtPosition", 0, "Position", "", false, false);
             ucCustGeneral.FieldLinkAdd("mmoExperience", 0, "Experience", "", false, false);
             ucCustGeneral.FieldLinkAdd("txtDriverNo", 0, "DriverNo", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboRateCode", 0, "RateCode", "", false, false);
+            ucCustGeneral.FieldLinkAdd("cboLevelNo", 0, "LevelNo", "", false, false);
             ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
             ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
-            ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false, true);
+            //ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
+            ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
             ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
         }
@@ -2935,7 +2869,6 @@ namespace InfoPos.Customer
             txtEmail.Visible = false;
             txtFax.Visible = false;
             txtHomePhone.Visible = false;
-            btnGeneralFind.Visible = false;
             Tab5.PageVisible = false;
             #endregion
 
@@ -2961,9 +2894,9 @@ namespace InfoPos.Customer
                 FilterSubIndustry = "CLASSCODE<>0 and TypeCode=" + cboIndustry.EditValue;
             SetComboSub("SubTypeCode", "NAME", cboSubIndustry, DS.Tables["SubIndustry"], FilterSubIndustry, new int[] { 0, 2 });
 
-            SetCombo("MASKID", "MASKNAME", cboCorRegisterMask, DS.Tables["REGISTERMASK"], new int[] { 2, 3 });
-            SetCombo("MASKID", "MASKNAME", cboCorPassMask, DS.Tables["PASSMASK"], new int[] { 2, 3 });
-            cboRateCode.ItemIndex = 0;
+            //SetCombo("MASKID", "MASKNAME", cboCorRegisterMask, DS.Tables["REGISTERMASK"], new int[] { 2, 3 });
+            //SetCombo("MASKID", "MASKNAME", cboCorPassMask, DS.Tables["PASSMASK"], new int[] { 2, 3 });
+            cboLevelNo.ItemIndex = 0;
             cboTypeCode.ItemIndex = 0;
 
             #endregion
@@ -2979,13 +2912,6 @@ namespace InfoPos.Customer
             txtCorPhone.ToolTipTitle = "Утас ороогүй байна .";
             cboIndustry.ToolTipTitle = "Үйл ажиллагааны чиглэл ороогүй байна .";
             cboSubIndustry.ToolTipTitle = "Үйл ажиллагааны дэд чиглэл ороогүй байна .";
-            txtDirFirstName.ToolTipTitle = "Захиралын эцэг эхийн нэр ороогүй байна .";
-            txtDirLastName.ToolTipTitle = "Захиралын нэр ороогүй байна .";
-            txtDirMiddleName.ToolTipTitle = "Захиралын овог ороогүй байна .";
-            txtDirRegisterNo.ToolTipTitle = "Захирлаын регистрийн дугаар ороогүй байна .";
-            txtDirPassNo.ToolTipTitle = "Захиралын иргэний үнэмлэх дугаар ороогүй байна .";
-            dteDirBirthDay.ToolTipTitle = "Захиралын төрсөн огноо ороогүй байна .";
-            cboDirSex.ToolTipTitle = "Захиралын хүйс ороогүй байна .";
 
             #endregion
         }
@@ -3009,21 +2935,14 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("cboIndustry", 0, "InduTypeCode", "", true, false);
             ucCustGeneral.FieldLinkAdd("cboSubIndustry", 0, "InduSubTypeCode", "", false, false);
             ucCustGeneral.FieldLinkAdd("mmoExperience", 0, "Experience", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirFirstName", 0, "DirFirstName", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirLastName", 0, "DirLastName", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirMiddleName", 0, "DirMiddleName", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirRegisterNo", 0, "DirRegisterNo", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirPassNo", 0, "DirPassNo", "", false, false);
-            ucCustGeneral.FieldLinkAdd("dteDirBirthDay", 0, "DirBirthDay", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboDirSex", 0, "DirSex", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboRateCode", 0, "RateCode", "", false, false);
+            ucCustGeneral.FieldLinkAdd("cboLevelNo", 0, "LevelNo", "", false, false);
             ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
             ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
-            ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false, true);
+            //ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
+            ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
             ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
         }
@@ -3059,7 +2978,6 @@ namespace InfoPos.Customer
 
             #region[Visible]
             txtDriverNo.Visible = false;
-            btnGeneralFind.Visible = false;
             cboDriverNoMask.Visible = false;
             txtMiddleName.Visible = false;
             txtLastName.Visible = false;
@@ -3105,8 +3023,6 @@ namespace InfoPos.Customer
                 FilterSubIndustry = "CLASSCODE<>0 and TypeCode=" + cboIndustry.EditValue;
             SetComboSub("SubTypeCode", "NAME", cboSubIndustry, DS.Tables["SubIndustry"], FilterSubIndustry, new int[] { 0, 2 });
 
-            SetCombo("MASKID", "MASKNAME", cboCorRegisterMask, DS.Tables["REGISTERMASK"], new int[] { 2, 3 });
-            SetCombo("MASKID", "MASKNAME", cboCorPassMask, DS.Tables["PASSMASK"], new int[] { 2, 3 });
             //cboRegisterMask.ItemIndex = 0;
             //cboPassMask.ItemIndex = 0;
             //cboDriverNoMask.ItemIndex = 0;
@@ -3124,14 +3040,6 @@ namespace InfoPos.Customer
             txtCorPhone.ToolTipTitle = "Утас ороогүй байна .";
             cboIndustry.ToolTipTitle = "Үйл ажиллагааны чиглэл ороогүй байна .";
             cboSubIndustry.ToolTipTitle = "Үйл ажиллагааны дэд чиглэл ороогүй байна .";
-            txtDirFirstName.ToolTipTitle = "Захиралын эцэг эхийн нэр ороогүй байна .";
-            txtDirLastName.ToolTipTitle = "Захиралын нэр ороогүй байна .";
-            txtDirMiddleName.ToolTipTitle = "Захиралын овог ороогүй байна .";
-            txtDirRegisterNo.ToolTipTitle = "Захирлаын регистрийн дугаар ороогүй байна .";
-            txtDirPassNo.ToolTipTitle = "Захиралын иргэний үнэмлэх дугаар ороогүй байна .";
-            dteDirBirthDay.ToolTipTitle = "Захиралын төрсөн огноо ороогүй байна .";
-            cboDirSex.ToolTipTitle = "Захиралын хүйс ороогүй байна .";
-
             #endregion
         }
         void FieldCorporateTrue()
@@ -3154,21 +3062,14 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("cboIndustry", 0, "InduTypeCode", "", true, false);
             ucCustGeneral.FieldLinkAdd("cboSubIndustry", 0, "InduSubTypeCode", "", false, false);
             ucCustGeneral.FieldLinkAdd("mmoExperience", 0, "Experience", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirFirstName", 0, "DirFirstName", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirLastName", 0, "DirLastName", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirMiddleName", 0, "DirMiddleName", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirRegisterNo", 0, "DirRegisterNo", "", false, false);
-            ucCustGeneral.FieldLinkAdd("txtDirPassNo", 0, "DirPassNo", "", false, false);
-            ucCustGeneral.FieldLinkAdd("dteDirBirthDay", 0, "DirBirthDay", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboDirSex", 0, "DirSex", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboRateCode", 0, "RateCode", "", false, false);
+            ucCustGeneral.FieldLinkAdd("cboLevelNo", 0, "LevelNo", "", false, false);
             ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
             ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
-            ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
-            ucCustGeneral.FieldLinkAdd("numMemberContractNo", 0, "MemberContractNo", "", false, false, true);
+            //ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
+            ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
             ucCustGeneral.FieldLinkAdd("txtIncomeAccountNo", 0, "IncomeAccountNo", "", false, false, false);
         }
@@ -3206,27 +3107,6 @@ namespace InfoPos.Customer
         private void txtPassNo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cboPassMask.Text == " - ")
-            {
-                e.Handled = true;
-                MessageBox.Show("Үнэмлэхний дугаарын Маск оруулна уу .");
-            }
-            else
-                e.Handled = false;
-        }
-        private void txtDirRegisterNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (cboCorRegisterMask.Text == " - ")
-            {
-                e.Handled = true;
-                MessageBox.Show("Регистерийн дугаарын Маск оруулна уу .");
-            }
-            else
-                e.Handled = false;
-        }
-        private void txtDirPassNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if (cboCorPassMask.Text == " - ")
             {
                 e.Handled = true;
                 MessageBox.Show("Үнэмлэхний дугаарын Маск оруулна уу .");
@@ -3454,13 +3334,7 @@ namespace InfoPos.Customer
         }
         private void btnGeneralFind_Click(object sender, EventArgs e)
         {
-            InfoPos.List.CustomerList frm = new List.CustomerList(_core, "1");
-            frm.ucCustomerList.Browsable = true;
-            DialogResult res = frm.ShowDialog();
-            if ((res == System.Windows.Forms.DialogResult.OK))
-            {
-                txtCompany.EditValue=frm.ucCustomerList.SelectedRow["CUSTOMERNO"];
-            }
+            
         }
         private void btnContractFind_Click(object sender, EventArgs e)
         {
@@ -3471,7 +3345,7 @@ namespace InfoPos.Customer
             {
                 if (frm.ucContractList.SelectedRow != null)
                 {
-                    numMemberContractNo.EditValue=frm.ucContractList.SelectedRow["ContractNo"];
+                    numContractNo.EditValue=frm.ucContractList.SelectedRow["ContractNo"];
                 }
             }
         }

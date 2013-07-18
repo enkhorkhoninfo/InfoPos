@@ -7413,7 +7413,7 @@ VALUES(:1, :2, :3, :4, :5, :6)";
             Result res = new Result();
             try
             {
-                object[] obj = new object[8];
+                object[] obj = new object[10];
 
                 //ProdType-0, ProdId-1, DayTypeId-2, StartTime-3, EndTime-4, Price-5
 
@@ -7421,15 +7421,17 @@ VALUES(:1, :2, :3, :4, :5, :6)";
                 obj[1] = pOldParam[1];
                 obj[2] = pOldParam[2];
                 obj[3] = pOldParam[3];
-                obj[4] = pNewParam[2];
-                obj[5] = pNewParam[3];
-                obj[6] = pNewParam[4];
-                obj[7] = pNewParam[5];
+                obj[4] = pOldParam[4];
+                obj[5] = pOldParam[5];
+                obj[6] = pNewParam[2];
+                obj[7] = pNewParam[3];
+                obj[8] = pNewParam[4];
+                obj[9] = pNewParam[5];
 
                 string sql =
 @"UPDATE ProdPrice SET
-DAYTYPEID=:5, StartTime=:6, EndTime=:7, Price=:8
-WHERE ProdType=:1 and ProdId=:2 and DAYTYPEID=:3 and StartTime=:4";
+DAYTYPEID=:7, StartTime=:8, EndTime=:9, Price=:10
+WHERE ProdType=:1 and ProdId=:2 and DAYTYPEID=:3 and StartTime=:4 and EndTime=:5 and Price=:6";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202269", obj);
                 res = F_Error(res);
@@ -10307,13 +10309,22 @@ where ContractNo=:1";
             Result res = new Result();
             try
             {
+//Гэрээний дугаарлалт
+//[T02][Y04][C02][R03][S06]
+//Y=Year; C=CurrencyCode;T=ContractType; R=Random number; S=Sequence 
+//(CODE=ContractType)
+
                 string seq = "";
                 #region [ ContractNo ]
                 Core.AutoNumEnum enums = new AutoNumEnum();
-                //enums.B = Static.ToStr(pParam[4]);
+
                 enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[9])).CurrencyCode);
-                enums.P = Static.ToStr(pParam[1]);
+                enums.T = Static.ToStr(pParam[1]);
                 enums.Y = Static.ToStr(Static.ToDate(pParam[14]).Year);
+
+                Random random = new Random();
+                int randomNumber = random.Next(100000000, 999999999);
+                enums.R = randomNumber.ToString();
 
                 Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, "",enums);
 
@@ -11788,10 +11799,9 @@ WHERE orderno=:1";
             {
                 string sql;
                 string[] fieldnames = new string[] { "CustomerNo like","ClassCode","BranchNo","Status","FirstName like",
-                    "LastName like","RegisterNo like","PassNo like","Sex like","isHInsurance",
-                    "isSInsurance","TypeCode","CorporateName like","InduTypeCode","InduSubTypeCode",
-                    "DirLastName like","LEVELNO","isOtherInsurance","Email like","Telephone like",
-                    "Mobile like","HomePhone like","Fax like","DriverNo like"
+                    "LastName like","RegisterNo like","PassNo like","Sex like","TypeCode",
+                    "CorporateName like","InduTypeCode","InduSubTypeCode","LEVELNO","Email like",
+                    "Telephone like","Mobile like","HomePhone like","Fax like"
                 };
 
                 ArrayList dbparam = new ArrayList(fieldnames.Length);
@@ -11844,10 +11854,10 @@ From V_Customerlist
             {
                 string sql =
 @"select CustomerNo, ClassCode, TypeCode, InduTypeCode, InduSubTypeCode, FirstName, LastName, MiddleName, CorporateName, CorporateName2,
-RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, DirFirstName, DirLastName, DirMiddleName, DirRegisterNo, DirPassNo,
-DirSex, DirBirthDay, Email, Telephone, Mobile, HomePhone, Fax, WebSite, SpecialApproval, RateCode, CountryCode, LanguageCode,
-isOtherInsurance, isHInsurance, isSInsurance, BranchNo, Status, decode(Status, 0, 'Идэвхгүй', 'Идэвхтэй') as StatusName, DriverNo, createdate, createuser, oldid, Height, Foot,
-MemberType, decode(MemberType, 0, 'Гишүүн бус', 1, 'Гишүүн') as MemberTypeName, MemberContractNo, Accountno, IncomeAccountno
+RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, 
+Email, Telephone, Mobile, HomePhone, Fax, WebSite, SpecialApproval, levelno, CountryCode, LanguageCode,
+BranchNo, Status, decode(Status, 0, 'Идэвхгүй', 'Идэвхтэй') as StatusName, DriverNo, createdate, createuser, oldid, Height, Foot,
+ContractNo, Accountno, IncomeAccountno
 From Customer
 where CustomerNo=:1";
 
@@ -11875,11 +11885,10 @@ where CustomerNo=:1";
                     //[B02[Y04][F1][G1][P02][S06]	BYFGPS	"B=Branch; Y=Year; F=ClassCode; G=TypeCode; P=MemberType; S=Sequence (CODE=MemberType)"
                     long seq = 0;
                     Core.AutoNumEnum enums = new AutoNumEnum();
-                    enums.B = Static.ToStr(pParam[37]); //Branch
-                    enums.Y = Static.ToStr(Static.ToDate(pParam[40]).Year); //CreateDate
+                    enums.B = Static.ToStr(pParam[27]); //Branch
+                    enums.Y = Static.ToStr(Static.ToDate(pParam[30]).Year); //CreateDate
                     enums.F = Static.ToStr(pParam[1]); //ClassCode
                     enums.G = Static.ToStr(pParam[2]); //TypeCode
-                    //enums.P = Static.ToStr(pParam[45]); //MemberType
 
                     Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 12, "",enums);
                     if (seqres.ResultNo == 0)
@@ -11901,19 +11910,16 @@ where CustomerNo=:1";
                 {
                     pParam[0] = custno;
                 }
-                pParam[45] = 0;
-                pParam[46] = "";
+
                 string sql =
 @"INSERT INTO Customer(CustomerNo, ClassCode, TypeCode, InduTypeCode, InduSubTypeCode, FirstName, LastName, MiddleName, CorporateName, CorporateName2,
-RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, DirFirstName, DirLastName, DirMiddleName, DirRegisterNo, DirPassNo,
-DirSex, DirBirthDay, Email, Telephone, Mobile, HomePhone, Fax, WebSite, SpecialApproval, RateCode, CountryCode, LanguageCode,
-isOtherInsurance, isHInsurance, isSInsurance, BranchNo, Status, DriverNo, createdate, createuser, oldid, Height, Foot, MemberType,
-MemberContractNo, Accountno, IncomeAccountno)
+RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, Email, Telephone, Mobile, 
+HomePhone, Fax, WebSite, SpecialApproval, levelno, CountryCode, LanguageCode, BranchNo, Status, DriverNo, 
+createdate, createuser, oldid, Height, Foot, ContractNo, Accountno, IncomeAccountno)
 VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
-:11, :12, :13, :14, :15, :16, :17, :18, :19, :20, :21, :22,
-:23, :24, :25, :26, :27, :28, :29, :30, :31, :32, :33, :34,
-:35, :36, :37, :38, :39, :40, :41, :42, :43, :44, :45, :46,
-:47, :48, :49)";
+:11, :12, :13, :14, :15, :16, :17, :18, :19, :20, 
+:21, :22, :23, :24, :25, :26, :27, :28, :29, :30,
+:31, :32, :33, :34, :35, :36, :37, :38)";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB205003", pParam);
 
 
@@ -11948,10 +11954,9 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
                 string sql =
 @"UPDATE Customer SET
 ClassCode=:2, TypeCode=:3, InduTypeCode=:4, InduSubTypeCode=:5, FirstName=:6, LastName=:7, MiddleName=:8, CorporateName=:9, CorporateName2=:10,
-RegisterNo=:11, PassNo=:12, Sex=:13, BirthDay=:14, Company=:15, Position=:16, Experience=:17, DirFirstName=:18, DirLastName=:19, DirMiddleName=:20, DirRegisterNo=:21, DirPassNo=:22,
-DirSex=:23, DirBirthDay=:24, Email=:25, Telephone=:26, Mobile=:27, HomePhone=:28, Fax=:29, WebSite=:30, SpecialApproval=:31, RateCode=:32, CountryCode=:33, LanguageCode=:34,
-isOtherInsurance=:35, isHInsurance=:36, isSInsurance=:37, BranchNo=:38, Status=:39, DriverNo=:40, createdate=:41, createuser=:42, oldid=:43, Height=:44, Foot=:45, MemberType=:46, 
-MemberContractNo=:47, Accountno=:48, IncomeAccountno=:49
+RegisterNo=:11, PassNo=:12, Sex=:13, BirthDay=:14, Company=:15, Position=:16, Experience=:17, Email=:18, Telephone=:19, Mobile=:20,
+HomePhone=:21, Fax=:22, WebSite=:23, SpecialApproval=:24, levelno=:25, CountryCode=:26, LanguageCode=:27, BranchNo=:28, Status=:29, DriverNo=:30, 
+createdate=:31, createuser=:32, oldid=:33, Height=:34, Foot=:35, ContractNo=:36, Accountno=:37, IncomeAccountno=:38
 WHERE CustomerNo=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB205004", pParam);

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAutoNum));
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtName2 = new DevExpress.XtraEditors.TextEdit();
             this.cboType = new DevExpress.XtraEditors.LookUpEdit();
@@ -40,13 +40,14 @@
             this.txtMask = new DevExpress.XtraEditors.TextEdit();
             this.txtKey = new DevExpress.XtraEditors.TextEdit();
             this.btncheck = new DevExpress.XtraEditors.SimpleButton();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.mmError = new DevExpress.XtraEditors.MemoEdit();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -65,6 +66,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.richTextBox1);
             this.groupControl1.Controls.Add(this.mmError);
             this.groupControl1.Controls.Add(this.lblNote);
             this.groupControl1.Controls.Add(this.btncheck);
@@ -78,45 +80,45 @@
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.txtName);
             this.groupControl1.Controls.Add(this.cboType);
-            this.groupControl1.Size = new System.Drawing.Size(502, 312);
+            this.groupControl1.Size = new System.Drawing.Size(502, 453);
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(12, 334);
+            this.btnRefresh.Location = new System.Drawing.Point(12, 475);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(117, 334);
+            this.btnAdd.Location = new System.Drawing.Point(117, 475);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(222, 334);
+            this.btnEdit.Location = new System.Drawing.Point(222, 475);
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(327, 334);
+            this.btnRemove.Location = new System.Drawing.Point(327, 475);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(432, 334);
+            this.btnExit.Location = new System.Drawing.Point(432, 475);
             // 
             // panelControl1
             // 
-            this.panelControl1.Size = new System.Drawing.Size(875, 316);
+            this.panelControl1.Size = new System.Drawing.Size(857, 457);
             // 
             // splitterControl1
             // 
-            this.splitterControl1.Location = new System.Drawing.Point(364, 0);
-            this.splitterControl1.Size = new System.Drawing.Size(5, 316);
+            this.splitterControl1.Location = new System.Drawing.Point(346, 0);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 457);
             // 
             // panelControl2
             // 
-            this.panelControl2.Size = new System.Drawing.Size(364, 316);
+            this.panelControl2.Size = new System.Drawing.Size(346, 457);
             // 
             // panelControl3
             // 
-            this.panelControl3.Location = new System.Drawing.Point(369, 0);
-            this.panelControl3.Size = new System.Drawing.Size(506, 316);
+            this.panelControl3.Location = new System.Drawing.Point(351, 0);
+            this.panelControl3.Size = new System.Drawing.Size(506, 457);
             // 
             // txtName
             // 
@@ -211,7 +213,7 @@
             this.txtKey.Properties.Mask.BeepOnError = true;
             this.txtKey.Properties.Mask.EditMask = "\\p{Lu}+";
             this.txtKey.Properties.MaxLength = 100;
-            this.txtKey.Size = new System.Drawing.Size(327, 20);
+            this.txtKey.Size = new System.Drawing.Size(210, 20);
             this.txtKey.TabIndex = 5;
             this.txtKey.ToolTipTitle = "Та түлхүүр үг авна уу .";
             // 
@@ -238,28 +240,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(899, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(881, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 367);
-            this.barDockControlBottom.Size = new System.Drawing.Size(899, 0);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 508);
+            this.barDockControlBottom.Size = new System.Drawing.Size(881, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 367);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 508);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(899, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 367);
+            this.barDockControlRight.Location = new System.Drawing.Point(881, 0);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 508);
             // 
             // lblNote
             // 
@@ -279,11 +281,23 @@
             this.mmError.TabIndex = 17;
             this.mmError.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mmError_KeyPress);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(30, 244);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(448, 189);
+            this.richTextBox1.TabIndex = 18;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
             // FormAutoNum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 367);
+            this.ClientSize = new System.Drawing.Size(881, 508);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -343,5 +357,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraEditors.MemoEdit mmError;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

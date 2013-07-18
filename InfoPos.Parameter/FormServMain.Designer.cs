@@ -209,7 +209,7 @@
             this.panelServMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelServMain.Location = new System.Drawing.Point(0, 0);
             this.panelServMain.Name = "panelServMain";
-            this.panelServMain.Size = new System.Drawing.Size(865, 475);
+            this.panelServMain.Size = new System.Drawing.Size(865, 476);
             this.panelServMain.TabIndex = 0;
             // 
             // ucServMain
@@ -219,7 +219,7 @@
             this.ucServMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucServMain.Location = new System.Drawing.Point(2, 2);
             this.ucServMain.Name = "ucServMain";
-            this.ucServMain.Size = new System.Drawing.Size(861, 471);
+            this.ucServMain.Size = new System.Drawing.Size(861, 472);
             this.ucServMain.TabIndex = 0;
             this.ucServMain.ToggleShowDelete = false;
             this.ucServMain.ToggleShowEdit = false;
@@ -269,7 +269,7 @@
             // 
             this.labelControl32.Location = new System.Drawing.Point(25, 128);
             this.labelControl32.Name = "labelControl32";
-            this.labelControl32.Size = new System.Drawing.Size(143, 13);
+            this.labelControl32.Size = new System.Drawing.Size(145, 13);
             this.labelControl32.TabIndex = 36;
             this.labelControl32.Text = "Урамшууллын зардлын данс";
             // 
@@ -310,7 +310,7 @@
             // 
             this.labelControl23.Location = new System.Drawing.Point(25, 103);
             this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(126, 13);
+            this.labelControl23.Size = new System.Drawing.Size(129, 13);
             this.labelControl23.TabIndex = 45;
             this.labelControl23.Text = "Урамшуулал тооцох данс";
             // 
@@ -318,7 +318,7 @@
             // 
             this.labelControl22.Location = new System.Drawing.Point(25, 82);
             this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(118, 13);
+            this.labelControl22.Size = new System.Drawing.Size(119, 13);
             this.labelControl22.TabIndex = 44;
             this.labelControl22.Text = "Хөнгөлөлт тооцох данс";
             // 
@@ -326,7 +326,7 @@
             // 
             this.labelControl21.Location = new System.Drawing.Point(25, 59);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(143, 13);
+            this.labelControl21.Size = new System.Drawing.Size(146, 13);
             this.labelControl21.TabIndex = 43;
             this.labelControl21.Text = "Борлуулалтын буцаалт данс";
             // 
@@ -334,7 +334,7 @@
             // 
             this.labelControl19.Location = new System.Drawing.Point(25, 38);
             this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(99, 13);
+            this.labelControl19.Size = new System.Drawing.Size(101, 13);
             this.labelControl19.TabIndex = 42;
             this.labelControl19.Text = "Борлуулалтын данс";
             // 
@@ -406,7 +406,7 @@
             // 
             this.labelControl13.Location = new System.Drawing.Point(472, 38);
             this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(77, 13);
+            this.labelControl13.Size = new System.Drawing.Size(74, 13);
             this.labelControl13.TabIndex = 25;
             this.labelControl13.Text = "Үүсгэсэн огноо";
             // 
@@ -602,7 +602,7 @@
             // 
             this.labelControl20.Location = new System.Drawing.Point(472, 243);
             this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(86, 13);
+            this.labelControl20.Size = new System.Drawing.Size(87, 13);
             this.labelControl20.TabIndex = 35;
             this.labelControl20.Text = "Хуваарийн төрөл";
             // 
@@ -610,7 +610,7 @@
             // 
             this.labelControl18.Location = new System.Drawing.Point(472, 166);
             this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(148, 13);
+            this.labelControl18.Size = new System.Drawing.Size(150, 13);
             this.labelControl18.TabIndex = 33;
             this.labelControl18.Text = "Тагийн цаг тоолж эхлэх арга ";
             // 
@@ -618,7 +618,7 @@
             // 
             this.labelControl17.Location = new System.Drawing.Point(472, 192);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(113, 13);
+            this.labelControl17.Size = new System.Drawing.Size(114, 13);
             this.labelControl17.TabIndex = 32;
             this.labelControl17.Text = "Tag дээр бичигдэх цаг";
             // 
@@ -643,7 +643,7 @@
             // 
             this.labelControl14.Location = new System.Drawing.Point(140, 221);
             this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(115, 13);
+            this.labelControl14.Size = new System.Drawing.Size(114, 13);
             this.labelControl14.TabIndex = 26;
             this.labelControl14.Text = "Үйлчилгээний тайлбар";
             // 
@@ -695,7 +695,7 @@
             // 
             this.labelControl10.Location = new System.Drawing.Point(472, 56);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(63, 13);
+            this.labelControl10.Size = new System.Drawing.Size(64, 13);
             this.labelControl10.TabIndex = 18;
             this.labelControl10.Text = "Хэмжих нэгж";
             // 
@@ -737,7 +737,7 @@
             // 
             this.labelControl8.Location = new System.Drawing.Point(472, 272);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(141, 13);
+            this.labelControl8.Size = new System.Drawing.Size(144, 13);
             this.labelControl8.TabIndex = 14;
             this.labelControl8.Text = "Хамаарагдах хуваарийн тоо";
             // 
@@ -760,7 +760,7 @@
             // 
             this.labelControl7.Location = new System.Drawing.Point(140, 192);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(18, 13);
+            this.labelControl7.Size = new System.Drawing.Size(17, 13);
             this.labelControl7.TabIndex = 12;
             this.labelControl7.Text = "Үнэ";
             // 
@@ -796,7 +796,7 @@
             // 
             this.labelControl5.Location = new System.Drawing.Point(140, 162);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(108, 13);
+            this.labelControl5.Size = new System.Drawing.Size(107, 13);
             this.labelControl5.TabIndex = 8;
             this.labelControl5.Text = "Үйлчилгээний  огноо ";
             // 
@@ -814,7 +814,7 @@
             // 
             this.labelControl4.Location = new System.Drawing.Point(140, 138);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(99, 13);
+            this.labelControl4.Size = new System.Drawing.Size(98, 13);
             this.labelControl4.TabIndex = 6;
             this.labelControl4.Text = "Үйлчилгээний нэр 2";
             // 
@@ -833,7 +833,7 @@
             // 
             this.labelControl3.Location = new System.Drawing.Point(140, 112);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(93, 13);
+            this.labelControl3.Size = new System.Drawing.Size(92, 13);
             this.labelControl3.TabIndex = 4;
             this.labelControl3.Text = "Үйлчилгээний нэр ";
             // 
@@ -851,7 +851,7 @@
             // 
             this.labelControl2.Location = new System.Drawing.Point(140, 89);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(103, 13);
+            this.labelControl2.Size = new System.Drawing.Size(102, 13);
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Үйлчилгээний төрөл";
             // 
@@ -871,7 +871,7 @@
             // 
             this.labelControl1.Location = new System.Drawing.Point(140, 60);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(92, 13);
+            this.labelControl1.Size = new System.Drawing.Size(91, 13);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Үйлчилгээний код";
             // 
@@ -894,14 +894,14 @@
             // 
             this.xtraTabPage1.Controls.Add(this.panelServMain);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(865, 475);
+            this.xtraTabPage1.Size = new System.Drawing.Size(865, 476);
             this.xtraTabPage1.Text = "Үндсэн бүртгэл";
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.panelControl1);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(865, 475);
+            this.xtraTabPage2.Size = new System.Drawing.Size(865, 476);
             this.xtraTabPage2.Text = "Тухайн үйлчилгээнд агуулагдах барааны бүртгэлийг";
             // 
             // panelControl1
@@ -1031,7 +1031,7 @@
             // 
             this.labelControl24.Location = new System.Drawing.Point(18, 41);
             this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(82, 13);
+            this.labelControl24.Size = new System.Drawing.Size(83, 13);
             this.labelControl24.TabIndex = 138;
             this.labelControl24.Text = "Барааны дугаар";
             // 
@@ -1064,7 +1064,7 @@
             // 
             this.tabServPrice.Controls.Add(this.ucServPrice);
             this.tabServPrice.Name = "tabServPrice";
-            this.tabServPrice.Size = new System.Drawing.Size(865, 475);
+            this.tabServPrice.Size = new System.Drawing.Size(865, 476);
             this.tabServPrice.Text = "Үйлчилгээний үнийн бүртгэл ";
             // 
             // ucServPrice
@@ -1221,7 +1221,7 @@
             // 
             this.labelControl30.Location = new System.Drawing.Point(27, 117);
             this.labelControl30.Name = "labelControl30";
-            this.labelControl30.Size = new System.Drawing.Size(115, 13);
+            this.labelControl30.Size = new System.Drawing.Size(116, 13);
             this.labelControl30.TabIndex = 7;
             this.labelControl30.Text = "Хамрах цагийн төгсгөл";
             // 
@@ -1229,7 +1229,7 @@
             // 
             this.labelControl31.Location = new System.Drawing.Point(27, 94);
             this.labelControl31.Name = "labelControl31";
-            this.labelControl31.Size = new System.Drawing.Size(103, 13);
+            this.labelControl31.Size = new System.Drawing.Size(105, 13);
             this.labelControl31.TabIndex = 6;
             this.labelControl31.Text = "Хамрах цагийн эхлэл";
             // 
@@ -1274,7 +1274,7 @@
             // 
             this.labelControl26.Location = new System.Drawing.Point(27, 49);
             this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(92, 13);
+            this.labelControl26.Size = new System.Drawing.Size(91, 13);
             this.labelControl26.TabIndex = 2;
             this.labelControl26.Text = "Үйлчилгээний код";
             // 
@@ -1295,7 +1295,7 @@
             // 
             this.labelControl25.Location = new System.Drawing.Point(27, 26);
             this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(80, 13);
+            this.labelControl25.Size = new System.Drawing.Size(81, 13);
             this.labelControl25.TabIndex = 0;
             this.labelControl25.Text = "Төрлийн дугаар";
             // 

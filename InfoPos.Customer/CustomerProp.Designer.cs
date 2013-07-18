@@ -159,15 +159,13 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnContractFind = new DevExpress.XtraEditors.SimpleButton();
             this.cboTypeCode = new DevExpress.XtraEditors.LookUpEdit();
-            this.cboMemberType = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl110 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
-            this.numMemberContractNo = new DevExpress.XtraEditors.TextEdit();
+            this.numContractNo = new DevExpress.XtraEditors.TextEdit();
             this.btnCheck = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl43 = new DevExpress.XtraEditors.LabelControl();
             this.btnAttach = new DevExpress.DXCore.Controls.XtraEditors.SimpleButton();
             this.Rating = new DevExpress.XtraEditors.LabelControl();
-            this.cboRateCode = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboLevelNo = new DevExpress.XtraEditors.LookUpEdit();
             this.cboDriverNoMask = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl59 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl74 = new DevExpress.XtraEditors.LabelControl();
@@ -217,7 +215,6 @@
             this.txtCorFax = new DevExpress.XtraEditors.TextEdit();
             this.txtCorPhone = new DevExpress.XtraEditors.TextEdit();
             this.Tab2 = new DevExpress.XtraTab.XtraTabPage();
-            this.btnGeneralFind = new DevExpress.XtraEditors.SimpleButton();
             this.cboSubIndustry = new DevExpress.XtraEditors.LookUpEdit();
             this.cboIndustry = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
@@ -228,26 +225,6 @@
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.txtPosition = new DevExpress.XtraEditors.TextEdit();
-            this.Tab3 = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl92 = new DevExpress.XtraEditors.LabelControl();
-            this.cboCorPassMask = new DevExpress.XtraEditors.LookUpEdit();
-            this.cboCorRegisterMask = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl90 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl91 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl89 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDirFirstName = new DevExpress.XtraEditors.TextEdit();
-            this.txtDirMiddleName = new DevExpress.XtraEditors.TextEdit();
-            this.cboDirSex = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
-            this.dteDirBirthDay = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl87 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl83 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl86 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDirLastName = new DevExpress.XtraEditors.TextEdit();
-            this.txtDirPassNo = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl84 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl85 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDirRegisterNo = new DevExpress.XtraEditors.TextEdit();
             this.Tab4 = new DevExpress.XtraTab.XtraTabPage();
             this.txtCreateUser = new DevExpress.XtraEditors.TextEdit();
             this.labelControl94 = new DevExpress.XtraEditors.LabelControl();
@@ -260,6 +237,11 @@
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             this.numFootSize = new DevExpress.XtraEditors.TextEdit();
             this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.txtAccountNo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
+            this.txtIncomeAccountNo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl47 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabCustomer = new DevExpress.XtraTab.XtraTabControl();
             this.tabDirector = new DevExpress.XtraTab.XtraTabPage();
             this.ucDirector = new ISM.Template.ucTogglePanel();
@@ -308,11 +290,6 @@
             this.tabAccountList = new DevExpress.XtraTab.XtraTabPage();
             this.grdAccountList = new DevExpress.XtraGrid.GridControl();
             this.gvwAccountList = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.txtAccountNo = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
-            this.txtIncomeAccountNo = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl47 = new DevExpress.XtraEditors.LabelControl();
             this.tabAdd.SuspendLayout();
             this.ucAdd.SuspendLayout();
             this.tabNote.SuspendLayout();
@@ -413,9 +390,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboTypeCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboMemberType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMemberContractNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboRateCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numContractNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboLevelNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDriverNoMask.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDriverNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCorporateName2.Properties)).BeginInit();
@@ -452,17 +428,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mmoExperience.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCompany.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosition.Properties)).BeginInit();
-            this.Tab3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboCorPassMask.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboCorRegisterMask.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirFirstName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirMiddleName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDirSex.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDirBirthDay.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDirBirthDay.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirLastName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirPassNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirRegisterNo.Properties)).BeginInit();
             this.Tab4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateDate.Properties)).BeginInit();
@@ -470,6 +435,9 @@
             this.Tab5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFootSize.Properties)).BeginInit();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAccountNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIncomeAccountNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabCustomer)).BeginInit();
             this.xtraTabCustomer.SuspendLayout();
             this.tabDirector.SuspendLayout();
@@ -508,9 +476,6 @@
             this.tabAccountList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAccountList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwAccountList)).BeginInit();
-            this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAccountNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIncomeAccountNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabAdd
@@ -1816,15 +1781,13 @@
             this.groupControl1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
             this.groupControl1.Controls.Add(this.btnContractFind);
             this.groupControl1.Controls.Add(this.cboTypeCode);
-            this.groupControl1.Controls.Add(this.cboMemberType);
             this.groupControl1.Controls.Add(this.labelControl110);
-            this.groupControl1.Controls.Add(this.labelControl42);
-            this.groupControl1.Controls.Add(this.numMemberContractNo);
+            this.groupControl1.Controls.Add(this.numContractNo);
             this.groupControl1.Controls.Add(this.btnCheck);
             this.groupControl1.Controls.Add(this.labelControl43);
             this.groupControl1.Controls.Add(this.btnAttach);
             this.groupControl1.Controls.Add(this.Rating);
-            this.groupControl1.Controls.Add(this.cboRateCode);
+            this.groupControl1.Controls.Add(this.cboLevelNo);
             this.groupControl1.Controls.Add(this.cboDriverNoMask);
             this.groupControl1.Controls.Add(this.labelControl59);
             this.groupControl1.Controls.Add(this.labelControl74);
@@ -1865,7 +1828,7 @@
             // 
             // btnContractFind
             // 
-            this.btnContractFind.Location = new System.Drawing.Point(719, 91);
+            this.btnContractFind.Location = new System.Drawing.Point(719, 68);
             this.btnContractFind.Name = "btnContractFind";
             this.btnContractFind.Size = new System.Drawing.Size(76, 23);
             this.btnContractFind.TabIndex = 191;
@@ -1882,16 +1845,6 @@
             this.cboTypeCode.Size = new System.Drawing.Size(199, 20);
             this.cboTypeCode.TabIndex = 187;
             // 
-            // cboMemberType
-            // 
-            this.cboMemberType.Location = new System.Drawing.Point(596, 70);
-            this.cboMemberType.Name = "cboMemberType";
-            this.cboMemberType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboMemberType.Properties.NullText = "";
-            this.cboMemberType.Size = new System.Drawing.Size(199, 20);
-            this.cboMemberType.TabIndex = 189;
-            // 
             // labelControl110
             // 
             this.labelControl110.Location = new System.Drawing.Point(497, 50);
@@ -1900,23 +1853,15 @@
             this.labelControl110.TabIndex = 188;
             this.labelControl110.Text = "Ангилал:";
             // 
-            // labelControl42
+            // numContractNo
             // 
-            this.labelControl42.Location = new System.Drawing.Point(496, 73);
-            this.labelControl42.Name = "labelControl42";
-            this.labelControl42.Size = new System.Drawing.Size(88, 13);
-            this.labelControl42.TabIndex = 8;
-            this.labelControl42.Text = "Гишүүний төрөл :";
-            // 
-            // numMemberContractNo
-            // 
-            this.numMemberContractNo.EditValue = "";
-            this.numMemberContractNo.Location = new System.Drawing.Point(596, 93);
-            this.numMemberContractNo.Name = "numMemberContractNo";
-            this.numMemberContractNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.numMemberContractNo.Properties.MaxLength = 50;
-            this.numMemberContractNo.Size = new System.Drawing.Size(117, 20);
-            this.numMemberContractNo.TabIndex = 190;
+            this.numContractNo.EditValue = "";
+            this.numContractNo.Location = new System.Drawing.Point(596, 70);
+            this.numContractNo.Name = "numContractNo";
+            this.numContractNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.numContractNo.Properties.MaxLength = 50;
+            this.numContractNo.Size = new System.Drawing.Size(117, 20);
+            this.numContractNo.TabIndex = 190;
             // 
             // btnCheck
             // 
@@ -1929,7 +1874,7 @@
             // 
             // labelControl43
             // 
-            this.labelControl43.Location = new System.Drawing.Point(496, 96);
+            this.labelControl43.Location = new System.Drawing.Point(496, 73);
             this.labelControl43.Name = "labelControl43";
             this.labelControl43.Size = new System.Drawing.Size(94, 13);
             this.labelControl43.TabIndex = 11;
@@ -1937,9 +1882,9 @@
             // 
             // btnAttach
             // 
-            this.btnAttach.Location = new System.Drawing.Point(542, 167);
+            this.btnAttach.Location = new System.Drawing.Point(596, 138);
             this.btnAttach.Name = "btnAttach";
-            this.btnAttach.Size = new System.Drawing.Size(209, 23);
+            this.btnAttach.Size = new System.Drawing.Size(199, 23);
             this.btnAttach.TabIndex = 192;
             this.btnAttach.Text = "Харилцагчийн хавсралт файлууд";
             this.btnAttach.Click += new System.EventHandler(this.btnAttach_Click);
@@ -1952,16 +1897,16 @@
             this.Rating.TabIndex = 181;
             this.Rating.Text = "Зэрэглэл :";
             // 
-            // cboRateCode
+            // cboLevelNo
             // 
-            this.cboRateCode.Location = new System.Drawing.Point(596, 25);
-            this.cboRateCode.Name = "cboRateCode";
-            this.cboRateCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboLevelNo.Location = new System.Drawing.Point(596, 25);
+            this.cboLevelNo.Name = "cboLevelNo";
+            this.cboLevelNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboRateCode.Properties.MaxLength = 7;
-            this.cboRateCode.Properties.NullText = "";
-            this.cboRateCode.Size = new System.Drawing.Size(199, 20);
-            this.cboRateCode.TabIndex = 16;
+            this.cboLevelNo.Properties.MaxLength = 7;
+            this.cboLevelNo.Properties.NullText = "";
+            this.cboLevelNo.Size = new System.Drawing.Size(199, 20);
+            this.cboLevelNo.TabIndex = 16;
             // 
             // cboDriverNoMask
             // 
@@ -2265,7 +2210,6 @@
             this.xtraTabGeneral.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.Tab1,
             this.Tab2,
-            this.Tab3,
             this.Tab4,
             this.Tab5,
             this.xtraTabPage1});
@@ -2420,7 +2364,6 @@
             // 
             // Tab2
             // 
-            this.Tab2.Controls.Add(this.btnGeneralFind);
             this.Tab2.Controls.Add(this.cboSubIndustry);
             this.Tab2.Controls.Add(this.cboIndustry);
             this.Tab2.Controls.Add(this.labelControl23);
@@ -2432,17 +2375,8 @@
             this.Tab2.Controls.Add(this.labelControl18);
             this.Tab2.Controls.Add(this.txtPosition);
             this.Tab2.Name = "Tab2";
-            this.Tab2.Size = new System.Drawing.Size(810, 176);
+            this.Tab2.Size = new System.Drawing.Size(809, 175);
             this.Tab2.Text = "Ажил эрхлэлтийн байдал";
-            // 
-            // btnGeneralFind
-            // 
-            this.btnGeneralFind.Location = new System.Drawing.Point(710, 13);
-            this.btnGeneralFind.Name = "btnGeneralFind";
-            this.btnGeneralFind.Size = new System.Drawing.Size(51, 23);
-            this.btnGeneralFind.TabIndex = 189;
-            this.btnGeneralFind.Text = "Хайх";
-            this.btnGeneralFind.Click += new System.EventHandler(this.btnGeneralFind_Click);
             // 
             // cboSubIndustry
             // 
@@ -2504,7 +2438,7 @@
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCompany.Properties.MaxLength = 50;
-            this.txtCompany.Size = new System.Drawing.Size(168, 20);
+            this.txtCompany.Size = new System.Drawing.Size(258, 20);
             this.txtCompany.TabIndex = 4;
             // 
             // labelControl16
@@ -2529,205 +2463,8 @@
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPosition.Properties.MaxLength = 50;
-            this.txtPosition.Size = new System.Drawing.Size(168, 20);
+            this.txtPosition.Size = new System.Drawing.Size(258, 20);
             this.txtPosition.TabIndex = 5;
-            // 
-            // Tab3
-            // 
-            this.Tab3.Controls.Add(this.labelControl92);
-            this.Tab3.Controls.Add(this.cboCorPassMask);
-            this.Tab3.Controls.Add(this.cboCorRegisterMask);
-            this.Tab3.Controls.Add(this.labelControl90);
-            this.Tab3.Controls.Add(this.labelControl91);
-            this.Tab3.Controls.Add(this.labelControl89);
-            this.Tab3.Controls.Add(this.txtDirFirstName);
-            this.Tab3.Controls.Add(this.txtDirMiddleName);
-            this.Tab3.Controls.Add(this.cboDirSex);
-            this.Tab3.Controls.Add(this.labelControl88);
-            this.Tab3.Controls.Add(this.dteDirBirthDay);
-            this.Tab3.Controls.Add(this.labelControl87);
-            this.Tab3.Controls.Add(this.labelControl83);
-            this.Tab3.Controls.Add(this.labelControl86);
-            this.Tab3.Controls.Add(this.txtDirLastName);
-            this.Tab3.Controls.Add(this.txtDirPassNo);
-            this.Tab3.Controls.Add(this.labelControl84);
-            this.Tab3.Controls.Add(this.labelControl85);
-            this.Tab3.Controls.Add(this.txtDirRegisterNo);
-            this.Tab3.Name = "Tab3";
-            this.Tab3.PageVisible = false;
-            this.Tab3.Size = new System.Drawing.Size(810, 176);
-            this.Tab3.Text = "Захиралын мэдээлэл";
-            // 
-            // labelControl92
-            // 
-            this.labelControl92.Location = new System.Drawing.Point(405, 121);
-            this.labelControl92.Name = "labelControl92";
-            this.labelControl92.Size = new System.Drawing.Size(49, 13);
-            this.labelControl92.TabIndex = 180;
-            this.labelControl92.Text = "ҮД Маск :";
-            // 
-            // cboCorPassMask
-            // 
-            this.cboCorPassMask.Location = new System.Drawing.Point(551, 118);
-            this.cboCorPassMask.Name = "cboCorPassMask";
-            this.cboCorPassMask.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboCorPassMask.Properties.NullText = "";
-            this.cboCorPassMask.Size = new System.Drawing.Size(196, 20);
-            this.cboCorPassMask.TabIndex = 9;
-            this.cboCorPassMask.EditValueChanged += new System.EventHandler(this.cboCorPassMask_EditValueChanged);
-            // 
-            // cboCorRegisterMask
-            // 
-            this.cboCorRegisterMask.Location = new System.Drawing.Point(551, 92);
-            this.cboCorRegisterMask.Name = "cboCorRegisterMask";
-            this.cboCorRegisterMask.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboCorRegisterMask.Properties.NullText = "";
-            this.cboCorRegisterMask.Size = new System.Drawing.Size(196, 20);
-            this.cboCorRegisterMask.TabIndex = 8;
-            this.cboCorRegisterMask.EditValueChanged += new System.EventHandler(this.cboCorRegisterMask_EditValueChanged);
-            // 
-            // labelControl90
-            // 
-            this.labelControl90.Location = new System.Drawing.Point(447, 121);
-            this.labelControl90.Name = "labelControl90";
-            this.labelControl90.Size = new System.Drawing.Size(0, 13);
-            this.labelControl90.TabIndex = 179;
-            // 
-            // labelControl91
-            // 
-            this.labelControl91.Location = new System.Drawing.Point(405, 95);
-            this.labelControl91.Name = "labelControl91";
-            this.labelControl91.Size = new System.Drawing.Size(49, 13);
-            this.labelControl91.TabIndex = 178;
-            this.labelControl91.Text = "РД Маск :";
-            // 
-            // labelControl89
-            // 
-            this.labelControl89.Location = new System.Drawing.Point(21, 69);
-            this.labelControl89.Name = "labelControl89";
-            this.labelControl89.Size = new System.Drawing.Size(89, 13);
-            this.labelControl89.TabIndex = 13;
-            this.labelControl89.Text = "Захиралын овог :";
-            // 
-            // txtDirFirstName
-            // 
-            this.txtDirFirstName.Location = new System.Drawing.Point(231, 14);
-            this.txtDirFirstName.Name = "txtDirFirstName";
-            this.txtDirFirstName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDirFirstName.Properties.MaxLength = 50;
-            this.txtDirFirstName.Size = new System.Drawing.Size(155, 20);
-            this.txtDirFirstName.TabIndex = 1;
-            // 
-            // txtDirMiddleName
-            // 
-            this.txtDirMiddleName.Location = new System.Drawing.Point(231, 66);
-            this.txtDirMiddleName.Name = "txtDirMiddleName";
-            this.txtDirMiddleName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDirMiddleName.Properties.MaxLength = 50;
-            this.txtDirMiddleName.Size = new System.Drawing.Size(155, 20);
-            this.txtDirMiddleName.TabIndex = 3;
-            // 
-            // cboDirSex
-            // 
-            this.cboDirSex.Location = new System.Drawing.Point(551, 40);
-            this.cboDirSex.Name = "cboDirSex";
-            this.cboDirSex.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboDirSex.Properties.NullText = "";
-            this.cboDirSex.Size = new System.Drawing.Size(196, 20);
-            this.cboDirSex.TabIndex = 7;
-            // 
-            // labelControl88
-            // 
-            this.labelControl88.Location = new System.Drawing.Point(405, 17);
-            this.labelControl88.Name = "labelControl88";
-            this.labelControl88.Size = new System.Drawing.Size(133, 13);
-            this.labelControl88.TabIndex = 11;
-            this.labelControl88.Text = "Захиралын төрсөн огноо :";
-            // 
-            // dteDirBirthDay
-            // 
-            this.dteDirBirthDay.EditValue = null;
-            this.dteDirBirthDay.Location = new System.Drawing.Point(551, 14);
-            this.dteDirBirthDay.Name = "dteDirBirthDay";
-            this.dteDirBirthDay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteDirBirthDay.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteDirBirthDay.Size = new System.Drawing.Size(197, 20);
-            this.dteDirBirthDay.TabIndex = 6;
-            // 
-            // labelControl87
-            // 
-            this.labelControl87.Location = new System.Drawing.Point(405, 43);
-            this.labelControl87.Name = "labelControl87";
-            this.labelControl87.Size = new System.Drawing.Size(88, 13);
-            this.labelControl87.TabIndex = 9;
-            this.labelControl87.Text = "Захиралын хүйс :";
-            // 
-            // labelControl83
-            // 
-            this.labelControl83.Location = new System.Drawing.Point(21, 17);
-            this.labelControl83.Name = "labelControl83";
-            this.labelControl83.Size = new System.Drawing.Size(139, 13);
-            this.labelControl83.TabIndex = 1;
-            this.labelControl83.Text = "Захиралын эцэг эхийн нэр :";
-            // 
-            // labelControl86
-            // 
-            this.labelControl86.Location = new System.Drawing.Point(21, 121);
-            this.labelControl86.Name = "labelControl86";
-            this.labelControl86.Size = new System.Drawing.Size(187, 13);
-            this.labelControl86.TabIndex = 7;
-            this.labelControl86.Text = "Захиралын иргэний үнэмлэх дугаар :";
-            // 
-            // txtDirLastName
-            // 
-            this.txtDirLastName.EditValue = "";
-            this.txtDirLastName.Location = new System.Drawing.Point(231, 40);
-            this.txtDirLastName.Name = "txtDirLastName";
-            this.txtDirLastName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDirLastName.Properties.MaxLength = 50;
-            this.txtDirLastName.Size = new System.Drawing.Size(154, 20);
-            this.txtDirLastName.TabIndex = 2;
-            // 
-            // txtDirPassNo
-            // 
-            this.txtDirPassNo.Location = new System.Drawing.Point(231, 118);
-            this.txtDirPassNo.Name = "txtDirPassNo";
-            this.txtDirPassNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDirPassNo.Properties.MaxLength = 50;
-            this.txtDirPassNo.Size = new System.Drawing.Size(155, 20);
-            this.txtDirPassNo.TabIndex = 5;
-            this.txtDirPassNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDirPassNo_KeyPress);
-            // 
-            // labelControl84
-            // 
-            this.labelControl84.Location = new System.Drawing.Point(21, 43);
-            this.labelControl84.Name = "labelControl84";
-            this.labelControl84.Size = new System.Drawing.Size(83, 13);
-            this.labelControl84.TabIndex = 3;
-            this.labelControl84.Text = "Захиралын нэр :";
-            // 
-            // labelControl85
-            // 
-            this.labelControl85.Location = new System.Drawing.Point(21, 95);
-            this.labelControl85.Name = "labelControl85";
-            this.labelControl85.Size = new System.Drawing.Size(163, 13);
-            this.labelControl85.TabIndex = 5;
-            this.labelControl85.Text = "Захиралын регистрийн дугаар :";
-            // 
-            // txtDirRegisterNo
-            // 
-            this.txtDirRegisterNo.Location = new System.Drawing.Point(231, 92);
-            this.txtDirRegisterNo.Name = "txtDirRegisterNo";
-            this.txtDirRegisterNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDirRegisterNo.Properties.MaxLength = 50;
-            this.txtDirRegisterNo.Size = new System.Drawing.Size(154, 20);
-            this.txtDirRegisterNo.TabIndex = 4;
-            this.txtDirRegisterNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDirRegisterNo_KeyPress);
             // 
             // Tab4
             // 
@@ -2809,6 +2546,8 @@
             this.numHeight.Location = new System.Drawing.Point(170, 14);
             this.numHeight.Name = "numHeight";
             this.numHeight.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.numHeight.Properties.Mask.EditMask = "d";
+            this.numHeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.numHeight.Properties.MaxLength = 50;
             this.numHeight.Size = new System.Drawing.Size(155, 20);
             this.numHeight.TabIndex = 5;
@@ -2827,6 +2566,8 @@
             this.numFootSize.Location = new System.Drawing.Point(170, 40);
             this.numFootSize.Name = "numFootSize";
             this.numFootSize.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.numFootSize.Properties.Mask.EditMask = "d";
+            this.numFootSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.numFootSize.Properties.MaxLength = 50;
             this.numFootSize.Size = new System.Drawing.Size(154, 20);
             this.numFootSize.TabIndex = 6;
@@ -2838,6 +2579,51 @@
             this.labelControl39.Size = new System.Drawing.Size(83, 13);
             this.labelControl39.TabIndex = 7;
             this.labelControl39.Text = "Гутлын хэмжээ :";
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.txtAccountNo);
+            this.xtraTabPage1.Controls.Add(this.labelControl46);
+            this.xtraTabPage1.Controls.Add(this.txtIncomeAccountNo);
+            this.xtraTabPage1.Controls.Add(this.labelControl47);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(809, 175);
+            this.xtraTabPage1.Text = "Данс";
+            // 
+            // txtAccountNo
+            // 
+            this.txtAccountNo.Location = new System.Drawing.Point(170, 16);
+            this.txtAccountNo.Name = "txtAccountNo";
+            this.txtAccountNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtAccountNo.Properties.MaxLength = 20;
+            this.txtAccountNo.Size = new System.Drawing.Size(155, 20);
+            this.txtAccountNo.TabIndex = 9;
+            // 
+            // labelControl46
+            // 
+            this.labelControl46.Location = new System.Drawing.Point(12, 19);
+            this.labelControl46.Name = "labelControl46";
+            this.labelControl46.Size = new System.Drawing.Size(78, 13);
+            this.labelControl46.TabIndex = 8;
+            this.labelControl46.Text = "Авлагын данс :";
+            // 
+            // txtIncomeAccountNo
+            // 
+            this.txtIncomeAccountNo.EditValue = "";
+            this.txtIncomeAccountNo.Location = new System.Drawing.Point(170, 42);
+            this.txtIncomeAccountNo.Name = "txtIncomeAccountNo";
+            this.txtIncomeAccountNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIncomeAccountNo.Properties.MaxLength = 20;
+            this.txtIncomeAccountNo.Size = new System.Drawing.Size(154, 20);
+            this.txtIncomeAccountNo.TabIndex = 10;
+            // 
+            // labelControl47
+            // 
+            this.labelControl47.Location = new System.Drawing.Point(12, 45);
+            this.labelControl47.Name = "labelControl47";
+            this.labelControl47.Size = new System.Drawing.Size(79, 13);
+            this.labelControl47.TabIndex = 11;
+            this.labelControl47.Text = "Орлогын данс :";
             // 
             // xtraTabCustomer
             // 
@@ -3192,6 +2978,7 @@
             // 
             this.tabacnt.Controls.Add(this.ucAcnt);
             this.tabacnt.Name = "tabacnt";
+            this.tabacnt.PageVisible = false;
             this.tabacnt.Size = new System.Drawing.Size(818, 483);
             this.tabacnt.Text = "Харилцагчийн дотоод данс";
             // 
@@ -3332,51 +3119,6 @@
             this.gvwAccountList.GroupPanelText = "Энд бүлэглэх баганаа оруулна уу";
             this.gvwAccountList.Name = "gvwAccountList";
             // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.txtAccountNo);
-            this.xtraTabPage1.Controls.Add(this.labelControl46);
-            this.xtraTabPage1.Controls.Add(this.txtIncomeAccountNo);
-            this.xtraTabPage1.Controls.Add(this.labelControl47);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(809, 175);
-            this.xtraTabPage1.Text = "Данс";
-            // 
-            // txtAccountNo
-            // 
-            this.txtAccountNo.Location = new System.Drawing.Point(170, 16);
-            this.txtAccountNo.Name = "txtAccountNo";
-            this.txtAccountNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAccountNo.Properties.MaxLength = 20;
-            this.txtAccountNo.Size = new System.Drawing.Size(155, 20);
-            this.txtAccountNo.TabIndex = 9;
-            // 
-            // labelControl46
-            // 
-            this.labelControl46.Location = new System.Drawing.Point(12, 19);
-            this.labelControl46.Name = "labelControl46";
-            this.labelControl46.Size = new System.Drawing.Size(78, 13);
-            this.labelControl46.TabIndex = 8;
-            this.labelControl46.Text = "Авлагын данс :";
-            // 
-            // txtIncomeAccountNo
-            // 
-            this.txtIncomeAccountNo.EditValue = "";
-            this.txtIncomeAccountNo.Location = new System.Drawing.Point(170, 42);
-            this.txtIncomeAccountNo.Name = "txtIncomeAccountNo";
-            this.txtIncomeAccountNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIncomeAccountNo.Properties.MaxLength = 20;
-            this.txtIncomeAccountNo.Size = new System.Drawing.Size(154, 20);
-            this.txtIncomeAccountNo.TabIndex = 10;
-            // 
-            // labelControl47
-            // 
-            this.labelControl47.Location = new System.Drawing.Point(12, 45);
-            this.labelControl47.Name = "labelControl47";
-            this.labelControl47.Size = new System.Drawing.Size(79, 13);
-            this.labelControl47.TabIndex = 11;
-            this.labelControl47.Text = "Орлогын данс :";
-            // 
             // CustomerProp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3506,9 +3248,8 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboTypeCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboMemberType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMemberContractNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboRateCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numContractNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboLevelNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDriverNoMask.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDriverNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCorporateName2.Properties)).EndInit();
@@ -3547,18 +3288,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mmoExperience.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCompany.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosition.Properties)).EndInit();
-            this.Tab3.ResumeLayout(false);
-            this.Tab3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboCorPassMask.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboCorRegisterMask.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirFirstName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirMiddleName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDirSex.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDirBirthDay.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDirBirthDay.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirLastName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirPassNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDirRegisterNo.Properties)).EndInit();
             this.Tab4.ResumeLayout(false);
             this.Tab4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateUser.Properties)).EndInit();
@@ -3568,6 +3297,10 @@
             this.Tab5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFootSize.Properties)).EndInit();
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAccountNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIncomeAccountNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabCustomer)).EndInit();
             this.xtraTabCustomer.ResumeLayout(false);
             this.tabDirector.ResumeLayout(false);
@@ -3610,10 +3343,6 @@
             this.tabAccountList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdAccountList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwAccountList)).EndInit();
-            this.xtraTabPage1.ResumeLayout(false);
-            this.xtraTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAccountNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIncomeAccountNo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3746,7 +3475,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.DXCore.Controls.XtraEditors.SimpleButton btnAttach;
         private DevExpress.XtraEditors.LabelControl Rating;
-        private DevExpress.XtraEditors.LookUpEdit cboRateCode;
+        private DevExpress.XtraEditors.LookUpEdit cboLevelNo;
         private DevExpress.XtraEditors.LookUpEdit cboDriverNoMask;
         private DevExpress.XtraEditors.LabelControl labelControl59;
         private DevExpress.XtraEditors.LabelControl labelControl74;
@@ -3800,30 +3529,8 @@
         private DevExpress.XtraEditors.MemoEdit mmoExperience;
         private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraEditors.LabelControl labelControl25;
-        private DevExpress.XtraEditors.TextEdit txtCompany;
         private DevExpress.XtraEditors.LabelControl labelControl16;
-        private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.TextEdit txtPosition;
-        private DevExpress.XtraTab.XtraTabPage Tab3;
-        private DevExpress.XtraEditors.LabelControl labelControl92;
-        private DevExpress.XtraEditors.LookUpEdit cboCorPassMask;
-        private DevExpress.XtraEditors.LookUpEdit cboCorRegisterMask;
-        private DevExpress.XtraEditors.LabelControl labelControl90;
-        private DevExpress.XtraEditors.LabelControl labelControl91;
-        private DevExpress.XtraEditors.LabelControl labelControl89;
-        private DevExpress.XtraEditors.TextEdit txtDirFirstName;
-        private DevExpress.XtraEditors.TextEdit txtDirMiddleName;
-        private DevExpress.XtraEditors.LookUpEdit cboDirSex;
-        private DevExpress.XtraEditors.LabelControl labelControl88;
-        private DevExpress.XtraEditors.DateEdit dteDirBirthDay;
-        private DevExpress.XtraEditors.LabelControl labelControl87;
-        private DevExpress.XtraEditors.LabelControl labelControl83;
-        private DevExpress.XtraEditors.LabelControl labelControl86;
-        private DevExpress.XtraEditors.TextEdit txtDirLastName;
-        private DevExpress.XtraEditors.TextEdit txtDirPassNo;
-        private DevExpress.XtraEditors.LabelControl labelControl84;
-        private DevExpress.XtraEditors.LabelControl labelControl85;
-        private DevExpress.XtraEditors.TextEdit txtDirRegisterNo;
         private DevExpress.XtraTab.XtraTabControl xtraTabCustomer;
         private DevExpress.XtraEditors.TextEdit txtOldID;
         private DevExpress.XtraEditors.LabelControl labelControl76;
@@ -3877,15 +3584,12 @@
         private DevExpress.XtraEditors.LabelControl labelControl110;
         private DevExpress.XtraEditors.LookUpEdit cboReg;
         private DevExpress.XtraEditors.TextEdit txtTab4FirstName;
-        private DevExpress.XtraEditors.SimpleButton btnGeneralFind;
         private DevExpress.XtraTab.XtraTabPage Tab5;
         private DevExpress.XtraEditors.TextEdit numHeight;
         private DevExpress.XtraEditors.LabelControl labelControl27;
         private DevExpress.XtraEditors.TextEdit numFootSize;
         private DevExpress.XtraEditors.LabelControl labelControl39;
-        private DevExpress.XtraEditors.LookUpEdit cboMemberType;
-        private DevExpress.XtraEditors.LabelControl labelControl42;
-        private DevExpress.XtraEditors.TextEdit numMemberContractNo;
+        private DevExpress.XtraEditors.TextEdit numContractNo;
         private DevExpress.XtraEditors.LabelControl labelControl43;
         private DevExpress.XtraEditors.SimpleButton btnContractFind;
         private DevExpress.XtraTab.XtraTabPage tabacnt;
@@ -3905,6 +3609,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl46;
         private DevExpress.XtraEditors.TextEdit txtIncomeAccountNo;
         private DevExpress.XtraEditors.LabelControl labelControl47;
+        private DevExpress.XtraEditors.TextEdit txtCompany;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
 
     }
 }

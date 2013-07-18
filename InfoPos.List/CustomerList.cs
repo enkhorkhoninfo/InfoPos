@@ -58,6 +58,7 @@ namespace InfoPos.List
             labelControl2.ForeColor = Color.SkyBlue;
          
             Function();
+
             ucCustomerList.FindItemAdd("CustomerNo", "Харилцагчийн дугаар", "", DynamicParameterType.Decimal, false, "d", "");
             ucCustomerList.FieldFindAdd("ClassCode", "Харилцагчийн төрөл", typeof(ArrayList), "");
             ucCustomerList.FieldFindAdd("BranchNo", "Харилцагчийн салбар", typeof(ArrayList), "");
@@ -68,20 +69,15 @@ namespace InfoPos.List
             ucCustomerList.FieldFindAdd("RegisterNo", "Регистерийн дугаар", typeof(string), "");
             ucCustomerList.FieldFindAdd("PassNo", "Иргэний үнэмлэхний дугаар", typeof(string), "");
             ucCustomerList.FieldFindAdd("Sex", "Хүйс", typeof(ArrayList), "");
-            ucCustomerList.FieldFindAdd("isHInsurance", "Эрүүл мэндийн даатгалтай эсэх", typeof(ArrayList), "");
-            
-            ucCustomerList.FieldFindAdd("isSInsurance", "Нийгмийн даатгалтай эсэх", typeof(ArrayList), "");
             ucCustomerList.FieldFindAdd("TypeCode", "Байгууллагын төрөл", typeof(int), "");
+
             ucCustomerList.FieldFindAdd("CorporateName", "Байгууллагын нэр", typeof(string), "");
             ucCustomerList.FieldFindAdd("InduTypeCode", "Үйл ажиллагааны чиглэл", typeof(ArrayList), "");
             ucCustomerList.FieldFindAdd("InduSubTypeCode", "Үйл ажиллагааны дэд чиглэл", typeof(ArrayList), "");
-            
-            ucCustomerList.FieldFindAdd("DirLastName", "Захирлын нэр", typeof(string), "");
-            ucCustomerList.FieldFindAdd("RateCode", "Харилцагчийн зэрэглэлийн код", typeof(ArrayList), "");
-            ucCustomerList.FieldFindAdd("isOtherInsurance", "Тухайн байгуулагаас өөр байгууллагад даатгалтай эсэх", typeof(ArrayList), "");
+            ucCustomerList.FieldFindAdd("levelno", "Зэрэглэл", typeof(ArrayList), "");
             ucCustomerList.FieldFindAdd("Email", "Mайл хаяг", typeof(string), "");
+
             ucCustomerList.FindItemAdd("Telephone", "Ажлын утасны дугаар", "", DynamicParameterType.Decimal, false, "d", "");
-            
             ucCustomerList.FindItemAdd("Mobile", "Гар утасны дугаар", "", DynamicParameterType.Decimal, false, "d", "");
             ucCustomerList.FindItemAdd("HomePhone", "Гэрийн утасны дугаар", "", DynamicParameterType.Decimal, false, "d", "");
             ucCustomerList.FindItemAdd("Fax", "Факсын дугаар", "", DynamicParameterType.Decimal, false, "d", "");
@@ -109,6 +105,7 @@ namespace InfoPos.List
             labelControl2.ForeColor = Color.SkyBlue;
 
             Function();
+
             ucCustomerList.FindItemAdd("CustomerNo", "Харилцагчийн дугаар", "", DynamicParameterType.Decimal, false, "d", "");
             ucCustomerList.FieldFindAdd("ClassCode", "Харилцагчийн төрөл", typeof(ArrayList), "");
             ucCustomerList.FieldFindAdd("BranchNo", "Харилцагчийн салбар", typeof(ArrayList), "");
@@ -119,20 +116,15 @@ namespace InfoPos.List
             ucCustomerList.FieldFindAdd("RegisterNo", "Регистерийн дугаар", typeof(string), "");
             ucCustomerList.FieldFindAdd("PassNo", "Иргэний үнэмлэхний дугаар", typeof(string), "");
             ucCustomerList.FieldFindAdd("Sex", "Хүйс", typeof(ArrayList), "");
-            ucCustomerList.FieldFindAdd("isHInsurance", "Эрүүл мэндийн даатгалтай эсэх", typeof(ArrayList), "");
-
-            ucCustomerList.FieldFindAdd("isSInsurance", "Нийгмийн даатгалтай эсэх", typeof(ArrayList), "");
             ucCustomerList.FieldFindAdd("TypeCode", "Байгууллагын төрөл", typeof(int), "");
+
             ucCustomerList.FieldFindAdd("CorporateName", "Байгууллагын нэр", typeof(string), "");
             ucCustomerList.FieldFindAdd("InduTypeCode", "Үйл ажиллагааны чиглэл", typeof(ArrayList), "");
             ucCustomerList.FieldFindAdd("InduSubTypeCode", "Үйл ажиллагааны дэд чиглэл", typeof(ArrayList), "");
-
-            ucCustomerList.FieldFindAdd("DirLastName", "Захирлын нэр", typeof(string), "");
-            ucCustomerList.FieldFindAdd("RateCode", "Харилцагчийн зэрэглэлийн код", typeof(ArrayList), "");
-            ucCustomerList.FieldFindAdd("isOtherInsurance", "Тухайн байгуулагаас өөр байгууллагад даатгалтай эсэх", typeof(ArrayList), "");
+            ucCustomerList.FieldFindAdd("levelno", "Зэрэглэл", typeof(ArrayList), "");
             ucCustomerList.FieldFindAdd("Email", "Mайл хаяг", typeof(string), "");
-            ucCustomerList.FindItemAdd("Telephone", "Ажлын утасны дугаар", "", DynamicParameterType.Decimal, false, "d", "");
 
+            ucCustomerList.FindItemAdd("Telephone", "Ажлын утасны дугаар", "", DynamicParameterType.Decimal, false, "d", "");
             ucCustomerList.FindItemAdd("Mobile", "Гар утасны дугаар", "", DynamicParameterType.Decimal, false, "d", "");
             ucCustomerList.FindItemAdd("HomePhone", "Гэрийн утасны дугаар", "", DynamicParameterType.Decimal, false, "d", "");
             ucCustomerList.FindItemAdd("Fax", "Факсын дугаар", "", DynamicParameterType.Decimal, false, "d", "");
@@ -153,7 +145,7 @@ namespace InfoPos.List
             if (e.RowHandle >= 0)
             {
 
-                string Status = View.GetRowCellDisplayText(e.RowHandle, View.Columns[49]);
+                string Status = View.GetRowCellDisplayText(e.RowHandle, View.Columns[35]);
                 if (Status == "0")
                 {
 
@@ -274,44 +266,24 @@ namespace InfoPos.List
         void ucCustomerList_EventDataChanged()
         {
 
-            /*CustomerNo,ClassCode,decode(ClassCode, 0, 'ХУВЬ ХҮН', 1, 'БАЙГУУЛЛАГА') ClassCodeName,TypeCode,InduTypeCode,InduSubTypeCode,FirstName,LastName,MiddleName,CorporateName,CorporateName2,
-RegisterNo,PassNo,DriverNo,Sex, decode(Sex, 0, 'ЭР', 1, 'ЭМ') SexName,BirthDay,Company,Position,Experience,DirFirstName,DirLastName,
-DirMiddleName,DirRegisterNo,DirPassNo,DirSex, decode(DirSex, 0, 'ЭР', 1, 'ЭМ') DirSexName,DirBirthDay,Email,Telephone,Mobile,HomePhone,Fax,
-WebSite,SpecialApproval,RateCode,CountryCode,LanguageCode,isOtherInsurance, decode(isOtherInsurance, 0, 'ҮГҮЙ', 1, 'ТИЙМ') isOtherInsuranceName,
-isHInsurance, decode(isHInsurance, 0, 'ҮГҮЙ', 1, 'ТИЙМ') isHInsuranceName, isSInsurance, decode(isSInsurance, 0, 'ҮГҮЙ', 1, 'ТИЙМ') isSInsuranceName,BranchNo,Status,
-decode(Status, 0, 'ИДЭВХГҮЙ', 1, 'ИДЭВХТЭЙ') StatusName*/
-            //ucCustomerList.gridView1.OptionsView.ColumnAutoWidth = false;
-            //ucCustomerList.gridView1.BestFitColumns();
-           
             ucCustomerList.FieldLinkSetColumnCaption(0, "Харилцагчийн дугаар");
-          //ucCustomerList.gridView1.Columns[0].Width = 100;
 
-            ucCustomerList.FieldLinkSetColumnCaption(1, "Харилцагчийн төрөл", true);
-            //ucCustomerList.gridView1.Columns[1].Width = 100;
+            ucCustomerList.FieldLinkSetColumnCaption(1, "Харилцагчийн төрөл");
             ucCustomerList.FieldLinkSetColumnCaption(2, "Харилцагчийн төрөл");
-          //  ucCustomerList.gridView1.Columns[2].Width = 100;
 
             ucCustomerList.FieldLinkSetColumnCaption(3, "Байгууллагын төрөл");
-        //    ucCustomerList.gridView1.Columns[3].Width = 100;
             ucCustomerList.FieldLinkSetColumnCaption(4, "Үйл ажиллагааны чиглэл");
-            ucCustomerList.gridView1.Columns[4].Visible = false;
             ucCustomerList.FieldLinkSetColumnCaption(5, "Үйл ажиллагааны чиглэл");
-   
 
             ucCustomerList.FieldLinkSetColumnCaption(6, "Үйл ажиллагааны дэд чиглэл");
-            ucCustomerList.gridView1.Columns[6].Visible = false;
             ucCustomerList.FieldLinkSetColumnCaption(7, "Үйл ажиллагааны дэд чиглэл");
             ucCustomerList.FieldLinkSetColumnCaption(8, "Эцэг эхийн нэр");
-            //ucCustomerList.gridView1.Columns[6].Width = 100;
 
             ucCustomerList.FieldLinkSetColumnCaption(9, "Харилцагчийн нэр");
-            ///ucCustomerList.gridView1.Columns[7].Width = 100;
             ucCustomerList.FieldLinkSetColumnCaption(10, "Овог");
 
             ucCustomerList.FieldLinkSetColumnCaption(11, "Байгууллагын нэр");
-           //ucCustomerList.gridView1.Columns[9].Width = 100;
             ucCustomerList.FieldLinkSetColumnCaption(12, "Байгууллагын нэр 2");
-         //  ucCustomerList.gridView1.Columns[10].Width = 100;
 
             ucCustomerList.FieldLinkSetColumnCaption(13, "Регистерийн дугаар");
             ucCustomerList.FieldLinkSetColumnCaption(14, "Иргэний үнэмлэхний дугаар");
@@ -322,58 +294,36 @@ decode(Status, 0, 'ИДЭВХГҮЙ', 1, 'ИДЭВХТЭЙ') StatusName*/
             ucCustomerList.FieldLinkSetColumnCaption(18, "Төрсөн огноо");
 
             ucCustomerList.FieldLinkSetColumnCaption(19, "Ажиллаж буй албан байгууллага");
-     //     ucCustomerList.gridView1.Columns[17].Width = 100;
             ucCustomerList.FieldLinkSetColumnCaption(20, "Албан тушаал");
 
             ucCustomerList.FieldLinkSetColumnCaption(21, "Туршлага");
-            ucCustomerList.FieldLinkSetColumnCaption(22, "Захиралын эцэг эхийн нэр");
-        //    ucCustomerList.gridView1.Columns[20].Width = 100;
 
-            ucCustomerList.FieldLinkSetColumnCaption(23, "Захиралын нэр");
-     //       ucCustomerList.gridView1.Columns[21].Width = 90;
-            ucCustomerList.FieldLinkSetColumnCaption(24, "Захиралын овог");
+            ucCustomerList.FieldLinkSetColumnCaption(22, "Майл хаяг");
+            ucCustomerList.FieldLinkSetColumnCaption(23, "Ажлын утасны дугаар");
 
-            ucCustomerList.FieldLinkSetColumnCaption(25, "Захиралын регистерийн дугаар");
-            ucCustomerList.FieldLinkSetColumnCaption(26, "Захиралын иргэний үнэмлэхний дугаар");
+            ucCustomerList.FieldLinkSetColumnCaption(24, "Гар утасны дугаар");
+            ucCustomerList.FieldLinkSetColumnCaption(25, "Гэрийн утас");
 
-            ucCustomerList.FieldLinkSetColumnCaption(27, "Захиралын хүйс", true);
-            ucCustomerList.FieldLinkSetColumnCaption(28, "Захиралын хүйс");
-            ucCustomerList.FieldLinkSetColumnCaption(29, "Захиралын төрсөн огноо");
+            ucCustomerList.FieldLinkSetColumnCaption(26, "Факсын дугаар");
+            ucCustomerList.FieldLinkSetColumnCaption(27, "Вэб хуудасны хаяг");
 
-            ucCustomerList.FieldLinkSetColumnCaption(30, "Майл хаяг");
-     //   ucCustomerList.gridView1.Columns[28].Width = 150;
-            ucCustomerList.FieldLinkSetColumnCaption(31, "Ажлын утасны дугаар");
+            ucCustomerList.FieldLinkSetColumnCaption(28, "Харилцагч нь аль салбарын үйл ажиллагаа хийдэг");
+            ucCustomerList.FieldLinkSetColumnCaption(29, "Харилцагчийн зэрэглэл");
 
-            ucCustomerList.FieldLinkSetColumnCaption(32, "Гар утасны дугаар");
-            ucCustomerList.FieldLinkSetColumnCaption(33, "Гэрийн утас");
+            ucCustomerList.FieldLinkSetColumnCaption(30, "Харилцагчийн улсын код");
+            ucCustomerList.FieldLinkSetColumnCaption(31, "Харилцагчийн улс");
+            ucCustomerList.FieldLinkSetColumnCaption(32, "Харилцагчийн хэлний код");
+            ucCustomerList.FieldLinkSetColumnCaption(33, "Харилцагчийн хэл");
 
-            ucCustomerList.FieldLinkSetColumnCaption(34, "Факсын дугаар");
-            ucCustomerList.FieldLinkSetColumnCaption(35, "Вэб хуудасны хаяг");
+            ucCustomerList.FieldLinkSetColumnCaption(34, "Салбарын дугаар");
 
-            ucCustomerList.FieldLinkSetColumnCaption(36, "Харилцагч нь аль салбарын үйл ажиллагаа хийдэг");
-            ucCustomerList.FieldLinkSetColumnCaption(37, "Харилцагчийн зэрэглэлийн код");
-
-            ucCustomerList.FieldLinkSetColumnCaption(38, "Харилцагчийн улсын код");
-            ucCustomerList.FieldLinkSetColumnCaption(39, "Харилцагчийн улс");
-            ucCustomerList.FieldLinkSetColumnCaption(40, "Харилцагчийн хэлний код");
-            ucCustomerList.FieldLinkSetColumnCaption(41, "Харилцагчийн хэл");
-
-            ucCustomerList.FieldLinkSetColumnCaption(42, "Тухайн байгууллагаас өөр байгууллагад даатгалтай эсэх", true);
-            ucCustomerList.FieldLinkSetColumnCaption(43, "Тухайн байгууллагаас өөр байгууллагад даатгалтай эсэх");
-            ucCustomerList.FieldLinkSetColumnCaption(44, "Эрүүл мэндийн даатгалтай эсэх", true);
-            ucCustomerList.FieldLinkSetColumnCaption(45, "Эрүүл мэндийн даатгалтай эсэх");
-
-            ucCustomerList.FieldLinkSetColumnCaption(46, "Нийгмийн даатгалтай эсэх", true);
-            ucCustomerList.FieldLinkSetColumnCaption(47, "Нийгмийн даатгалтай эсэх");
-            ucCustomerList.FieldLinkSetColumnCaption(48, "Салбарын дугаар");
-
-            ucCustomerList.FieldLinkSetColumnCaption(49, "Харилцагчийн төлөв", true);
-            ucCustomerList.FieldLinkSetColumnCaption(50, "Харилцагчийн төлөв");
-            ucCustomerList.FieldLinkSetColumnCaption(51, "Үүсгэсэн огноо");
-            ucCustomerList.FieldLinkSetColumnCaption(52, "Үүсгэсэн хэрэглэгч");
-            ucCustomerList.FieldLinkSetColumnCaption(53, "Хуучин дугаар");
-            ucCustomerList.FieldLinkSetColumnCaption(54, "Өндөр");
-            ucCustomerList.FieldLinkSetColumnCaption(55, "Гутлын хэмжээ");
+            ucCustomerList.FieldLinkSetColumnCaption(35, "Харилцагчийн төлөв", true);
+            ucCustomerList.FieldLinkSetColumnCaption(36, "Харилцагчийн төлөв");
+            ucCustomerList.FieldLinkSetColumnCaption(37, "Үүсгэсэн огноо");
+            ucCustomerList.FieldLinkSetColumnCaption(38, "Үүсгэсэн хэрэглэгч");
+            ucCustomerList.FieldLinkSetColumnCaption(39, "Хуучин дугаар");
+            ucCustomerList.FieldLinkSetColumnCaption(40, "Өндөр");
+            ucCustomerList.FieldLinkSetColumnCaption(41, "Гутлын хэмжээ");
             FormUtility.RestoreStateGrid(appname, formname, ref ucCustomerList.gridView1);
             FormUtility.RestoreStateVGrid(appname, formname, ref ucCustomerList.ucParameterPanel1.vGridControl1, ref ucCustomerList.groupControl1);
          }

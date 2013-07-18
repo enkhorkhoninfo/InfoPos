@@ -295,6 +295,7 @@
     <EmbeddedResource Include="ContractList.resx">
       <DependentUpon>ContractList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="SalesPayBO.resx">
       <DependentUpon>SalesPayBO.cs</DependentUpon>
     </EmbeddedResource>

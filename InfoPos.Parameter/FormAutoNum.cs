@@ -260,8 +260,13 @@ namespace InfoPos.Parameter
                                         case "P": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
                                         case "S": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
                                         case "Y": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
+                                        case "Q": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
                                         case "M": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
+                                        case "D": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
                                         case "R": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
+                                        case "F": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
+                                        case "T": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
+                                        case "L": d = d + c; a = a.Substring(oldend, a.Length - oldend); k = a.Length; i = 0; break;
                                         default: mmError.Text = c + " үсгийн формат буруу байна."; d = null; l = b.Length; i = k; break;
                                     }
                                 }

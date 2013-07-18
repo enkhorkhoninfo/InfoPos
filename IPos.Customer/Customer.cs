@@ -461,24 +461,24 @@ namespace IPos.Customer
 
                 if (Static.ToInt(ri.ReceivedParam[3]) == 0)
                 {
-                    pContractNo = Static.ToStr(obj[46]);
-                    if (pContractNo != "")
-                    {
-                        res = CheckContractNo(db, pContractNo);
-                        if (res.ResultNo != 0)
-                            return res;
-                    }
+                    //pContractNo = Static.ToStr(obj[46]);
+                    //if (pContractNo != "")
+                    //{
+                    //    res = CheckContractNo(db, pContractNo);
+                    //    if (res.ResultNo != 0)
+                    //        return res;
+                    //}
                     res = IPos.DB.Main.DB205004(db, obj);
                 }
                 else
                 {
-                    pContractNo = Static.ToStr(obj[13]);
-                    if (pContractNo != "")
-                    {
-                        res = CheckContractNo(db, pContractNo);
-                        if (res.ResultNo != 0)
-                            return res;
-                    }
+                    //pContractNo = Static.ToStr(obj[13]);
+                    //if (pContractNo != "")
+                    //{
+                    //    res = CheckContractNo(db, pContractNo);
+                    //    if (res.ResultNo != 0)
+                    //        return res;
+                    //}
                     res = IPos.DB.Main.DB227005(db, obj);
                 }
                 return res;

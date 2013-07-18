@@ -151,7 +151,8 @@ namespace IPos.List
                 if (res.ResultNo == 0)
                 {
                     lg.item.Desc = "Харилцагчийн жагсаалт авах";
-                    object[] FieldName = new object[15];
+                    object[] FieldName = new object[19];
+
                     FieldName[0] = "CustomerNo";
                     FieldName[1] = "ClassCode";
                     FieldName[2] = "BranchNo";
@@ -161,21 +162,17 @@ namespace IPos.List
                     FieldName[6] = "RegisterNo";
                     FieldName[7] = "PassNo";
                     FieldName[8] = "Sex";
-                    FieldName[9] = "isHInsurance";
-                    FieldName[10] = "isSInsurance";
-                    FieldName[11] = "TypeCode";
-                    FieldName[12] = "CorporateName";
-                    FieldName[13] = "InduTypeCode";
-                    FieldName[14] = "InduSubTypeCode";
+                    FieldName[9] = "TypeCode";
+                    FieldName[10] = "CorporateName";
+                    FieldName[11] = "InduTypeCode";
+                    FieldName[12] = "InduSubTypeCode";
+                    FieldName[13] = "LevelNo";
+                    FieldName[14] = "Email";
+                    FieldName[15] = "Telephone";
+                    FieldName[16] = "Mobile";
+                    FieldName[17] = "HomePhone";
+                    FieldName[18] = "Fax";
 
-                    FieldName[3] = "DirLastName";
-                    FieldName[4] = "RateCode";
-                    FieldName[5] = "isOtherInsurance";
-                    FieldName[6] = "Email";
-                    FieldName[7] = "Telephone";
-                    FieldName[8] = "Mobile";
-                    FieldName[9] = "HomePhone";
-                    FieldName[10] = "Fax";
                     for (int i = 0; i < FieldName.Length; i++)
                     {
                         if (pParam[i] != null)

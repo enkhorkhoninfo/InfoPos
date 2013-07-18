@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Гэрээний дугаарлалт
+	[T02][Y04][C02][R03][S06]
+	Y=Year; C=CurrencyCode;T=ContractType; R=Random number; S=Sequence 
+	(CODE=ContractType)
+Захиалгын дугаарлалт
+	[Y04][C02][S06][M02][D02][Q01][Z02]
+	Y=Year; C=CurrencyCode; M=Month; D=Day; Q=Quarter; Z=Business session; S=Sequence
+Борлуулалтын дугаарлалт
+	[Y04][S06]
+	Y=Year; S=Sequence
+Төлбөрийн дугаарлалт
+	[Y04][S06]
+	Y=Year; S=Sequence
+Барьцааны дугаарлалт
+	[Y04][L04][S06]
+	Y=Year; L=PledgeType; S=Sequence
+Харилцагчийн дугаарлалт
+	[B02[Y04][F01][G01][P02][S06]
+	B=Branch; Y=Year; F=ClassCode; G=TypeCode; S=Sequence   
+Биллийн дугаар
+	[Y04][S06]
+	Y=Year; S=Sequence
+Харилцагчийн нэр
+	[Y04][Q01][M02][D02][S06]
+	Y=Year;Q=Quarter; M=Month; D=Day;S=Sequence
+Харилцагчийн регистр
+	[Y04][Q01][M02][D02][S06]
+	Y=Year;Q=Quarter; M=Month; D=Day;S=Sequence</value>
+  </data>
   <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>31</value>
   </metadata>
 </root>

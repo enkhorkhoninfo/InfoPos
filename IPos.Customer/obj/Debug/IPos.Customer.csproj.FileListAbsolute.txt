@@ -3,3 +3,8 @@ D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.Customer.pdb
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Customer\obj\Debug\ResolveAssemblyReference.cache
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Customer\obj\Debug\IPos.Customer.dll
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Customer\obj\Debug\IPos.Customer.pdb
+D:\Infosoft\InfoPosNew\4.Source\IPos.Customer\obj\Debug\ResolveAssemblyReference.cache
+D:\Infosoft\InfoPosNew\Build\server\IPos.Customer.dll
+D:\Infosoft\InfoPosNew\Build\server\IPos.Customer.pdb
+D:\Infosoft\InfoPosNew\4.Source\IPos.Customer\obj\Debug\IPos.Customer.dll
+D:\Infosoft\InfoPosNew\4.Source\IPos.Customer\obj\Debug\IPos.Customer.pdb
