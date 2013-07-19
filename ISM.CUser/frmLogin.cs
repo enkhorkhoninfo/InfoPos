@@ -10,18 +10,25 @@ using System.IO;
 
 using EServ.Shared;
 using EServ;
+using ISM.Lib;
+using lib = ISM.Lib.Static;
 
 namespace ISM.CUser
 {
     internal partial class frmLogin : Form
     {
         Remote moRemote;
+        string _xmlcachename = "";
+        object _xmlcache = null;
 
         #region [ Form events ]
         private void frmLogin_Load(object sender, EventArgs e)
         {
             try
             {
+                _xmlcachename = string.Format(@"{0}\Data\Settings.xml", lib.WorkingFolder);
+                _xmlcache = ISM.Lib.Cache.XMLCacheOpen(_xmlcachename);
+                numUserNo.Text = ISM.Lib.Cache.XMLCacheGetStr(_xmlcache, "UserNo", "0");
                 txtPassword.Focus();
             }
             catch (Exception ex)
@@ -38,9 +45,12 @@ namespace ISM.CUser
             try
             {
                 InitializeComponent();
+                _xmlcachename = string.Format(@"{0}\Data\Settings.xml", lib.WorkingFolder);
+                _xmlcache = ISM.Lib.Cache.XMLCacheOpen(_xmlcachename);
+                
                 moRemote = pRemote;
-
-                numUserNo.Text = Static.ToStr(Static.RegisterGet(Remote.mstrRegPath, "Login", "UserNo", "0"));
+                numUserNo.Text = ISM.Lib.Cache.XMLCacheGetStr(_xmlcache, "UserNo", "0");
+                //numUserNo.Text = EServ.Shared.Static.ToStr(EServ.Shared.Static.RegisterGet(Remote.mstrRegPath, "Login", "UserNo", "0"));
             }
             catch (Exception ex)
             {
@@ -60,7 +70,9 @@ namespace ISM.CUser
         {
             try
             {
-                Static.RegisterSave(Remote.mstrRegPath, "Login", "UserNo", numUserNo.Text);
+                //EServ.Shared.Static.RegisterSave(Remote.mstrRegPath, "Login", "UserNo", numUserNo.Text);
+                ISM.Lib.Cache.XMLCacheSet(_xmlcache, "UserNo", numUserNo.Text);
+                ISM.Lib.Cache.XMLCacheSave(_xmlcachename, _xmlcache);
             }
             catch
             {
@@ -88,11 +100,23 @@ namespace ISM.CUser
         {
             if (!ValidateFields()) return;
             Result res;
-            moRemote.ServerIP = Static.ToStr(Static.RegisterGet(Remote.mstrRegPath, "Login", "Server", ""));
-            moRemote.ServerPort = Static.ToInt(Static.RegisterGet(Remote.mstrRegPath, "Login", "PortNo", ""));
-            moRemote.User.UserNo = Static.ToInt(numUserNo.Text);
-            moRemote.User.UserPassword = Static.Encrypt(txtPassword.Text);
+
+            //moRemote.ServerIP = Static.ToStr(Static.RegisterGet(Remote.mstrRegPath, "Login", "Server", ""));
+            //moRemote.ServerPort = Static.ToInt(Static.RegisterGet(Remote.mstrRegPath, "Login", "PortNo", ""));
+            //moRemote.User.UserNo = Static.ToInt(numUserNo.Text);
+            //moRemote.User.UserPassword = Static.Encrypt(txtPassword.Text);
+            //moRemote.User.ComputerName = SystemInformation.ComputerName;
+
+
+            moRemote.ServerIP = ISM.Lib.Cache.XMLCacheGetStr(_xmlcache, "Server", "");
+            moRemote.ServerPort = ISM.Lib.Cache.XMLCacheGetInt(_xmlcache, "PortNo", 8888);
+            moRemote.User.UserNo = EServ.Shared.Static.ToInt(numUserNo.Text);
+            moRemote.User.UserPassword = EServ.Shared.Static.Encrypt(txtPassword.Text);
             moRemote.User.ComputerName = SystemInformation.ComputerName;
+
+            ISM.Lib.Cache.XMLCacheSet(_xmlcache, "UserNo", numUserNo.Text);
+            ISM.Lib.Cache.XMLCacheSave(_xmlcachename, _xmlcache);
+
             #region[Language]
             if (btnLan.Text == "EN")
                 moRemote.User.UserLanguage = "MN";

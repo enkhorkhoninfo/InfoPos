@@ -3,3 +3,8 @@ D:\Orkhon\InfoSoft\InfoPosNew\5.Build\Server\IPos.Contract.pdb
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Contract\obj\Debug\ResolveAssemblyReference.cache
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Contract\obj\Debug\IPos.Contract.dll
 D:\Orkhon\InfoSoft\InfoPosNew\Source\IPos.Contract\obj\Debug\IPos.Contract.pdb
+D:\Infosoft\InfoPosNew\4.Source\IPos.Contract\obj\Debug\ResolveAssemblyReference.cache
+D:\Infosoft\InfoPosNew\Build\server\IPos.Contract.dll
+D:\Infosoft\InfoPosNew\Build\server\IPos.Contract.pdb
+D:\Infosoft\InfoPosNew\4.Source\IPos.Contract\obj\Debug\IPos.Contract.dll
+D:\Infosoft\InfoPosNew\4.Source\IPos.Contract\obj\Debug\IPos.Contract.pdb

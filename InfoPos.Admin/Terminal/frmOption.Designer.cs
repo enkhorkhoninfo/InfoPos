@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.cboWindowType = new DevExpress.XtraEditors.LookUpEdit();
             this.label11 = new System.Windows.Forms.Label();
             this.cboStyle = new DevExpress.XtraEditors.LookUpEdit();
@@ -69,7 +68,7 @@
             this.btnConnect = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             ((System.ComponentModel.ISupportInitialize)(this.cboWindowType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStyle.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWaitTimeout.Properties)).BeginInit();
@@ -430,7 +429,7 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.xtraTabControl1.Location = new System.Drawing.Point(2, 21);
+            this.xtraTabControl1.Location = new System.Drawing.Point(2, 22);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
             this.xtraTabControl1.Size = new System.Drawing.Size(524, 247);
@@ -452,7 +451,7 @@
             this.xtraTabPage1.Controls.Add(this.label7);
             this.xtraTabPage1.Controls.Add(this.txtWaitTimeout);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(518, 219);
+            this.xtraTabPage1.Size = new System.Drawing.Size(519, 221);
             this.xtraTabPage1.Text = "xtraTabPage1";
             // 
             // xtraTabPage2
@@ -482,7 +481,7 @@
             this.xtraTabPage2.Controls.Add(this.label4);
             this.xtraTabPage2.Controls.Add(this.txtDynamicPathIn);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(518, 219);
+            this.xtraTabPage2.Size = new System.Drawing.Size(519, 221);
             this.xtraTabPage2.Text = "xtraTabPage2";
             // 
             // label12
@@ -544,6 +543,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(528, 309);
             this.groupControl1.TabIndex = 25;
+            this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
             // defaultLookAndFeel1
             // 

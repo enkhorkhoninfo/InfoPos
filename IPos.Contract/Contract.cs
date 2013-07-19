@@ -227,11 +227,11 @@ namespace IPos.Contract
             try
             {
                 if (Static.ToInt(ri.ReceivedParam[1]) == 0)
-                    res = DBIO.DB204001(db, ri.PageIndex, ri.PageRows, (object[])ri.ReceivedParam[0]);
+                    res = IPos.DB.Main.DB204001(db, ri.PageIndex, ri.PageRows, (object[])ri.ReceivedParam[0]);
                 if (Static.ToInt(ri.ReceivedParam[1]) == 1)
-                    res = DBIO.DB227001(db, ri.PageIndex, ri.PageRows, (object[])ri.ReceivedParam[0]);
+                    res = IPos.DB.Main.DB227001(db, ri.PageIndex, ri.PageRows, (object[])ri.ReceivedParam[0]);
                 if (Static.ToInt(ri.ReceivedParam[1]) == 2)
-                    res = DBIO.DB227002(db, ri.PageIndex, ri.PageRows, (object[])ri.ReceivedParam[0]);
+                    res = IPos.DB.Main.DB227002(db, ri.PageIndex, ri.PageRows, (object[])ri.ReceivedParam[0]);
                     return res;
             }
             catch (Exception ex)
@@ -257,7 +257,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204002(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204002(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -282,9 +282,9 @@ namespace IPos.Contract
             {
                 string contractno = Static.ToStr(ri.ReceivedParam[0]).Trim();
                 if (contractno!="" && contractno!="0")
-                    res = DBIO.DB204003(db, ri.ReceivedParam, 1, contractno);
+                    res = IPos.DB.Main.DB204003(db, ri.ReceivedParam, 1, contractno);
                 else
-                    res = DBIO.DB204003(db, ri.ReceivedParam, 0, "");
+                    res = IPos.DB.Main.DB204003(db, ri.ReceivedParam, 0, "");
                 return res;
             }
             catch (Exception ex)
@@ -310,7 +310,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204004(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204004(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -338,7 +338,7 @@ namespace IPos.Contract
             long seqid;
             try
             {
-                res = DBIO.DB204005(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204005(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -362,7 +362,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204006(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204006(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -388,7 +388,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204007(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204007(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -412,7 +412,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204008(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204008(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -438,7 +438,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204009(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204009(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -466,7 +466,7 @@ namespace IPos.Contract
             long seqid;
             try
             {
-                res = DBIO.DB204010(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToInt(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]));
+                res = IPos.DB.Main.DB204010(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToInt(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]));
                 return res;
             }
             catch (Exception ex)
@@ -490,7 +490,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204011(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204011(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -516,7 +516,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204012(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]));
+                res = IPos.DB.Main.DB204012(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]));
                 return res;
             }
             catch (Exception ex)
@@ -541,7 +541,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204013(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204013(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -567,7 +567,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204013(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204013(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -595,7 +595,7 @@ namespace IPos.Contract
             long seqid;
             try
             {
-                res = DBIO.DB204015(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]));
+                res = IPos.DB.Main.DB204015(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]));
                 return res;
             }
             catch (Exception ex)
@@ -619,7 +619,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204016(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204016(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -645,7 +645,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204017(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToDateTime(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204017(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToDateTime(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -669,7 +669,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204018(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204018(db, ri.ReceivedParam);
 
                 //DateTime startdate = Static.ToDate(ri.ReceivedParam[1]);
                 //DateTime enddate = Static.ToDate(ri.ReceivedParam[2]);
@@ -720,7 +720,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204019(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204019(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -748,7 +748,7 @@ namespace IPos.Contract
             long seqid;
             try
             {
-                res = DBIO.DB204020(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToDateTime(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204020(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToDateTime(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -786,7 +786,7 @@ namespace IPos.Contract
                 decimal _round = (Math.Round(_division, 2) * 100 - Math.Round(_division, 0) * 100);
 
                 //Delete all rows
-                res = DBIO.DB204021(db, pContractno);
+                res = IPos.DB.Main.DB204021(db, pContractno);
                 if (res.ResultNo != 0) return res;
 
                 #region [ 0 - togtmol dungeer ]
@@ -893,7 +893,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204101(db, 1, 1, null);
+                res = IPos.DB.Main.DB204101(db, 1, 1, null);
                 return res;
             }
             catch (Exception ex)
@@ -919,7 +919,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204102(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204102(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -944,9 +944,9 @@ namespace IPos.Contract
             {
                 string orderno = Static.ToStr(ri.ReceivedParam[0]).Trim();
                 if (orderno != "" && orderno != "0")
-                    res = DBIO.DB204103(db, ri.ReceivedParam, 1, orderno);
+                    res = IPos.DB.Main.DB204103(db, ri.ReceivedParam, 1, orderno);
                 else
-                    res = DBIO.DB204103(db, ri.ReceivedParam, 0, "");
+                    res = IPos.DB.Main.DB204103(db, ri.ReceivedParam, 0, "");
                 return res;
             }
             catch (Exception ex)
@@ -972,7 +972,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204104(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204104(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -998,7 +998,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204105(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204105(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -1022,7 +1022,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204106(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204106(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -1048,7 +1048,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204107(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204107(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -1072,7 +1072,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204108(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204108(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -1098,7 +1098,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204109(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToLong(ri.ReceivedParam[2]));
+                res = IPos.DB.Main.DB204109(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToLong(ri.ReceivedParam[2]));
                 return res;
             }
             catch (Exception ex)
@@ -1125,7 +1125,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204110(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204110(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -1151,7 +1151,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204111(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204111(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -1177,7 +1177,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204112(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204112(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -1201,7 +1201,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204113(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204113(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -1227,7 +1227,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204114(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204114(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -1254,7 +1254,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204115(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204115(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -1280,7 +1280,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204116(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204116(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -1306,7 +1306,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204117(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]), Static.ToInt(ri.ReceivedParam[3]));
+                res = IPos.DB.Main.DB204117(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]), Static.ToInt(ri.ReceivedParam[3]));
                 return res;
             }
             catch (Exception ex)
@@ -1332,7 +1332,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204118(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204118(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -1358,7 +1358,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204119(db, (object[])ri.ReceivedParam[0], (object[])ri.ReceivedParam[1]);
+                res = IPos.DB.Main.DB204119(db, (object[])ri.ReceivedParam[0], (object[])ri.ReceivedParam[1]);
                 return res;
             }
             catch (Exception ex)
@@ -1384,7 +1384,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204120(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]), Static.ToInt(ri.ReceivedParam[3]));
+                res = IPos.DB.Main.DB204120(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]), Static.ToInt(ri.ReceivedParam[3]));
                 return res;
             }
             catch (Exception ex)
@@ -1435,7 +1435,7 @@ namespace IPos.Contract
             Result res = new Result();
             try
             {
-                res = DBIO.DB204117(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]), Static.ToInt(ri.ReceivedParam[3]));
+                res = IPos.DB.Main.DB204117(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]), Static.ToInt(ri.ReceivedParam[3]));
                 return res;
                 //return F_Error(res);
             }
@@ -1460,7 +1460,7 @@ namespace IPos.Contract
             {
                 string sql = @"insert into workarea values(:1,:2,:3,:4)";
                 res = db.ExecuteQuery("core", sql, enumCommandType.INSERT, "Txn130123", ri.ReceivedParam);
-                return DBIO.F_Error(res);
+                return IPos.DB.Main.F_Error(res);
             }
             catch (Exception ex)
             {
@@ -1487,7 +1487,7 @@ namespace IPos.Contract
             {
                 string sql = @"update workarea set name=:2,name2=:3,orderno=:4 where areacode=:1";
                 res = db.ExecuteQuery("core", sql, enumCommandType.UPDATE, "Txn130124", ri.ReceivedParam);
-                return DBIO.F_Error(res);
+                return IPos.DB.Main.F_Error(res);
             }
             catch (Exception ex)
             {
@@ -1686,9 +1686,9 @@ namespace IPos.Contract
 
                                     string contractno = Static.ToStr(obj[0]).Trim();
                                     if (contractno != "" && contractno != "0")
-                                        res = DBIO.DB204022(db, obj, 1, contractno);
+                                        res = IPos.DB.Main.DB204022(db, obj, 1, contractno);
                                     else
-                                        res = DBIO.DB204022(db, obj, 0, "");
+                                        res = IPos.DB.Main.DB204022(db, obj, 0, "");
                                     if (res.ResultNo != 0)
                                         return res;
                                 }
@@ -1732,7 +1732,7 @@ namespace IPos.Contract
                                     obj[2] = Static.ToInt(dr["column3"]);
                                     obj[3] = Static.ToDecimal(dr["column4"]);
 
-                                    res = DBIO.DB204023(db, obj);
+                                    res = IPos.DB.Main.DB204023(db, obj);
                                     if (res.ResultNo != 0)
                                         return res;
                                 }
@@ -1789,7 +1789,7 @@ namespace IPos.Contract
                                         return res;
                                     }
 
-                                    res = DBIO.DB204024(db, obj);
+                                    res = IPos.DB.Main.DB204024(db, obj);
                                     if (res.ResultNo != 0)
                                         return res;
                                 }
@@ -1837,7 +1837,7 @@ namespace IPos.Contract
                                         return res;
                                     }
 
-                                    res = DBIO.DB204025(db, obj);
+                                    res = IPos.DB.Main.DB204025(db, obj);
                                     if (res.ResultNo != 0)
                                         return res;
                                 }

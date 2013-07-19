@@ -10304,46 +10304,48 @@ where ContractNo=:1";
         }
         #endregion
         #region [ DB204003 - Гэрээний үндсэн бүртгэл шинээр нэмэх ]
-        public static Result DB204003(DbConnections pDB, object[] pParam)
+        public static Result DB204003(DbConnections pDB, object[] pParam, int flag, string contractno)
         {
             Result res = new Result();
             try
             {
-//Гэрээний дугаарлалт
-//[T02][Y04][C02][R03][S06]
-//Y=Year; C=CurrencyCode;T=ContractType; R=Random number; S=Sequence 
-//(CODE=ContractType)
-
-                string seq = "";
-                #region [ ContractNo ]
-                Core.AutoNumEnum enums = new AutoNumEnum();
-
-                enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[9])).CurrencyCode);
-                enums.T = Static.ToStr(pParam[1]);
-                enums.Y = Static.ToStr(Static.ToDate(pParam[14]).Year);
-
-                Random random = new Random();
-                int randomNumber = random.Next(100000000, 999999999);
-                enums.R = randomNumber.ToString();
-
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, "",enums);
-
-                if (seqres.ResultNo == 0)
+                if (flag == 0)
                 {
-                    seq = Static.ToStr(seqres.ResultDesc);
-                    if (seq == "")
+                    string seq = "";
+                    #region [ ContractNo ]
+                    //[T02][Y04][C02][P04][R03][S06]	YCPTRS	"Y=Year; C=CurrencyCode; P=MemberType; T=ContractType; R=Random number; S=Sequence (CODE=ContractType)"
+
+                    Core.AutoNumEnum enums = new Core.AutoNumEnum();
+                    enums.Y = Static.ToStr(Static.ToDate(pParam[14]).Year);
+                    enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[9])).CurrencyCode);
+                    //enums.P = Static.ToStr(pParam[1]);
+                    enums.T = Static.ToStr(pParam[1]);
+
+                    Random rnd = new Random();
+                    enums.R = Static.ToStr(rnd.Next(100000000, 999999999));
+                    
+                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, enums.T, enums);
+
+                    if (seqres.ResultNo == 0)
                     {
-                        seqres.ResultNo = 9110068;
-                        seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:3][" + seqres.ResultDesc + "]";
-                        return seqres;
+                        seq = Static.ToStr(seqres.ResultDesc);
+                        if (seq == "")
+                        {
+                            seqres.ResultNo = 9110068;
+                            seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:3][" + seqres.ResultDesc + "]";
+                            return seqres;
+                        }
                     }
+                    else
+                        return seqres;
+
+                    pParam[0] = seq;
+                    #endregion
                 }
                 else
-                    return seqres;
-
-                pParam[0] = seq;
-                #endregion
-
+                {
+                    pParam[0] = contractno;
+                }
                 string sql =
 @"INSERT INTO ContractMain(ContractNo, ContractType, CustNo, ValidStartDate, ValidStartTime, ValidEndDate, ValidEndTime, Amount, Balance, CurCode,
 PersonCount, DepFreq, DepAmount, Status, CreateDate, CreatePostDate, CreateUser, OwnerUser, Rebateid, Loyalid, 
@@ -10353,12 +10355,15 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 :21, :22, :23, :24, :25, :26, :27)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204003", pParam);
-                object[] obbj = new object[1];
+                res = F_Error(res);
+                if (res.ResultNo == 0)
+                {
+                    object[] obbj = new object[1];
 
-                obbj[0] = pParam[0];
+                    obbj[0] = pParam[0];
 
-                res.Param = obbj;
-
+                    res.Param = obbj;
+                }
                 return res;
             }
             catch (Exception ex)
@@ -10493,7 +10498,7 @@ where a.ContractNo=:1 and a.ProdType=1 and a.ProdNo=:2";
 VALUES(:1, :2, :3, :4)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204008", pParam);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -10618,7 +10623,7 @@ where a.ContractNo=:1 and a.PayType=:2 and a.AccountNo=:3";
 VALUES(:1, :2, :3, :4)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204013", pParam);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -10740,7 +10745,7 @@ where ContractNo=:1 and Day=:2";
 VALUES(:1, :2, :3)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204018", pParam);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -10820,21 +10825,28 @@ WHERE ContractNo=:1 and Day=:2";
         #endregion
 
         #region [ DB204022 - Гэрээний үндсэн мэдээлэл xls - ээс оруулах ]
-        public static Result DB204022(DbConnections pDB, object[] obj)
+        public static Result DB204022(DbConnections pDB, object[] obj, int flag, string contractno)
         {
             Result res = new Result();
             try
             {
+                if (flag == 0)
+                {
                     string seq = "";
                     #region [ ContractNo ]
-                    Core.AutoNumEnum enums = new AutoNumEnum();
+                    //[T02][Y04][C02][P04][R03][S06]	YCPTRS	"Y=Year; C=CurrencyCode; P=MemberType; T=ContractType; R=Random number; S=Sequence (CODE=ContractType)"
 
-                    enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(obj[8])).CurrencyCode);
-                    enums.P = Static.ToStr(obj[1]);
+                    Core.AutoNumEnum enums = new Core.AutoNumEnum();
+                    //enums.A = "0";
+                    //enums.P = Static.ToStr(obj[1]);
                     enums.Y = Static.ToStr(Static.ToDate(obj[21]).Year);
-
-                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, "",enums);
-
+                    enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(obj[8])).CurrencyCode);
+                    //enums.P = Static.ToStr(pParam[1]);
+                    enums.T = Static.ToStr(obj[1]);
+                    Random rnd = new Random();
+                    enums.R = Static.ToStr(rnd.Next(1, 2));
+                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 3, enums.T, enums);
+                    //Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 19, enums);
                     if (seqres.ResultNo == 0)
                     {
                         seq = Static.ToStr(seqres.ResultDesc);
@@ -10850,23 +10862,30 @@ WHERE ContractNo=:1 and Day=:2";
 
                     obj[0] = seq;
                     #endregion
-
-                    string sql =
-    @"INSERT INTO ContractMain(ContractNo, ContractType, CustNo, ValidStartDate, ValidStartTime, ValidEndDate, ValidEndTime, Amount, CurCode, BalanceType, 
+                }
+                else
+                {
+                    obj[0] = contractno;
+                }
+                string sql =
+@"INSERT INTO ContractMain(ContractNo, ContractType, CustNo, ValidStartDate, ValidStartTime, ValidEndDate, ValidEndTime, Amount, CurCode, BalanceType, 
 PersonCount, DepFreq, DepAmount, OwnerUser, Rebateid, Loyalid, Pointid, Vat, AccountNo, IncomeAccountNo, 
 BALANCEMETHOD, CreateDate, CreatePostDate, CreateUser, Status, Balance, DepBalance)
 VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, 
 :11, :12, :13, :14, :15, :16, :17, :18, :19, :20,
 :21, :22, :23, :24, :25, :26, :27)";
 
-                    res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204022", obj);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204022", obj);
+                res = F_Error(res);
+                if (res.ResultNo == 0)
+                {
                     object[] obbj = new object[1];
 
                     obbj[0] = obbj;
 
                     res.Param = obbj;
-
-                    return res;
+                }
+                return res;
             }
             catch (Exception ex)
             {
@@ -10888,7 +10907,7 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 VALUES(:1, :2, :3, :4)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204023", obj);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -10911,7 +10930,7 @@ VALUES(:1, :2, :3, :4)";
 VALUES(:1, :2, :3, :4)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204024", obj);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -10934,7 +10953,7 @@ VALUES(:1, :2, :3, :4)";
 VALUES(:1, :2, :3)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204025", obj);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -11032,36 +11051,47 @@ where OrderNo=:1";
         }
         #endregion
         #region [ DB204103 - Захиалгын үндсэн бүртгэл шинээр нэмэх ]
-        public static Result DB204103(DbConnections pDB, object[] pParam)
+        public static Result DB204103(DbConnections pDB, object[] pParam, int flag, string orderno)
         {
             Result res = new Result();
             try
             {
-                long seq = 0;
-                #region [ OrderNo ]
-                Core.AutoNumEnum enums = new AutoNumEnum();
-                //enums.B = Static.ToStr(pParam[4]);
-                enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[6])).CurrencyCode);
-                //enums.P = Static.ToStr(pParam[1]);
-                enums.Y = Static.ToStr(Static.ToDate(pParam[12]).Year);
-
-                Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 4, "",enums);
-
-                if (seqres.ResultNo == 0)
+                if (flag == 0)
                 {
-                    seq = Static.ToLong(seqres.ResultDesc);
-                    if (seq == 0)
+                    int ImplementYear = Core.SystemProp.ImplementYear;
+                    long seq = 0;
+                    #region [ OrderNo ]
+                    //Y=Year; C=CurrencyCode; M=Month; D=Day; Q=Quarter; Z=Business session; S=Sequence
+
+                    Core.AutoNumEnum enums = new Core.AutoNumEnum();
+                    enums.Y = Static.ToStr(Static.ToDate(pParam[12]).Year);
+                    enums.M = Static.ToStr(Static.ToDate(pParam[12]).Month);
+                    enums.D = Static.ToStr(Static.ToDate(pParam[12]).Day);
+                    enums.Q = Static.ToStr(Math.Round(Static.ToDecimal(Static.ToDate(pParam[12]).Month / 3), 0, MidpointRounding.ToEven));
+                    enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[6])).CurrencyCode);
+                    enums.Z = Static.ToStr(Static.ToDate(pParam[12]).Year - ImplementYear);
+                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 4, "", enums);
+                    if (seqres.ResultNo == 0)
                     {
-                        seqres.ResultNo = 9110068;
-                        seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:4][" + seqres.ResultDesc + "]";
-                        return seqres;
+                        seq = Static.ToLong(seqres.ResultDesc);
+                        if (seq == 0)
+                        {
+                            seqres.ResultNo = 9110068;
+                            seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:4][" + seqres.ResultDesc + "]";
+                            return seqres;
+                        }
                     }
+                    else
+                        return seqres;
+
+                    pParam[0] = seq;
+                    #endregion
                 }
                 else
-                    return seqres;
+                {
+                    pParam[0] = orderno;
+                }
 
-                pParam[0] = seq;
-                #endregion
 
                 string sql =
 @"INSERT INTO orders(OrderNo, CustNo, ConfirmTerm, TermType, OrderAmount,
@@ -11072,12 +11102,15 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 :11, :12, :13, :14, :15, :16, :17, :18, :19)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204103", pParam);
-                object[] obbj = new object[1];
+                res = F_Error(res);
+                if (res.ResultNo == 0)
+                {
+                    object[] obbj = new object[1];
 
-                obbj[0] = pParam[0];
+                    obbj[0] = pParam[0];
 
-                res.Param = obbj;
-
+                    res.Param = obbj;
+                }
                 return res;
             }
             catch (Exception ex)
@@ -11203,7 +11236,7 @@ where a.orderno=:1 and a.custno=:2";
 VALUES(:1, :2)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204108", pParam);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -11326,7 +11359,7 @@ where orderno=:1 and GroupNo=:2";
 VALUES(:1, :2, :3, :4, :5, :6)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204113", pParam);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -11459,7 +11492,7 @@ where orderno=:1 and GroupNo=:2 and ProdNo=:3 and ProdType=:4";
 VALUES(:1, :2, :3, :4, :5)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204118", pParam);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)
@@ -11641,7 +11674,7 @@ VALUES(:1, :2, :3, :4, :5,
 :6, :7, :8)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204123", pParam);
-
+                res = F_Error(res);
                 return res;
             }
             catch (Exception ex)

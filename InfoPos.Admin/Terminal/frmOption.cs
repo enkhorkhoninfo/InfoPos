@@ -307,5 +307,10 @@ DevExpress Dark Style - Хар - 6
         {
             this.Close();
         }
+
+        private void groupControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
