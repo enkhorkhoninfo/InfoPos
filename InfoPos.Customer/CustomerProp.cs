@@ -383,8 +383,8 @@ namespace InfoPos.Customer
                     ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
                     ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
                     ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
-                    ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
-                    ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
+                    //ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
+                    //ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
                     ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
                     ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
 
@@ -729,7 +729,7 @@ namespace InfoPos.Customer
         }
         void ucCustGeneral_EventEdit(ref bool cancel)
         {
-            object[] Value = new object[38];
+            object[] Value = new object[36];
             _customerno = Static.ToLong(txtCustomerNo.EditValue);
             if (EditValueClassCode == 0)
             {
@@ -767,11 +767,9 @@ namespace InfoPos.Customer
                 Value[30] = Convert.ToDateTime(_core.TxnDate);     //CreateTime
                 Value[31] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
                 Value[32] = Static.ToStr(txtOldID.EditValue);    //OldID
-                Value[33] = Static.ToInt(numHeight.EditValue);     //Height
-                Value[34] = Static.ToDecimal(numFootSize.EditValue);    //FootSize
-                Value[35] = Static.ToStr(numContractNo.EditValue);    //ContractNo
-                Value[36] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
-                Value[37] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
+                Value[33] = Static.ToStr(numContractNo.EditValue);    //ContractNo
+                Value[34] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                Value[35] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                 #endregion
             }
             else
@@ -811,11 +809,9 @@ namespace InfoPos.Customer
                 Value[30] = Convert.ToDateTime(_core.TxnDate);           //CreateTime
                 Value[31] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
                 Value[32] = Static.ToStr(txtOldID.EditValue);    //OldID
-                Value[33] = 0;                                   //Height
-                Value[34] = 0;                                   //FootSize
-                Value[35] = Static.ToStr(numContractNo.EditValue);    //ContractNo
-                Value[36] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
-                Value[37] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
+                Value[33] = Static.ToStr(numContractNo.EditValue);    //ContractNo
+                Value[34] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                Value[35] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                 #endregion
             }
             OldValue = Value;
@@ -875,7 +871,7 @@ namespace InfoPos.Customer
         void SaveCustomerData(bool isnew, ref bool cancel)
         {
             Result res = new Result();
-            object[] obj = new object[38];
+            object[] obj = new object[36];
             string msg = "";
             try
             {
@@ -916,11 +912,9 @@ namespace InfoPos.Customer
                     obj[30] = Convert.ToDateTime(_core.TxnDate);     //CreateTime
                     obj[31] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
                     obj[32] = Static.ToStr(txtOldID.EditValue);    //OldID
-                    obj[33] = Static.ToInt(numHeight.EditValue);     //Height
-                    obj[34] = Static.ToDecimal(numFootSize.EditValue);    //FootSize
-                    obj[35] = Static.ToStr(numContractNo.EditValue);    //ContractNo
-                    obj[36] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
-                    obj[37] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
+                    obj[33] = Static.ToStr(numContractNo.EditValue);    //ContractNo
+                    obj[34] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                    obj[35] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                     #endregion
                 }
                 else
@@ -959,17 +953,15 @@ namespace InfoPos.Customer
                     obj[30] = Convert.ToDateTime(_core.TxnDate);           //CreateTime
                     obj[31] = Static.ToInt(_core.RemoteObject.User.UserNo);     //CreateUser
                     obj[32] = Static.ToStr(txtOldID.EditValue);    //OldID
-                    obj[33] = 0;                                   //Height
-                    obj[34] = 0;                                   //FootSize
-                    obj[35] = Static.ToStr(numContractNo.EditValue);    //ContractNo
-                    obj[36] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
-                    obj[37] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
+                    obj[33] = Static.ToStr(numContractNo.EditValue);    //ContractNo
+                    obj[34] = Static.ToStr(txtAccountNo.EditValue);    //txtAccountNo
+                    obj[35] = Static.ToStr(txtIncomeAccountNo.EditValue);    //txtIncomeAccountNo
                     #endregion
                 }
                 object[] FieldName = {"CustomerNo","ClassCode","TypeCode","InduTypeCode","InduSubTypeCode","FirstName","LastName","MiddleName","CorporateName","CorporateName2",
                                          "RegisterNo","PassNo","Sex","BirthDay","Company","Position","Experience","Email","Telephone","Mobile",
                                          "HomePhone","Fax", "WebSite","SpecialApproval","levelno","CountryCode","LanguageCode", "Branch","Status","DriverNo",
-                                         "CreateTime","CreateUser", "OldId","Height","Foot","ContractNo","AccountNo","IncomeAccountNo"};
+                                         "CreateTime","CreateUser", "OldId","ContractNo","AccountNo","IncomeAccountNo"};
                 if (isnew)
                 {
                     res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 205, TxnCodeT1Save, TxnCodeT1Save, new object[] { obj, FieldName, 0 });
@@ -2685,8 +2677,8 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
-            ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
-            ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
+            //ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
+            //ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
             //ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
             ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
@@ -2735,7 +2727,7 @@ namespace InfoPos.Customer
             txtCorFax.Visible = false;
             txtCorPhone.Visible = false;
             txtCorWebSite.Visible = false;
-            Tab5.PageVisible = true;
+            //Tab5.PageVisible = true;
             #endregion
 
             #region[ Show ]
@@ -2817,8 +2809,8 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
-            ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
-            ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
+            //ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
+            //ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
             //ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
             ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
@@ -2869,7 +2861,7 @@ namespace InfoPos.Customer
             txtEmail.Visible = false;
             txtFax.Visible = false;
             txtHomePhone.Visible = false;
-            Tab5.PageVisible = false;
+            //Tab5.PageVisible = false;
             #endregion
 
             #region[ Show ]
@@ -2939,8 +2931,8 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
-            ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
-            ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
+            //ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
+            //ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
             //ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
             ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);
@@ -3066,8 +3058,8 @@ namespace InfoPos.Customer
             ucCustGeneral.FieldLinkAdd("txtCreateDate", 0, "CreateDate", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtOldID", 0, "OldID", "", false, false, true);
-            ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
-            ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
+            //ucCustGeneral.FieldLinkAdd("numHeight", 0, "Height", "", false, false);
+            //ucCustGeneral.FieldLinkAdd("numFootSize", 0, "Foot", "", false, false);
             //ucCustGeneral.FieldLinkAdd("cboMemberType", 0, "MemberType", "", false, false);
             ucCustGeneral.FieldLinkAdd("numContractNo", 0, "ContractNo", "", false, false, true);
             ucCustGeneral.FieldLinkAdd("txtAccountNo", 0, "AccountNo", "", false, false, false);

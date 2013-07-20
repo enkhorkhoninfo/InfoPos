@@ -44,5 +44,13 @@ namespace InfoPos.Customer
             frm.MdiParent = _core.MainForm;
             frm.Show();
         }
+        public void CallOpenXML(object[] param)
+        {
+            _core = (Core.Core)param[0];
+
+            InfoPos.Customer.OpenXml frm = new InfoPos.Customer.OpenXml(_core);
+            frm.MdiParent = _core.MainForm;
+            frm.Show();
+        }
     }
 }

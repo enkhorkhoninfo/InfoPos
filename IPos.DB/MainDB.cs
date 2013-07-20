@@ -11889,7 +11889,7 @@ From V_Customerlist
 @"select CustomerNo, ClassCode, TypeCode, InduTypeCode, InduSubTypeCode, FirstName, LastName, MiddleName, CorporateName, CorporateName2,
 RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, 
 Email, Telephone, Mobile, HomePhone, Fax, WebSite, SpecialApproval, levelno, CountryCode, LanguageCode,
-BranchNo, Status, decode(Status, 0, 'Идэвхгүй', 'Идэвхтэй') as StatusName, DriverNo, createdate, createuser, oldid, Height, Foot,
+BranchNo, Status, decode(Status, 0, 'Идэвхгүй', 'Идэвхтэй') as StatusName, DriverNo, createdate, createuser, oldid, 
 ContractNo, Accountno, IncomeAccountno
 From Customer
 where CustomerNo=:1";
@@ -11948,11 +11948,11 @@ where CustomerNo=:1";
 @"INSERT INTO Customer(CustomerNo, ClassCode, TypeCode, InduTypeCode, InduSubTypeCode, FirstName, LastName, MiddleName, CorporateName, CorporateName2,
 RegisterNo, PassNo, Sex, BirthDay, Company, Position, Experience, Email, Telephone, Mobile, 
 HomePhone, Fax, WebSite, SpecialApproval, levelno, CountryCode, LanguageCode, BranchNo, Status, DriverNo, 
-createdate, createuser, oldid, Height, Foot, ContractNo, Accountno, IncomeAccountno)
+createdate, createuser, oldid, ContractNo, Accountno, IncomeAccountno)
 VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 :11, :12, :13, :14, :15, :16, :17, :18, :19, :20, 
 :21, :22, :23, :24, :25, :26, :27, :28, :29, :30,
-:31, :32, :33, :34, :35, :36, :37, :38)";
+:31, :32, :33, :34, :35, :36)";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB205003", pParam);
 
 
@@ -11989,7 +11989,7 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 ClassCode=:2, TypeCode=:3, InduTypeCode=:4, InduSubTypeCode=:5, FirstName=:6, LastName=:7, MiddleName=:8, CorporateName=:9, CorporateName2=:10,
 RegisterNo=:11, PassNo=:12, Sex=:13, BirthDay=:14, Company=:15, Position=:16, Experience=:17, Email=:18, Telephone=:19, Mobile=:20,
 HomePhone=:21, Fax=:22, WebSite=:23, SpecialApproval=:24, levelno=:25, CountryCode=:26, LanguageCode=:27, BranchNo=:28, Status=:29, DriverNo=:30, 
-createdate=:31, createuser=:32, oldid=:33, Height=:34, Foot=:35, ContractNo=:36, Accountno=:37, IncomeAccountno=:38
+createdate=:31, createuser=:32, oldid=:33, ContractNo=:34, Accountno=:35, IncomeAccountno=:36
 WHERE CustomerNo=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB205004", pParam);

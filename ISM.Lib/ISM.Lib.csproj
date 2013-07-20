@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cache.cs" />
+    <Compile Include="Xml.cs" />
     <Compile Include="Eval.cs" />
     <Compile Include="Excel.cs" />
     <Compile Include="IniFile.cs" />

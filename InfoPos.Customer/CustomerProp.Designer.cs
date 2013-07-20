@@ -232,11 +232,6 @@
             this.labelControl93 = new DevExpress.XtraEditors.LabelControl();
             this.txtOldID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl76 = new DevExpress.XtraEditors.LabelControl();
-            this.Tab5 = new DevExpress.XtraTab.XtraTabPage();
-            this.numHeight = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-            this.numFootSize = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.txtAccountNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
@@ -432,9 +427,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldID.Properties)).BeginInit();
-            this.Tab5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numHeight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFootSize.Properties)).BeginInit();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIncomeAccountNo.Properties)).BeginInit();
@@ -2211,7 +2203,6 @@
             this.Tab1,
             this.Tab2,
             this.Tab4,
-            this.Tab5,
             this.xtraTabPage1});
             // 
             // Tab1
@@ -2530,55 +2521,6 @@
             this.labelControl76.TabIndex = 182;
             this.labelControl76.Text = "Хуучин харилцагчийн дугаар :";
             this.labelControl76.Visible = false;
-            // 
-            // Tab5
-            // 
-            this.Tab5.Controls.Add(this.numHeight);
-            this.Tab5.Controls.Add(this.labelControl27);
-            this.Tab5.Controls.Add(this.numFootSize);
-            this.Tab5.Controls.Add(this.labelControl39);
-            this.Tab5.Name = "Tab5";
-            this.Tab5.Size = new System.Drawing.Size(809, 175);
-            this.Tab5.Text = "Био хэмжигдэхүүн";
-            // 
-            // numHeight
-            // 
-            this.numHeight.Location = new System.Drawing.Point(170, 14);
-            this.numHeight.Name = "numHeight";
-            this.numHeight.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.numHeight.Properties.Mask.EditMask = "d";
-            this.numHeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.numHeight.Properties.MaxLength = 50;
-            this.numHeight.Size = new System.Drawing.Size(155, 20);
-            this.numHeight.TabIndex = 5;
-            // 
-            // labelControl27
-            // 
-            this.labelControl27.Location = new System.Drawing.Point(11, 17);
-            this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(77, 13);
-            this.labelControl27.TabIndex = 4;
-            this.labelControl27.Text = "Биеийн өндөр :";
-            // 
-            // numFootSize
-            // 
-            this.numFootSize.EditValue = "";
-            this.numFootSize.Location = new System.Drawing.Point(170, 40);
-            this.numFootSize.Name = "numFootSize";
-            this.numFootSize.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.numFootSize.Properties.Mask.EditMask = "d";
-            this.numFootSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.numFootSize.Properties.MaxLength = 50;
-            this.numFootSize.Size = new System.Drawing.Size(154, 20);
-            this.numFootSize.TabIndex = 6;
-            // 
-            // labelControl39
-            // 
-            this.labelControl39.Location = new System.Drawing.Point(11, 43);
-            this.labelControl39.Name = "labelControl39";
-            this.labelControl39.Size = new System.Drawing.Size(83, 13);
-            this.labelControl39.TabIndex = 7;
-            this.labelControl39.Text = "Гутлын хэмжээ :";
             // 
             // xtraTabPage1
             // 
@@ -3293,10 +3235,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldID.Properties)).EndInit();
-            this.Tab5.ResumeLayout(false);
-            this.Tab5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numHeight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFootSize.Properties)).EndInit();
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNo.Properties)).EndInit();
@@ -3584,11 +3522,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl110;
         private DevExpress.XtraEditors.LookUpEdit cboReg;
         private DevExpress.XtraEditors.TextEdit txtTab4FirstName;
-        private DevExpress.XtraTab.XtraTabPage Tab5;
-        private DevExpress.XtraEditors.TextEdit numHeight;
-        private DevExpress.XtraEditors.LabelControl labelControl27;
-        private DevExpress.XtraEditors.TextEdit numFootSize;
-        private DevExpress.XtraEditors.LabelControl labelControl39;
         private DevExpress.XtraEditors.TextEdit numContractNo;
         private DevExpress.XtraEditors.LabelControl labelControl43;
         private DevExpress.XtraEditors.SimpleButton btnContractFind;

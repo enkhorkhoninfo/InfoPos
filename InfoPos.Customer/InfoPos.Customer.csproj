@@ -111,6 +111,12 @@
       <DependentUpon>CustomerProp.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs" />
+    <Compile Include="OpenXml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenXml.Designer.cs">
+      <DependentUpon>OpenXml.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerProp.resx">
       <DependentUpon>CustomerProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenXml.resx">
+      <DependentUpon>OpenXml.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
