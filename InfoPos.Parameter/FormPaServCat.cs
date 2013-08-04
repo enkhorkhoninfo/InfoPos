@@ -12,7 +12,7 @@ using ISM.Template;
 
 namespace InfoPos.Parameter
 {
-    public partial class PaInvCat : ISM.Template.frmTempProp
+    public partial class PaServCat : ISM.Template.frmTempProp
     {
         Core.Core _core;
         int rowhandle = 0;
@@ -21,7 +21,7 @@ namespace InfoPos.Parameter
         int btn = 0;
         string appname = "", formName = "";
         Form FormName = null;
-        public PaInvCat(Core.Core core)
+        public PaServCat(Core.Core core)
         {
             InitializeComponent();
             _core = core;
@@ -66,7 +66,7 @@ namespace InfoPos.Parameter
             {
                 try
                 {
-                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140220, 140220, new object[] { txtCatCode.EditValue });
+                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140225, 140225, new object[] { txtCatCode.EditValue });
                     if (r.ResultNo != 0)
                     {
                         MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
@@ -108,12 +108,12 @@ namespace InfoPos.Parameter
                                     };
                 if (!isnew)
                 {
-                    r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140219, 140219, new object[] { NewValue, OldValue, FieldName });
+                    r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140224, 140224, new object[] { NewValue, OldValue, FieldName });
                     MessageBox.Show("Амжилттай засварлалаа.");
                 }
                 else
                 {
-                    r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140218, 140218, new object[] { NewValue, FieldName });
+                    r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140223, 140223, new object[] { NewValue, FieldName });
                     MessageBox.Show("Амжилттай нэмлээ .");
                 }
                 if (r.ResultNo != 0)
@@ -151,7 +151,7 @@ namespace InfoPos.Parameter
             rowhandle = gridView1.FocusedRowHandle;
             try
             {
-                Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140216, 140216, null);
+                Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140221, 140221, null);
                 if (r.ResultNo != 0)
                 {
                     if (r.Data == null)
@@ -186,7 +186,7 @@ namespace InfoPos.Parameter
             }
         }
 
-        private void PaInvCat_Load(object sender, EventArgs e)
+        private void PaServCat_Load(object sender, EventArgs e)
         {
 
         }

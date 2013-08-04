@@ -27,24 +27,41 @@ namespace InfoPos.Parameter
         #endregion[]
         public FormPAWeather(Core.Core core)
         {
-            InitializeComponent();
-            _core = core;
-            Init();
-            this.Resource = _core.Resource;
-            this.FieldLinkSetSaveState();
+            try
+            {
+                InitializeComponent();
+                _core = core;
+                Init();
+                this.Resource = _core.Resource;
+                this.FieldLinkSetSaveState();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #region[Init]
         private void Init()
         {
-            this.EventRefresh += new delegateEventRefresh(FormPAWeather_EventRefresh);
-            this.EventRefreshAfter += new delegateEventRefreshAfter(FormPAWeather_EventRefreshAfter);
-            this.EventSave += new delegateEventSave(FormPAWeather_EventSave);
-            this.EventEdit += new delegateEventEdit(FormPAWeather_EventEdit);
-            this.EventDelete += new delegateEventDelete(FormPAWeather_EventDelete);
-            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(gridView1_FocusedRowChanged);
+            try
+            {
+                this.EventRefresh += new delegateEventRefresh(FormPAWeather_EventRefresh);
+                this.EventRefreshAfter += new delegateEventRefreshAfter(FormPAWeather_EventRefreshAfter);
+                this.EventSave += new delegateEventSave(FormPAWeather_EventSave);
+                this.EventEdit += new delegateEventEdit(FormPAWeather_EventEdit);
+                this.EventDelete += new delegateEventDelete(FormPAWeather_EventDelete);
+                this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(gridView1_FocusedRowChanged);
 
-            this.FieldLinkAdd("txtWeatherId", "WEATHERID", "", true, true);
-            this.FieldLinkAdd("txtDesc", "DESCRIPTION", "", true, false);            
+                this.FieldLinkAdd("txtWeatherId", "WEATHERID", "", true, true);
+                this.FieldLinkAdd("txtName", "Name", "", true, false);
+                this.FieldLinkAdd("txtName2", "Name2", "", false, false);
+                this.FieldLinkAdd("txtDescription", "Description", "", false, false);
+                this.FieldLinkAdd("txtOrderNo", "OrderNo", "", false, false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion[]
         #region[Үзэгдлүүд]
@@ -83,7 +100,7 @@ namespace InfoPos.Parameter
                 encData_byte = System.Text.Encoding.UTF8.GetBytes(data);
                 string encodedData = Convert.ToBase64String(encData_byte);
 
-                object[] Value = { txtWeatherId.EditValue, txtDesc.EditValue, encodedData };
+                object[] Value = { txtWeatherId.EditValue, txtName.EditValue, txtName2.EditValue, txtDescription.EditValue, encodedData, txtOrderNo.EditValue };
                 OldValue = Value;
             }
             catch (Exception ex)
@@ -106,10 +123,7 @@ namespace InfoPos.Parameter
             try
             {                
                 object[] NewValue = { 
-                                        Static.ToStr(txtWeatherId.EditValue), 
-                                        Static.ToStr(txtDesc.EditValue), 
-                                        ToBase64(txtIcon.Image,System.Drawing.Imaging.ImageFormat.Gif)
-
+                                        txtWeatherId.EditValue, txtName.EditValue, txtName2.EditValue, txtDescription.EditValue, ToBase64(txtIcon.Image,System.Drawing.Imaging.ImageFormat.Gif), txtOrderNo.EditValue
                                     };
                 if (!isnew)
                 {
@@ -142,21 +156,31 @@ namespace InfoPos.Parameter
             FormUtility.SaveStateGrid(appname, formName, ref gridView1);
         }
         void FormPAWeather_EventRefreshAfter()
-        {            
-            this.FieldLinkSetColumnCaption(0, "Цаг агаарын төрлийн код");
-            this.FieldLinkSetColumnCaption(1, "Тайлбар");
-            this.FieldLinkSetColumnCaption(2, "Дүрслэгдэх зураг");
-            appname = _core.ApplicationName;
-            //formname = "Parameter." + this.Name;
-            FormName = this;
-            FormUtility.RestoreStateForm(appname, ref FormName);
-            FormUtility.RestoreStateGrid(appname, "Parameter." + this.Name, ref gridView1);
-            switch (btn)
+        {
+            try
             {
-                case 0: gridView1.FocusedRowHandle = rowhandle; break;
-                case 1: gridView1.FocusedRowHandle = rowhandle - 1; break;
+                this.FieldLinkSetColumnCaption(0, "Цаг агаарын төрлийн код");
+                this.FieldLinkSetColumnCaption(1, "Нэр");
+                this.FieldLinkSetColumnCaption(2, "Нэр2");
+                this.FieldLinkSetColumnCaption(3, "Тайлбар");
+                this.FieldLinkSetColumnCaption(4, "Зураг");
+                this.FieldLinkSetColumnCaption(5, "Эрэмбэ");
+                appname = _core.ApplicationName;
+                //formname = "Parameter." + this.Name;
+                FormName = this;
+                FormUtility.RestoreStateForm(appname, ref FormName);
+                FormUtility.RestoreStateGrid(appname, "Parameter." + this.Name, ref gridView1);
+                switch (btn)
+                {
+                    case 0: gridView1.FocusedRowHandle = rowhandle; break;
+                    case 1: gridView1.FocusedRowHandle = rowhandle - 1; break;
+                }
+                btn = 0;
             }
-            btn = 0;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         void FormPAWeather_EventRefresh(ref DataTable dt)
         {
@@ -249,5 +273,10 @@ namespace InfoPos.Parameter
             }
         }
         #endregion[]
+
+        private void FormPAWeather_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

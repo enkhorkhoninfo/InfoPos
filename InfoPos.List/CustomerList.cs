@@ -322,8 +322,8 @@ namespace InfoPos.List
             ucCustomerList.FieldLinkSetColumnCaption(37, "Үүсгэсэн огноо");
             ucCustomerList.FieldLinkSetColumnCaption(38, "Үүсгэсэн хэрэглэгч");
             ucCustomerList.FieldLinkSetColumnCaption(39, "Хуучин дугаар");
-            ucCustomerList.FieldLinkSetColumnCaption(40, "Өндөр");
-            ucCustomerList.FieldLinkSetColumnCaption(41, "Гутлын хэмжээ");
+            //ucCustomerList.FieldLinkSetColumnCaption(40, "Өндөр");
+            //ucCustomerList.FieldLinkSetColumnCaption(41, "Гутлын хэмжээ");
             FormUtility.RestoreStateGrid(appname, formname, ref ucCustomerList.gridView1);
             FormUtility.RestoreStateVGrid(appname, formname, ref ucCustomerList.ucParameterPanel1.vGridControl1, ref ucCustomerList.groupControl1);
          }

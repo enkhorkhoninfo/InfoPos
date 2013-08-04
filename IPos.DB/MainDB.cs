@@ -3102,7 +3102,7 @@ WHERE INVTYPEID = :1";
             {
                 string sql =
 @"SELECT UNITTYPECODE, NAME, NAME2, ORDERNO
-FROM UNITTYPE
+FROM PAUNITTYPE
 ORDER BY ORDERNO";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202106", null);
@@ -3126,7 +3126,7 @@ ORDER BY ORDERNO";
             {
                 string sql =
 @"SELECT UNITTYPECODE, NAME, NAME2, ORDERNO
-FROM UNITTYPE
+FROM PAUNITTYPE
 WHERE UNITTYPECODE = :1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202107", pUnitTypeCode);
@@ -3149,7 +3149,7 @@ WHERE UNITTYPECODE = :1";
             try
             {
                 string sql =
-@"INSERT INTO UNITTYPE(UNITTYPECODE, NAME, NAME2, ORDERNO)
+@"INSERT INTO PAUNITTYPE(UNITTYPECODE, NAME, NAME2, ORDERNO)
 VALUES(:1, :2, :3, :4)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202108", pParam);
@@ -3172,7 +3172,7 @@ VALUES(:1, :2, :3, :4)";
             try
             {
                 string sql =
-@"UPDATE UNITTYPE SET
+@"UPDATE PAUNITTYPE SET
 NAME=:2, NAME2=:3, ORDERNO=:4
 WHERE UNITTYPECODE = :1";
 
@@ -3207,7 +3207,7 @@ WHERE UNITTYPECODE = :1";
                 }
 
                 sql =
-@"DELETE FROM UNITTYPE WHERE UNITTYPECODE = :1";
+@"DELETE FROM PAUNITTYPE WHERE UNITTYPECODE = :1";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202110", pUnitTypeCode);
 
                 return res;
@@ -3785,9 +3785,10 @@ WHERE MASKID = :1";
             try
             {
                 string sql =
-@"SELECT DayType, description 
+@"SELECT DayType, Name, Name2, Description, IsDefault,
+OrderNo
 FROM PADayType
-Order by DayType";
+Order by OrderNo";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202131", null);
 
@@ -3809,7 +3810,8 @@ Order by DayType";
             try
             {
                 string sql =
-@"SELECT DayType, description 
+@"SELECT DayType, Name, Name2, Description, IsDefault,
+OrderNo
 FROM PADayType
 WHERE DayType=:1";
 
@@ -3833,8 +3835,10 @@ WHERE DayType=:1";
             try
             {
                 string sql =
-@"INSERT INTO PADayType(DayType, description )
-VALUES(:1, :2)";
+@"INSERT INTO PADayType(DayType, Name, Name2, Description, IsDefault,
+OrderNo )
+VALUES(:1, :2, :3, :4, :5,
+:6)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202133", pParam);
                 res = F_Error(res);
@@ -3857,7 +3861,8 @@ VALUES(:1, :2)";
             {
                 string sql =
 @"UPDATE PADayType SET
-description =:2
+Name=:2, Name2=:3, Description=:4, IsDefault=:5,
+OrderNo=:6
 WHERE DayType=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202134", pParam);
@@ -4035,9 +4040,9 @@ WHERE FATYPEID = :1";
             try
             {
                 string sql =
-@"SELECT WeatherId, Description, Icon
+@"SELECT WeatherId, name, name2, Description, Icon, orderno
 FROM PAWeather
-order by Description";
+order by Orderno";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202141", null);
 
@@ -4059,7 +4064,7 @@ order by Description";
             try
             {
                 string sql =
-@"SELECT WeatherId, Description, Icon
+@"SELECT WeatherId, name, name2, Description, Icon, orderno
 FROM PAWeather
 WHERE WeatherId = :1";
 
@@ -4083,8 +4088,8 @@ WHERE WeatherId = :1";
             try
             {
                 string sql =
-@"INSERT INTO PAWeather(WeatherId, Description, Icon)
-VALUES(:1, :2, :3)";
+@"INSERT INTO PAWeather(WeatherId, name, name2, Description, Icon, orderno)
+VALUES(:1, :2, :3, :4, :5, :6)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202143", pParam);
                 res = F_Error(res);
@@ -4107,7 +4112,7 @@ VALUES(:1, :2, :3)";
             {
                 string sql =
 @"UPDATE PAWeather SET
-Description=:2, Icon=:3
+name=:2, name2=:3, Description=:4, Icon=:5, orderno=:6
 WHERE WeatherId=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202144", pParam);
@@ -4386,7 +4391,7 @@ WHERE Brandid=:1";
             try
             {
                 string sql =
-@"SELECT InvType, Name, Name2, ClassCode, Note, OrderNo
+@"SELECT InvType, Name, Name2, catcode, Note, OrderNo
 FROM PAInvType
 order by OrderNo";
 
@@ -4410,7 +4415,7 @@ order by OrderNo";
             try
             {
                 string sql =
-@"SELECT InvType, Name, Name2, ClassCode, Note, OrderNo
+@"SELECT InvType, Name, Name2, catcode, Note, OrderNo
 FROM PAInvType
 WHERE InvType = :1";
 
@@ -4434,7 +4439,7 @@ WHERE InvType = :1";
             try
             {
                 string sql =
-@"INSERT INTO PAInvType(InvType, Name, Name2, ClassCode, Note, OrderNo)
+@"INSERT INTO PAInvType(InvType, Name, Name2, catcode, Note, OrderNo)
 VALUES(:1, :2, :3, :4, :5, :6)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202158", pParam);
@@ -4458,7 +4463,7 @@ VALUES(:1, :2, :3, :4, :5, :6)";
             {
                 string sql =
 @"UPDATE PAInvType SET
-Name=:2, Name2=:3, ClassCode=:4, Note=:5, OrderNo=:6
+Name=:2, Name2=:3, catcode=:4, Note=:5, OrderNo=:6
 WHERE InvType=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202159", pParam);
@@ -4770,7 +4775,7 @@ WHERE ENTRYCODE=:1";
             try
             {
                 string sql =
-@"SELECT TagType, Name, Offset, Length, Format
+@"SELECT TagType, Name, name2, Offset, Length, Format, orderno
 FROM PATagSetup
 order by Name";
 
@@ -4794,7 +4799,7 @@ order by Name";
             try
             {
                 string sql =
-@"SELECT TagType, Name, Offset, Length, Format
+@"SELECT TagType, Name, name2, Offset, Length, Format, orderno
 FROM PATagSetup
 WHERE TagType = :1";
 
@@ -4818,8 +4823,8 @@ WHERE TagType = :1";
             try
             {
                 string sql =
-@"INSERT INTO PATagSetup(TagType, Name, Offset, Length, Format)
-VALUES(:1, :2, :3, :4, :5)";
+@"INSERT INTO PATagSetup(TagType, Name, name2, Offset, Length, Format, orderno)
+VALUES(:1, :2, :3, :4, :5, :6, :7)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202173", pParam);
                 res = F_Error(res);
@@ -4843,7 +4848,7 @@ VALUES(:1, :2, :3, :4, :5)";
 
                 string sql =
 @"UPDATE PATagSetup SET
-Name=:2, Offset=:3, Length=:4, Format=:5
+Name=:2, Name2=:3, Offset=:4, Length=:5, Format=:6, OrderNo=:7
 WHERE TagType = :1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202174", pParam);
@@ -5131,7 +5136,7 @@ WHERE ScheduleType=:1";
             try
             {
                 string sql =
-@"SELECT ServType, Name, Name2, Note, OrderNo
+@"SELECT ServType, Name, Name2, CatCode, Note, OrderNo
 FROM PAServType
 order by orderno";
 
@@ -5155,7 +5160,7 @@ order by orderno";
             try
             {
                 string sql =
-@"SELECT ServType, Name, Name2, Note, OrderNo
+@"SELECT ServType, Name, Name2, CatCode, Note, OrderNo
 FROM PAServType
 WHERE ServType=:1";
 
@@ -5179,8 +5184,8 @@ WHERE ServType=:1";
             try
             {
                 string sql =
-@"INSERT INTO PAServType(ServType, Name, Name2, Note, OrderNo)
-VALUES(:1, :2, :3, :4, :5)";
+@"INSERT INTO PAServType(ServType, Name, Name2, CatCode, Note, OrderNo)
+VALUES(:1, :2, :3, :4, :5, :6)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202188", pParam);
                 res = F_Error(res);
@@ -5204,7 +5209,7 @@ VALUES(:1, :2, :3, :4, :5)";
 
                 string sql =
 @"UPDATE PAServType SET
-Name=:2, Name2=:3, Note=:4, OrderNo=:5
+Name=:2, Name2=:3, CatCode=:4, Note=:5, OrderNo=:6
 WHERE ServType=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202189", pParam);
@@ -5591,12 +5596,12 @@ WHERE TypeId=:1";
             {
                 string sql =
 @"SELECT a.Day, a.DayType, b.Description,
-a.DayTemperature, a.DayWeatherType, c.Description as DayWeatherDesc, c.icon as DayWeathericon,
-a.NightTemperature, a.NightWeatherType, cc.Description as NightWeatherDesc, cc.icon as NightWeathericon
+a.DayTemperature, a.DayWeatherID, c.name as DayWeatherDesc, c.icon as DayWeathericon,
+a.NightTemperature, a.NightWeatherID, cc.name as NightWeatherDesc, cc.icon as NightWeathericon
 FROM PACalendar a
 left join PADayType b on a.DayType=b.DayType
-left join PAWeather c on a.DayWeatherType=c.WeatherId
-left join PAWeather cc on a.NightWeatherType=cc.WeatherId
+left join PAWeather c on a.DayWeatherID=c.WeatherId
+left join PAWeather cc on a.NightWeatherID=cc.WeatherId
 where a.day between :1 and :2
 order by a.Day";
 
@@ -5621,12 +5626,12 @@ order by a.Day";
             {
                 string sql =
 @"SELECT a.Day, a.DayType, b.Description,
-a.DayTemperature, a.DayWeatherType, c.Description as DayWeatherDesc, c.icon as DayWeathericon,
-a.NightTemperature, a.NightWeatherType, cc.Description as NightWeatherDesc, cc.icon as NightWeathericon
+a.DayTemperature, a.DayWeatherID, c.name as DayWeatherDesc, c.icon as DayWeathericon,
+a.NightTemperature, a.NightWeatherID, cc.name as NightWeatherDesc, cc.icon as NightWeathericon
 FROM PACalendar a
 left join PADayType b on a.DayType=b.DayType
-left join PAWeather c on a.DayWeatherType=c.WeatherId
-left join PAWeather cc on a.NightWeatherType=cc.WeatherId
+left join PAWeather c on a.DayWeatherID=c.WeatherId
+left join PAWeather cc on a.NightWeatherID=cc.WeatherId
 where a.day between :1 and :2
 WHERE a.Day = :1";
 
@@ -5650,7 +5655,7 @@ WHERE a.Day = :1";
             try
             {
                 string sql =
-@"INSERT INTO PACalendar(Day, DayType, DayTemperature, DayWeatherType, NightTemperature, NightWeatherType)
+@"INSERT INTO PACalendar(Day, DayType, DayTemperature, DayWeatherID, NightTemperature, NightWeatherID)
 VALUES(:1, :2, :3, :4, :5, :6)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202208", pParam);
@@ -5675,7 +5680,7 @@ VALUES(:1, :2, :3, :4, :5, :6)";
 
                 string sql =
 @"UPDATE PACalendar SET
-DayType=:2, DayTemperature=:3, DayWeatherType=:4, NightTemperature=:5, NightWeatherType=:6
+DayType=:2, DayTemperature=:3, DayWeatherID=:4, NightTemperature=:5, NightWeatherID=:6
 WHERE Day=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202209", pParam);
@@ -5797,53 +5802,53 @@ WHERE InvId=:1";
             {
                 string sql = "";
 
-                #region [//Merge ProdPriceHist]
-                object[] objPrice = new object[5];
+                //#region [//Merge ProdPriceHist]
+                //object[] objPrice = new object[5];
 
-                objPrice[0] = IPos.Core.SystemProp.TxnDate;
-                objPrice[1] = 0;
-                objPrice[2] = pParam[0];
-                objPrice[3] = pParam[5];
-                objPrice[4] = pUserNo;
+                //objPrice[0] = IPos.Core.SystemProp.TxnDate;
+                //objPrice[1] = 0;
+                //objPrice[2] = pParam[0];
+                //objPrice[3] = pParam[5];
+                //objPrice[4] = pUserNo;
 
-                res = DB202288(pDB, objPrice);
-                if(res.ResultNo != 0)
-                    return res;
-                #endregion
+                //res = DB202288(pDB, objPrice);
+                //if(res.ResultNo != 0)
+                //    return res;
+                //#endregion
 
-                if (pParam[22] == null)
+                if (pParam[23] == null)
                 {
-                    object[] obj = new object[22];
+                    object[] obj = new object[23];
 
-                    for (int i = 0; i < 22; i++ )
+                    for (int i = 0; i < 23; i++ )
                         obj[i] = pParam[i];
 
                     sql =
-@"INSERT INTO InvMain(InvId, InvType, Name, Name2, BrandId,
-PriceAmount, PriceRefund, Count, CatCode, BarCode,
-Unit, UnitSize, PrinterType, CreateDate, Note,
-Status, SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, 
-BONUSEXPACCOUNTNO, RentFlag)
-VALUES(:1, :2, :3, :4, :5,
-:6,  :7,  :8,  :9,  :10,
-:11, :12, :13, :14, :15,
-:16, :17, :18, :19, :20,
-:21, :22)";
-                    res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202213", obj);
-                }
-                else
-                {
-                    sql =
-@"INSERT INTO InvMain(InvId, InvType, Name, Name2, BrandId,
-PriceAmount, PriceRefund, Count, CatCode, BarCode,
-Unit, UnitSize, PrinterType, CreateDate, Note,
-Status, SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, 
-BONUSEXPACCOUNTNO, RentFlag, picture)
+@"INSERT INTO InvMain(InvID, TypeCode, Name, Name2, BrandID, 
+BarCode, Unit, UnitSize, Status, Price, 
+Count, CreateDate, SalesStartDate, SalesEndDate, Note, 
+SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, BonusExpAccountNo, 
+RentFlag, PriceRefund, Prepared)
 VALUES(:1, :2, :3, :4, :5,
 :6,  :7,  :8,  :9,  :10,
 :11, :12, :13, :14, :15,
 :16, :17, :18, :19, :20,
 :21, :22, :23)";
+                    res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202213", obj);
+                }
+                else
+                {
+                    sql =
+@"INSERT INTO InvMain(InvID, TypeCode, Name, Name2, BrandID, 
+BarCode, Unit, UnitSize, Status, Price, 
+Count, CreateDate, SalesStartDate, SalesEndDate, Note, 
+SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, BonusExpAccountNo, 
+RentFlag, PriceRefund, Prepared, Picture)
+VALUES(:1, :2, :3, :4, :5,
+:6,  :7,  :8,  :9,  :10,
+:11, :12, :13, :14, :15,
+:16, :17, :18, :19, :20,
+:21, :22, :23, :24)";
                     res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202213", pParam);
                 }
 
@@ -5867,58 +5872,34 @@ VALUES(:1, :2, :3, :4, :5,
             {
                 string sql = "";
 
-                //[0]= txtInvId
-                //[1]= cboInvType
-                //[2]= txtName
-                //[3]= txtName2
-                //[4]= cboBrandId
-                //[5]= numPriceAmount
-                //[6]= numPriceRefund
-                //[7]= numCount
-                //[8]= cboCatCode
-                //[9]= txtBarCode
-                //[10]= cboUnit
-                //[11]= numUnitSize
-                //[12]= cboPrinterType
-                //[13]= dtCreateDate
-                //[14]= txtNote
-                //[15]= Static.ToInt(cboStatus
-                //[16]= txtSalesAccountNo
-                //[17]= txtRefundAccountNo[1]= 
-                //[18]= txtDiscountAccountNo
-                //[19]= txtBonusAccountNo
-                //[20]= cboRentFlag
-                //[21]= txtBonusExpAccountNo
-                //[22]= _img
+                //#region [//Merge ProdPriceHist]
+                //object[] objPrice = new object[5];
 
-                #region [//Merge ProdPriceHist]
-                object[] objPrice = new object[5];
+                //objPrice[0] = IPos.Core.SystemProp.TxnDate;
+                //objPrice[1] = 0;
+                //objPrice[2] = pParam[0];
+                //objPrice[3] = pParam[5];
+                //objPrice[4] = pUserNo;
 
-                objPrice[0] = IPos.Core.SystemProp.TxnDate;
-                objPrice[1] = 0;
-                objPrice[2] = pParam[0];
-                objPrice[3] = pParam[5];
-                objPrice[4] = pUserNo;
+                //res = DB202288(pDB, objPrice);
+                //if (res.ResultNo != 0)
+                //    return res;
+                //#endregion
 
-                res = DB202288(pDB, objPrice);
-                if (res.ResultNo != 0)
-                    return res;
-                #endregion
-
-                if (pParam[22] == null)
+                if (pParam[23] == null)
                 {
-                    object[] obj = new object[22];
+                    object[] obj = new object[23];
 
-                    for (int i = 0; i < 22; i++)
+                    for (int i = 0; i < 23; i++)
                         obj[i] = pParam[i];
 
                     sql =
 @"UPDATE InvMain SET
-InvType=:2, Name=:3, Name2=:4, BrandId=:5,
-PriceAmount=:6, PriceRefund=:7, Count=:8, CatCode=:9, BarCode=:10,
-Unit=:11, UnitSize=:12, PrinterType=:13, CreateDate=:14, Note=:15, 
-Status=:16, SalesAccountNo=:17, RefundAccountNo=:18, DiscountAccountNo=:19, BonusAccountNo=:20, 
-RentFlag=:21, BONUSEXPACCOUNTNO=:22
+TypeCode=:2, Name=:3, Name2=:4, BrandID=:5, 
+BarCode=:6, Unit=:7, UnitSize=:8, Status=:9, Price=:10, 
+Count=:11, CreateDate=:12, SalesStartDate=:13, SalesEndDate=:14, Note=:15, 
+SalesAccountNo=:16, RefundAccountNo=:17, DiscountAccountNo=:18, BonusAccountNo=:19, BonusExpAccountNo=:20, 
+RentFlag=:21, PriceRefund=:22, Prepared=:23
 WHERE InvId=:1";
 
                     res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202214", obj);
@@ -5926,11 +5907,11 @@ WHERE InvId=:1";
                 else {
                     sql =
 @"UPDATE InvMain SET
-InvType=:2, Name=:3, Name2=:4, BrandId=:5,
-PriceAmount=:6, PriceRefund=:7, Count=:8, CatCode=:9, BarCode=:10,
-Unit=:11, UnitSize=:12, PrinterType=:13, CreateDate=:14, Note=:15, 
-Status=:16, SalesAccountNo=:17, RefundAccountNo=:18, DiscountAccountNo=:19, BonusAccountNo=:20, 
-RentFlag=:21, BONUSEXPACCOUNTNO=:22,  picture=:23
+TypeCode=:2, Name=:3, Name2=:4, BrandID=:5, 
+BarCode=:6, Unit=:7, UnitSize=:8, Status=:9, Price=:10, 
+Count=:11, CreateDate=:12, SalesStartDate=:13, SalesEndDate=:14, Note=:15, 
+SalesAccountNo=:16, RefundAccountNo=:17, DiscountAccountNo=:18, BonusAccountNo=:19, BonusExpAccountNo=:20, 
+RentFlag=:21, PriceRefund=:22, Prepared=:23, Picture=:24
 WHERE InvId=:1";
                     res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202214", pParam);
                 }
@@ -5969,7 +5950,7 @@ WHERE InvId=:1";
         }
         #endregion
 
-        #region [ DB202216 - Ангиллын төрлийн бүртгэл жагсаалт авах ]
+        #region [ DB202216 - Барааны ангиллын төрлийн бүртгэл жагсаалт авах ]
         public static Result DB202216(DbConnections pDB)
         {
             Result res = new Result();
@@ -6084,7 +6065,123 @@ WHERE catcode=:1";
             }
         }
         #endregion
-        
+
+        #region [ DB202216_1 - Үйлчилгээний төрлийн бүртгэл жагсаалт авах ]
+        public static Result DB202216_1(DbConnections pDB)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"select catcode, name, name2, orderno from PaServCat order by orderno";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202216_1", null);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB202217_1 - Үйлчилгээний Ангиллын төрлийн бүртгэл дэлгэрэнгүй мэдээлэл авах ]
+        public static Result DB202217_1(DbConnections pDB, string pCatCode)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"select catcode, name, name2, orderno
+FROM PaServCat
+WHERE catcode=:1";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202217_1", pCatCode);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB202218_1 - Үйлчилгээний Ангиллын төрлийн бүртгэл шинээр нэмэх ]
+        public static Result DB202218_1(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"INSERT INTO PaServCat(catcode, name, name2, orderno)
+VALUES(:1, :2, :3, :4)";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202218_1", pParam);
+                res = F_Error(res);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB202219_1 - Үйлчилгээний Ангиллын төрлийн бүртгэл засварлах ]
+        public static Result DB202219_1(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+
+                string sql =
+@"UPDATE PaServCat SET
+name=:2, name2=:3, orderno=:4
+WHERE catcode=:1";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202219_1", pParam);
+                res = F_Error(res);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB202220_1 - Үйлчилгээний Ангиллын төрлийн бүртгэл устгах ]
+        public static Result DB202220_1(DbConnections pDB, string pCatCode)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"DELETE FROM PaServCat WHERE catcode=:1";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202220_1", pCatCode);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+
         //
         #region [ DB202222 - Дамжлагын бүлгийн холбоотой дамжлагуудыг авах ]
         public static Result DB202222(DbConnections pDB, int pStepID)
@@ -7338,9 +7435,11 @@ WHERE PackId=:1 and UserNo=:2";
             try
             {
                 string sql =
-@"select a.ProdType, decode(a.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ') as ProdTypeName, a.ProdId, A.DAYTYPEID, dt.description as DAYTYPENAME, a.StartTime, a.EndTime, a.Price
+@"select 
+a.ProdType, a.ProdId, a.PriceTypeID, b.name as PriceTypeIDname, a.Price, c.name as daytypename
 from ProdPrice a
-left join paDayType dt on a.DAYTYPEID=dt.DAYTYPE
+left join PAPriceType b on a.PriceTypeID=b.PriceTypeID
+left join PADayType c on b.DayType=c.DayType
 where a.ProdType=:1 and a.ProdId=:2
 ";
 
@@ -7358,20 +7457,21 @@ where a.ProdType=:1 and a.ProdId=:2
         }
         #endregion
         #region [ DB202267 - Барааны үнийн бүртгэл дэлгэрэнгүй мэдээлэл авах ]
-        public static Result DB202267(DbConnections pDB, int pProdType, string pProdId, string pDayType, DateTime pStartTime)
+        public static Result DB202267(DbConnections pDB, int pProdType, string pProdId, string PriceTypeID)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"select a.ProdType, decode(a.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ') as ProdTypeName, a.ProdId, A.DAYTYPEID, dt.description as DAYTYPENAME,
-a.StartTime, a.EndTime, a.Price
+@"select 
+a.ProdType, a.ProdId, a.PriceTypeID, b.name as PriceTypeIDname, a.Price, c.name as daytypename
 from ProdPrice a
-left join paDayType dt on a.DAYTYPEID=dt.DAYTYPE
-where a.ProdType=:1 and a.ProdId=:2 and A.DAYTYPEID=:3 and a.StartTime=:4
+left join PAPriceType b on a.PriceTypeID=b.PriceTypeID
+left join PADayType c on b.DayType=c.DayType
+where a.ProdType=:1 and a.ProdId=:2 and A.PriceTypeID=:3
 ";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202267", pProdType, pProdId, pDayType, pStartTime);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202267", pProdType, pProdId, PriceTypeID);
 
                 return res;
             }
@@ -7391,8 +7491,8 @@ where a.ProdType=:1 and a.ProdId=:2 and A.DAYTYPEID=:3 and a.StartTime=:4
             try
             {
                 string sql =
-@"INSERT INTO ProdPrice(ProdType, ProdId, DayTypeId, StartTime, EndTime, Price)
-VALUES(:1, :2, :3, :4, :5, :6)";
+@"INSERT INTO ProdPrice(ProdType, ProdId, PriceTypeID, Price)
+VALUES(:1, :2, :3, :4)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202268", pParam);
                 res = F_Error(res);
@@ -7413,25 +7513,23 @@ VALUES(:1, :2, :3, :4, :5, :6)";
             Result res = new Result();
             try
             {
-                object[] obj = new object[10];
+                object[] obj = new object[7];
 
-                //ProdType-0, ProdId-1, DayTypeId-2, StartTime-3, EndTime-4, Price-5
+                //ProdType-0, ProdId-1, PriceTypeID-2, Price-3
 
                 obj[0] = pOldParam[0];
                 obj[1] = pOldParam[1];
                 obj[2] = pOldParam[2];
-                obj[3] = pOldParam[3];
-                obj[4] = pOldParam[4];
-                obj[5] = pOldParam[5];
-                obj[6] = pNewParam[2];
-                obj[7] = pNewParam[3];
-                obj[8] = pNewParam[4];
-                obj[9] = pNewParam[5];
+
+                obj[3] = pNewParam[0];
+                obj[4] = pNewParam[1];
+                obj[5] = pNewParam[2];
+                obj[6] = pNewParam[3];
 
                 string sql =
 @"UPDATE ProdPrice SET
-DAYTYPEID=:7, StartTime=:8, EndTime=:9, Price=:10
-WHERE ProdType=:1 and ProdId=:2 and DAYTYPEID=:3 and StartTime=:4 and EndTime=:5 and Price=:6";
+ProdType=:4, ProdId=:5, PriceTypeID=:6, Price=:7
+WHERE ProdType=:1 and ProdId=:2 and PriceTypeID=:3";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202269", obj);
                 res = F_Error(res);
@@ -7447,14 +7545,14 @@ WHERE ProdType=:1 and ProdId=:2 and DAYTYPEID=:3 and StartTime=:4 and EndTime=:5
         }
         #endregion
         #region [ DB202270 - Барааны үнийн бүртгэл устгах ]
-        public static Result DB202270(DbConnections pDB, int pProdType, string pProdId, string pDayType, DateTime pStartTime)
+        public static Result DB202270(DbConnections pDB, int pProdType, string pProdId, string PriceTypeID)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"DELETE FROM ProdPrice WHERE ProdType=:1 and ProdId=:2 and DAYTYPEID=:3 and StartTime=:4";
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202270", pProdType, pProdId, pDayType, pStartTime);
+@"DELETE FROM ProdPrice WHERE ProdType=:1 and ProdId=:2 and PriceTypeID=:3";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202270", pProdType, pProdId, PriceTypeID);
 
                 return res;
             }
@@ -7912,9 +8010,16 @@ FROM BACPRODUCT
             try
             {
                 string sql =
-@"select invid, barcode, status
-from INVSERIES
-where invid=:1
+@"select ItemNo,
+BarCode,
+InvID,
+Status,
+decode(status, 0, 'Идэвхгүй', 'Идэхтэй') as StatusName,
+LastPrepareUserNo,
+LastPrepareDate,
+Note
+from InvSeries
+where InvID=:1
 order by barcode";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202291", pInvID);
@@ -7931,18 +8036,24 @@ order by barcode";
         }
         #endregion
         #region [ DB202292 - Барааны серийн дугаарууд дэлгэрэнгүй мэдээлэл авах ]
-        public static Result DB202292(DbConnections pDB, string pInvID, string pBarCode)
+        public static Result DB202292(DbConnections pDB, string pItemNo)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"select invid, barcode
-from INVSERIES
-where invid=:1
-and barcode=:2";
+@"select ItemNo,
+BarCode,
+InvID,
+Status,
+decode(status, 0, 'Идэвхгүй', 'Идэхтэй') as StatusName,
+LastPrepareUserNo,
+LastPrepareDate,
+Note
+from InvSeries
+where ItemNo=:1";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202292", pInvID, pBarCode);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202292", pItemNo);
 
                 return res;
             }
@@ -7962,8 +8073,10 @@ and barcode=:2";
             try
             {
                 string sql =
-@"INSERT INTO INVSERIES(invid, barcode, status)
-VALUES(:1, :2, :3)";
+@"INSERT INTO INVSERIES(ItemNo, BarCode, InvID, Status, LastPrepareUserNo, 
+LastPrepareDate, Note)
+VALUES(:1, :2, :3, :4, :5,
+:6, :7)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202293", pParam);
                 res = F_Error(res);
@@ -7979,26 +8092,19 @@ VALUES(:1, :2, :3)";
         }
         #endregion
         #region [ DB202294 - Барааны серийн дугаарууд засварлах ]
-        public static Result DB202294(DbConnections pDB, object[] pOldParam, object[] pNewParam)
+        public static Result DB202294(DbConnections pDB, object[] pParam)
         {
             Result res = new Result();
             try
             {
 
-                object[] obj = new object[4];
-
-                obj[0] = pOldParam[0];
-                obj[1] = pOldParam[1];
-                obj[2] = pNewParam[1];
-                obj[3] = pNewParam[2];
-
                 string sql =
 @"UPDATE INVSERIES SET
-barcode=:3,status=:4
-WHERE invid=:1
-and barcode=:2";
+BarCode=:2, InvID=:3, Status=:4, LastPrepareUserNo=:5, 
+LastPrepareDate=:6, Note=:7
+WHERE ItemNo=:1";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202294", obj);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202294", pParam);
                 res = F_Error(res);
                 return res;
             }
@@ -8012,15 +8118,15 @@ and barcode=:2";
         }
         #endregion
         #region [ DB202295 - Барааны серийн дугаарууд устгах ]
-        public static Result DB202295(DbConnections pDB, string pInvID, string pBarCode)
+        public static Result DB202295(DbConnections pDB, string pItemNo)
         {
             Result res = new Result();
             try
             {
                 string sql;
                 sql =
-@"DELETE FROM INVSERIES WHERE invid=:1 and barcode=:2";
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202295", pInvID, pBarCode);
+@"DELETE FROM INVSERIES WHERE ItemNo=:1";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202295", pItemNo);
 
                 return res;
             }
@@ -9161,6 +9267,132 @@ WHERE TagID=:1";
                 sql =
 @"DELETE FROM TagMain WHERE TagID=:1";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202335", TagID);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+
+        #region [ DB202336 - Үнийн төрөл жагсаалт мэдээлэл авах ]
+        public static Result DB202336(DbConnections pDB)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"select a.pricetypeid, a.name, a.name2, a.daytype, c.name as daytypename , a.starttime, a.endtime,
+a.orderno
+from PAPriceType a 
+left join PADayType c on a.DayType=c.DayType 
+order by a.orderno";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202336", null);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB202337 - Үнийн төрөл дэлгэрэнгүй мэдээлэл авах ]
+        public static Result DB202337(DbConnections pDB, string pricetypeid)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"select a.pricetypeid, a.name, a.name2, a.daytype, c.name as daytypename , a.starttime, a.endtime,
+a.orderno
+from PAPriceType a 
+left join PADayType c on a.DayType=c.DayType 
+order by a.orderno
+WHERE a.pricetypeid=:1";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202337", pricetypeid);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB202338 - Үнийн төрөл нэмэх ]
+        public static Result DB202338(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"INSERT INTO PAPriceType(PriceTypeID, Name, Name2, DayType, StartTime, 
+EndTime, OrderNo)
+VALUES(:1, :2, :3, :4, :5,
+:6, :7)";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202338", pParam);
+                res = F_Error(res);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB202339 - Үнийн төрөл засварлах ]
+        public static Result DB202339(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"UPDATE PAPriceType SET
+Name=:2, Name2=:3, DayType=:4, StartTime=:5, 
+EndTime=:6, OrderNo=:7
+WHERE PriceTypeID=:1";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202339", pParam);
+                res = F_Error(res);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB202340 - Үнийн төрөл устгах ]
+        public static Result DB202340(DbConnections pDB, string PriceTypeID)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql;
+                sql =
+@"DELETE FROM PAPriceType WHERE PriceTypeID=:1";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202340", PriceTypeID);
 
                 return res;
             }

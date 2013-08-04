@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -26,6 +27,7 @@ namespace InfoPos.Parameter
             InitializeComponent();            
             _core = core;
             Init();
+            InitCombo();
             this.Resource = _core.Resource;
             this.FieldLinkSetSaveState();
         }
@@ -40,8 +42,42 @@ namespace InfoPos.Parameter
             this.FieldLinkAdd("txtServType", "SERVTYPE", "", true, true);
             this.FieldLinkAdd("txtName", "NAME", "", true, false);
             this.FieldLinkAdd("txtName2", "NAME2", "", false, false);
+            this.FieldLinkAdd("cboCatCode", "CatCode", "", false, false);
             this.FieldLinkAdd("txtNote", "NOTE", "", false, false);
             this.FieldLinkAdd("numOrderNo", "ORDERNO", "", true, false);
+        }
+        private void InitCombo()
+        {
+            try
+            {
+                Result res = new Result();
+                ArrayList Tables = new ArrayList();
+                DataTable DT = null;
+                string msg = "";
+
+                DictUtility.PrivNo = 140221;
+                string[] name = new string[] { "SERVCAT" };
+
+                res = DictUtility.Get(_core.RemoteObject, name, ref Tables);
+
+                DT = (DataTable)Tables[0];
+                if (DT == null)
+                {
+                    msg = "Dictionary-д SERVCAT оруулаагүй байна-" + res.ResultDesc;
+                }
+                else
+                {
+                    FormUtility.LookUpEdit_SetList(ref cboCatCode, DT, "CatCode", "name");
+                }
+                
+                if(msg != "")
+                    MessageBox.Show(msg);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Өгөгдлийн баазаас Dictionary олдсонгүй.");
+            }
         }
         #region[Үзэгдлүүд]
         void FormPAServType_EventRefresh(ref DataTable dt)
@@ -87,8 +123,9 @@ namespace InfoPos.Parameter
             this.FieldLinkSetColumnCaption(0, "Төрлийн код, дугаар");
             this.FieldLinkSetColumnCaption(1, "Төрлийн нэр ");
             this.FieldLinkSetColumnCaption(2, "Төрлийн нэр 2");
-            this.FieldLinkSetColumnCaption(3, "Тайлбар");
-            this.FieldLinkSetColumnCaption(4, "Эрэмбийн дугаар");
+            this.FieldLinkSetColumnCaption(3, "Ангилал");
+            this.FieldLinkSetColumnCaption(4, "Тайлбар");
+            this.FieldLinkSetColumnCaption(5, "Эрэмбийн дугаар");
 
             appname = _core.ApplicationName;
             //formname = "Parameter." + this.Name;
@@ -121,6 +158,7 @@ namespace InfoPos.Parameter
                 object[] NewValue = { Static.ToStr(txtServType.EditValue), 
                                       Static.ToStr(txtName.EditValue), 
                                       Static.ToStr(txtName2.EditValue), 
+                                      Static.ToInt(cboCatCode.EditValue),
                                       Static.ToStr(txtNote.EditValue),
                                       Static.ToInt(numOrderNo.EditValue)
                                     };
@@ -151,7 +189,7 @@ namespace InfoPos.Parameter
         {
             try
             {
-                object[] Value = { txtServType.EditValue, txtName.EditValue, txtName2.EditValue, txtNote.EditValue, numOrderNo.EditValue };
+                object[] Value = { txtServType.EditValue, txtName.EditValue, txtName2.EditValue, cboCatCode.EditValue, txtNote.EditValue, numOrderNo.EditValue };
                 OldValue = Value;
             }
             catch (Exception ex)
@@ -186,5 +224,10 @@ namespace InfoPos.Parameter
             }
         }
         #endregion[]
+
+        private void PAServType_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1311,7 +1311,7 @@ namespace IPos.Parameter
 
                         #endregion[]
 
-                        #region[Ангиллын төрлийн бүртгэл]
+                        #region[Барааны ангилалын бүртгэл]
                         case 140216: //
                             res = Txn140216(ci, ri, db, ref lg);
                             break;
@@ -1326,6 +1326,24 @@ namespace IPos.Parameter
                             break;
                         case 140220: //
                             res = Txn140220(ci, ri, db, ref lg);
+                            break;
+                        #endregion[]
+
+                        #region[Үйлчилгээний ангилалын бүртгэл]
+                        case 140221: //
+                            res = Txn140221(ci, ri, db, ref lg);
+                            break;
+                        case 140222: //
+                            res = Txn140222(ci, ri, db, ref lg);
+                            break;
+                        case 140223: //
+                            res = Txn140223(ci, ri, db, ref lg);
+                            break;
+                        case 140224: //
+                            res = Txn140224(ci, ri, db, ref lg);
+                            break;
+                        case 140225: //
+                            res = Txn140225(ci, ri, db, ref lg);
                             break;
                         #endregion[]
 
@@ -1682,6 +1700,28 @@ namespace IPos.Parameter
                                 break;
 
                         #endregion
+
+                        //Үнийн төрөл OK  
+                        #region[Үнийн төрөл]
+                        
+                        case 140416: //Үнийн төрөл бүртгэлийн жагсаалт мэдээлэл авах
+                                res = Txn140416(ci, ri, db, ref lg);
+                                break;
+                        case 140417: //Үнийн төрөл бүртгэлийн дэлгэрэнгүй мэдээлэл авах
+                                res = Txn140417(ci, ri, db, ref lg);
+                                break;
+                        case 140418: //Үнийн төрөл бүртгэлийн жагсаалт нэмэх
+                                res = Txn140418(ci, ri, db, ref lg);
+                                break;
+                        case 140419: //Үнийн төрөл бүртгэлийн жагсаалт засварлах
+                                res = Txn140419(ci, ri, db, ref lg);
+                                break;
+                        case 140420: //Үнийн төрөл бүртгэлийн жагсаалт устгах
+                                res = Txn140420(ci, ri, db, ref lg);
+                                break;
+
+                        #endregion
+
                         default:
                         res.ResultNo = 9110009;
                         res.ResultDesc = "Функц тодорхойлогдоогүй байна";
@@ -2028,7 +2068,6 @@ namespace IPos.Parameter
         }
         #endregion
      
-
         // Үндсэн хөрөнгө бараа материалын байршил бүртгэл log
         #region [ Үндсэн хөрөнгө бараа материалын байршил]
         //Үндсэн хөрөнгийн байршилын бүртгэл жагсаалт
@@ -3673,7 +3712,6 @@ namespace IPos.Parameter
 
         #endregion                             
        
-
         //Бараа материалын төрөл OK log
         #region[InventoryType]
 
@@ -5206,7 +5244,6 @@ namespace IPos.Parameter
         }
 
         #endregion
-
 
         //Дамжлага log!
         #region[StepItem]
@@ -8460,7 +8497,7 @@ namespace IPos.Parameter
                      if (res.ResultNo == 0)
                      {
                          lg.item.Desc = "Өдрийн төрлийн бүртгэл дэлгэрэнгүй мэдээлэл авах";
-                         lg.AddDetail("CustomerRate", "_ID", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                         lg.AddDetail("PaDayType", "DayType", lg.item.Desc, ri.ReceivedParam[0].ToString());
                      }
                  }
              }    //Өдрийн төрлийн бүртгэл дэлгэрэнгүй мэдээлэл авах
@@ -8469,12 +8506,12 @@ namespace IPos.Parameter
                  Result res = new Result();
                  try
                  {
-                     object[] value = (object[])ri.ReceivedParam[0];
-                     object[] obj = new object[2];
-                     obj[0] = Static.ToStr(value[0]);
-                     obj[1] = Static.ToStr(value[1]);
+                     //object[] value = (object[])ri.ReceivedParam[0];
+                     //object[] obj = new object[2];
+                     //obj[0] = Static.ToStr(value[0]);
+                     //obj[1] = Static.ToStr(value[1]);
 
-                     res = IPos.DB.Main.DB202133(db, obj);
+                     res = IPos.DB.Main.DB202133(db, (object[])ri.ReceivedParam[0]);
                      return res;
                  }
                  catch (Exception ex)
@@ -8500,12 +8537,12 @@ namespace IPos.Parameter
                  Result res = new Result();
                  try
                  {
-                     object[] value = (object[])ri.ReceivedParam[0];
-                     object[] obj = new object[2];
-                     obj[0] = Static.ToStr(value[0]);
-                     obj[1] = Static.ToStr(value[1]);
+                     //object[] value = (object[])ri.ReceivedParam[0];
+                     //object[] obj = new object[2];
+                     //obj[0] = Static.ToStr(value[0]);
+                     //obj[1] = Static.ToStr(value[1]);
 
-                     res = IPos.DB.Main.DB202134(db, obj);
+                     res = IPos.DB.Main.DB202134(db, (object[])ri.ReceivedParam[0]);
                      return res;
                  }
                  catch (Exception ex)
@@ -8603,13 +8640,13 @@ namespace IPos.Parameter
                  Result res = new Result();
                  try
                  {
-                     object[] value = (object[])ri.ReceivedParam[0];
-                     object[] obj = new object[3];
-                     obj[0] = Static.ToStr(value[0]);
-                     obj[1] = Static.ToStr(value[1]);
-                     obj[2] = Static.ToStr(value[2]);
+                     //object[] value = (object[])ri.ReceivedParam[0];
+                     //object[] obj = new object[3];
+                     //obj[0] = Static.ToStr(value[0]);
+                     //obj[1] = Static.ToStr(value[1]);
+                     //obj[2] = Static.ToStr(value[2]);
 
-                     res = IPos.DB.Main.DB202143(db, obj);
+                     res = IPos.DB.Main.DB202143(db, (object[])ri.ReceivedParam[0]);
                      return res;
                  }
                  catch (Exception ex)
@@ -8635,13 +8672,13 @@ namespace IPos.Parameter
                  Result res = new Result();
                  try
                  {
-                     object[] value = (object[])ri.ReceivedParam[0];
-                     object[] obj = new object[3];
-                     obj[0] = Static.ToStr(value[0]);
-                     obj[1] = Static.ToStr(value[1]);
-                     obj[2] = Static.ToStr(value[2]);
+                     //object[] value = (object[])ri.ReceivedParam[0];
+                     //object[] obj = new object[3];
+                     //obj[0] = Static.ToStr(value[0]);
+                     //obj[1] = Static.ToStr(value[1]);
+                     //obj[2] = Static.ToStr(value[2]);
 
-                     res = IPos.DB.Main.DB202144(db, obj);
+                     res = IPos.DB.Main.DB202144(db, (object[])ri.ReceivedParam[0]);
                      return res;
                  }
                  catch (Exception ex)
@@ -8890,12 +8927,6 @@ namespace IPos.Parameter
 
                      res = IPos.DB.Main.DB202158(db, obj);
                      return res;
-                                      //Static.ToStr(txtInvType.EditValue), 
-                                      //Static.ToStr(txtName.EditValue), 
-                                      //Static.ToStr(txtName2.EditValue), 
-                                      //Static.ToInt(cboClassCode.EditValue),
-                                      //Static.ToStr(txtNote.EditValue),
-                                      //Static.ToInt(numOrderNo.EditValue)
                  }
                  catch (Exception ex)
                  {
@@ -9027,20 +9058,18 @@ namespace IPos.Parameter
                  try
                  {
                      object[] value = (object[])ri.ReceivedParam[0];
-                     object[] obj = new object[5];
+                     object[] obj = new object[7];
                      obj[0] = Static.ToStr(value[0]);
                      obj[1] = Static.ToStr(value[1]);
                      obj[2] = Static.ToStr(value[2]);
-                     obj[3] = Static.ToInt(value[3]);
-                     obj[4] = Static.ToInt(value[4]);                     
+                     obj[3] = Static.ToStr(value[3]);
+                     obj[4] = Static.ToInt(value[4]);
+                     obj[5] = Static.ToInt(value[5]);
+                     obj[6] = Static.ToInt(value[6]);                     
 
                      res = IPos.DB.Main.DB202173(db, obj);
                      return res;
-                                                              //Static.ToStr(txtTagType.EditValue), 
-                                                              //Static.ToStr(txtName.EditValue),
-                                                              //Static.ToInt(numOffset.EditValue),
-                                                              //Static.ToInt(numLength.EditValue),
-                                                              //Static.ToInt(cboFormat.EditValue)
+
                  }
                  catch (Exception ex)
                  {
@@ -9066,12 +9095,14 @@ namespace IPos.Parameter
                  try
                  {
                      object[] value = (object[])ri.ReceivedParam[0];                     
-                     object[] obj = new object[5];
+                     object[] obj = new object[7];
                      obj[0] = Static.ToStr(value[0]);
                      obj[1] = Static.ToStr(value[1]);
                      obj[2] = Static.ToStr(value[2]);
-                     obj[3] = Static.ToInt(value[3]);
+                     obj[3] = Static.ToStr(value[3]);
                      obj[4] = Static.ToInt(value[4]);
+                     obj[5] = Static.ToInt(value[5]);
+                     obj[6] = Static.ToInt(value[6]);
 
                      res = IPos.DB.Main.DB202174(db, obj);
                      return res;
@@ -9170,15 +9201,15 @@ namespace IPos.Parameter
                  Result res = new Result();
                  try
                  {
-                     object[] value = (object[])ri.ReceivedParam[0];
-                     object[] obj = new object[5];
-                     obj[0] = Static.ToStr(value[0]);
-                     obj[1] = Static.ToStr(value[1]);
-                     obj[2] = Static.ToStr(value[2]);
-                     obj[3] = Static.ToStr(value[3]);
-                     obj[4] = Static.ToInt(value[4]);
+                     //object[] value = (object[])ri.ReceivedParam[0];
+                     //object[] obj = new object[5];
+                     //obj[0] = Static.ToStr(value[0]);
+                     //obj[1] = Static.ToStr(value[1]);
+                     //obj[2] = Static.ToStr(value[2]);
+                     //obj[3] = Static.ToStr(value[3]);
+                     //obj[4] = Static.ToInt(value[4]);
 
-                     res = IPos.DB.Main.DB202188(db, obj);
+                     res = IPos.DB.Main.DB202188(db, (object[])ri.ReceivedParam[0]);
                      return res;                   
                  }
                  catch (Exception ex)
@@ -9204,15 +9235,15 @@ namespace IPos.Parameter
                  Result res = new Result();
                  try
                  {
-                     object[] value = (object[])ri.ReceivedParam[0];
-                     object[] obj = new object[5];
-                     obj[0] = Static.ToStr(value[0]);
-                     obj[1] = Static.ToStr(value[1]);
-                     obj[2] = Static.ToStr(value[2]);
-                     obj[3] = Static.ToStr(value[3]);
-                     obj[4] = Static.ToInt(value[4]);
+                     //object[] value = (object[])ri.ReceivedParam[0];
+                     //object[] obj = new object[5];
+                     //obj[0] = Static.ToStr(value[0]);
+                     //obj[1] = Static.ToStr(value[1]);
+                     //obj[2] = Static.ToStr(value[2]);
+                     //obj[3] = Static.ToStr(value[3]);
+                     //obj[4] = Static.ToInt(value[4]);
 
-                     res = IPos.DB.Main.DB202189(db, obj);
+                     res = IPos.DB.Main.DB202189(db, (object[])ri.ReceivedParam[0]);
                      return res;
                  }
                  catch (Exception ex)
@@ -9257,7 +9288,6 @@ namespace IPos.Parameter
              }    //Үйлчилгээний  төрлийн бүртгэл устгах
              #endregion[]  
         
-
         #region[Мөнгөн тэмдэгтийн төрлийн бүртгэл]
         public Result Txn140191(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
@@ -10047,6 +10077,7 @@ namespace IPos.Parameter
             }
         }
 
+        //Барааны үнийн бүртгэл
         public Result Txn140266(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10080,9 +10111,9 @@ namespace IPos.Parameter
             {
                 int pProdType = Static.ToInt(ri.ReceivedParam[0]);
                 string pProdID = Static.ToStr(ri.ReceivedParam[1]);
-                string pDayType = Static.ToStr(ri.ReceivedParam[2]);
-                DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
-                res = IPos.DB.Main.DB202267(db, pProdType, pProdID, pDayType, pStartTime);
+                string PriceTypeID = Static.ToStr(ri.ReceivedParam[2]);
+                //DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
+                res = IPos.DB.Main.DB202267(db, pProdType, pProdID, PriceTypeID);
                 return res;
             }
             catch (Exception ex)
@@ -10108,21 +10139,15 @@ namespace IPos.Parameter
             Result res = new Result();
             try
             {
-                //Static.ToInt(1), 
-                //Static.ToStr(txtServID.EditValue),
-                //Static.ToStr(cboDayType.EditValue),
-                //Static.ToDate(dtStartTime.EditValue),
-                //Static.ToDate(dtEndTime.EditValue),
-                //Static.ToInt(numPrice.EditValue)
                 object[] value = (object[])ri.ReceivedParam[0];
-                object[] obj = new object[6];
-                obj[0] = Static.ToInt(value[0]);
-                obj[1] = Static.ToStr(value[1]);
-                obj[2] = Static.ToStr(value[2]);
-                obj[3] = Static.ToDateTime(value[3]);
-                obj[4] = Static.ToDateTime(value[4]);
-                obj[5] = Static.ToInt(value[5]);
-                res = IPos.DB.Main.DB202268(db, obj);
+                //object[] obj = new object[6];
+                //obj[0] = Static.ToInt(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToStr(value[2]);
+                //obj[3] = Static.ToDateTime(value[3]);
+                //obj[4] = Static.ToDateTime(value[4]);
+                //obj[5] = Static.ToInt(value[5]);
+                res = IPos.DB.Main.DB202268(db, value);
                 return res;
             }
             catch (Exception ex)
@@ -10149,24 +10174,24 @@ namespace IPos.Parameter
             try
             {
                 object[] value = (object[])ri.ReceivedParam[1];
-                object[] obj = new object[6];
-                obj[0] = Static.ToInt(value[0]);
-                obj[1] = Static.ToStr(value[1]);
-                obj[2] = Static.ToStr(value[2]);
-                obj[3] = Static.ToDateTime(value[3]);
-                obj[4] = Static.ToDateTime(value[4]);
-                obj[5] = Static.ToInt(value[5]);
+                //object[] obj = new object[6];
+                //obj[0] = Static.ToInt(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToStr(value[2]);
+                //obj[3] = Static.ToDateTime(value[3]);
+                //obj[4] = Static.ToDateTime(value[4]);
+                //obj[5] = Static.ToInt(value[5]);
 
+                object[] pOldValue = (object[])ri.ReceivedParam[0];
+                //object[] pOldValue = new object[6];
+                //pOldValue[0] = Static.ToInt(OldValue[0]);
+                //pOldValue[1] = Static.ToStr(OldValue[1]);
+                //pOldValue[2] = Static.ToStr(OldValue[2]);
+                //pOldValue[3] = Static.ToDateTime(OldValue[3]);
+                //pOldValue[4] = Static.ToDateTime(OldValue[4]);
+                //pOldValue[5] = Static.ToInt(OldValue[5]);
 
-                object[] OldValue = (object[])ri.ReceivedParam[0];
-                object[] pOldValue = new object[6];
-                pOldValue[0] = Static.ToInt(OldValue[0]);
-                pOldValue[1] = Static.ToStr(OldValue[1]);
-                pOldValue[2] = Static.ToStr(OldValue[2]);
-                pOldValue[3] = Static.ToDateTime(OldValue[3]);
-                pOldValue[4] = Static.ToDateTime(OldValue[4]);
-                pOldValue[5] = Static.ToInt(OldValue[5]);
-                res = IPos.DB.Main.DB202269(db, pOldValue, obj);
+                res = IPos.DB.Main.DB202269(db, pOldValue, value);
                 return res;
             }
             catch (Exception ex)
@@ -10188,9 +10213,9 @@ namespace IPos.Parameter
             {
                 int pProdType = Static.ToInt(ri.ReceivedParam[0]);
                 string pProdID = Static.ToStr(ri.ReceivedParam[1]);
-                string pDayType = Static.ToStr(ri.ReceivedParam[2]);
-                DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
-                res = IPos.DB.Main.DB202270(db, pProdType, pProdID, pDayType, pStartTime);
+                string PriceTypeID = Static.ToStr(ri.ReceivedParam[2]);
+                //DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
+                res = IPos.DB.Main.DB202270(db, pProdType, pProdID, PriceTypeID);
                 return res;
             }
             catch (Exception ex)
@@ -10213,8 +10238,7 @@ namespace IPos.Parameter
             }
         }
 
-
-
+        //DB202291 - Барааны серийн дугааруудын жагсаалт
         public Result Txn140291(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10239,15 +10263,18 @@ namespace IPos.Parameter
 
             }
         }
+        //DB202292 - Барааны серийн дугааруудын дэлгэрэнгүй
         public Result Txn140292(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
 
             Result res = new Result();
             try
             {
-                string pInvID = Static.ToStr(ri.ReceivedParam[0]);
-                string pBarCode = Static.ToStr(ri.ReceivedParam[1]);
-                res = IPos.DB.Main.DB202292(db, pInvID, pBarCode);
+                //string pInvID = Static.ToStr(ri.ReceivedParam[0]);
+                //string pBarCode = Static.ToStr(ri.ReceivedParam[1]);
+                string pItemNo = Static.ToStr(ri.ReceivedParam[0]);
+
+                res = IPos.DB.Main.DB202292(db, pItemNo);
                 return res;
             }
             catch (Exception ex)
@@ -10268,17 +10295,19 @@ namespace IPos.Parameter
                 //}
             }
         }
+        //DB202293 - Барааны серийн дугаарууд нэмэх
         public Result Txn140293(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
             try
             {
                 object[] value = (object[])ri.ReceivedParam[0];
-                object[] obj = new object[3];
-                obj[0] = Static.ToStr(value[0]);
-                obj[1] = Static.ToStr(value[1]);
-                obj[2] = Static.ToInt(value[2]);
-                res = IPos.DB.Main.DB202293(db, obj);  
+                value[0] = Static.ToStr(EServ.Interface.Sequence.NextByVal("ITEMNO"));
+                //object[] obj = new object[3];
+                //obj[0] = Static.ToStr(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToInt(value[2]);
+                res = IPos.DB.Main.DB202293(db, value);  
                 return res;
             }
             catch (Exception ex)
@@ -10299,24 +10328,15 @@ namespace IPos.Parameter
                 //}
             }
         }
+        //DB202294 - Барааны серийн дугаарууд засварлах
         public Result Txn140294(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
             try
             {
                 object[] value = (object[])ri.ReceivedParam[1];
-                object[] obj = new object[3];
-                obj[0] = Static.ToStr(value[0]);
-                obj[1] = Static.ToStr(value[1]);
-                obj[2] = Static.ToInt(value[2]);
 
-
-                object[] OldValue = (object[])ri.ReceivedParam[0];
-                object[] pOldValue = new object[2];
-                pOldValue[0] = Static.ToStr(OldValue[0]);
-                pOldValue[1] = Static.ToStr(OldValue[1]);
-                    
-                res = IPos.DB.Main.DB202294(db, pOldValue, obj);
+                res = IPos.DB.Main.DB202294(db, value);
                 return res;
             }
             catch (Exception ex)
@@ -10328,17 +10348,23 @@ namespace IPos.Parameter
             }
             finally
             {
-                lg.item.Desc = "бүртгэл засварлах";
+                lg.item.Desc = "Барааны серийн дугаарууд бүртгэл засварлах";
+                if (res.ResultNo == 0)
+                {
+                    lg.item.Key1 = "Барааны серийн дугаарууд бүртгэл засварлах";
+                    lg.AddDetail("INVSERIES", "ITEMNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                }
             }
         }
+        //DB202295 - Барааны серийн дугаарууд устгах
         public Result Txn140295(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
             try
             {
-                string pInvID = Static.ToStr(ri.ReceivedParam[0]);
-                string pBarCode = Static.ToStr(ri.ReceivedParam[1]);
-                res = IPos.DB.Main.DB202295(db, pInvID, pBarCode);
+                string pItemNo = Static.ToStr(ri.ReceivedParam[0]);
+                //string pBarCode = Static.ToStr(ri.ReceivedParam[1]);
+                res = IPos.DB.Main.DB202295(db, pItemNo);
                 return res;
             }
             catch (Exception ex)
@@ -10352,17 +10378,17 @@ namespace IPos.Parameter
             }
             finally
             {
-                lg.item.Desc = "Үйлчилгээний үнийн бүртгэл устгах";
+                lg.item.Desc = "Барааны серийн дугаарууд бүртгэл устгах";
                 if (res.ResultNo == 0)
                 {
-                    lg.item.Key1 = "Үйлчилгээний үнийн бүртгэл устгах";
-                    lg.AddDetail("pProdType", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                    lg.item.Key1 = "Барааны серийн дугаарууд бүртгэл устгах";
+                    lg.AddDetail("INVSERIES", "ITEMNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
                 }
             }
         }
         #endregion[]
 
-        #region[Ангиллын төрлийн бүртгэл]
+        #region[Бараа материалын ангиллын бүртгэл]
         public Result Txn140216(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10382,9 +10408,9 @@ namespace IPos.Parameter
             }
             finally
             {
-                lg.item.Desc = "Ангиллын төрлийн бүртгэл жагсаалт мэдээлэл авах";
+                lg.item.Desc = "Бараа материалын ангиллын бүртгэл жагсаалт мэдээлэл авах";
             }
-        }    //Ангиллын төрлийн бүртгэл жагсаалт мэдээлэл авах
+        }    //Бараа материалын ангиллын бүртгэл жагсаалт мэдээлэл авах
         public Result Txn140217(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10405,11 +10431,11 @@ namespace IPos.Parameter
             {
                 if (res.ResultNo == 0)
                 {
-                    lg.item.Desc = "Ангиллын төрлийн бүртгэл дэлгэрэнгүй мэдээлэл авах";
+                    lg.item.Desc = "Бараа материалын ангиллын төрлийн бүртгэл дэлгэрэнгүй мэдээлэл авах";
                     lg.AddDetail("pCatCode", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
                 }
             }
-        }    //Ангиллын төрлийн  төрлийн бүртгэл дэлгэрэнгүй мэдээлэл авах
+        }    //Бараа материалын ангиллын бүртгэл дэлгэрэнгүй мэдээлэл авах
         public Result Txn140218(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10437,13 +10463,13 @@ namespace IPos.Parameter
             }
             finally
             {
-                lg.item.Desc = "Ангиллын төрлийн бүртгэл шинээр нэмэх";
+                lg.item.Desc = "Бараа материалын ангиллын төрлийн бүртгэл шинээр нэмэх";
                 if (res.ResultNo == 0)
                 {
 
                 }
             }
-        }    //Ангиллын төрлийн бүртгэл шинээр нэмэх
+        }    //Бараа материалын ангиллын бүртгэл шинээр нэмэх
         public Result Txn140219(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10468,9 +10494,9 @@ namespace IPos.Parameter
             }
             finally
             {
-                lg.item.Desc = "Ангиллын төрлийн бүртгэл засварлах";
+                lg.item.Desc = "Бараа материалын ангиллын төрлийн бүртгэл засварлах";
             }
-        }    //Ангиллын төрлийн  төрлийн бүртгэл засварлах
+        }    //Бараа материалын ангиллын бүртгэл засварлах
         public Result Txn140220(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10491,14 +10517,153 @@ namespace IPos.Parameter
             }
             finally
             {
-                lg.item.Desc = "Ангиллын төрлийн бүртгэл устгах";
+                lg.item.Desc = "Бараа материалын ангиллын төрлийн бүртгэл устгах";
                 if (res.ResultNo == 0)
                 {
-                    lg.item.Key1 = "Ангиллын төрлийн бүртгэл устгах";
+                    lg.item.Key1 = "Бараа материалын ангиллын төрлийн бүртгэл устгах";
                     lg.AddDetail("pCatCode", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
                 }
             }
-        }    //Ангиллын төрлийн  төрлийн бүртгэл устгах
+        }    //Бараа материалын ангиллын бүртгэл устгах
+        #endregion[] 
+
+        #region[Үйлчилгээний ангилалын бүртгэл]
+        public Result Txn140221(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                res = IPos.DB.Main.DB202216_1(db);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үйлчилгээний ангиллын бүртгэл жагсаалт мэдээлэл авах";
+            }
+        }    //Үйлчилгээний ангиллын бүртгэл жагсаалт мэдээлэл авах
+        public Result Txn140222(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                string pCatCode = Static.ToStr(ri.ReceivedParam[0]);
+                res = IPos.DB.Main.DB202217_1(db, pCatCode);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                return res;
+            }
+            finally
+            {
+                if (res.ResultNo == 0)
+                {
+                    lg.item.Desc = "Үйлчилгээний ангиллын бүртгэл дэлгэрэнгүй мэдээлэл авах";
+                    lg.AddDetail("pCatCode", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                }
+            }
+        }    //Үйлчилгээний ангиллын бүртгэл дэлгэрэнгүй мэдээлэл авах
+        public Result Txn140223(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                object[] value = (object[])ri.ReceivedParam[0];
+                object[] obj = new object[4];
+                obj[0] = Static.ToStr(value[0]);
+                obj[1] = Static.ToStr(value[1]);
+                obj[2] = Static.ToStr(value[2]);
+                obj[3] = Static.ToInt(value[3]);
+
+
+                res = IPos.DB.Main.DB202218_1(db, obj);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үйлчилгээний ангиллын бүртгэл шинээр нэмэх";
+                if (res.ResultNo == 0)
+                {
+
+                }
+            }
+        }    //Үйлчилгээний ангиллын бүртгэл шинээр нэмэх
+        public Result Txn140224(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                object[] value = (object[])ri.ReceivedParam[0];
+                object[] obj = new object[4];
+                obj[0] = Static.ToStr(value[0]);
+                obj[1] = Static.ToStr(value[1]);
+                obj[2] = Static.ToStr(value[2]);
+                obj[3] = Static.ToInt(value[3]);
+
+                res = IPos.DB.Main.DB202219_1(db, obj);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үйлчилгээний ангиллын бүртгэл засварлах";
+            }
+        }    //Үйлчилгээний ангиллын бүртгэл засварлах
+        public Result Txn140225(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                string pCatCode = Static.ToStr(ri.ReceivedParam[0]);
+                res = IPos.DB.Main.DB202220_1(db, pCatCode);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үйлчилгээний ангиллын бүртгэл устгах";
+                if (res.ResultNo == 0)
+                {
+                    lg.item.Key1 = "Үйлчилгээний ангиллын төрлийн бүртгэл устгах";
+                    lg.AddDetail("pCatCode", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                }
+            }
+        }    //Үйлчилгээний ангиллын бүртгэл устгах
         #endregion[] 
 
         #region[Үйлчилгээний бүртгэл]
@@ -10789,7 +10954,7 @@ namespace IPos.Parameter
             }
         }
 
-
+        //Үйлчилгээний үнийн бүртгэл
         public Result Txn140271(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10823,9 +10988,9 @@ namespace IPos.Parameter
             {
                 int pProdType = Static.ToInt(ri.ReceivedParam[0]);
                 string pProdID = Static.ToStr(ri.ReceivedParam[1]);
-                string pDayType = Static.ToStr(ri.ReceivedParam[2]);
-                DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
-                res = IPos.DB.Main.DB202267(db, pProdType, pProdID, pDayType, pStartTime);
+                string PriceTypeID = Static.ToStr(ri.ReceivedParam[2]);
+                //DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
+                res = IPos.DB.Main.DB202267(db, pProdType, pProdID, PriceTypeID);
                 return res;
             }
             catch (Exception ex)
@@ -10851,21 +11016,15 @@ namespace IPos.Parameter
             Result res = new Result();
             try
             {
-                            //Static.ToInt(1), 
-                            //Static.ToStr(txtServID.EditValue),
-                            //Static.ToStr(cboDayType.EditValue),
-                            //Static.ToDate(dtStartTime.EditValue),
-                            //Static.ToDate(dtEndTime.EditValue),
-                            //Static.ToInt(numPrice.EditValue)
                 object[] value = (object[])ri.ReceivedParam[0];
-                object[] obj = new object[6];
-                obj[0] = Static.ToInt(value[0]);
-                obj[1] = Static.ToStr(value[1]);
-                obj[2] = Static.ToStr(value[2]);
-                obj[3] = Static.ToDateTime(value[3]);
-                obj[4] = Static.ToDateTime(value[4]);
-                obj[5] = Static.ToInt(value[5]);
-                res = IPos.DB.Main.DB202268(db, obj);
+                //object[] obj = new object[6];
+                //obj[0] = Static.ToInt(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToStr(value[2]);
+                //obj[3] = Static.ToDateTime(value[3]);
+                //obj[4] = Static.ToDateTime(value[4]);
+                //obj[5] = Static.ToInt(value[5]);
+                res = IPos.DB.Main.DB202268(db, value);
                 return res;
             }
             catch (Exception ex)
@@ -10892,23 +11051,23 @@ namespace IPos.Parameter
             try
             {
                 object[] Oldvalue = (object[])ri.ReceivedParam[0];
-                object[] pOldValue = new object[6];
-                pOldValue[0] = Static.ToInt(Oldvalue[0]);
-                pOldValue[1] = Static.ToStr(Oldvalue[1]);
-                pOldValue[2] = Static.ToStr(Oldvalue[2]);
-                pOldValue[3] = Static.ToDateTime(Oldvalue[3]);
-                pOldValue[4] = Static.ToDateTime(Oldvalue[4]);
-                pOldValue[5] = Static.ToInt(Oldvalue[5]);
+                //object[] pOldValue = new object[6];
+                //pOldValue[0] = Static.ToInt(Oldvalue[0]);
+                //pOldValue[1] = Static.ToStr(Oldvalue[1]);
+                //pOldValue[2] = Static.ToStr(Oldvalue[2]);
+                //pOldValue[3] = Static.ToDateTime(Oldvalue[3]);
+                //pOldValue[4] = Static.ToDateTime(Oldvalue[4]);
+                //pOldValue[5] = Static.ToInt(Oldvalue[5]);
 
                 object[] value = (object[])ri.ReceivedParam[1];
-                object[] obj = new object[6];
-                obj[0] = Static.ToInt(value[0]);
-                obj[1] = Static.ToStr(value[1]);
-                obj[2] = Static.ToStr(value[2]);
-                obj[3] = Static.ToDateTime(value[3]);
-                obj[4] = Static.ToDateTime(value[4]);
-                obj[5] = Static.ToInt(value[5]);
-                res = IPos.DB.Main.DB202269(db,pOldValue, obj );
+                //object[] obj = new object[6];
+                //obj[0] = Static.ToInt(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToStr(value[2]);
+                //obj[3] = Static.ToDateTime(value[3]);
+                //obj[4] = Static.ToDateTime(value[4]);
+                //obj[5] = Static.ToInt(value[5]);
+                res = IPos.DB.Main.DB202269(db, Oldvalue, value);
                 return res;
             }
             catch (Exception ex)
@@ -10930,9 +11089,9 @@ namespace IPos.Parameter
             {
                 int pProdType = Static.ToInt(ri.ReceivedParam[0]);
                 string pProdID = Static.ToStr(ri.ReceivedParam[1]);
-                string pDayType = Static.ToStr(ri.ReceivedParam[2]);
-                DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
-                res = IPos.DB.Main.DB202270(db, pProdType, pProdID, pDayType, pStartTime);
+                string PriceTypeID = Static.ToStr(ri.ReceivedParam[2]);
+                //DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
+                res = IPos.DB.Main.DB202270(db, pProdType, pProdID, PriceTypeID);
                 return res;
             }
             catch (Exception ex)
@@ -13210,9 +13369,8 @@ WHERE FORMULAID = :1";
         }
         #endregion
 
-
         // Насний бүртгэл
-        #region[Language]
+        #region[Нас]
         public Result SelectAge(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -13320,6 +13478,163 @@ WHERE FORMULAID = :1";
                     {
                         if (OldValue[i].ToString() != NewValue[i].ToString()) lg.AddDetail("Language", FieldName[i].ToString(), OldValue[i].ToString(), NewValue[i].ToString());
                     }
+                }
+            }
+        }
+        #endregion
+
+        #region [ Үнийн төрөл ]
+        //Үнийн төрөл жагсаалт авах
+        public Result Txn140416(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                res = IPos.DB.Main.DB202336(db);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үнийн төрөл жагсаалт авах";
+                if (res.ResultNo == 0)
+                {
+                    lg.AddDetail("PAPriceType", "ALL", lg.item.Desc, "ALL");
+                }
+            }
+        }
+        //Үнийн төрөл дэлгэрэнгүй мэдээлэл авах
+        public Result Txn140417(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                string PriceTypeID = Static.ToStr(ri.ReceivedParam[0]);
+                res = IPos.DB.Main.DB202337(db, PriceTypeID);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үнийн төрөл дэлгэрэнгүй мэдээлэл авах";
+                if (res.ResultNo == 0)
+                {
+                    lg.AddDetail("PAPriceType", "PriceTypeID", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                }
+            }
+        }
+        //Үнийн төрөл шинээр нэмэх
+        public Result Txn140418(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                object[] obj = new object[2];
+                obj = (object[])ri.ReceivedParam[0];
+
+                res = IPos.DB.Main.DB202338(db, obj);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үнийн төрөл шинээр нэмэх ";
+                //if (res.ResultNo == 0)
+                //{
+                //    object[] NewValue = (object[])ri.ReceivedParam[0];
+                //    object[] FieldName = { "userno" };
+                //    for (int i = 0; i < FieldName.Length; i++)
+                //    {
+                //        lg.AddDetail("userno", FieldName[i].ToString(), lg.item.Desc, Static.ToStr(NewValue[i]));
+                //    }
+                //}
+            }
+        }
+        //Үнийн төрөл засварлах
+        public Result Txn140419(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                //string pPOSNo = Static.ToStr(ri.ReceivedParam[0]);
+                //string pOldTypeID = Static.ToStr(ri.ReceivedParam[1]);
+                //string pNewTypeID = Static.ToStr(ri.ReceivedParam[2]);
+                res = IPos.DB.Main.DB202339(db, (object[])ri.ReceivedParam[0]);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үнийн төрөл засварлах";
+                //if (res.ResultNo == 0)
+                //{
+                //    object[] NewValue = (object[])ri.ReceivedParam[0];
+                //    object[] OldValue = (object[])ri.ReceivedParam[1];
+                //    object[] FieldName = { "citycode", "distcode", "subdistcode", "apartment", "note", "addrcurrent", "postdate", "userno", "seqno" };
+                //    for (int i = 0; i < FieldName.Length; i++)
+                //    {
+                //        if (OldValue[i].ToString() != NewValue[i].ToString()) lg.AddDetail("agentaddr", FieldName[i].ToString(), OldValue[i].ToString(), Static.ToStr(NewValue[i]));
+                //    }
+                //}
+            }
+        }
+        //Үнийн төрөл устгах
+        public Result Txn140420(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            string PriceTypeID = "";
+            try
+            {
+                PriceTypeID = Static.ToStr(ri.ReceivedParam[0]);
+
+                res = IPos.DB.Main.DB202340(db, PriceTypeID);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Үнийн төрөл устгах";
+                if (res.ResultNo == 0)
+                {
+                    lg.AddDetail("PAPriceType", "PriceTypeID", lg.item.Desc, ri.ReceivedParam[0].ToString());
                 }
             }
         }

@@ -52,11 +52,10 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.btnZoom = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
-            this.cboPrinterType = new DevExpress.XtraEditors.LookUpEdit();
-            this.cboScheduleType = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboTimeTableID = new DevExpress.XtraEditors.LookUpEdit();
             this.btnPicEnter = new DevExpress.XtraEditors.SimpleButton();
             this.picPicture = new DevExpress.XtraEditors.PictureEdit();
-            this.chkIsSchedule = new DevExpress.XtraEditors.CheckEdit();
+            this.chkIsTimeTable = new DevExpress.XtraEditors.CheckEdit();
             this.cboTagTimeMethod = new DevExpress.XtraEditors.LookUpEdit();
             this.numTagTime = new DevExpress.XtraEditors.TextEdit();
             this.cboTagType = new DevExpress.XtraEditors.LookUpEdit();
@@ -67,25 +66,22 @@
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.txtNote = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.numUnit = new DevExpress.XtraEditors.TextEdit();
+            this.numUnitSize = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.cboUnit = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.cboCatCode = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.numCount = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.numPriceAmount = new DevExpress.XtraEditors.TextEdit();
+            this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.tdServEndDate = new DevExpress.XtraEditors.DateEdit();
-            this.dtServStartDate = new DevExpress.XtraEditors.DateEdit();
+            this.tdSalesEndDate = new DevExpress.XtraEditors.DateEdit();
+            this.dtSalesStartDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtName2 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.cboServType = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboTypeCode = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtServID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -125,6 +121,10 @@
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             this.numProdType = new DevExpress.XtraEditors.TextEdit();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
+            this.cboBrandID = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.txtBacCode = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelServMain)).BeginInit();
             this.panelServMain.SuspendLayout();
             this.ucServMain.SuspendLayout();
@@ -140,27 +140,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupServie)).BeginInit();
             this.groupServie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numServiceTime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboPrinterType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboScheduleType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboTimeTableID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPicture.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkIsSchedule.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsTimeTable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTagTimeMethod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTagTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTagType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUnit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUnitSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUnit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboCatCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPriceAmount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tdServEndDate.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tdServEndDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServStartDate.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServStartDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tdSalesEndDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tdSalesEndDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSalesStartDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSalesStartDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboServType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboTypeCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -201,6 +199,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboDayType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProdId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numProdType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboBrandID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBacCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelServMain
@@ -412,15 +412,18 @@
             // 
             // groupServie
             // 
+            this.groupServie.Controls.Add(this.txtBacCode);
+            this.groupServie.Controls.Add(this.labelControl12);
+            this.groupServie.Controls.Add(this.cboBrandID);
+            this.groupServie.Controls.Add(this.labelControl9);
             this.groupServie.Controls.Add(this.numServiceTime);
             this.groupServie.Controls.Add(this.labelControl6);
             this.groupServie.Controls.Add(this.btnZoom);
             this.groupServie.Controls.Add(this.labelControl33);
-            this.groupServie.Controls.Add(this.cboPrinterType);
-            this.groupServie.Controls.Add(this.cboScheduleType);
+            this.groupServie.Controls.Add(this.cboTimeTableID);
             this.groupServie.Controls.Add(this.btnPicEnter);
             this.groupServie.Controls.Add(this.picPicture);
-            this.groupServie.Controls.Add(this.chkIsSchedule);
+            this.groupServie.Controls.Add(this.chkIsTimeTable);
             this.groupServie.Controls.Add(this.cboTagTimeMethod);
             this.groupServie.Controls.Add(this.numTagTime);
             this.groupServie.Controls.Add(this.cboTagType);
@@ -431,25 +434,22 @@
             this.groupServie.Controls.Add(this.labelControl16);
             this.groupServie.Controls.Add(this.txtNote);
             this.groupServie.Controls.Add(this.labelControl14);
-            this.groupServie.Controls.Add(this.labelControl12);
-            this.groupServie.Controls.Add(this.numUnit);
+            this.groupServie.Controls.Add(this.numUnitSize);
             this.groupServie.Controls.Add(this.labelControl11);
             this.groupServie.Controls.Add(this.cboUnit);
             this.groupServie.Controls.Add(this.labelControl10);
-            this.groupServie.Controls.Add(this.cboCatCode);
-            this.groupServie.Controls.Add(this.labelControl9);
             this.groupServie.Controls.Add(this.numCount);
             this.groupServie.Controls.Add(this.labelControl8);
-            this.groupServie.Controls.Add(this.numPriceAmount);
+            this.groupServie.Controls.Add(this.txtPrice);
             this.groupServie.Controls.Add(this.labelControl7);
-            this.groupServie.Controls.Add(this.tdServEndDate);
-            this.groupServie.Controls.Add(this.dtServStartDate);
+            this.groupServie.Controls.Add(this.tdSalesEndDate);
+            this.groupServie.Controls.Add(this.dtSalesStartDate);
             this.groupServie.Controls.Add(this.labelControl5);
             this.groupServie.Controls.Add(this.txtName2);
             this.groupServie.Controls.Add(this.labelControl4);
             this.groupServie.Controls.Add(this.txtName);
             this.groupServie.Controls.Add(this.labelControl3);
-            this.groupServie.Controls.Add(this.cboServType);
+            this.groupServie.Controls.Add(this.cboTypeCode);
             this.groupServie.Controls.Add(this.labelControl2);
             this.groupServie.Controls.Add(this.txtServID);
             this.groupServie.Controls.Add(this.labelControl1);
@@ -463,7 +463,7 @@
             // 
             // numServiceTime
             // 
-            this.numServiceTime.Location = new System.Drawing.Point(625, 211);
+            this.numServiceTime.Location = new System.Drawing.Point(625, 187);
             this.numServiceTime.Name = "numServiceTime";
             this.numServiceTime.Properties.Mask.EditMask = "[0-9]{1,5}";
             this.numServiceTime.Properties.Mask.IgnoreMaskBlank = false;
@@ -471,11 +471,11 @@
             this.numServiceTime.Properties.Mask.ShowPlaceHolders = false;
             this.numServiceTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.numServiceTime.Size = new System.Drawing.Size(74, 20);
-            this.numServiceTime.TabIndex = 22;
+            this.numServiceTime.TabIndex = 35;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(472, 218);
+            this.labelControl6.Location = new System.Drawing.Point(472, 194);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(61, 13);
             this.labelControl6.TabIndex = 210;
@@ -498,29 +498,17 @@
             this.labelControl33.TabIndex = 48;
             this.labelControl33.Text = "Төлөв";
             // 
-            // cboPrinterType
+            // cboTimeTableID
             // 
-            this.cboPrinterType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cboTimeTableID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboPrinterType.Location = new System.Drawing.Point(625, 79);
-            this.cboPrinterType.Name = "cboPrinterType";
-            this.cboPrinterType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboTimeTableID.Location = new System.Drawing.Point(625, 214);
+            this.cboTimeTableID.Name = "cboTimeTableID";
+            this.cboTimeTableID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboPrinterType.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cboPrinterType.Size = new System.Drawing.Size(230, 20);
-            this.cboPrinterType.TabIndex = 15;
-            // 
-            // cboScheduleType
-            // 
-            this.cboScheduleType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboScheduleType.Location = new System.Drawing.Point(625, 240);
-            this.cboScheduleType.Name = "cboScheduleType";
-            this.cboScheduleType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboScheduleType.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cboScheduleType.Size = new System.Drawing.Size(230, 20);
-            this.cboScheduleType.TabIndex = 24;
+            this.cboTimeTableID.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cboTimeTableID.Size = new System.Drawing.Size(230, 20);
+            this.cboTimeTableID.TabIndex = 40;
             // 
             // btnPicEnter
             // 
@@ -539,34 +527,34 @@
             this.picPicture.Size = new System.Drawing.Size(117, 113);
             this.picPicture.TabIndex = 207;
             // 
-            // chkIsSchedule
+            // chkIsTimeTable
             // 
-            this.chkIsSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.chkIsTimeTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkIsSchedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.chkIsSchedule.Location = new System.Drawing.Point(739, 185);
-            this.chkIsSchedule.Name = "chkIsSchedule";
-            this.chkIsSchedule.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.chkIsSchedule.Properties.Caption = "Хуваарьтай эсэх";
-            this.chkIsSchedule.Size = new System.Drawing.Size(116, 19);
-            this.chkIsSchedule.TabIndex = 21;
-            this.chkIsSchedule.EditValueChanged += new System.EventHandler(this.chkIsSchedule_EditValueChanged);
+            this.chkIsTimeTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.chkIsTimeTable.Location = new System.Drawing.Point(739, 160);
+            this.chkIsTimeTable.Name = "chkIsTimeTable";
+            this.chkIsTimeTable.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.chkIsTimeTable.Properties.Caption = "Хуваарьтай эсэх";
+            this.chkIsTimeTable.Size = new System.Drawing.Size(116, 19);
+            this.chkIsTimeTable.TabIndex = 33;
+            this.chkIsTimeTable.EditValueChanged += new System.EventHandler(this.chkIsSchedule_EditValueChanged);
             // 
             // cboTagTimeMethod
             // 
             this.cboTagTimeMethod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboTagTimeMethod.Location = new System.Drawing.Point(625, 159);
+            this.cboTagTimeMethod.Location = new System.Drawing.Point(625, 133);
             this.cboTagTimeMethod.Name = "cboTagTimeMethod";
             this.cboTagTimeMethod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboTagTimeMethod.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cboTagTimeMethod.Size = new System.Drawing.Size(230, 20);
-            this.cboTagTimeMethod.TabIndex = 19;
+            this.cboTagTimeMethod.TabIndex = 29;
             // 
             // numTagTime
             // 
-            this.numTagTime.Location = new System.Drawing.Point(625, 185);
+            this.numTagTime.Location = new System.Drawing.Point(625, 159);
             this.numTagTime.Name = "numTagTime";
             this.numTagTime.Properties.Mask.EditMask = "[0-9]{1,5}";
             this.numTagTime.Properties.Mask.IgnoreMaskBlank = false;
@@ -574,19 +562,19 @@
             this.numTagTime.Properties.Mask.ShowPlaceHolders = false;
             this.numTagTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.numTagTime.Size = new System.Drawing.Size(74, 20);
-            this.numTagTime.TabIndex = 20;
+            this.numTagTime.TabIndex = 31;
             // 
             // cboTagType
             // 
             this.cboTagType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboTagType.Location = new System.Drawing.Point(625, 131);
+            this.cboTagType.Location = new System.Drawing.Point(625, 105);
             this.cboTagType.Name = "cboTagType";
             this.cboTagType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboTagType.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cboTagType.Size = new System.Drawing.Size(230, 20);
-            this.cboTagType.TabIndex = 17;
+            this.cboTagType.TabIndex = 28;
             // 
             // cboStatus
             // 
@@ -600,7 +588,7 @@
             // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(472, 243);
+            this.labelControl20.Location = new System.Drawing.Point(472, 217);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(87, 13);
             this.labelControl20.TabIndex = 35;
@@ -608,7 +596,7 @@
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(472, 166);
+            this.labelControl18.Location = new System.Drawing.Point(472, 140);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(150, 13);
             this.labelControl18.TabIndex = 33;
@@ -616,7 +604,7 @@
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(472, 192);
+            this.labelControl17.Location = new System.Drawing.Point(472, 166);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(114, 13);
             this.labelControl17.TabIndex = 32;
@@ -624,55 +612,47 @@
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(472, 138);
+            this.labelControl16.Location = new System.Drawing.Point(472, 112);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(102, 13);
+            this.labelControl16.Size = new System.Drawing.Size(68, 13);
             this.labelControl16.TabIndex = 31;
-            this.labelControl16.Text = "Тагийн төрлийн код";
+            this.labelControl16.Text = "Тагийн төрөл";
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(140, 240);
+            this.txtNote.Location = new System.Drawing.Point(473, 260);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNote.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtNote.Size = new System.Drawing.Size(312, 58);
-            this.txtNote.TabIndex = 11;
+            this.txtNote.Size = new System.Drawing.Size(382, 38);
+            this.txtNote.TabIndex = 50;
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(140, 221);
+            this.labelControl14.Location = new System.Drawing.Point(472, 241);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(114, 13);
             this.labelControl14.TabIndex = 26;
             this.labelControl14.Text = "Үйлчилгээний тайлбар";
             // 
-            // labelControl12
+            // numUnitSize
             // 
-            this.labelControl12.Location = new System.Drawing.Point(472, 86);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(94, 13);
-            this.labelControl12.TabIndex = 24;
-            this.labelControl12.Text = "Принтерийн төрөл";
-            // 
-            // numUnit
-            // 
-            this.numUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numUnitSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.numUnit.Location = new System.Drawing.Point(625, 105);
-            this.numUnit.Name = "numUnit";
-            this.numUnit.Properties.Mask.EditMask = "[0-9]{1,10}";
-            this.numUnit.Properties.Mask.IgnoreMaskBlank = false;
-            this.numUnit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.numUnit.Properties.Mask.ShowPlaceHolders = false;
-            this.numUnit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.numUnit.Size = new System.Drawing.Size(230, 20);
-            this.numUnit.TabIndex = 16;
-            this.numUnit.Visible = false;
+            this.numUnitSize.Location = new System.Drawing.Point(626, 51);
+            this.numUnitSize.Name = "numUnitSize";
+            this.numUnitSize.Properties.Mask.EditMask = "[0-9]{1,10}";
+            this.numUnitSize.Properties.Mask.IgnoreMaskBlank = false;
+            this.numUnitSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.numUnitSize.Properties.Mask.ShowPlaceHolders = false;
+            this.numUnitSize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.numUnitSize.Size = new System.Drawing.Size(230, 20);
+            this.numUnitSize.TabIndex = 16;
+            this.numUnitSize.Visible = false;
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(472, 112);
+            this.labelControl11.Location = new System.Drawing.Point(473, 58);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(77, 13);
             this.labelControl11.TabIndex = 20;
@@ -683,7 +663,7 @@
             // 
             this.cboUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboUnit.Location = new System.Drawing.Point(625, 49);
+            this.cboUnit.Location = new System.Drawing.Point(625, 25);
             this.cboUnit.Name = "cboUnit";
             this.cboUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -693,37 +673,17 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(472, 56);
+            this.labelControl10.Location = new System.Drawing.Point(472, 32);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(64, 13);
             this.labelControl10.TabIndex = 18;
             this.labelControl10.Text = "Хэмжих нэгж";
             // 
-            // cboCatCode
-            // 
-            this.cboCatCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCatCode.Location = new System.Drawing.Point(625, 25);
-            this.cboCatCode.Name = "cboCatCode";
-            this.cboCatCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboCatCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cboCatCode.Size = new System.Drawing.Size(230, 20);
-            this.cboCatCode.TabIndex = 12;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Location = new System.Drawing.Point(472, 28);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(42, 13);
-            this.labelControl9.TabIndex = 16;
-            this.labelControl9.Text = "Ангилал";
-            // 
             // numCount
             // 
             this.numCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.numCount.Location = new System.Drawing.Point(625, 269);
+            this.numCount.Location = new System.Drawing.Point(625, 79);
             this.numCount.Name = "numCount";
             this.numCount.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
             this.numCount.Properties.Mask.EditMask = "[0-9]{1,10}";
@@ -735,66 +695,66 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(472, 272);
+            this.labelControl8.Location = new System.Drawing.Point(472, 82);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(144, 13);
+            this.labelControl8.Size = new System.Drawing.Size(85, 13);
             this.labelControl8.TabIndex = 14;
-            this.labelControl8.Text = "Хамаарагдах хуваарийн тоо";
+            this.labelControl8.Text = "Нийт тоо ширхэг";
             // 
-            // numPriceAmount
+            // txtPrice
             // 
-            this.numPriceAmount.Location = new System.Drawing.Point(249, 189);
-            this.numPriceAmount.Name = "numPriceAmount";
-            this.numPriceAmount.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.numPriceAmount.Properties.Mask.EditMask = "n";
-            this.numPriceAmount.Properties.Mask.IgnoreMaskBlank = false;
-            this.numPriceAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.numPriceAmount.Properties.Mask.ShowPlaceHolders = false;
-            this.numPriceAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.numPriceAmount.Properties.MaxLength = 18;
-            this.numPriceAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.numPriceAmount.Size = new System.Drawing.Size(203, 20);
-            this.numPriceAmount.TabIndex = 7;
+            this.txtPrice.Location = new System.Drawing.Point(249, 217);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.txtPrice.Properties.Mask.EditMask = "n";
+            this.txtPrice.Properties.Mask.IgnoreMaskBlank = false;
+            this.txtPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPrice.Properties.Mask.ShowPlaceHolders = false;
+            this.txtPrice.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtPrice.Properties.MaxLength = 18;
+            this.txtPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPrice.Size = new System.Drawing.Size(203, 20);
+            this.txtPrice.TabIndex = 8;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(140, 192);
+            this.labelControl7.Location = new System.Drawing.Point(140, 220);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(17, 13);
             this.labelControl7.TabIndex = 12;
             this.labelControl7.Text = "Үнэ";
             // 
-            // tdServEndDate
+            // tdSalesEndDate
             // 
-            this.tdServEndDate.EditValue = null;
-            this.tdServEndDate.Location = new System.Drawing.Point(354, 159);
-            this.tdServEndDate.Name = "tdServEndDate";
-            this.tdServEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tdSalesEndDate.EditValue = null;
+            this.tdSalesEndDate.Location = new System.Drawing.Point(354, 187);
+            this.tdSalesEndDate.Name = "tdSalesEndDate";
+            this.tdSalesEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tdServEndDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tdSalesEndDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tdServEndDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tdServEndDate.Size = new System.Drawing.Size(98, 20);
-            this.tdServEndDate.TabIndex = 6;
-            this.tdServEndDate.ToolTipTitle = "Үйлчилгээний дууасх огноо орууна у.";
+            this.tdSalesEndDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tdSalesEndDate.Size = new System.Drawing.Size(98, 20);
+            this.tdSalesEndDate.TabIndex = 7;
+            this.tdSalesEndDate.ToolTipTitle = "Үйлчилгээний дууасх огноо орууна у.";
             // 
-            // dtServStartDate
+            // dtSalesStartDate
             // 
-            this.dtServStartDate.EditValue = null;
-            this.dtServStartDate.Location = new System.Drawing.Point(249, 159);
-            this.dtServStartDate.Name = "dtServStartDate";
-            this.dtServStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtSalesStartDate.EditValue = null;
+            this.dtSalesStartDate.Location = new System.Drawing.Point(249, 187);
+            this.dtSalesStartDate.Name = "dtSalesStartDate";
+            this.dtSalesStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtServStartDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtSalesStartDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtServStartDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtServStartDate.Size = new System.Drawing.Size(89, 20);
-            this.dtServStartDate.TabIndex = 5;
-            this.dtServStartDate.ToolTipTitle = "Үйлчилгээний эхлэх огноо орууна уу.";
+            this.dtSalesStartDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dtSalesStartDate.Size = new System.Drawing.Size(89, 20);
+            this.dtSalesStartDate.TabIndex = 6;
+            this.dtSalesStartDate.ToolTipTitle = "Үйлчилгээний эхлэх огноо орууна уу.";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(140, 162);
+            this.labelControl5.Location = new System.Drawing.Point(140, 190);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(107, 13);
             this.labelControl5.TabIndex = 8;
@@ -802,17 +762,17 @@
             // 
             // txtName2
             // 
-            this.txtName2.Location = new System.Drawing.Point(249, 131);
+            this.txtName2.Location = new System.Drawing.Point(249, 159);
             this.txtName2.Name = "txtName2";
             this.txtName2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtName2.Properties.MaxLength = 200;
             this.txtName2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName2.Size = new System.Drawing.Size(203, 20);
-            this.txtName2.TabIndex = 4;
+            this.txtName2.TabIndex = 5;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(140, 138);
+            this.labelControl4.Location = new System.Drawing.Point(140, 166);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(98, 13);
             this.labelControl4.TabIndex = 6;
@@ -820,36 +780,36 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(249, 105);
+            this.txtName.Location = new System.Drawing.Point(249, 133);
             this.txtName.Name = "txtName";
             this.txtName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtName.Properties.MaxLength = 200;
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName.Size = new System.Drawing.Size(203, 20);
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 4;
             this.txtName.ToolTipTitle = "Үйлчилгээний нэр орууна уу.";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(140, 112);
+            this.labelControl3.Location = new System.Drawing.Point(140, 140);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(92, 13);
             this.labelControl3.TabIndex = 4;
             this.labelControl3.Text = "Үйлчилгээний нэр ";
             // 
-            // cboServType
+            // cboTypeCode
             // 
-            this.cboServType.Location = new System.Drawing.Point(249, 79);
-            this.cboServType.Name = "cboServType";
-            this.cboServType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboTypeCode.Location = new System.Drawing.Point(249, 79);
+            this.cboTypeCode.Name = "cboTypeCode";
+            this.cboTypeCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboServType.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cboServType.Size = new System.Drawing.Size(203, 20);
-            this.cboServType.TabIndex = 2;
+            this.cboTypeCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cboTypeCode.Size = new System.Drawing.Size(203, 20);
+            this.cboTypeCode.TabIndex = 2;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(140, 89);
+            this.labelControl2.Location = new System.Drawing.Point(140, 86);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(102, 13);
             this.labelControl2.TabIndex = 2;
@@ -1299,6 +1259,43 @@
             this.labelControl25.TabIndex = 0;
             this.labelControl25.Text = "Төрлийн дугаар";
             // 
+            // cboBrandID
+            // 
+            this.cboBrandID.Location = new System.Drawing.Point(249, 105);
+            this.cboBrandID.Name = "cboBrandID";
+            this.cboBrandID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboBrandID.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cboBrandID.Size = new System.Drawing.Size(203, 20);
+            this.cboBrandID.TabIndex = 3;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(140, 112);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(30, 13);
+            this.labelControl9.TabIndex = 211;
+            this.labelControl9.Text = "Брэнд";
+            // 
+            // txtBacCode
+            // 
+            this.txtBacCode.Location = new System.Drawing.Point(249, 243);
+            this.txtBacCode.Name = "txtBacCode";
+            this.txtBacCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBacCode.Properties.MaxLength = 200;
+            this.txtBacCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtBacCode.Size = new System.Drawing.Size(203, 20);
+            this.txtBacCode.TabIndex = 9;
+            this.txtBacCode.ToolTipTitle = "Үйлчилгээний нэр орууна уу.";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(140, 246);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(40, 13);
+            this.labelControl12.TabIndex = 214;
+            this.labelControl12.Text = "Бар код";
+            // 
             // ServMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1329,27 +1326,25 @@
             this.groupServie.ResumeLayout(false);
             this.groupServie.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numServiceTime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboPrinterType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboScheduleType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboTimeTableID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPicture.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkIsSchedule.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsTimeTable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTagTimeMethod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTagTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTagType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUnit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUnitSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUnit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboCatCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPriceAmount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tdServEndDate.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tdServEndDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServStartDate.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServStartDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tdSalesEndDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tdSalesEndDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSalesStartDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSalesStartDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboServType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboTypeCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
@@ -1394,6 +1389,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboDayType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProdId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numProdType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboBrandID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBacCode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1406,16 +1403,16 @@
         private DevExpress.XtraEditors.GroupControl groupServie;
         private DevExpress.XtraEditors.TextEdit txtServID;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit numPriceAmount;
+        private DevExpress.XtraEditors.TextEdit txtPrice;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.DateEdit tdServEndDate;
-        private DevExpress.XtraEditors.DateEdit dtServStartDate;
+        private DevExpress.XtraEditors.DateEdit tdSalesEndDate;
+        private DevExpress.XtraEditors.DateEdit dtSalesStartDate;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit txtName2;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LookUpEdit cboServType;
+        private DevExpress.XtraEditors.LookUpEdit cboTypeCode;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.LabelControl labelControl22;
@@ -1425,8 +1422,8 @@
         private DevExpress.XtraEditors.TextEdit txtDiscountAccountNo;
         private DevExpress.XtraEditors.TextEdit txtRefundAccountNo;
         private DevExpress.XtraEditors.TextEdit txtSalesAccountNo;
-        private DevExpress.XtraEditors.LookUpEdit cboScheduleType;
-        private DevExpress.XtraEditors.CheckEdit chkIsSchedule;
+        private DevExpress.XtraEditors.LookUpEdit cboTimeTableID;
+        private DevExpress.XtraEditors.CheckEdit chkIsTimeTable;
         private DevExpress.XtraEditors.LookUpEdit cboTagTimeMethod;
         private DevExpress.XtraEditors.TextEdit numTagTime;
         private DevExpress.XtraEditors.LookUpEdit cboTagType;
@@ -1439,16 +1436,12 @@
         private DevExpress.XtraEditors.DateEdit dtCreateDate;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.TextEdit numUnit;
+        private DevExpress.XtraEditors.TextEdit numUnitSize;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LookUpEdit cboUnit;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.LookUpEdit cboCatCode;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit numCount;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LookUpEdit cboPrinterType;
         private DevExpress.XtraEditors.SimpleButton btndis;
         private DevExpress.XtraEditors.SimpleButton btnDiscount;
         private DevExpress.XtraEditors.SimpleButton btnRefund;
@@ -1497,5 +1490,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl33;
         private DevExpress.XtraEditors.TextEdit numServiceTime;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit txtBacCode;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.LookUpEdit cboBrandID;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
     }
 }

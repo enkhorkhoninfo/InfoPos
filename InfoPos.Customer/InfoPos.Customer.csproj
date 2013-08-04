@@ -82,6 +82,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Build\InfoPosAdmin\ISM.CUser.dll</HintPath>
     </Reference>
+    <Reference Include="ISM.Lib">
+      <HintPath>..\..\Build\InfoPosAdmin\ISM.Lib.dll</HintPath>
+    </Reference>
     <Reference Include="ISM.Template, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Build\InfoPosAdmin\ISM.Template.dll</HintPath>

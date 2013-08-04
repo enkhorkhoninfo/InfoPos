@@ -218,6 +218,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormPaPriceType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaPriceType.Designer.cs">
+      <DependentUpon>FormPaPriceType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaServCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaServCat.Designer.cs">
+      <DependentUpon>FormPaServCat.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -695,6 +707,12 @@
     <Compile Include="FunctionParam.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormPaPriceType.resx">
+      <DependentUpon>FormPaPriceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaServCat.resx">
+      <DependentUpon>FormPaServCat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAge.resx">
       <DependentUpon>FormAge.cs</DependentUpon>
     </EmbeddedResource>

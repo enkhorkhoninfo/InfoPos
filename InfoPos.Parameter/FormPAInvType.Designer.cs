@@ -37,9 +37,9 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.cboClassCode = new DevExpress.XtraEditors.LookUpEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtName2 = new DevExpress.XtraEditors.TextEdit();
+            this.cboCatCode = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -50,16 +50,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInvType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrderNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboClassCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCatCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.cboCatCode);
             this.groupControl1.Controls.Add(this.txtName2);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Controls.Add(this.cboClassCode);
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl4);
@@ -198,23 +198,6 @@
             this.labelControl6.TabIndex = 11;
             this.labelControl6.Text = "Эрэмбийн дугаар";
             // 
-            // cboClassCode
-            // 
-            this.cboClassCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboClassCode.Location = new System.Drawing.Point(132, 101);
-            this.cboClassCode.MinimumSize = new System.Drawing.Size(174, 20);
-            this.cboClassCode.Name = "cboClassCode";
-            this.cboClassCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboClassCode.Properties.NullText = "";
-            this.cboClassCode.Properties.PopupSizeable = false;
-            this.cboClassCode.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.cboClassCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cboClassCode.Size = new System.Drawing.Size(174, 20);
-            this.cboClassCode.TabIndex = 3;
-            this.cboClassCode.ToolTipTitle = "Төрөл сонгоно уу";
-            // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -241,6 +224,18 @@
             this.txtName2.Size = new System.Drawing.Size(174, 20);
             this.txtName2.TabIndex = 2;
             // 
+            // cboCatCode
+            // 
+            this.cboCatCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCatCode.Location = new System.Drawing.Point(132, 101);
+            this.cboCatCode.Name = "cboCatCode";
+            this.cboCatCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboCatCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cboCatCode.Size = new System.Drawing.Size(174, 20);
+            this.cboCatCode.TabIndex = 13;
+            // 
             // FormPAInvType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +245,7 @@
             this.MinimumSize = new System.Drawing.Size(840, 514);
             this.Name = "FormPAInvType";
             this.Text = "Бараа материалын төрлийн бүртгэл";
+            this.Load += new System.EventHandler(this.FormPAInvType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -261,9 +257,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInvType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrderNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboClassCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCatCode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,8 +275,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LookUpEdit cboClassCode;
         private DevExpress.XtraEditors.TextEdit txtName2;
         private DevExpress.XtraEditors.TextEdit txtName;
+        private DevExpress.XtraEditors.LookUpEdit cboCatCode;
     }
 }

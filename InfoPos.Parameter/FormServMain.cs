@@ -71,36 +71,34 @@ namespace InfoPos.Parameter
             ucServPrice.EventEdit += new ucTogglePanel.delegateEventEdit(ucServPrice_EventEdit);
 
             ucServMain.FieldLinkAdd("txtServID", 0, "SERVID", "", true, true);
-            ucServMain.FieldLinkAdd("cboServType", 0, "SERVTYPE", "", false, false);
+            ucServMain.FieldLinkAdd("cboTypeCode", 0, "TypeCode", "", false, false);
             ucServMain.FieldLinkAdd("txtName", 0, "NAME", "", true, false);
             ucServMain.FieldLinkAdd("txtName2", 0, "NAME2", "", false, false);
-            ucServMain.FieldLinkAdd("dtServStartDate", 0, "SERVSTARTDATE", "", true, false);
-            ucServMain.FieldLinkAdd("tdServEndDate", 0, "SERVENDDATE", "", true, false);
-            ucServMain.FieldLinkAdd("numPriceAmount", 0, "PRICEAMOUNT", "", false, false);
-            ucServMain.FieldLinkAdd("numCount", 0, "COUNT", "", false, false);
-            ucServMain.FieldLinkAdd("cboCatCode", 0, "CATCODE", "", false, false);
+            ucServMain.FieldLinkAdd("cboBrandID", 0, "BrandID", "", false, false);
+            ucServMain.FieldLinkAdd("txtBarCode", 0, "BarCode", "", false, false);
             ucServMain.FieldLinkAdd("cboUnit", 0, "UNIT", "", false, false);
-            ucServMain.FieldLinkAdd("numUnit", 0, "UNITSIZE", "", false, false);
-            ucServMain.FieldLinkAdd("cboPrinterType", 0, "PRINTERTYPE", "", false, false);
-            ucServMain.FieldLinkAdd("dtCreateDate", 0, "CREATEDATE", "", false, false);
-            ucServMain.FieldLinkAdd("txtNote", 0, "NOTE", "", false, false);
+            ucServMain.FieldLinkAdd("numUnitSize", 0, "UNITSIZE", "", false, false);
             ucServMain.FieldLinkAdd("cboStatus", 0, "STATUS", "", false, false);
-            ucServMain.FieldLinkAdd("cboTagType", 0, "TAGTYPE", "", false, false);
-            ucServMain.FieldLinkAdd("numTagTime", 0, "TAGTIME", "", false, false);
-            ucServMain.FieldLinkAdd("numServiceTime", 0, "SERVICETIME", "", false, false);
-            ucServMain.FieldLinkAdd("cboTagTimeMethod", 0, "TAGTIMEMETHOD", "", false, false);
-            ucServMain.FieldLinkAdd("chkIsSchedule", 0, "ISSCHEDULE", "", false, false);
-            ucServMain.FieldLinkAdd("cboScheduleType", 0, "SCHEDULETYPE", "", false, false);
+            ucServMain.FieldLinkAdd("txtPrice", 0, "PRICE", "", false, false);
+            ucServMain.FieldLinkAdd("numCount", 0, "COUNT", "", false, false);
+            ucServMain.FieldLinkAdd("dtCreateDate", 0, "CREATEDATE", "", false, false);
+            ucServMain.FieldLinkAdd("dtSalesStartDate", 0, "SalesStartDate", "", true, false);
+            ucServMain.FieldLinkAdd("dtSalesEndDate", 0, "SalesEndDate", "", true, false);
+            ucServMain.FieldLinkAdd("txtNote", 0, "NOTE", "", false, false);
             ucServMain.FieldLinkAdd("txtSalesAccountNo", 0, "SALESACCOUNTNO", "", false, false);
             ucServMain.FieldLinkAdd("txtRefundAccountNo", 0, "REFUNDACCOUNTNO", "", false, false);
             ucServMain.FieldLinkAdd("txtDiscountAccountNo", 0, "DISCOUNTACCOUNTNO", "", false, false);
             ucServMain.FieldLinkAdd("txtBonusAccountNo", 0, "BONUSACCOUNTNO", "", false, false);
             ucServMain.FieldLinkAdd("txtBONUSEXPACCOUNTNO", 0, "BONUSEXPACCOUNTNO", "", false, false);
-
+            ucServMain.FieldLinkAdd("chkIsTimeTable", 0, "IsTimeTable", "", false, false);
+            ucServMain.FieldLinkAdd("cboTimeTableID", 0, "TimeTableID", "", false, false);
+            ucServMain.FieldLinkAdd("numServiceTime", 0, "SERVICETIME", "", false, false);
+            ucServMain.FieldLinkAdd("cboTagType", 0, "TAGTYPE", "", false, false);
+            ucServMain.FieldLinkAdd("numTagTime", 0, "TAGTIME", "", false, false);
+            ucServMain.FieldLinkAdd("cboTagTimeMethod", 0, "TAGTIMEMETHOD", "", false, false);
 
             ucInMainAdd.FieldLinkAdd("txtSerId", 0, "SERVID", "", false, true);
             ucInMainAdd.FieldLinkAdd("txInId", 0, "INVID", "", true, false);
-
 
             ucServPrice.FieldLinkAdd("numProdType", 0, "ProdType", "", false, true);
             ucServPrice.FieldLinkAdd("txtProdId", 0, "servid", "", false, false);
@@ -168,7 +166,7 @@ namespace InfoPos.Parameter
                 }
                 else
                 {
-                    FormUtility.LookUpEdit_SetList(ref cboServType, DT, "SERVTYPE", "name", "", new int[] { 2, 3, 4 });
+                    FormUtility.LookUpEdit_SetList(ref cboTypeCode, DT, "SERVTYPE", "name", "", new int[] { 2, 3, 4 });
                 }
                 DT = (DataTable)Tables[1];
                 if (DT == null)
@@ -205,7 +203,7 @@ namespace InfoPos.Parameter
                 }
                 else
                 {
-                    FormUtility.LookUpEdit_SetList(ref cboScheduleType, DT, "SCHEDULETYPE", "NAME", "", new int[] { 2, 3, 4 });
+                    FormUtility.LookUpEdit_SetList(ref cboTimeTableID, DT, "SCHEDULETYPE", "NAME", "", new int[] { 2, 3, 4 });
                 }
 
                 DT = (DataTable)Tables[5];
@@ -240,30 +238,30 @@ namespace InfoPos.Parameter
         {
             cboCatCode.ItemIndex = 0;
             cboPrinterType.ItemIndex = 0;
-            cboScheduleType.ItemIndex = 0;
-            cboServType.ItemIndex = 0;
+            cboTimeTableID.ItemIndex = 0;
+            cboTypeCode.ItemIndex = 0;
             cboStatus.ItemIndex = 0;
             cboTagTimeMethod.ItemIndex = 0;
             cboTagType.ItemIndex = 0;
             cboUnit.ItemIndex = 0;
             dtCreateDate.EditValue = _core.TxnDate;
-            dtServStartDate.EditValue = _core.TxnDate;
-            tdServEndDate.EditValue = _core.TxnDate;
+            dtSalesStartDate.EditValue = _core.TxnDate;
+            tdSalesEndDate.EditValue = _core.TxnDate;
             //btnInv.Enabled = false;
         }
         void ucServMain_EventAddAfter()
         {
             cboCatCode.ItemIndex = 0;
             cboPrinterType.ItemIndex = 0;
-            cboScheduleType.ItemIndex = 0;
-            cboServType.ItemIndex = 0;
+            cboTimeTableID.ItemIndex = 0;
+            cboTypeCode.ItemIndex = 0;
             cboStatus.ItemIndex = 0;
             cboTagTimeMethod.ItemIndex = 0;
             cboTagType.ItemIndex = 0;
             cboUnit.ItemIndex = 0;
             dtCreateDate.EditValue = _core.TxnDate;
-            dtServStartDate.EditValue = _core.TxnDate;
-            tdServEndDate.EditValue = _core.TxnDate;
+            dtSalesStartDate.EditValue = _core.TxnDate;
+            tdSalesEndDate.EditValue = _core.TxnDate;
             btnInv.Enabled = true;
         }        
         void ucServMain_EventExit(bool editing, ref bool cancel)
@@ -335,16 +333,16 @@ namespace InfoPos.Parameter
                     _img = Static.ImageToByte(picPicture.Image);
 
                 object[] NewValue = {txtServID.EditValue,            //0
-                                     cboServType.EditValue,          //1
+                                     cboTypeCode.EditValue,          //1
                                      txtName.EditValue,              //2
                                      txtName2.EditValue,             //3
-                                     Static.ToDate(dtServStartDate.EditValue),      //4
-                                     Static.ToDate(tdServEndDate.EditValue),       //5
-                                     numPriceAmount.EditValue,   //6
+                                     Static.ToDate(dtSalesStartDate.EditValue),      //4
+                                     Static.ToDate(tdSalesEndDate.EditValue),       //5
+                                     txtPrice.EditValue,   //6
                                      numCount.EditValue,            //7
                                      cboCatCode.EditValue,           //8
                                      cboUnit.EditValue,              //9
-                                     numUnit.EditValue,              //10
+                                     numUnitSize.EditValue,              //10
                                      cboPrinterType.EditValue,       //11
                                      Static.ToDate(dtCreateDate.EditValue),//12         
                                      txtNote.EditValue, //13             
@@ -352,8 +350,8 @@ namespace InfoPos.Parameter
                                      cboTagType.EditValue,//15
                                      numTagTime.EditValue,  //17                                         
                                      cboTagTimeMethod.EditValue,    //16  
-                                     chkIsSchedule.Checked ? 1 : 0,//18 
-                                     cboScheduleType.EditValue,          //19
+                                     chkIsTimeTable.Checked ? 1 : 0,//18 
+                                     cboTimeTableID.EditValue,          //19
                                      txtSalesAccountNo.EditValue,        //20
                                      txtRefundAccountNo.EditValue,       //21
                                      txtDiscountAccountNo.EditValue,     //22
@@ -636,24 +634,22 @@ namespace InfoPos.Parameter
             if (_ServId == "")
             {
                 ucServMain.FieldLinkSetNewState();                
-                cboCatCode.ItemIndex = 0;
-                cboPrinterType.ItemIndex = 0;
-                cboScheduleType.ItemIndex = 0;
-                cboServType.ItemIndex = 0;
+                cboTimeTableID.ItemIndex = 0;
+                cboTypeCode.ItemIndex = 0;
                 cboStatus.ItemIndex = 0;
                 cboTagTimeMethod.ItemIndex = 0;
                 cboTagType.ItemIndex = 0;
                 cboUnit.ItemIndex = 0;
                 dtCreateDate.EditValue = _core.TxnDate;
-                dtServStartDate.EditValue = _core.TxnDate;
-                tdServEndDate.EditValue = _core.TxnDate;
+                dtSalesStartDate.EditValue = _core.TxnDate;
+                tdSalesEndDate.EditValue = _core.TxnDate;
 
                 txtProdId.EditValue = txtServID.Text;
                 numProdType.EditValue = 1;
                 dtEndTime.EditValue = _core.TxnDate;
                 dtStartTime.EditValue = _core.TxnDate;
                 cboDayType.ItemIndex = 0;
-                chkIsSchedule.Checked = true;
+                chkIsTimeTable.Checked = true;
             }
             else if (_ServId != "")
             {                
@@ -945,7 +941,7 @@ namespace InfoPos.Parameter
         }
         private void chkIsSchedule_EditValueChanged(object sender, EventArgs e)
         {
-            if (chkIsSchedule.Checked == true)
+            if (chkIsTimeTable.Checked == true)
             {
                 numCount.Visible = true;
                 labelControl8.Visible = true;

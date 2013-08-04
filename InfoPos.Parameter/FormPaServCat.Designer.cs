@@ -1,6 +1,6 @@
 ﻿namespace InfoPos.Parameter
 {
-    partial class PaInvCat
+    partial class PaServCat
     {
         /// <summary>
         /// Required designer variable.
@@ -163,15 +163,15 @@
             this.labelControl4.TabIndex = 6;
             this.labelControl4.Text = "Эрэмбийн дугаар";
             // 
-            // PaInvCat
+            // PaServCat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 379);
             this.MinimumSize = new System.Drawing.Size(664, 417);
-            this.Name = "PaInvCat";
-            this.Text = "Барааны ангилалын бүртгэл ";
-            this.Load += new System.EventHandler(this.PaInvCat_Load);
+            this.Name = "PaServCat";
+            this.Text = "Үйлчилгээний төрлийн бүртгэл";
+            this.Load += new System.EventHandler(this.PaServCat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

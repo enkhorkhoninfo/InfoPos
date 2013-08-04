@@ -38,6 +38,8 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.numOrderNo = new DevExpress.XtraEditors.TextEdit();
             this.txtNote = new DevExpress.XtraEditors.MemoEdit();
+            this.cboCatCode = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -50,10 +52,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrderNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCatCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.cboCatCode);
+            this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.txtNote);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.numOrderNo);
@@ -80,7 +85,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(22, 40);
+            this.labelControl1.Location = new System.Drawing.Point(23, 40);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(64, 13);
             this.labelControl1.TabIndex = 1;
@@ -130,7 +135,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(23, 118);
+            this.labelControl4.Location = new System.Drawing.Point(23, 144);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(42, 13);
             this.labelControl4.TabIndex = 7;
@@ -138,17 +143,17 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(23, 220);
+            this.labelControl5.Location = new System.Drawing.Point(23, 247);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(87, 13);
+            this.labelControl5.Size = new System.Drawing.Size(35, 13);
             this.labelControl5.TabIndex = 9;
-            this.labelControl5.Text = "Эрэмбийн дугаар";
+            this.labelControl5.Text = "Эрэмбэ";
             // 
             // numOrderNo
             // 
             this.numOrderNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.numOrderNo.Location = new System.Drawing.Point(120, 217);
+            this.numOrderNo.Location = new System.Drawing.Point(120, 244);
             this.numOrderNo.MinimumSize = new System.Drawing.Size(171, 20);
             this.numOrderNo.Name = "numOrderNo";
             this.numOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -165,7 +170,7 @@
             // 
             this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNote.Location = new System.Drawing.Point(120, 115);
+            this.txtNote.Location = new System.Drawing.Point(120, 142);
             this.txtNote.MinimumSize = new System.Drawing.Size(170, 96);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -173,6 +178,31 @@
             this.txtNote.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtNote.Size = new System.Drawing.Size(170, 96);
             this.txtNote.TabIndex = 5;
+            // 
+            // cboCatCode
+            // 
+            this.cboCatCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCatCode.Location = new System.Drawing.Point(120, 116);
+            this.cboCatCode.MinimumSize = new System.Drawing.Size(174, 20);
+            this.cboCatCode.Name = "cboCatCode";
+            this.cboCatCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboCatCode.Properties.NullText = "";
+            this.cboCatCode.Properties.PopupSizeable = false;
+            this.cboCatCode.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.cboCatCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cboCatCode.Size = new System.Drawing.Size(174, 20);
+            this.cboCatCode.TabIndex = 10;
+            this.cboCatCode.ToolTipTitle = "Төрөл сонгоно уу";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(23, 119);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(42, 13);
+            this.labelControl6.TabIndex = 11;
+            this.labelControl6.Text = "Ангилал";
             // 
             // PAServType
             // 
@@ -183,6 +213,7 @@
             this.MinimumSize = new System.Drawing.Size(664, 417);
             this.Name = "PAServType";
             this.Text = "Үйлчилгээний төрлийн бүртгэл";
+            this.Load += new System.EventHandler(this.PAServType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -196,6 +227,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrderNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCatCode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,6 +244,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.MemoEdit txtNote;
+        private DevExpress.XtraEditors.LookUpEdit cboCatCode;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
 
     }
 }

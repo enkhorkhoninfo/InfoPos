@@ -171,23 +171,23 @@ namespace IPos.Parameter
                     #endregion[]
                     #endregion
                     #region [ POS parameters]
-                    #region[ TagSetup - Тагийн төрлийн бүртгэл (140172) ]
-                    case 140171: //Тагийн төрлийн бүртгэл жагсаалт мэдээлэл авах
-                        res = SelectTagType(ci, ri, db, ref lg);
-                        break;
-                    case 140172: //Тагийн төрлийн бүртгэл дэлгэрэнгүй мэдээлэл авах
-                        res = InfoTagType(ci, ri, db, ref lg);
-                        break;
-                    case 140173: //Тагийн төрлийн бүртгэл шинээр нэмэх
-                        res = AddTagType(ci, ri, db, ref lg);
-                        break;
-                    case 140174:  //Тагийн төрлийн бүртгэл засварлах
-                        res = UpdateTagType(ci, ri, db, ref lg);
-                        break;
-                    case 140175: //Тагийн төрлийн бүртгэл устгах
-                        res = DeleteTagType(ci, ri, db, ref lg);
-                        break;
-                    #endregion
+                    //#region[ TagSetup - Тагийн төрлийн бүртгэл (140172) ]
+                    //case 140171: //Тагийн төрлийн бүртгэл жагсаалт мэдээлэл авах
+                    //    res = SelectTagType(ci, ri, db, ref lg);
+                    //    break;
+                    //case 140172: //Тагийн төрлийн бүртгэл дэлгэрэнгүй мэдээлэл авах
+                    //    res = InfoTagType(ci, ri, db, ref lg);
+                    //    break;
+                    //case 140173: //Тагийн төрлийн бүртгэл шинээр нэмэх
+                    //    res = AddTagType(ci, ri, db, ref lg);
+                    //    break;
+                    //case 140174:  //Тагийн төрлийн бүртгэл засварлах
+                    //    res = UpdateTagType(ci, ri, db, ref lg);
+                    //    break;
+                    //case 140175: //Тагийн төрлийн бүртгэл устгах
+                    //    res = DeleteTagType(ci, ri, db, ref lg);
+                    //    break;
+                    //#endregion
                     #region[ TagMain - Таг-ын бүртгэл (140358) ]
                     case 140356: ////Тагын жагсаалт мэдээлэл авах
                         res = SelectTag(ci, ri, db, ref lg);

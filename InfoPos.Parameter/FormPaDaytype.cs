@@ -41,7 +41,16 @@ namespace InfoPos.Parameter
             this.EventDelete += new delegateEventDelete(FormPaDaytype_EventDelete);
 
             this.FieldLinkAdd("txtDayType", "DayType", "", true, true);
-            this.FieldLinkAdd("txtDesc", "DESCRIPTION", "", true, false);
+            this.FieldLinkAdd("txtName", "Name", "", true, false);
+            this.FieldLinkAdd("txtName2", "Name2", "", false, false);
+            this.FieldLinkAdd("txtDescription", "Description", "", false, false);
+            this.FieldLinkAdd("cboIsDefault", "IsDefault", "", false, false);
+            this.FieldLinkAdd("txtOrderNo", "OrderNo", "", false, false);
+
+            ISM.Template.FormUtility.LookUpEdit_SetList(ref cboIsDefault, "0", "Үгүй");
+            ISM.Template.FormUtility.LookUpEdit_SetList(ref cboIsDefault, "1", "Тийм");
+
+            ISM.Template.FormUtility.LookUpEdit_SetValue(ref cboIsDefault, 0);
         }
         #region[Үзэгдэлүүд]
         void FormPaDaytype_EventDelete()
@@ -72,7 +81,7 @@ namespace InfoPos.Parameter
         }
         void FormPaDaytype_EventEdit(ref bool cancel)
         {
-            object[] Value = { txtDayType.EditValue, txtDesc.EditValue };
+            object[] Value = { txtDayType.EditValue, txtName.EditValue, txtName2.EditValue, txtDescription.EditValue, cboIsDefault.EditValue, txtOrderNo.EditValue };
             OldValue = Value;
         }
         void FormPaDaytype_EventSave(bool isnew, ref bool cancel)
@@ -89,7 +98,8 @@ namespace InfoPos.Parameter
             Result r;
             try
             {
-                object[] NewValue = { Static.ToStr(txtDayType.EditValue), Static.ToStr(txtDesc.EditValue) };
+                object[] NewValue = { Static.ToStr(txtDayType.EditValue), Static.ToStr(txtName.EditValue), Static.ToStr(txtName2.EditValue), Static.ToStr(txtDescription.EditValue), Static.ToInt(cboIsDefault.EditValue),
+                                    Static.ToInt(txtOrderNo.EditValue)};
                 if (!isnew)
                 {
                     r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140134, 140134, new object[] { NewValue, OldValue, FieldName });
@@ -117,9 +127,13 @@ namespace InfoPos.Parameter
         {
             FormUtility.SaveStateForm(appname, ref FormName);
             this.FieldLinkSetColumnCaption(0, "Өдрийн төрлийн код");
-            this.FieldLinkSetColumnCaption(1, "Өдрийн тайлбар");
+            this.FieldLinkSetColumnCaption(1, "Нэр");
+            this.FieldLinkSetColumnCaption(2, "Нэр2");
+            this.FieldLinkSetColumnCaption(3, "Тайлбар");
+            this.FieldLinkSetColumnCaption(4, "Тухайн өдрийн календар байхгүй бол default сонгох");
+            this.FieldLinkSetColumnCaption(5, "Эрэмбэ");
+
             appname = _core.ApplicationName;
-            //formname = "Parameter." + this.Name;
             FormName = this;
             FormUtility.RestoreStateForm(appname, ref FormName);
             FormUtility.RestoreStateGrid(appname, "Parameter." + this.Name, ref gridView1);
@@ -166,5 +180,10 @@ namespace InfoPos.Parameter
             }
         }
         #endregion[]
+
+        private void FormPaDaytype_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

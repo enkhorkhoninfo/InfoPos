@@ -46,29 +46,31 @@
 4011;4000;12;menu_paramblue;ContactType;120070;InfoPos.Parameter.dll;Main;CallFormCustContactType;Харилцагчтай холбоо барисан төрөл
 4100;3900;11;menu_paramgreen;Schedule;0;0;0;0;Календар
 4101;4100;12;menu_paramgreen;PaDaytype;140132;InfoPos.Parameter.dll;Main;CallFormPaDaytype;Өдрийн төрлийн бүртгэл
-4102;4100;12;menu_paramgreen;PAWeather;140142;InfoPos.Parameter.dll;Main;CallFormPAWeather;Цаг агаарын төрлийн бүртгэл
-4103;4100;12;menu_claim;Calendar;140208;InfoPos.Schedule.dll;Main;CallCalendar;Календарын бүртгэл
+4102;4100;12;menu_paramgreen;PaPricetype;140418;InfoPos.Parameter.dll;Main;CallPriceType;Үнийн төрлийн бүртгэл
+4103;4100;12;menu_paramgreen;PAWeather;140142;InfoPos.Parameter.dll;Main;CallFormPAWeather;Цаг агаарын төрлийн бүртгэл
+4104;4100;12;menu_claim;Calendar;140208;InfoPos.Schedule.dll;Main;CallCalendar;Календарын бүртгэл
 4400;3900;11;menu_paramblue;INVFA;0;0;0;0;Бүтээгдэхүүн
 4401;4400;12;menu_paramblue;UnitType;140108;InfoPos.Parameter.dll;Main;CallUnitType;Бараа материалын нэгжийн төрөл
 4402;4400;12;menu_paramblue;ProdPriceHist;140366;InfoPos.List.dll;List;CallProdPriceHistList;Үнийн түүхиин жагсаалт
 4405;4400;12;menu_paramblue;PAInvType;140157;InfoPos.Parameter.dll;Main;CallFormPAInvType;Бараа материалын төрлийн бүртгэл
 4406;4400;12;menu_paramblue;PAServType;140187;InfoPos.Parameter.dll;Main;CallFormPAServType;Үйлчилгээний төрлийн бүртгэл
 4407;4400;12;menu_paramblue;PaBrand;140212;InfoPos.Parameter.dll;Main;CallFormPabrand;Брэндийн бүртгэл
-4408;4400;12;menu_paramblue;InvMain;140213;InfoPos.Parameter.dll;Main;CallFormInvMain;Барааны бүртгэл
-4409;4400;12;menu_paramblue;PaList;140211;InfoPos.List.dll;List;CallInventoryList;Бараа материалын жагсаалт
-4410;4400;12;menu_paramblue;PaScheduleType;140182;InfoPos.Parameter.dll;Main;CallFormPaScheduleType;Хувиарлалтын төрлийн бүртгэл
-4411;4400;12;menu_paramblue;PaInvCat;140218;InfoPos.Parameter.dll;Main;CallFormPaInvCat;Ангиллын төрлийн бүртгэл
-4412;4400;12;menu_paramblue;ServMain;140228;InfoPos.Parameter.dll;Main;CallFormServMain;Үйлчилгээний бүртгэл
-4413;4400;12;menu_paramblue;ServList;140226;InfoPos.List.dll;List;CallServiceList;Үйлчилгээний жагсаалт
-4414;4400;12;menu_paramblue;PackGroup;140297;InfoPos.Parameter.dll;Main;CallPaProductTree;Бүтээгдэхүүний бүлэглэлийн бүртгэл
-4415;4400;12;menu_paramblue;PackGroupDesc;140363;InfoPos.Parameter.dll;Main;CallPaProductTreeDesc;Бүлэглэлийн Тухайн мөчрийн бүртгэл
-4416;4400;12;menu_paramblue;PackMain;140248;InfoPos.Parameter.dll;Main;CallFormPackMain;Бүтээгдэхүүний багцын бүртгэл
-4417;4400;12;menu_paramblue;PackMainList;140246;InfoPos.List.dll;List;CallPackMainList;Бүтээгдэхүүний багцын бүртгэлийн жагсаалт
-4418;4400;12;menu_paramblue;PADamageType;140327;InfoPos.Parameter.dll;Main;CallPADamageType;Эвдрэлийн төрлийн бүртгэл
-4419;4400;12;menu_paramblue;CallPledgeType;140333;InfoPos.Parameter.dll;Main;CallPledgeType;Барьцааны төрөл
-4420;4400;12;menu_paramblue;FormRebateMaster;140338;InfoPos.Parameter.dll;Main;CallRebateMaster;Тооцоолол хийх матриц
-4421;4400;12;menu_paramblue;FormRebateDetail;140343;InfoPos.Parameter.dll;Main;CallRebateDetail;Тооцоолол хийх матриц бүтээгдэхүүний задаргаа
-4422;4400;12;menu_paramblue;FormRebateFormula;140348;InfoPos.Parameter.dll;Main;CallRebateFormula;Нөхцөлийн хүснэгт
+4408;4400;12;menu_paramblue;PaInvCat;140218;InfoPos.Parameter.dll;Main;CallFormPaInvCat;Барааны ангиллын төрлийн бүртгэл
+4409;4400;12;menu_paramblue;InvMain;140213;InfoPos.Parameter.dll;Main;CallFormInvMain;Барааны бүртгэл
+4410;4400;12;menu_paramblue;PaList;140211;InfoPos.List.dll;List;CallInventoryList;Бараа материалын жагсаалт
+4411;4400;12;menu_paramblue;PaScheduleType;140182;InfoPos.Parameter.dll;Main;CallFormPaScheduleType;Хувиарлалтын төрлийн бүртгэл
+4412;4400;12;menu_paramblue;PaServCat;140223;InfoPos.Parameter.dll;Main;CallFormPaServCat;Үйлчилгээний ангиллын төрлийн бүртгэл
+4413;4400;12;menu_paramblue;ServMain;140228;InfoPos.Parameter.dll;Main;CallFormServMain;Үйлчилгээний бүртгэл
+4414;4400;12;menu_paramblue;ServList;140226;InfoPos.List.dll;List;CallServiceList;Үйлчилгээний жагсаалт
+4415;4400;12;menu_paramblue;PackGroup;140297;InfoPos.Parameter.dll;Main;CallPaProductTree;Бүтээгдэхүүний бүлэглэлийн бүртгэл
+4416;4400;12;menu_paramblue;PackGroupDesc;140363;InfoPos.Parameter.dll;Main;CallPaProductTreeDesc;Бүлэглэлийн Тухайн мөчрийн бүртгэл
+4417;4400;12;menu_paramblue;PackMain;140248;InfoPos.Parameter.dll;Main;CallFormPackMain;Бүтээгдэхүүний багцын бүртгэл
+4418;4400;12;menu_paramblue;PackMainList;140246;InfoPos.List.dll;List;CallPackMainList;Бүтээгдэхүүний багцын бүртгэлийн жагсаалт
+4419;4400;12;menu_paramblue;PADamageType;140327;InfoPos.Parameter.dll;Main;CallPADamageType;Эвдрэлийн төрлийн бүртгэл
+4420;4400;12;menu_paramblue;CallPledgeType;140333;InfoPos.Parameter.dll;Main;CallPledgeType;Барьцааны төрөл
+4421;4400;12;menu_paramblue;FormRebateMaster;140338;InfoPos.Parameter.dll;Main;CallRebateMaster;Тооцоолол хийх матриц
+4422;4400;12;menu_paramblue;FormRebateDetail;140343;InfoPos.Parameter.dll;Main;CallRebateDetail;Тооцоолол хийх матриц бүтээгдэхүүний задаргаа
+4423;4400;12;menu_paramblue;FormRebateFormula;140348;InfoPos.Parameter.dll;Main;CallRebateFormula;Нөхцөлийн хүснэгт
 4700;3900;11;menu_paramgreen;TXNParam;0;0;0;0;Гүйлгээ
 4701;4700;12;menu_paramgreen;TXNCode;140163;InfoPos.Parameter.dll;Main;CallFormTxn;Гүйлгээний код
 4702;4700;12;menu_paramgreen;TXNCodeList;140161;InfoPos.List.dll;List;CallTxnList;Гүйлгээний кодын жагсаалт
@@ -97,6 +99,7 @@
 5205;5200;2;menu_paramgreen;PassOptions;110113;InfoPos.Admin.dll;Main;CallPassOptions;Нууц үгний тохиргоо
 5207;5200;2;menu_list;LogList;110200;InfoPos.List.dll;List;CallLogList;Логийн бүртгэлийн жагсаалт
 5208;5200;2;menu_pendtxn;Process;100004;InfoPos.EOD.dll;Main;CallEODProcess;Өдөр өндөрлөлт
+5209;5200;2;menu_pendtxn;OpenXML;111;InfoPos.customer.dll;Main;CallOpenXML;XML файл унших
 5300;0;0;menu_customerlist; CRM & Issue Tracking;0;0;0;0;Issue Tracking
 5301;5300;2;menu_paramgreen;IssueProject;310071;InfoPos.Parameter.dll;Main;CallCRMIssueProject;Төслийн бүртгэл
 5302;5300;2;menu_paramgreen;IssueProjectList;310069;InfoPos.List.dll;List;CallIssueProjectList;Төслийн жагсаалт

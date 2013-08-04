@@ -592,6 +592,13 @@ namespace InfoPos.Parameter
             frm.MdiParent = _core.MainForm;
             frm.Show();
         }  //Холбуулах 
+        public void CallFormPaServCat(object[] param)
+        {
+            _core = (Core.Core)param[0];
+            InfoPos.Parameter.PaServCat frm = new InfoPos.Parameter.PaServCat(_core);
+            frm.MdiParent = _core.MainForm;
+            frm.Show();
+        }  //Холбуулах 
         public void CallFormServMain(object[] param) //Барааны бүртгэл
         {
             string pServID = "";
@@ -694,7 +701,6 @@ namespace InfoPos.Parameter
             frm.MdiParent = _core.MainForm;
             frm.Show();
         }
-
         public void CallRebateFormula(object[] param)
         {
             _core = (Core.Core)param[0];
@@ -702,7 +708,6 @@ namespace InfoPos.Parameter
             frm.MdiParent = _core.MainForm;
             frm.Show();
         }
-
         public void CallXlsReport(object[] param)
         {
             _core = (Core.Core)param[0];
@@ -710,7 +715,6 @@ namespace InfoPos.Parameter
             frm.MdiParent = _core.MainForm;
             frm.Show();
         }
-
         public void CallTagMain(object[] param)
         {
             _core = (Core.Core)param[0];
@@ -718,6 +722,12 @@ namespace InfoPos.Parameter
             frm.MdiParent = _core.MainForm;
             frm.Show();
         }
-
+        public void CallPriceType(object[] param)
+        {
+            _core = (Core.Core)param[0];
+            InfoPos.Parameter.FormPaPriceType frm = new InfoPos.Parameter.FormPaPriceType(_core);
+            frm.MdiParent = _core.MainForm;
+            frm.Show();
+        }
     }
 }

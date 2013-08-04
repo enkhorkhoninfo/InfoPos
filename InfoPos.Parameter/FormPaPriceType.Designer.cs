@@ -1,6 +1,6 @@
 ﻿namespace InfoPos.Parameter
 {
-    partial class FormPaDaytype
+    partial class FormPaPriceType
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtDayType = new DevExpress.XtraEditors.TextEdit();
+            this.txtPriceTypeID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtName2 = new DevExpress.XtraEditors.TextEdit();
@@ -38,8 +37,11 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtOrderNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDescription = new DevExpress.XtraEditors.MemoEdit();
-            this.cboIsDefault = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboDayType = new DevExpress.XtraEditors.LookUpEdit();
+            this.dtStartTime = new DevExpress.XtraEditors.TimeEdit();
+            this.dtEndTime = new DevExpress.XtraEditors.TimeEdit();
+            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -47,16 +49,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDayType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceTypeID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboIsDefault.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDayType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtStartTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtEndTime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.dtStartTime);
+            this.groupControl1.Controls.Add(this.dtEndTime);
+            this.groupControl1.Controls.Add(this.labelControl30);
+            this.groupControl1.Controls.Add(this.labelControl31);
             this.groupControl1.Controls.Add(this.txtOrderNo);
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.labelControl5);
@@ -64,11 +71,9 @@
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.txtName);
             this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.txtDayType);
-            this.groupControl1.Controls.Add(this.txtDescription);
-            this.groupControl1.Controls.Add(this.cboIsDefault);
+            this.groupControl1.Controls.Add(this.txtPriceTypeID);
+            this.groupControl1.Controls.Add(this.cboDayType);
             this.groupControl1.Size = new System.Drawing.Size(335, 327);
             // 
             // btnRefresh
@@ -109,39 +114,31 @@
             this.panelControl3.Location = new System.Drawing.Point(291, 0);
             this.panelControl3.Size = new System.Drawing.Size(339, 331);
             // 
-            // txtDayType
+            // txtPriceTypeID
             // 
-            this.txtDayType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtPriceTypeID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDayType.Location = new System.Drawing.Point(130, 34);
-            this.txtDayType.Name = "txtDayType";
-            this.txtDayType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDayType.Properties.MaxLength = 4;
-            this.txtDayType.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDayType.Size = new System.Drawing.Size(184, 20);
-            this.txtDayType.TabIndex = 0;
+            this.txtPriceTypeID.Location = new System.Drawing.Point(139, 34);
+            this.txtPriceTypeID.Name = "txtPriceTypeID";
+            this.txtPriceTypeID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPriceTypeID.Properties.MaxLength = 4;
+            this.txtPriceTypeID.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtPriceTypeID.Size = new System.Drawing.Size(184, 20);
+            this.txtPriceTypeID.TabIndex = 0;
             // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(19, 37);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(106, 13);
+            this.labelControl1.Size = new System.Drawing.Size(97, 13);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "Өдрийн төрлийн код";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(19, 115);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(42, 13);
-            this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "Тайлбар";
+            this.labelControl1.Text = "Үнийн төрлийн код";
             // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(130, 60);
+            this.txtName.Location = new System.Drawing.Point(139, 60);
             this.txtName.Name = "txtName";
             this.txtName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtName.Properties.MaxLength = 200;
@@ -161,7 +158,7 @@
             // 
             this.txtName2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName2.Location = new System.Drawing.Point(130, 86);
+            this.txtName2.Location = new System.Drawing.Point(139, 86);
             this.txtName2.Name = "txtName2";
             this.txtName2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtName2.Properties.MaxLength = 200;
@@ -179,66 +176,102 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(19, 196);
+            this.labelControl5.Location = new System.Drawing.Point(19, 115);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(135, 26);
+            this.labelControl5.Size = new System.Drawing.Size(72, 13);
             this.labelControl5.TabIndex = 10;
-            this.labelControl5.Text = "Тухайн өдрийн календар \r\nбайхгүй бол default сонгох";
+            this.labelControl5.Text = "Өдрийн төрөл";
             // 
             // txtOrderNo
             // 
             this.txtOrderNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOrderNo.Location = new System.Drawing.Point(177, 228);
+            this.txtOrderNo.Location = new System.Drawing.Point(139, 187);
             this.txtOrderNo.Name = "txtOrderNo";
             this.txtOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtOrderNo.Properties.MaxLength = 200;
-            this.txtOrderNo.Size = new System.Drawing.Size(137, 20);
-            this.txtOrderNo.TabIndex = 5;
+            this.txtOrderNo.Size = new System.Drawing.Size(113, 20);
+            this.txtOrderNo.TabIndex = 16;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(19, 231);
+            this.labelControl6.Location = new System.Drawing.Point(19, 190);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(35, 13);
             this.labelControl6.TabIndex = 12;
             this.labelControl6.Text = "Эрэмбэ";
             // 
-            // txtDescription
+            // cboDayType
             // 
-            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cboDayType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(130, 112);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescription.Properties.MaxLength = 200;
-            this.txtDescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDescription.Size = new System.Drawing.Size(184, 75);
-            this.txtDescription.TabIndex = 3;
-            // 
-            // cboIsDefault
-            // 
-            this.cboIsDefault.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboIsDefault.Location = new System.Drawing.Point(177, 193);
-            this.cboIsDefault.Name = "cboIsDefault";
-            this.cboIsDefault.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboDayType.Location = new System.Drawing.Point(139, 112);
+            this.cboDayType.Name = "cboDayType";
+            this.cboDayType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboIsDefault.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.cboIsDefault.Properties.MaxLength = 200;
-            this.cboIsDefault.Properties.NullText = "";
-            this.cboIsDefault.Size = new System.Drawing.Size(137, 20);
-            this.cboIsDefault.TabIndex = 4;
+            this.cboDayType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.cboDayType.Properties.MaxLength = 200;
+            this.cboDayType.Properties.NullText = "";
+            this.cboDayType.Size = new System.Drawing.Size(184, 20);
+            this.cboDayType.TabIndex = 4;
             // 
-            // FormPaDaytype
+            // dtStartTime
+            // 
+            this.dtStartTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtStartTime.EditValue = new System.DateTime(2012, 6, 29, 0, 0, 0, 0);
+            this.dtStartTime.Location = new System.Drawing.Point(139, 138);
+            this.dtStartTime.Name = "dtStartTime";
+            this.dtStartTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtStartTime.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.dtStartTime.Properties.Mask.EditMask = "t";
+            this.dtStartTime.Size = new System.Drawing.Size(184, 20);
+            this.dtStartTime.TabIndex = 13;
+            this.dtStartTime.Tag = "4";
+            this.dtStartTime.ToolTipTitle = "Хамрах цагийн эхлэл оруулна уу.";
+            // 
+            // dtEndTime
+            // 
+            this.dtEndTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtEndTime.EditValue = new System.DateTime(2012, 6, 29, 0, 0, 0, 0);
+            this.dtEndTime.Location = new System.Drawing.Point(139, 161);
+            this.dtEndTime.Name = "dtEndTime";
+            this.dtEndTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtEndTime.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.dtEndTime.Properties.Mask.EditMask = "t";
+            this.dtEndTime.Size = new System.Drawing.Size(184, 20);
+            this.dtEndTime.TabIndex = 14;
+            this.dtEndTime.Tag = "5";
+            this.dtEndTime.ToolTipTitle = "Хамрах цагийн төсгөл оруулна уу.";
+            // 
+            // labelControl30
+            // 
+            this.labelControl30.Location = new System.Drawing.Point(19, 164);
+            this.labelControl30.Name = "labelControl30";
+            this.labelControl30.Size = new System.Drawing.Size(116, 13);
+            this.labelControl30.TabIndex = 16;
+            this.labelControl30.Text = "Хамрах цагийн төгсгөл";
+            // 
+            // labelControl31
+            // 
+            this.labelControl31.Location = new System.Drawing.Point(19, 141);
+            this.labelControl31.Name = "labelControl31";
+            this.labelControl31.Size = new System.Drawing.Size(105, 13);
+            this.labelControl31.TabIndex = 15;
+            this.labelControl31.Text = "Хамрах цагийн эхлэл";
+            // 
+            // FormPaPriceType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 382);
             this.MaximumSize = new System.Drawing.Size(1024, 720);
             this.MinimumSize = new System.Drawing.Size(670, 420);
-            this.Name = "FormPaDaytype";
-            this.Text = "Өдрийн төрлийн бүртгэл";
+            this.Name = "FormPaPriceType";
+            this.Text = "Үнийн төрлийн бүртгэл";
             this.Load += new System.EventHandler(this.FormPaDaytype_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -248,21 +281,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtDayType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceTypeID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboIsDefault.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDayType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtStartTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtEndTime.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtDayType;
+        private DevExpress.XtraEditors.TextEdit txtPriceTypeID;
         private DevExpress.XtraEditors.TextEdit txtOrderNo;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -270,7 +303,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.MemoEdit txtDescription;
-        private DevExpress.XtraEditors.LookUpEdit cboIsDefault;
+        private DevExpress.XtraEditors.LookUpEdit cboDayType;
+        private DevExpress.XtraEditors.TimeEdit dtStartTime;
+        private DevExpress.XtraEditors.TimeEdit dtEndTime;
+        private DevExpress.XtraEditors.LabelControl labelControl30;
+        private DevExpress.XtraEditors.LabelControl labelControl31;
     }
 }

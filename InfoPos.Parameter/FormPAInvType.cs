@@ -31,7 +31,7 @@ namespace InfoPos.Parameter
         {
             InitializeComponent();            
             Init();
-            InitCombos();
+            InitCombo();
             _core = core;
             this.Resource = _core.Resource;
             this.FieldLinkSetSaveState();
@@ -46,16 +46,45 @@ namespace InfoPos.Parameter
 
             this.FieldLinkAdd("txtInvType", "InvType", "", true, true);
             this.FieldLinkAdd("txtName", "NAME", "", true, false);
-            this.FieldLinkAdd("txtName2", "NAME", "", false, false);
-            this.FieldLinkAdd("cboClassCode", "ClassCode", "", true, false);
+            this.FieldLinkAdd("txtName2", "NAME2", "", false, false);
+            this.FieldLinkAdd("cboCatCode", "CatCode", "", true, false);
             this.FieldLinkAdd("txtNote", "NOTE", "", false, false);
             this.FieldLinkAdd("numOrderNo", "ORDERNO", "", true, false);            
             
         }
-        void InitCombos() 
-        {            
-            FormUtility.LookUpEdit_SetList(ref cboClassCode, 0, "Шууд зарагддаг бараа");            
-            FormUtility.LookUpEdit_SetList(ref cboClassCode, 1, "Шууд зарагддаггүй, үйлчилгээ эсвэл түрээсээр хэрэглэгддэг бараа");
+
+        private void InitCombo()
+        {
+            try
+            {
+                Result res = new Result();
+                ArrayList Tables = new ArrayList();
+                DataTable DT = null;
+                string msg = "";
+
+                DictUtility.PrivNo = 140216;
+                string[] name = new string[] { "INVCAT" };
+
+                res = DictUtility.Get(_core.RemoteObject, name, ref Tables);
+
+                DT = (DataTable)Tables[0];
+                if (DT == null)
+                {
+                    msg = "Dictionary-д INVCAT оруулаагүй байна-" + res.ResultDesc;
+                }
+                else
+                {
+                    FormUtility.LookUpEdit_SetList(ref cboCatCode, DT, "CatCode", "name");
+                }
+
+                if (msg != "")
+                    MessageBox.Show(msg);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Өгөгдлийн баазаас Dictionary олдсонгүй.");
+            }
         }
 
         void FormPAInvType_EventDelete()
@@ -90,7 +119,7 @@ namespace InfoPos.Parameter
             object[] Value = {   txtInvType.EditValue, 
                                  txtName.EditValue, 
                                  txtName2.EditValue, 
-                                 cboClassCode.EditValue, 
+                                 cboCatCode.EditValue, 
                                  txtNote.EditValue, 
                                  numOrderNo.EditValue };
             OldValue = Value;
@@ -114,7 +143,7 @@ namespace InfoPos.Parameter
                 object[] NewValue = { Static.ToStr(txtInvType.EditValue), 
                                       Static.ToStr(txtName.EditValue), 
                                       Static.ToStr(txtName2.EditValue), 
-                                      Static.ToInt(cboClassCode.EditValue),
+                                      Static.ToInt(cboCatCode.EditValue),
                                       Static.ToStr(txtNote.EditValue),
                                       Static.ToInt(numOrderNo.EditValue)
                                     };
@@ -207,6 +236,11 @@ namespace InfoPos.Parameter
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void FormPAInvType_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
