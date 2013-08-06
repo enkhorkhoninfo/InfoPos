@@ -977,7 +977,7 @@
             // groupControl3
             // 
             this.groupControl3.Controls.Add(this.splitContainer2);
-            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(939, 441);

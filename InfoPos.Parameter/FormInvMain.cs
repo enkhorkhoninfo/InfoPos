@@ -33,6 +33,7 @@ namespace InfoPos.Parameter
         object[] pOldValue;
         object[] pSerOldValue;
         #endregion[]
+
         public FormInvMain(Core.Core core, string pInvID)
         {
             InitializeComponent();
@@ -220,7 +221,7 @@ namespace InfoPos.Parameter
                 MessageBox.Show("Өгөгдлийн баазаас Dictionary олдсонгүй.");
             }
         }
-        #endregion[]
+        #endregion
         #region[ucInvMain]
         void ucInvMain_EventAddAfter()
         {
@@ -372,7 +373,7 @@ namespace InfoPos.Parameter
 
                         picPicture.Image = Static.ImageFromByte(a);
 
-                        DataSet DS = new DataSet();
+                        //DataSet DS = new DataSet();
 
                     }
                     else

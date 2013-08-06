@@ -32,20 +32,26 @@ namespace InfoPos.List
             ucPackMain.EventSelected += new ucGridPanel.delegateEventSelected(ucEmployeeResourceFa_EventSelected);
             ucPackMain.EventFindPaging+=new ucGridPanel.delegateEventFindPaging(ucEmployeeResourceFa_EventFindPaging);
 
-//"a.PackId like","a.Name like","a.Name2 like","a.Note like","a.StartDate",
-//"a.EndDate","a.Type","a.Status","a.SalesUser","a.SalesCreated"
-
             ucPackMain.FieldFindAdd("PackId", "Багцын дугаар", typeof(string), "");
             ucPackMain.FieldFindAdd("Name", "Багцын нэр", typeof(string), "");
             ucPackMain.FieldFindAdd("Name2", "Багцын нэр 2", typeof(string), "");
-            ucPackMain.FieldFindAdd("Note", "Багцын тайлбар", typeof(string), "");
-            ucPackMain.FieldFindAdd("StartDate", "Эхлэх огноо", typeof(DateTime), "");
+            ucPackMain.FieldFindAdd("BrandID", "Брэндийн код", typeof(int), "");
 
-            ucPackMain.FieldFindAdd("EndDate", "Дуусах огноо", typeof(DateTime), "");
-            ucPackMain.FieldFindAdd("Type", "Багцын төрөл", typeof(ArrayList), "");
-            ucPackMain.FieldFindAdd("Status", "Төлөв", typeof(ArrayList), "");
-            ucPackMain.FieldFindAdd("SalesUser", "Борлуулагчийн дугаар", typeof(ArrayList), "");
-            ucPackMain.FieldFindAdd("SalesCreated", "Үүсэгсэн огноо", typeof(DateTime), "");
+            ucPackMain.FieldFindAdd("BarCode", "Бар код", typeof(string), "");
+            ucPackMain.FieldFindAdd("UnitSize", "Хэмжээ, размер", typeof(int), "");
+            ucPackMain.FieldFindAdd("Status", "Төлөв (0-InActive, 1-Active)", typeof(int), "");
+            ucPackMain.FieldFindAdd("Price", "Үнэ", typeof(long), "");
+            ucPackMain.FieldFindAdd("Count", "Нийт тоо ширхэг", typeof(int), "");
+            ucPackMain.FieldFindAdd("CreateDate", "Үүсэгсэн огноо", typeof(DateTime), "");
+            ucPackMain.FieldFindAdd("SalesStartDate", "Борлуулалт эхлэх огноо", typeof(DateTime), "");
+            ucPackMain.FieldFindAdd("SalesEndDate", "Борлуулалт дуусах огноо", typeof(DateTime), "");
+            ucPackMain.FieldFindAdd("Note", "Багцын тайлбар", typeof(string), "");
+
+            ucPackMain.FieldFindAdd("SalesAccountNo", "Борлуулалтын орлогын данс", typeof(string), "");
+            ucPackMain.FieldFindAdd("RefundAccountNo", "Борлуулалтын буцаалт данс", typeof(string), "");
+            ucPackMain.FieldFindAdd("DiscountAccountNo", "Борлуулалтын хөнгөлөлтийн данс", typeof(string), "");
+            ucPackMain.FieldFindAdd("BonusAccountNo", "Урамшууллын данс", typeof(string), "");
+            ucPackMain.FieldFindAdd("BonusExpAccountNo", "Урамшууллын зардлын данс", typeof(string), "");
 
             ucPackMain.gridView1.GroupPanelText = "Энд бүлэглэх баганаа оруулна уу";
             ucPackMain.FieldFindRefresh();
@@ -62,7 +68,7 @@ namespace InfoPos.List
             DictUtility.PrivNo = PrivNo;
             try
             {
-                string[] names = new string[] { "USERS" };
+                string[] names = new string[] { "BRAND" };
                 res = DictUtility.Get(_core.RemoteObject, names, ref Tables);
                 DT = (DataTable)Tables[0];
                 if (DT == null)
@@ -73,11 +79,11 @@ namespace InfoPos.List
                 }
                 else
                 {
-                    ucPackMain.FindItemSetList("SalesUser", DT, "userno", "userlname");
+                    ucPackMain.FindItemSetList("BrandID", DT, "BrandID", "NAME");
                 }
 
-                ucPackMain.FindItemSetList("Type", 0, "НИЙТИЙН");
-                ucPackMain.FindItemSetList("Type", 1, "ХУВИЙН");
+                //ucPackMain.FindItemSetList("Type", 0, "НИЙТИЙН");
+                //ucPackMain.FindItemSetList("Type", 1, "ХУВИЙН");
 
                 ucPackMain.FindItemSetList("Status", 0, "ИДЭВХГҮЙ");
                 ucPackMain.FindItemSetList("Status", 1, "ИДЭВХТЭЙ");
@@ -126,7 +132,7 @@ namespace InfoPos.List
                 {
                     object[] obj = new object[2];
                     obj[0] = _core;
-                    obj[1] = Static.ToStr(selectedrow["PackID"]);
+                    obj[1] = Static.ToStr(selectedrow["PackageID"]);
                     EServ.Shared.Static.Invoke("InfoPos.Parameter.dll", "InfoPos.Parameter.Main", "CallFormPackMain", obj);
                 }
                 else
@@ -148,15 +154,26 @@ namespace InfoPos.List
             ucPackMain.FieldLinkSetColumnCaption(0, "Багцын дугаар");
             ucPackMain.FieldLinkSetColumnCaption(1, "Багцын нэр");
             ucPackMain.FieldLinkSetColumnCaption(2, "Багцын нэр 2");
-            ucPackMain.FieldLinkSetColumnCaption(3, "Тайлбар");
-            ucPackMain.FieldLinkSetColumnCaption(4, "Эхлэх огноо");
-            ucPackMain.FieldLinkSetColumnCaption(5, "Дуусах огноо");
-            ucPackMain.FieldLinkSetColumnCaption(6, "Төрлийн дугаар");
-            ucPackMain.FieldLinkSetColumnCaption(7, "Төрлийн нэр");
-            ucPackMain.FieldLinkSetColumnCaption(8, "Төлөв");
-            ucPackMain.FieldLinkSetColumnCaption(9, "Төлвийн нэр");
-            ucPackMain.FieldLinkSetColumnCaption(10, "Борлуулагчийн дугаар");
-            ucPackMain.FieldLinkSetColumnCaption(11, "Багц үүсгэсэн огноо");
+            ucPackMain.FieldLinkSetColumnCaption(3, "Брэндийн дугаар");
+            ucPackMain.FieldLinkSetColumnCaption(4, "Брэндийн нэр");
+            ucPackMain.FieldLinkSetColumnCaption(5, "Баар код");
+            ucPackMain.FieldLinkSetColumnCaption(6, "Хэмжих нэгжийн дугаар");
+            ucPackMain.FieldLinkSetColumnCaption(7, "Хэмжих нэгжийн нэр");
+            ucPackMain.FieldLinkSetColumnCaption(8, "Хэмжээ, размер");
+            ucPackMain.FieldLinkSetColumnCaption(9, "Төлөв");
+            ucPackMain.FieldLinkSetColumnCaption(10, "Төлвийн нэр");
+            ucPackMain.FieldLinkSetColumnCaption(11, "Үнэ");
+            ucPackMain.FieldLinkSetColumnCaption(12, "Нийт тоо ширхэг");
+            ucPackMain.FieldLinkSetColumnCaption(13, "Багц үүсгэсэн огноо");
+            ucPackMain.FieldLinkSetColumnCaption(14, "Эхлэх огноо");
+            ucPackMain.FieldLinkSetColumnCaption(15, "Дуусах огноо");
+            ucPackMain.FieldLinkSetColumnCaption(16, "Тайлбар");
+            ucPackMain.FieldLinkSetColumnCaption(17, "Борлуулалтын орлогын данс");
+            ucPackMain.FieldLinkSetColumnCaption(18, "Борлуулалтын буцаалт данс");
+            ucPackMain.FieldLinkSetColumnCaption(19, "Борлуулалтын хөнгөлөлтийн данс");
+            ucPackMain.FieldLinkSetColumnCaption(20, "Урамшууллын данс");
+            ucPackMain.FieldLinkSetColumnCaption(21, "Урамшууллын зардлын данс"); 
+
             FormUtility.RestoreStateGrid(appname, formname, ref ucPackMain.gridView1);
             FormUtility.RestoreStateVGrid(appname, formname, ref ucPackMain.ucParameterPanel1.vGridControl1, ref ucPackMain.groupControl1);
         }

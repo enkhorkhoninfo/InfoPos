@@ -1436,69 +1436,85 @@ namespace IPos.Parameter
                         #endregion[]
 
                         #region[Барааны багцын бүртгэл]
-                        case 140246: //
+                        case 140246: //Бүтээгдэхүүний багцын бүртгэл жагсаалт мэдээлэл авах
                             res = Txn140246(ci, ri, db, ref lg);
                             break;
-                        case 140247: //
+                        case 140247: //Бүтээгдэхүүний багцын бүртгэл дэлгэрэнгүй мэдээлэл авах
                             res = Txn140247(ci, ri, db, ref lg);
                             break;
-                        case 140248: //
+                        case 140248: //Бүтээгдэхүүний багцын бүртгэл нэмэх
                             res = Txn140248(ci, ri, db, ref lg);
                             break;
-                        case 140249: //
+                        case 140249: //Бүтээгдэхүүний багцын бүртгэл засварлах
                             res = Txn140249(ci, ri, db, ref lg);
                             break;
-                        case 140250: //
+                        case 140250: //Бүтээгдэхүүний багцын бүртгэл устгах
                             res = Txn140250(ci, ri, db, ref lg);
                             break; //
-                        case 140251: //
+                        case 140251: //Бүтээгдэхүүний багц дахь барааны холбоос жагсаалт мэдээлэл авах
                             res = Txn140251(ci, ri, db, ref lg);
                             break;
-                        case 140252: //
+                        case 140252: //Бүтээгдэхүүний багц дахь барааны холбоос дэлгэрэнгүй мэдээлэл авах
                             res = Txn140252(ci, ri, db, ref lg);
                             break;
-                        case 140253: //
+                        case 140253: //Бүтээгдэхүүний багц дахь барааны холбоос нэмэх
                             res = Txn140253(ci, ri, db, ref lg);
                             break;
-                        case 140254: //
+                        case 140254: //Бүтээгдэхүүний багц дахь барааны холбоос засварлах
                             res = Txn140254(ci, ri, db, ref lg);
                             break;
-                        case 140255: //
+                        case 140255: //Бүтээгдэхүүний багц дахь барааны холбоос устгах
                             res = Txn140255(ci, ri, db, ref lg);
                             break;
 
 
-                        case 140256: //
+                        case 140256: //Бүтээгдэхүүний багцийн үйлчлүүлэгчид жагсаалт мэдээлэл авах
                             res = Txn140256(ci, ri, db, ref lg);
                             break;
-                        case 140257: //
+                        case 140257: //Бүтээгдэхүүний багцийн үйлчлүүлэгчид дэлгэрэнгүй мэдээлэл авах
                             res = Txn140257(ci, ri, db, ref lg);
                             break;
-                        case 140258: //
+                        case 140258: //Бүтээгдэхүүний багцийн үйлчлүүлэгчид нэмэх
                             res = Txn140258(ci, ri, db, ref lg);
                             break;
-                        case 140259: //
+                        case 140259: //Бүтээгдэхүүний багцийн үйлчлүүлэгчид засварлах
                             res = Txn140259(ci, ri, db, ref lg);
                             break;
-                        case 140260: //
+                        case 140260: //Бүтээгдэхүүний багцийн үйлчлүүлэгчид устгах
                             res = Txn140260(ci, ri, db, ref lg);
                             break;
 
 
-                        case 140261: //
+                        case 140261: //Бүтээгдэхүүний багцийг борлуулах хэрэглэгчид жагсаалт мэдээлэл авах
                             res = Txn140261(ci, ri, db, ref lg);
                             break;
-                        case 140262: //
+                        case 140262: //Бүтээгдэхүүний багцийг борлуулах хэрэглэгчид дэлгэрэнгүй мэдээлэл авах
                             res = Txn140262(ci, ri, db, ref lg);
                             break;
-                        case 140263: //
+                        case 140263: //Бүтээгдэхүүний багцийг борлуулах хэрэглэгчид нэмэх
                             res = Txn140263(ci, ri, db, ref lg);
                             break;
-                        case 140264: //
+                        case 140264: //Бүтээгдэхүүний багцийг борлуулах хэрэглэгчид засварлах
                             res = Txn140264(ci, ri, db, ref lg);
                             break;
-                        case 140265: //
+                        case 140265: //Бүтээгдэхүүний багцийг борлуулах хэрэглэгчид устгах
                             res = Txn140265(ci, ri, db, ref lg);
+                            break;
+
+                        case 140431: //Бүтээгдэхүүний багцийн үнийн жагсаалт мэдээлэл авах
+                            res = Txn140431(ci, ri, db, ref lg);
+                            break;
+                        case 140432: //Бүтээгдэхүүний багцийн үнийн дэлгэрэнгүй мэдээлэл авах
+                            res = Txn140432(ci, ri, db, ref lg);
+                            break;
+                        case 140433: //Бүтээгдэхүүний багцийн үнэ нэмэх
+                            res = Txn140433(ci, ri, db, ref lg);
+                            break;
+                        case 140434: //Бүтээгдэхүүний багцийн үнэ засварлах
+                            res = Txn140434(ci, ri, db, ref lg);
+                            break;
+                        case 140435: //Бүтээгдэхүүний багцийн үнэ устгах
+                            res = Txn140435(ci, ri, db, ref lg);
                             break;
                         #endregion[]
 
@@ -9974,7 +9990,7 @@ namespace IPos.Parameter
                     return res;
                 res.Data.Tables[0].TableName = "InvType";
                 DataSet ds = new DataSet();
-                ds.Tables.Add(res.Data.Tables[0].Copy());                    
+                ds.Tables.Add(res.Data.Tables[0].Copy());              
 
                 ret.Data = ds;
                 ret.ResultNo = 0;
@@ -10667,6 +10683,7 @@ namespace IPos.Parameter
         #endregion[] 
 
         #region[Үйлчилгээний бүртгэл]
+        //Үйлчилгээний жагсаалт
         public Result Txn140226(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10692,6 +10709,7 @@ namespace IPos.Parameter
 
             }
         }
+        //Үйлчилгээний дэлгэрэнгүй
         public Result Txn140227(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -10755,7 +10773,7 @@ namespace IPos.Parameter
             }
             finally
             {
-                lg.item.Desc = "Бараа материалын үндсэн бүртгэл нэмэх";
+                lg.item.Desc = "Үйлчилгээний үндсэн бүртгэл нэмэх";
                 if (res.ResultNo == 0)
                 {
 
@@ -10782,10 +10800,11 @@ namespace IPos.Parameter
             }
             finally
             {
-                lg.item.Desc = "Хуваарилалтын төрлийн бүртгэл засварлах";
+                lg.item.Desc = "Үйлчилгээний бүртгэл засварлах";
                  
             }
         }
+        //Үйлчилгээ устгах
         public Result Txn140230(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -11329,31 +11348,31 @@ namespace IPos.Parameter
             try
             {
                 object[] value = (object[])ri.ReceivedParam[0];
-                object[] obj = new object[11];
-                                //Static.ToStr(txtPackId.EditValue),
-                                //Static.ToStr(txtName.EditValue),
-                                //Static.ToStr(txtName2.EditValue),
-                                //Static.ToStr(txtNote.EditValue),
-                                //Static.ToDate(dtStartDate.EditValue),
-                                //Static.ToDate(dtEndDate.EditValue),
-                                //Static.ToInt(cboType.EditValue),
-                                //Static.ToInt(cboStatus.EditValue),
-                                //Static.ToStr(txtSalesUser.EditValue),
-                                //Static.ToDate(dtSalesCreated.EditValue)
+                //object[] obj = new object[11];
+                //                //Static.ToStr(txtPackId.EditValue),
+                //                //Static.ToStr(txtName.EditValue),
+                //                //Static.ToStr(txtName2.EditValue),
+                //                //Static.ToStr(txtNote.EditValue),
+                //                //Static.ToDate(dtStartDate.EditValue),
+                //                //Static.ToDate(dtEndDate.EditValue),
+                //                //Static.ToInt(cboType.EditValue),
+                //                //Static.ToInt(cboStatus.EditValue),
+                //                //Static.ToStr(txtSalesUser.EditValue),
+                //                //Static.ToDate(dtSalesCreated.EditValue)
 
-                obj[0] = Static.ToStr(value[0]);
-                obj[1] = Static.ToStr(value[1]);
-                obj[2] = Static.ToStr(value[2]);
-                obj[3] = Static.ToStr(value[3]);
-                obj[4] = Static.ToDate(value[4]);
-                obj[5] = Static.ToDate(value[5]);
-                obj[6] = Static.ToInt(value[6]);
-                obj[7] = Static.ToInt(value[7]);
-                obj[8] = Static.ToStr(value[8]);
-                obj[9] = Static.ToDate(value[9]);
-                obj[10] = Static.ToDecimal(value[10]);
+                //obj[0] = Static.ToStr(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToStr(value[2]);
+                //obj[3] = Static.ToStr(value[3]);
+                //obj[4] = Static.ToDate(value[4]);
+                //obj[5] = Static.ToDate(value[5]);
+                //obj[6] = Static.ToInt(value[6]);
+                //obj[7] = Static.ToInt(value[7]);
+                //obj[8] = Static.ToStr(value[8]);
+                //obj[9] = Static.ToDate(value[9]);
+                //obj[10] = Static.ToDecimal(value[10]);
 
-                res = IPos.DB.Main.DB202248(db, obj, ri.UserNo);
+                res = IPos.DB.Main.DB202248(db, value, ri.UserNo);
                 return res;
             }
             catch (Exception ex)
@@ -11380,31 +11399,31 @@ namespace IPos.Parameter
             try
             {
                 object[] value = (object[])ri.ReceivedParam[0];
-                object[] obj = new object[11];
-                //Static.ToStr(txtPackId.EditValue),
-                //Static.ToStr(txtName.EditValue),
-                //Static.ToStr(txtName2.EditValue),
-                //Static.ToStr(txtNote.EditValue),
-                //Static.ToDate(dtStartDate.EditValue),
-                //Static.ToDate(dtEndDate.EditValue),
-                //Static.ToInt(cboType.EditValue),
-                //Static.ToInt(cboStatus.EditValue),
-                //Static.ToStr(txtSalesUser.EditValue),
-                //Static.ToDate(dtSalesCreated.EditValue)
+                //object[] obj = new object[11];
+                ////Static.ToStr(txtPackId.EditValue),
+                ////Static.ToStr(txtName.EditValue),
+                ////Static.ToStr(txtName2.EditValue),
+                ////Static.ToStr(txtNote.EditValue),
+                ////Static.ToDate(dtStartDate.EditValue),
+                ////Static.ToDate(dtEndDate.EditValue),
+                ////Static.ToInt(cboType.EditValue),
+                ////Static.ToInt(cboStatus.EditValue),
+                ////Static.ToStr(txtSalesUser.EditValue),
+                ////Static.ToDate(dtSalesCreated.EditValue)
 
-                obj[0] = Static.ToStr(value[0]);
-                obj[1] = Static.ToStr(value[1]);
-                obj[2] = Static.ToStr(value[2]);
-                obj[3] = Static.ToStr(value[3]);
-                obj[4] = Static.ToDate(value[4]);
-                obj[5] = Static.ToDate(value[5]);
-                obj[6] = Static.ToInt(value[6]);
-                obj[7] = Static.ToInt(value[7]);
-                obj[8] = Static.ToStr(value[8]);
-                obj[9] = Static.ToDate(value[9]);
-                obj[10] = Static.ToDecimal(value[10]);
+                //obj[0] = Static.ToStr(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToStr(value[2]);
+                //obj[3] = Static.ToStr(value[3]);
+                //obj[4] = Static.ToDate(value[4]);
+                //obj[5] = Static.ToDate(value[5]);
+                //obj[6] = Static.ToInt(value[6]);
+                //obj[7] = Static.ToInt(value[7]);
+                //obj[8] = Static.ToStr(value[8]);
+                //obj[9] = Static.ToDate(value[9]);
+                //obj[10] = Static.ToDecimal(value[10]);
 
-                res = IPos.DB.Main.DB202249(db, obj, ri.UserNo);
+                res = IPos.DB.Main.DB202249(db, value, ri.UserNo);
                 return res;
             }
             catch (Exception ex)
@@ -11922,6 +11941,168 @@ namespace IPos.Parameter
                 }
             }
         }
+
+        //Бүтээгдэхүүний багцын үнийн бүртгэл
+        public Result Txn140431(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                int pProdType = Static.ToInt(ri.ReceivedParam[0]);
+                string ProdID = Static.ToStr(ri.ReceivedParam[1]);
+                res = IPos.DB.Main.DB202266(db, pProdType, ProdID);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Бүтээгдэхүүний багцын үнийн бүртгэл жагсаалт мэдээлэл авах";
+
+            }
+        }
+        public Result Txn140432(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+
+            Result res = new Result();
+            try
+            {
+                int pProdType = Static.ToInt(ri.ReceivedParam[0]);
+                string pProdID = Static.ToStr(ri.ReceivedParam[1]);
+                string PriceTypeID = Static.ToStr(ri.ReceivedParam[2]);
+                //DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
+                res = IPos.DB.Main.DB202267(db, pProdType, pProdID, PriceTypeID);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                //lg.item.Desc = "Бүтээгдэхүүний багцын үнэ дэлгэрэнгүй мэдээлэл авах";
+                //if (res.ResultNo == 0)
+                //{
+                //    lg.AddDetail("", "pUserNo", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                //}
+            }
+        }
+        public Result Txn140433(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                object[] value = (object[])ri.ReceivedParam[0];
+                //object[] obj = new object[6];
+                //obj[0] = Static.ToInt(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToStr(value[2]);
+                //obj[3] = Static.ToDateTime(value[3]);
+                //obj[4] = Static.ToDateTime(value[4]);
+                //obj[5] = Static.ToInt(value[5]);
+                res = IPos.DB.Main.DB202268(db, value);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                //lg.item.Desc = "Бүтээгдэхүүний багцын агуулагдах бараа материал бүртгэл нэмэх";
+                //if (res.ResultNo == 0)
+                //{
+
+                //}
+            }
+        }
+        public Result Txn140434(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                object[] value = (object[])ri.ReceivedParam[1];
+                //object[] obj = new object[6];
+                //obj[0] = Static.ToInt(value[0]);
+                //obj[1] = Static.ToStr(value[1]);
+                //obj[2] = Static.ToStr(value[2]);
+                //obj[3] = Static.ToDateTime(value[3]);
+                //obj[4] = Static.ToDateTime(value[4]);
+                //obj[5] = Static.ToInt(value[5]);
+
+                object[] pOldValue = (object[])ri.ReceivedParam[0];
+                //object[] pOldValue = new object[6];
+                //pOldValue[0] = Static.ToInt(OldValue[0]);
+                //pOldValue[1] = Static.ToStr(OldValue[1]);
+                //pOldValue[2] = Static.ToStr(OldValue[2]);
+                //pOldValue[3] = Static.ToDateTime(OldValue[3]);
+                //pOldValue[4] = Static.ToDateTime(OldValue[4]);
+                //pOldValue[5] = Static.ToInt(OldValue[5]);
+
+                res = IPos.DB.Main.DB202269(db, pOldValue, value);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Бүтээгдэхүүний багцын үнэ бүртгэл засварлах";
+            }
+        }
+        public Result Txn140435(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                int pProdType = Static.ToInt(ri.ReceivedParam[0]);
+                string pProdID = Static.ToStr(ri.ReceivedParam[1]);
+                string PriceTypeID = Static.ToStr(ri.ReceivedParam[2]);
+                //DateTime pStartTime = Static.ToDateTime(ri.ReceivedParam[3]);
+                res = IPos.DB.Main.DB202270(db, pProdType, pProdID, PriceTypeID);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Бүтээгдэхүүний багцын үнийн бүртгэл устгах";
+                if (res.ResultNo == 0)
+                {
+                    lg.item.Key1 = "Бүтээгдэхүүний багцын үнийн бүртгэл устгах";
+                    lg.AddDetail("pProdType", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                }
+            }
+        }
+
         #endregion
         
         #region[Бүтээгдэхүүний Бүлэглэлийн Бүртгэл - Мод бүтцээр.]

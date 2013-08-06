@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -28,7 +29,7 @@ namespace InfoPos.Parameter
         string  oldValueUser = "";
         Result res = new Result();
         decimal pPrice = 0;
-
+        object[] pOldValue;
         #endregion[]
         public FormPackMain(Core.Core core, string pPackID)
         {
@@ -44,7 +45,7 @@ namespace InfoPos.Parameter
             btnInv.Image = core.Resource.GetImage("button_find");
             btnUser.Image = core.Resource.GetImage("button_find");
             btnCust.Image = core.Resource.GetImage("button_find");
-            btnSalesUser.Image = core.Resource.GetImage("button_find");
+            //btnSalesUser.Image = core.Resource.GetImage("button_find");
         }
         #region[Init]
         private void Init()
@@ -56,17 +57,26 @@ namespace InfoPos.Parameter
             ucPackMain.EventAddAfter += new ucTogglePanel.delegateEventAddAfter(ucPackMain_EventAddAfter);
             ucPackMain.EventReject += new ucTogglePanel.delegateEventReject(ucPackMain_EventReject);
 
-            ucPackMain.FieldLinkAdd("txtPackId", 0, "PackId", "", true, true);
+            ucPackMain.FieldLinkAdd("txtPackageId", 0, "PackageId", "", true, true);
             ucPackMain.FieldLinkAdd("txtName", 0, "Name", "", true, false);
             ucPackMain.FieldLinkAdd("txtName2", 0, "Name2", "", false, false);
+            ucPackMain.FieldLinkAdd("cboBrandID", 0, "BrandID", "", true, false);
+            ucPackMain.FieldLinkAdd("txtBarCode", 0, "BarCode", "", false, false);
+            ucPackMain.FieldLinkAdd("cboUnit", 0, "Unit", "", false, false);
+            ucPackMain.FieldLinkAdd("numUnitSize", 0, "UnitSize", "", false, false);
+            ucPackMain.FieldLinkAdd("cboStatus", 0, "Status", "", true, false);
+            ucPackMain.FieldLinkAdd("numPrice", 0, "Price", "", true, false);
+            ucPackMain.FieldLinkAdd("numCount", 0, "Count", "", false, false);
+            ucPackMain.FieldLinkAdd("dtCreateDate", 0, "CreateDate", "", true, false);
+            ucPackMain.FieldLinkAdd("dtSalesStartDate", 0, "SalesStartDate", "", true, false);
+            ucPackMain.FieldLinkAdd("dtSalesEndDate", 0, "SalesEndDate", "", true, false);
             ucPackMain.FieldLinkAdd("txtNote", 0, "Note", "", false, false);
-            ucPackMain.FieldLinkAdd("dtStartDate", 0, "StartDate", "", false, false);
-            ucPackMain.FieldLinkAdd("dtEndDate", 0, "EndDate", "", false, false);
-            ucPackMain.FieldLinkAdd("dtSalesCreated", 0, "SalesCreated", "", false, false);
-            ucPackMain.FieldLinkAdd("cboType", 0, "Type", "", false, false);
-            ucPackMain.FieldLinkAdd("cboStatus", 0, "Status", "", false, false);
-            ucPackMain.FieldLinkAdd("txtSalesUser", 0, "SalesUser", "", false, false);
-            ucPackMain.FieldLinkAdd("numPrice", 0, "Price", "", false, false);
+
+            ucPackMain.FieldLinkAdd("txtSalesAccountNo", 0, "SALESACCOUNTNO", "", false, false);
+            ucPackMain.FieldLinkAdd("txtRefundAccountNo", 0, "REFUNDACCOUNTNO", "", false, false);
+            ucPackMain.FieldLinkAdd("txtDiscountAccountNo", 0, "DISCOUNTACCOUNTNO", "", false, false);
+            ucPackMain.FieldLinkAdd("txtBonusAccountNo", 0, "BONUSACCOUNTNO", "", false, false);
+            ucPackMain.FieldLinkAdd("txtBONUSEXPACCOUNTNO", 0, "BONUSEXPACCOUNTNO", "", false, false);
 
             ucPackMain.ToggleShowDelete = true;
             ucPackMain.ToggleShowEdit = true;
@@ -83,9 +93,9 @@ namespace InfoPos.Parameter
             ucPackItem.EventAddAfter += new ucTogglePanel.delegateEventAddAfter(ucPackItem_EventAddAfter);
             ucPackItem.EventReject += new ucTogglePanel.delegateEventReject(ucPackItem_EventReject);
             ucPackItem.EventEdit += new ucTogglePanel.delegateEventEdit(ucPackItem_EventEdit);
-        
 
-            ucPackItem.FieldLinkAdd("PackId", 0, "PackId", "", false, true);
+
+            ucPackItem.FieldLinkAdd("PackageId", 0, "PackageId", "", false, true);
             ucPackItem.FieldLinkAdd("txtProdId", 0, "ProdId", "", true, false);
             ucPackItem.FieldLinkAdd("cboProdType", 0, "ProdType", "", false, false);
             ucPackItem.FieldLinkAdd("numCount", 0, "Count", "", false, false);
@@ -110,7 +120,7 @@ namespace InfoPos.Parameter
             ucPackCust.EventReject += new ucTogglePanel.delegateEventReject(ucPackCust_EventReject);
             ucPackCust.EventEdit += new ucTogglePanel.delegateEventEdit(ucPackCust_EventEdit);
 
-            ucPackCust.FieldLinkAdd("txtPackIdCust", 0, "PackId", "", false, true);
+            ucPackCust.FieldLinkAdd("txtPackageIdCust", 0, "PackageId", "", false, true);
             ucPackCust.FieldLinkAdd("numCustNo", 0, "CustNo", "", true, false);
 
             ucPackCust.ToggleShowDelete = true;
@@ -131,7 +141,7 @@ namespace InfoPos.Parameter
             ucPackUser.EventReject += new ucTogglePanel.delegateEventReject(ucPackUser_EventReject);
             ucPackUser.EventEdit += new ucTogglePanel.delegateEventEdit(ucPackUser_EventEdit);
 
-            ucPackUser.FieldLinkAdd("numPackID", 0, "PackId", "", false, true);
+            ucPackUser.FieldLinkAdd("numPackageID", 0, "PackageId", "", false, true);
             ucPackUser.FieldLinkAdd("numUserNo", 0, "Userno", "", true, false);
 
             ucPackUser.ToggleShowDelete = true;
@@ -144,23 +154,95 @@ namespace InfoPos.Parameter
             ucPackUser.DataSource = null;
             ucPackUser.GridView = gvwPackUser;
             #endregion[]
+            #region[ucProdPrice]
+
+            ucProdPrice.EventSave += new ucTogglePanel.delegateEventSave(ucProdPrice_EventSave);
+            ucProdPrice.EventExit += new ucTogglePanel.delegateEventExit(ucProdPrice_EventExit);
+            ucProdPrice.EventDelete += new ucTogglePanel.delegateEventDelete(ucProdPrice_EventDelete);
+            ucProdPrice.EventAddAfter += new ucTogglePanel.delegateEventAddAfter(ucProdPrice_EventAddAfter);
+            ucProdPrice.EventReject += new ucTogglePanel.delegateEventReject(ucProdPrice_EventReject);
+            ucProdPrice.EventEdit += new ucTogglePanel.delegateEventEdit(ucProdPrice_EventEdit);
+
+            ucProdPrice.FieldLinkAdd("numPriceProdType", 0, "ProdType", "", false, true);
+            ucProdPrice.FieldLinkAdd("txtPricePackID", 0, "prodid", "", true, false);
+            ucProdPrice.FieldLinkAdd("cboPriceTypeID", 0, "pricetypeid", "", true, false);
+            ucProdPrice.FieldLinkAdd("txtPricePrice", 0, "price", "", true, false);
+
+            ucProdPrice.ToggleShowDelete = true;
+            ucProdPrice.ToggleShowEdit = true;
+            ucProdPrice.ToggleShowExit = true;
+            ucProdPrice.ToggleShowNew = true;
+            ucProdPrice.ToggleShowReject = true;
+            ucProdPrice.ToggleShowSave = true;
+
+            ucProdPrice.DataSource = null;
+            ucProdPrice.GridView = gvwPrice;
+            #endregion[]
         }                
         private void InitCombo()
         {
             #region[ucPackMain]
-            FormUtility.LookUpEdit_SetList(ref cboStatus, 0, "Идэвхгүй");
-            FormUtility.LookUpEdit_SetList(ref cboStatus, 1, "Идэвхтэй");
+            try
+            {
+                Result res = new Result();
+                ArrayList Tables = new ArrayList();
+                DataTable DT = null;
+                string msg = "";
 
-            FormUtility.LookUpEdit_SetList(ref cboType, 0, "Нийтийн");
-            FormUtility.LookUpEdit_SetList(ref cboType, 1, "Хувийн");
+                DictUtility.PrivNo = PrivNo;
+                string[] name = new string[] { "UNITTYPECODE", "BRAND", "PAPRICETYPE" };
+
+                res = DictUtility.Get(_core.RemoteObject, name, ref Tables);
+
+                DT = (DataTable)Tables[0];
+                if (DT == null)
+                {
+                    msg = "Dictionary-д UNITTYPECODE оруулаагүй байна-" + res.ResultDesc;
+                }
+                else
+                {
+                    FormUtility.LookUpEdit_SetList(ref cboUnit, DT, "UNITTYPECODE", "name");
+                }
+
+                DT = (DataTable)Tables[1];
+                if (DT == null)
+                {
+                    msg = "Dictionary-д BRAND оруулаагүй байна-" + res.ResultDesc;
+                }
+                else
+                {
+                    FormUtility.LookUpEdit_SetList(ref cboBrandID, DT, "BRANDID", "NAME");
+                }
+
+                DT = (DataTable)Tables[2];
+                if (DT == null)
+                {
+                    msg = "Dictionary-д PAPRICETYPE оруулаагүй байна-" + res.ResultDesc;
+                }
+                else
+                {
+                    FormUtility.LookUpEdit_SetList(ref cboPriceTypeID, DT, "PRICETYPEID", "NAME");
+                }
+
+                if (msg != "")
+                    MessageBox.Show(msg);
+
+                FormUtility.LookUpEdit_SetList(ref cboStatus, 0, "Идэвхгүй");
+                FormUtility.LookUpEdit_SetList(ref cboStatus, 1, "Идэвхтэй");
             #endregion[]
             #region[ucPackItem]
             FormUtility.LookUpEdit_SetList(ref cboProdType, 0, "Бараа материал");
             FormUtility.LookUpEdit_SetList(ref cboProdType, 1, "Үйлчилгээ");
+            FormUtility.LookUpEdit_SetList(ref cboProdType, 2, "Багц");
 
             FormUtility.LookUpEdit_SetList(ref cboOptional, 0, "Уг барааг заавал борлуулна");
             FormUtility.LookUpEdit_SetList(ref cboOptional, 1, "Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно");
             #endregion[]
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Өгөгдлийн баазаас Dictionary олдсонгүй.");
+            }
         }
         #endregion[]
         #region[btn&FormEvents]
@@ -176,23 +258,23 @@ namespace InfoPos.Parameter
                 ucPackItem.FieldLinkSetNewState();
                 ucPackCust.FieldLinkSetNewState();
                 ucPackUser.FieldLinkSetNewState();
+                ucProdPrice.FieldLinkSetNewState();
 
                 cboStatus.EditValue = 1;
-                cboType.ItemIndex = 0;
+                cboUnit.ItemIndex = 0;
                 cboProdType.ItemIndex = 0;
                 cboStatus.EditValue = 1;
                 cboOptional.ItemIndex = 0;
 
-
-                dtEndDate.EditValue = _core.TxnDate;
-                dtSalesCreated.EditValue = _core.TxnDate;
-                dtStartDate.EditValue = _core.TxnDate;
+                dtSalesEndDate.EditValue = _core.TxnDate;
+                dtCreateDate.EditValue = _core.TxnDate;
+                dtSalesStartDate.EditValue = _core.TxnDate;
             }
             else if (_pPackID != "")
             {
-                PackId.Text = _pPackID;
-                txtPackIdCust.EditValue = _pPackID;
-                numPackID.EditValue = _pPackID;
+                PackageId.Text = _pPackID;
+                txtPackageIdCust.EditValue = _pPackID;
+                numPackageID.EditValue = _pPackID;
 
                 RefreshData(_pPackID);
                 ucPackItemRefreshData(_pPackID);
@@ -208,12 +290,6 @@ namespace InfoPos.Parameter
                 ucPackItem.FieldLinkSetSaveState();
                 ucPackCust.FieldLinkSetSaveState();
                 ucPackUser.FieldLinkSetSaveState();
-                if (Static.ToInt(cboType.EditValue) == 0)
-                {
-                    xtraTabPackCust.PageVisible = false;
-                }
-                else { xtraTabPackCust.PageVisible = true; }
-
             }
         }
         private void gvwPackItem_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -249,20 +325,20 @@ namespace InfoPos.Parameter
         private void tabPackMain_Selected(object sender, DevExpress.XtraTab.TabPageEventArgs e)
         {
             if (loadInv == true)
-                ucPackItemRefreshData(txtPackId.EditValue.ToString());
+                ucPackItemRefreshData(txtPackageId.EditValue.ToString());
             ucPackItem.FieldLinkSetSaveState();
 
-            ucPackCustRefreshData(txtPackId.EditValue.ToString());
+            ucPackCustRefreshData(txtPackageId.EditValue.ToString());
             ucPackCust.FieldLinkSetSaveState();
 
-            ucPackUserRefreshData(txtPackId.EditValue.ToString());
+            ucPackUserRefreshData(txtPackageId.EditValue.ToString());
             ucPackUser.FieldLinkSetSaveState();
         }
         private void tabPackMain_Deselecting(object sender, DevExpress.XtraTab.TabPageCancelEventArgs e)
         {
             try
             {
-                if (txtPackId.Text == "")
+                if (txtPackageId.Text == "")
                     e.Cancel = true;
                 else
                 {
@@ -281,25 +357,41 @@ namespace InfoPos.Parameter
         }
         private void btnInv_Click(object sender, EventArgs e)
         {
-            if (Static.ToInt(cboProdType.EditValue) == 1)
+            switch (Static.ToInt(cboProdType.EditValue))
             {
-                InfoPos.List.ServiceList frm = new InfoPos.List.ServiceList(_core);
-                frm.ucServiceList.Browsable = true;
-                DialogResult res = frm.ShowDialog();
-                if ((res == System.Windows.Forms.DialogResult.OK))
-                {
-                    txtProdId.Text = Static.ToStr(frm.ucServiceList.SelectedRow["SERVID"]);
-                }
-            }
-            else
-            {
-                InfoPos.List.InventoryList frm = new InfoPos.List.InventoryList(_core);
-                frm.ucInventoryList.Browsable = true;
-                DialogResult res = frm.ShowDialog();
-                if ((res == System.Windows.Forms.DialogResult.OK))
-                {
-                    txtProdId.Text = Static.ToStr(frm.ucInventoryList.SelectedRow["INVID"]);
-                }
+                case 0:
+                    {
+                        InfoPos.List.InventoryList frm = new InfoPos.List.InventoryList(_core);
+                        frm.ucInventoryList.Browsable = true;
+                        DialogResult res = frm.ShowDialog();
+                        if ((res == System.Windows.Forms.DialogResult.OK))
+                        {
+                            txtProdId.Text = Static.ToStr(frm.ucInventoryList.SelectedRow["INVID"]);
+                        }
+                    }
+                    break;
+                case 1:
+                    {
+                        InfoPos.List.ServiceList frm = new InfoPos.List.ServiceList(_core);
+                        frm.ucServiceList.Browsable = true;
+                        DialogResult res = frm.ShowDialog();
+                        if ((res == System.Windows.Forms.DialogResult.OK))
+                        {
+                            txtProdId.Text = Static.ToStr(frm.ucServiceList.SelectedRow["SERVID"]);
+                        }
+                    }
+                    break;
+                case 2:
+                    {
+                        InfoPos.List.PackMainList frm = new InfoPos.List.PackMainList(_core);
+                        frm.ucPackMain.Browsable = true;
+                        DialogResult res = frm.ShowDialog();
+                        if ((res == System.Windows.Forms.DialogResult.OK))
+                        {
+                            txtProdId.Text = Static.ToStr(frm.ucPackMain.SelectedRow["packageid"]);
+                        }
+                    }
+                    break;
             }
         }
         private void btnUser_Click(object sender, EventArgs e)
@@ -326,23 +418,7 @@ namespace InfoPos.Parameter
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-        private void btnSalesUser_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                InfoPos.List.UserList frm = new InfoPos.List.UserList(_core);
-                frm.ucUserList.Browsable = true;
-                DialogResult res = frm.ShowDialog();
-                if ((res == System.Windows.Forms.DialogResult.OK))
-                {
-                    txtSalesUser.Text = Static.ToStr(frm.ucUserList.SelectedRow["UserNo"]);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+
         private void FormPackMain_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -365,7 +441,7 @@ namespace InfoPos.Parameter
             {
                 try
                 {
-                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140250, 140250, new object[] { txtPackId.EditValue });
+                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140250, 140250, new object[] { txtPackageId.EditValue });
                     if (r.ResultNo != 0)
                     {
                         MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
@@ -396,7 +472,7 @@ namespace InfoPos.Parameter
 
             if (ucPackMain.FieldValidate(ref err, ref cont) == true)
             {
-                if (Static.ToStr(txtPackId.EditValue) != "")
+                if (Static.ToStr(txtPackageId.EditValue) != "")
                 {
                     EventSave(isnew, ref cancel);
                 }
@@ -416,6 +492,7 @@ namespace InfoPos.Parameter
         private void RefreshData(string pPackID)
         {
             Result res = new Result();
+            DataSet ds = null;
             try
             {
                 if (Static.ToStr(pPackID) != "")
@@ -426,6 +503,16 @@ namespace InfoPos.Parameter
                     {
                         ucPackMain.DataSource = res.Data;
                         loadInv = true;
+
+                        ds = res.Data;
+                        byte[] a = null;
+
+                        if (ds.Tables[0].Rows[0]["Picture"] != null && ds.Tables[0].Rows[0]["Picture"] != DBNull.Value && ds.Tables[0].Rows[0]["Picture"] != "")
+                            a = (byte[])ds.Tables[0].Rows[0]["Picture"];
+
+                        picPicture.Image = Static.ImageFromByte(a);
+
+                        //DataSet DS = new DataSet();
                     }
                     else
                     {
@@ -443,17 +530,35 @@ namespace InfoPos.Parameter
             try
             {
                 Result r = new Result();
-                object[] NewValue = {   Static.ToStr(txtPackId.EditValue),
+
+                byte[] _img = null;
+                if (picPicture.Image != null)
+                    _img = Static.ImageToByte(picPicture.Image);
+
+                object[] NewValue = {   
+                                        Static.ToStr(txtPackageId.EditValue),
                                         Static.ToStr(txtName.EditValue),
                                         Static.ToStr(txtName2.EditValue),
-                                        Static.ToStr(txtNote.EditValue),
-                                        Static.ToDate(dtStartDate.EditValue),
-                                        Static.ToDate(dtEndDate.EditValue),
-                                        Static.ToInt(cboType.EditValue),
+                                        Static.ToStr(cboBrandID.EditValue),
+                                        Static.ToStr(txtBarCode.EditValue),
+
+                                        Static.ToStr(cboUnit.EditValue),
+                                        Static.ToStr(numUnitSize.EditValue),
                                         Static.ToInt(cboStatus.EditValue),
-                                        Static.ToStr(txtSalesUser.EditValue),
-                                        Static.ToDate(dtSalesCreated.EditValue),
-                                        Static.ToDecimal(numPrice.EditValue)
+                                        Static.ToDecimal(numPrice.EditValue),
+                                        Static.ToDecimal(txtCount.EditValue),
+
+                                        Static.ToDate(dtCreateDate.EditValue),
+                                        Static.ToDate(dtSalesStartDate.EditValue),
+                                        Static.ToDate(dtSalesEndDate.EditValue),
+                                        Static.ToStr(txtNote.EditValue),
+                                        Static.ToStr(txtSalesAccountNo.EditValue),
+
+                                        Static.ToStr(txtRefundAccountNo.EditValue),                                      
+                                        Static.ToStr(txtDiscountAccountNo.EditValue),
+                                        Static.ToStr(txtBonusAccountNo.EditValue),
+                                        Static.ToStr(txtBonusExpAccountNo.EditValue),
+                                        _img
                                     };
                 if (!isnew)
                 {
@@ -493,27 +598,29 @@ namespace InfoPos.Parameter
         void ucPackMain_EventAddAfter()
         {
             cboStatus.EditValue = 1;
-            cboType.ItemIndex = 0;
+            cboUnit.ItemIndex = 0;
+            cboBrandID.ItemIndex = 0;
             cboProdType.ItemIndex = 0;
             cboStatus.EditValue = 1;
-            PackId.Text = _pPackID;
+            PackageId.Text = _pPackID;
 
-            dtEndDate.EditValue = _core.TxnDate;
-            dtSalesCreated.EditValue = _core.TxnDate;
-            dtStartDate.EditValue = _core.TxnDate;
+            dtSalesEndDate.EditValue = _core.TxnDate;
+            dtCreateDate.EditValue = _core.TxnDate;
+            dtSalesStartDate.EditValue = _core.TxnDate;
         }
         void ucPackMain_EventReject()
         {
-            RefreshData(Static.ToStr(txtPackId.EditValue));
+            RefreshData(Static.ToStr(txtPackageId.EditValue));
 
             cboStatus.EditValue = 1;
-            cboType.ItemIndex = 0;
+            cboUnit.ItemIndex = 0;
+            cboBrandID.ItemIndex = 0;
             cboProdType.ItemIndex = 0;
             cboStatus.EditValue = 1;
 
-            dtEndDate.EditValue = _core.TxnDate;
-            dtSalesCreated.EditValue = _core.TxnDate;
-            dtStartDate.EditValue = _core.TxnDate;
+            dtSalesEndDate.EditValue = _core.TxnDate;
+            dtCreateDate.EditValue = _core.TxnDate;
+            dtSalesStartDate.EditValue = _core.TxnDate;
         }
         #endregion[]
         #region[ucPackItem]
@@ -525,7 +632,7 @@ namespace InfoPos.Parameter
             {
                 try
                 {
-                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140255, 140255, new object[] { txtPackId.EditValue, txtProdId.EditValue, cboProdType.EditValue });
+                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140255, 140255, new object[] { txtPackageId.EditValue, txtProdId.EditValue, cboProdType.EditValue });
                     if (r.ResultNo != 0)
                     {
                         MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
@@ -534,7 +641,7 @@ namespace InfoPos.Parameter
                     else
                     {
                         MessageBox.Show("Амжилттай устгагдлаа .");
-                        ucPackItemRefreshData(Static.ToStr(txtPackId.EditValue));
+                        ucPackItemRefreshData(Static.ToStr(txtPackageId.EditValue));
                         ucPackItem.FieldLinkSetValues();
                         btn = 1;
                     }
@@ -557,10 +664,10 @@ namespace InfoPos.Parameter
 
             if (ucPackItem.FieldValidate(ref err, ref cont) == true)
             {
-                if (Static.ToStr(txtPackId.Text) != "")
+                if (Static.ToStr(txtPackageId.Text) != "")
                 {
                     ucPackItemEventSave(isnew, ref cancel);
-                    ucPackItemRefreshData(txtPackId.EditValue.ToString());
+                    ucPackItemRefreshData(txtPackageId.EditValue.ToString());
                     ucPackItem.FieldLinkSetValues();
                 }
                 else
@@ -581,45 +688,12 @@ namespace InfoPos.Parameter
             try
             {
                 Result r = new Result();
-                object[] NewValue = {   Static.ToStr(txtPackId.EditValue),
+                object[] NewValue = {   Static.ToStr(txtPackageId.EditValue),
                                         Static.ToStr(txtProdId.EditValue),
                                         Static.ToInt(cboProdType.EditValue),
                                         Static.ToInt(numCount.EditValue),
-                                        Static.ToInt(cboOptional.EditValue),
-                                        Static.ToInt(numItemPrice.EditValue)
+                                        Static.ToInt(cboOptional.EditValue)
                                     };
-
-                #region [ Багцын үнэтэй validation хийх ]
-
-                DataTable _dt = (DataTable)grdPackItem.DataSource;
-                decimal _allprice = 0;
-
-                foreach (DataRow _dr in _dt.Rows)
-                {
-                    string _p = Static.ToStr(_dr["PACKID"]);
-                    string _pid = Static.ToStr(_dr["PRODID"]);
-                    int _ptype = Static.ToInt(_dr["PRODTYPE"]);
-
-                    string _pp = Static.ToStr(PackId.EditValue);
-                    string _ppid = Static.ToStr(txtProdId.EditValue);
-                    int _pptype = Static.ToInt(cboProdType.EditValue);
-
-                    if (isnew)
-                        _allprice += Static.ToDecimal(_dr["price"]);
-                    else
-                        if (Static.ToStr(_dr["PACKID"]) != Static.ToStr(PackId.EditValue) ||
-                        Static.ToStr(_dr["PRODID"]) != Static.ToStr(txtProdId.EditValue) ||
-                        Static.ToInt(_dr["PRODTYPE"]) != Static.ToInt(cboProdType.EditValue))
-                            _allprice += Static.ToDecimal(_dr["price"]);
-                }
-                _allprice = _allprice + Static.ToDecimal(numItemPrice.EditValue);
-                if (_allprice > pPrice)
-                {
-                    MessageBox.Show("Бараа үйлчилгээний нийт үнийн дүн нь багцын үнийн дүнгээс хэтэрсэн байна. (" + Static.ToStr(_allprice) + ">" + Static.ToStr(pPrice) + ")");
-                    return;
-                }
-
-                #endregion
 
                 if (!isnew)
                 {
@@ -656,29 +730,29 @@ namespace InfoPos.Parameter
         }
         void ucPackItem_EventAddAfter()
         {
-            PackId.EditValue = txtPackId.Text;
+            PackageId.EditValue = txtPackageId.Text;
             cboProdType.ItemIndex = 0;
             cboOptional.ItemIndex = 0;
         }
         void ucPackItem_EventReject()
         {
-            PackId.EditValue = txtPackId.Text;
+            PackageId.EditValue = txtPackageId.Text;
             cboProdType.ItemIndex = 0;
             cboOptional.ItemIndex = 0;
-            ucPackItemRefreshData(Static.ToStr(txtPackId.EditValue));
+            ucPackItemRefreshData(Static.ToStr(txtPackageId.EditValue));
         }
         private void ucPackItemRefreshData(string pPackID)
         {
             Result res = new Result();
             try
             {
-                if (Static.ToStr(txtPackId.EditValue) != "")
+                if (Static.ToStr(txtPackageId.EditValue) != "")
                 {
                     pPrice = Static.ToDecimal(numPrice.EditValue);
 
                     grdPackItem.DataSource = null;
                     ucPackItem.DataSource = null;
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140251, 140251, new object[] { txtPackId.EditValue }); //pPackId, pProdID, pProdType);
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140251, 140251, new object[] { txtPackageId.EditValue }); //pPackId, pProdID, pProdType);
                     if (res.ResultNo == 0)
                     {
                         grdPackItem.DataSource = res.Data.Tables[0];
@@ -691,7 +765,7 @@ namespace InfoPos.Parameter
                         MessageBox.Show(res.ResultNo + " " + res.ResultDesc);
                     }
                 }
-                PackId.Text = txtPackId.Text;
+                PackageId.Text = txtPackageId.Text;
             }
             catch (Exception ex)
             {
@@ -727,11 +801,6 @@ namespace InfoPos.Parameter
                 gvwPackItem.Columns[7].Caption = "Сонголтын нэр";
                 gvwPackItem.Columns[7].Visible = true;
                 gvwPackItem.Columns[7].OptionsColumn.AllowEdit = false;
-
-                gvwPackItem.Columns[8].Caption = "Үнэ";
-                gvwPackItem.Columns[8].Visible = true;
-                gvwPackItem.Columns[8].OptionsColumn.AllowEdit = false;
-
             }
             catch (Exception ex)
             {
@@ -740,13 +809,12 @@ namespace InfoPos.Parameter
         }
         void ucPackItem_EventEdit(ref bool cancel)
         {
-            object[] Value = {          Static.ToStr(txtPackId.EditValue),
+            object[] Value = {          Static.ToStr(txtPackageId.EditValue),
                                         Static.ToStr(txtProdId.EditValue),
                                         Static.ToInt(cboProdType.EditValue),
                                         Static.ToInt(numCount.EditValue),
                                         Static.ToInt(cboOptional.EditValue),
-                                        Static.ToDecimal(cboOptional.EditValue),
-                                         Static.ToDecimal(numItemPrice.EditValue)
+                                        Static.ToDecimal(cboOptional.EditValue)
                              };
             OldValueucItem = Value;
         }
@@ -754,11 +822,11 @@ namespace InfoPos.Parameter
         #region[ucPackUser]
         void ucPackUser_EventReject()
         {
-            numPackID.EditValue = txtPackId.Text;
+            numPackageID.EditValue = txtPackageId.Text;
         }
         void ucPackUser_EventAddAfter()
         {
-            numPackID.EditValue = txtPackId.Text;
+            numPackageID.EditValue = txtPackageId.Text;
         }
         void ucPackUser_EventDelete()
         {
@@ -768,7 +836,7 @@ namespace InfoPos.Parameter
             {
                 try
                 {
-                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140265, 140265, new object[] {txtPackId.EditValue, numUserNo.EditValue });  //pPackId, pUserNo);
+                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140265, 140265, new object[] {txtPackageId.EditValue, numUserNo.EditValue });  //pPackId, pUserNo);
                     if (r.ResultNo != 0)
                     {
                         MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
@@ -777,7 +845,7 @@ namespace InfoPos.Parameter
                     else
                     {
                         MessageBox.Show("Амжилттай устгагдлаа .");
-                        ucPackUserRefreshData(txtPackId.EditValue.ToString());                        
+                        ucPackUserRefreshData(txtPackageId.EditValue.ToString());                        
                         btn = 1;
                     }
                 }
@@ -798,7 +866,7 @@ namespace InfoPos.Parameter
 
             if (ucPackUser.FieldValidate(ref err, ref cont) == true)
             {
-                if (Static.ToStr(txtPackId.EditValue) != "")
+                if (Static.ToStr(txtPackageId.EditValue) != "")
                 {
                     ucPackUserEventSave(isnew, ref cancel);
                     ucPackUserRefreshData(_pPackID);
@@ -826,12 +894,12 @@ namespace InfoPos.Parameter
             try
             {
                 Result r = new Result();
-                object[] NewValue = {   Static.ToStr(txtPackId.EditValue),
+                object[] NewValue = {   Static.ToStr(txtPackageId.EditValue),
                                         Static.ToInt(numUserNo.EditValue)
                                     };
                 if (!isnew)
                 {
-                    r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140264, 140264, new object[] { txtPackId.EditValue, oldValueUser, numUserNo.Text });
+                    r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140264, 140264, new object[] { txtPackageId.EditValue, oldValueUser, numUserNo.Text });
                     if (r.ResultNo != 0)
                     {
                         MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
@@ -867,10 +935,10 @@ namespace InfoPos.Parameter
             Result res = new Result();
             try
             {
-                if (Static.ToStr(txtPackId.EditValue) != "")
+                if (Static.ToStr(txtPackageId.EditValue) != "")
                 {
                     grdPackUser.DataSource = null;                    
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140261, 140261, new object[] { txtPackId.EditValue }); 
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140261, 140261, new object[] { txtPackageId.EditValue }); 
                     if (res.ResultNo == 0)
                     {
                         grdPackUser.DataSource = res.Data.Tables[0];
@@ -883,7 +951,7 @@ namespace InfoPos.Parameter
                         MessageBox.Show(res.ResultNo + " " + res.ResultDesc);
                     }
                 }
-                PackId.Text = txtPackId.Text;
+                PackageId.Text = txtPackageId.Text;
             }
             catch (Exception ex)
             {
@@ -925,7 +993,7 @@ namespace InfoPos.Parameter
             {
                 try
                 {
-                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140260, 140260, new object[] { txtPackId.EditValue, numCustNo.EditValue });
+                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140260, 140260, new object[] { txtPackageId.EditValue, numCustNo.EditValue });
                     if (r.ResultNo != 0)
                     {
                         MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
@@ -934,7 +1002,7 @@ namespace InfoPos.Parameter
                     else
                     {
                         MessageBox.Show("Амжилттай устгагдлаа .");
-                        ucPackCustRefreshData(txtPackId.EditValue.ToString());                        
+                        ucPackCustRefreshData(txtPackageId.EditValue.ToString());                        
                         btn = 1;
                     }
                 }
@@ -955,10 +1023,10 @@ namespace InfoPos.Parameter
 
             if (ucPackCust.FieldValidate(ref err, ref cont) == true)
             {
-                if (Static.ToStr(txtPackId.EditValue) != "")
+                if (Static.ToStr(txtPackageId.EditValue) != "")
                 {
                     ucPackCustEventSave(isnew, ref cancel);
-                    ucPackCustRefreshData(Static.ToStr(txtPackId.EditValue));
+                    ucPackCustRefreshData(Static.ToStr(txtPackageId.EditValue));
                     ucPackCust.FieldLinkSetValues();
                 }
                 else
@@ -979,12 +1047,12 @@ namespace InfoPos.Parameter
             try
             {
                 Result r = new Result();
-                object[] NewValue = {   Static.ToStr(txtPackId.Text),
+                object[] NewValue = {   Static.ToStr(txtPackageId.Text),
                                         Static.ToLong(numCustNo.EditValue)                                                                           
                                     };
                 if (!isnew)
                 {
-                    r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140259, 140259, new object[] { txtPackId.EditValue, oldValueCust, numCustNo.EditValue });
+                    r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140259, 140259, new object[] { txtPackageId.EditValue, oldValueCust, numCustNo.EditValue });
                     if (r.ResultNo != 0)
                     {
                         MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
@@ -1020,11 +1088,11 @@ namespace InfoPos.Parameter
             Result res = new Result();
             try
             {
-                if (Static.ToStr(txtPackId.EditValue) != "")
+                if (Static.ToStr(txtPackageId.EditValue) != "")
                 {
                     //grdPackCust.DataSource = null;
                     //ucPackCust.DataSource = null;
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140256, 140256, new object[] { txtPackId.EditValue });
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140256, 140256, new object[] { txtPackageId.EditValue });
                     if (res.ResultNo == 0)
                     {
                         grdPackCust.DataSource = res.Data.Tables[0];
@@ -1038,7 +1106,7 @@ namespace InfoPos.Parameter
                     }
                 }
                 ucPackCust.FieldLinkSetValues();
-                PackId.Text = txtPackId.Text;
+                PackageId.Text = txtPackageId.Text;
             }
             catch (Exception ex)
             {
@@ -1073,11 +1141,11 @@ namespace InfoPos.Parameter
         }
         void ucPackCust_EventAddAfter()
         {
-            txtPackIdCust.EditValue = txtPackId.Text;
+            txtPackageIdCust.EditValue = txtPackageId.Text;
         }
         void ucPackCust_EventReject()
         {
-            txtPackIdCust.EditValue = txtPackId.Text;
+            txtPackageIdCust.EditValue = txtPackageId.Text;
             //ucPackCustRefreshData(Static.ToStr(txtPackId.EditValue));
         }
         void ucPackCust_EventEdit(ref bool cancel)
@@ -1085,13 +1153,229 @@ namespace InfoPos.Parameter
             oldValueCust = Static.ToLong(numCustNo.EditValue);
         }
         #endregion[]        
-        private void cboType_EditValueChanged(object sender, EventArgs e)
+        #region[Price]
+        void ucProdPrice_EventEdit(ref bool cancel)
         {
-            if (Static.ToInt(cboType.EditValue) == 0)
+            object[] Value = {      Static.ToInt(2), 
+                                   Static.ToStr(txtPackageId.EditValue),
+                                   Static.ToStr(cboPriceTypeID.EditValue),
+                                   Static.ToInt(txtPricePrice.EditValue)};
+            pOldValue = Value;
+            if (_pPackID == "")
             {
-                xtraTabPackCust.PageVisible = false;
+                txtPricePackID.EditValue = txtPackageId.EditValue;
+                numPriceProdType.EditValue = 2;
+                cboPriceTypeID.ItemIndex = 0;
             }
-            else { xtraTabPackCust.PageVisible = true; }
+        }
+        void ucProdPrice_EventReject()
+        {
+            txtPricePackID.EditValue = txtPackageId.EditValue;
+            numPriceProdType.EditValue = 0;
+            cboPriceTypeID.ItemIndex = 0;
+        }
+        void ucProdPrice_EventAddAfter()
+        {
+            txtPricePackID.EditValue = txtPackageId.EditValue;
+            numPriceProdType.EditValue = 2;
+            cboPriceTypeID.ItemIndex = 0;
+        }
+        void ucProdPrice_EventExit(bool editing, ref bool cancel)
+        {
+            this.Close();
+        }
+        void ucProdPrice_EventSave(bool isnew, ref bool cancel)
+        {
+            string err = "";
+            Control cont = null;
+
+            if (ucProdPrice.FieldValidate(ref err, ref cont) == true)
+            {
+                if (Static.ToStr(cboPriceTypeID.EditValue) != "")
+                {
+                    ucProdPriceEventSave(isnew, ref cancel);
+                    RefreshPrice(Static.ToStr(txtPackageId.EditValue));
+                    ucProdPrice.FieldLinkSetValues();
+                }
+                else
+                {
+                    MessageBox.Show("Үнийн төрлөө сонгоно уу");
+                    cancel = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show(err);
+                cont.Select();
+                cancel = true;
+            }
+        }
+        void ucProdPriceEventSave(bool isnew, ref bool cancel)
+        {
+            string err = "";
+            Control cont = null;
+
+            if (ucProdPrice.FieldValidate(ref err, ref cont) == true)
+            {
+                object[] obj = {    
+                                   Static.ToInt(2), 
+                                   Static.ToStr(txtPackageId.EditValue),
+                                   Static.ToStr(cboPriceTypeID.EditValue),
+                                   Static.ToInt(txtPricePrice.EditValue)
+                               };
+                string msg = "";
+                try
+                {
+                    if (isnew)
+                    {
+                        res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140433, 140433, new object[] { obj });
+                        msg = "Амжилттай нэмлээ";
+                    }
+                    else
+                    {
+                        res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140434, 140434, new object[] { pOldValue, obj });
+                        msg = "Амжилттай засварлалаа";
+                    }
+                    if (res.ResultNo == 0)
+                    {
+                        RefreshPrice(Static.ToStr(txtPackageId.EditValue));
+                        ucProdPrice.FieldLinkSetSaveState();
+                        MessageBox.Show(msg);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Static.ToStr(res.ResultNo) + " " + res.ResultDesc);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                cancel = true;
+                MessageBox.Show(err);
+                cont.Select();
+            }
+        }
+        private void RefreshPrice(string pPackID)
+        {
+            Result res = new Result();
+            try
+            {
+                if (Static.ToStr(txtPackageId.EditValue) != "")
+                {
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140431, 140431, new object[] { 2, pPackID });
+                    if (res.ResultNo == 0)
+                    {
+                        grdPrice.DataSource = res.Data.Tables[0];
+                        ucProdPrice.DataSource = res.Data;
+                        SetPrice();
+                        loadInv = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(res.ResultNo + " " + res.ResultDesc);
+                    }
+                }
+                else
+                {
+                }
+                txtPricePackID.EditValue = txtPackageId.EditValue;
+                numPriceProdType.EditValue = 2;
+                cboPriceTypeID.ItemIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void SetPrice()
+        {
+            try
+            {
+                ISM.Template.FormUtility.RestoreStateGrid(appname, formname, ref grdPrice);
+                gvwPrice.Columns[0].Caption = "Төрлийн дугаар";
+                gvwPrice.Columns[0].Visible = true;
+                gvwPrice.Columns[0].OptionsColumn.AllowEdit = false;
+                gvwPrice.Columns[1].Caption = "Багцын код";
+                gvwPrice.Columns[1].Visible = true;
+                gvwPrice.Columns[1].OptionsColumn.AllowEdit = false;
+
+
+                gvwPrice.Columns[2].Caption = "Үнийн төрлийн код";
+                gvwPrice.Columns[2].Visible = true;
+                gvwPrice.Columns[2].OptionsColumn.AllowEdit = false;
+                gvwPrice.Columns[3].Caption = "Үнийн төрлийн нэр";
+                gvwPrice.Columns[3].Visible = true;
+                gvwPrice.Columns[3].OptionsColumn.AllowEdit = false;
+                gvwPrice.Columns[4].Caption = "Эдгээр нөхцөл дэх үнэ";
+                gvwPrice.Columns[4].Visible = true;
+                gvwPrice.Columns[4].OptionsColumn.AllowEdit = false;
+                gvwPrice.Columns[5].Caption = "Өдрийн төрөл";
+                gvwPrice.Columns[5].Visible = true;
+                gvwPrice.Columns[5].OptionsColumn.AllowEdit = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        void ucProdPrice_EventDelete()
+        {
+            DialogResult DR = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DR == System.Windows.Forms.DialogResult.No) return;
+            else
+            {
+                try
+                {
+                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140435, 140435, new object[] { 2, _pPackID, cboPriceTypeID.EditValue });
+                    if (r.ResultNo != 0)
+                    {
+                        MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Амжилттай устгагдлаа .");
+                        btn = 1;
+                    }
+                    RefreshPrice(Static.ToStr(txtPackageId.EditValue));
+                    ucProdPrice.FieldLinkSetValues();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        #endregion[]        
+        private void btnPicEnter_Click(object sender, EventArgs e)
+        {
+            ISM.Template.FormImage img = new FormImage();
+            img.Resource = _core.Resource;
+            img.ShowDialog();
+            if (img.DialogResult == System.Windows.Forms.DialogResult.OK)
+                picPicture.Image = img.ImageObject;
+        }
+        private void btnZoom_Click(object sender, EventArgs e)
+        {
+            if (picPicture.Image != null)
+            {
+                ISM.Template.FormImage frm = new FormImage();
+                frm.Resource = _core.Resource;
+                frm.ImageObject = picPicture.Image;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    picPicture.Image = frm.ImageObject;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Зураг сонгогдоогүй байна .");
+            }
         }
     }
 }

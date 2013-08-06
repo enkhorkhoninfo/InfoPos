@@ -6336,17 +6336,17 @@ WHERE ServID=:1";
                 string sql = "";
 
                 #region [//Merge ProdPriceHist]
-                object[] objPrice = new object[5];
+                //object[] objPrice = new object[5];
 
-                objPrice[0] = IPos.Core.SystemProp.TxnDate;
-                objPrice[1] = 1;
-                objPrice[2] = pParam[0];
-                objPrice[3] = pParam[6];
-                objPrice[4] = pUserNo;
+                //objPrice[0] = IPos.Core.SystemProp.TxnDate;
+                //objPrice[1] = 1;
+                //objPrice[2] = pParam[0];
+                //objPrice[3] = pParam[6];
+                //objPrice[4] = pUserNo;
 
-                res = DB202288(pDB, objPrice);
-                if (res.ResultNo != 0)
-                    return res;
+                //res = DB202288(pDB, objPrice);
+                //if (res.ResultNo != 0)
+                //    return res;
                 #endregion
 
                 if (pParam[26] == null)
@@ -6357,12 +6357,12 @@ WHERE ServID=:1";
                         obj[i] = pParam[i];
 
                     sql =
-@"INSERT INTO ServMain(ServID, ServType, Name, Name2, ServStartDate,
-ServEndDate, PriceAmount, Count, CatCode, Unit,
-UnitSize, PrinterType, CreateDate, Note, Status, 
-TagType, TagTime, TagTimeMethod, IsSchedule, ScheduleType, 
-SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, BONUSEXPACCOUNTNO,
-servicetime)
+@"INSERT INTO ServMain(ServID, TypeCode, Name, Name2, BrandID, 
+BarCode, Unit, UnitSize, Status, Price, 
+Count, CreateDate, SalesStartDate, SalesEndDate, Note, 
+SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, BonusExpAccountNo, 
+isTimeTable, TimeTableID, ServiceTime, TagType, TagTime, 
+TagTimeMethod)
 VALUES(:1, :2, :3, :4, :5,
 :6,  :7,  :8,  :9,  :10,
 :11, :12, :13, :14, :15,
@@ -6374,18 +6374,18 @@ VALUES(:1, :2, :3, :4, :5,
                 else
                 {
                     sql =
-    @"INSERT INTO ServMain(ServID, ServType, Name, Name2, ServStartDate,
-ServEndDate, PriceAmount, Count, CatCode, Unit,
-UnitSize, PrinterType, CreateDate, Note, Status, 
-TagType, TagTime, TagTimeMethod, IsSchedule, ScheduleType, 
-SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, BONUSEXPACCOUNTNO, 
-servicetime, picture)
+    @"INSERT INTO ServMain(ServID, TypeCode, Name, Name2, BrandID, 
+BarCode, Unit, UnitSize, Status, Price, 
+Count, CreateDate, SalesStartDate, SalesEndDate, Note, 
+SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, BonusExpAccountNo, 
+isTimeTable, TimeTableID, ServiceTime, TagType, TagTime, 
+TagTimeMethod, picture)
 VALUES(:1, :2, :3, :4, :5,
 :6,  :7,  :8,  :9,  :10,
 :11, :12, :13, :14, :15,
 :16, :17, :18, :19, :20,
 :21, :22, :23, :24, :25,
-:26, 27)";
+:26, :27)";
                     res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202228", pParam);
                 }
 
@@ -6411,17 +6411,17 @@ VALUES(:1, :2, :3, :4, :5,
                 string sql = "";
 
                 #region [//Merge ProdPriceHist]
-                object[] objPrice = new object[5];
+                //object[] objPrice = new object[5];
 
-                objPrice[0] = IPos.Core.SystemProp.TxnDate;
-                objPrice[1] = 1;
-                objPrice[2] = pParam[0];
-                objPrice[3] = pParam[6];
-                objPrice[4] = pUserNo;
+                //objPrice[0] = IPos.Core.SystemProp.TxnDate;
+                //objPrice[1] = 1;
+                //objPrice[2] = pParam[0];
+                //objPrice[3] = pParam[6];
+                //objPrice[4] = pUserNo;
 
-                res = DB202288(pDB, objPrice);
-                if (res.ResultNo != 0)
-                    return res;
+                //res = DB202288(pDB, objPrice);
+                //if (res.ResultNo != 0)
+                //    return res;
                 #endregion
 
                 if (pParam[26] == null)
@@ -6433,12 +6433,12 @@ VALUES(:1, :2, :3, :4, :5,
 
                     sql =
 @"UPDATE ServMain SET
-ServType=:2, Name=:3, Name2=:4, ServStartDate=:5,
-ServEndDate=:6, PriceAmount=:7, Count=:8, CatCode=:9, Unit=:10,
-UnitSize=:11, PrinterType=:12, CreateDate=:13, Note=:14, Status=:15, 
-TagType=:16, TagTime=:17, TagTimeMethod=:18, IsSchedule=:19, ScheduleType=:20, 
-SalesAccountNo=:21, RefundAccountNo=:22, DiscountAccountNo=:23, BonusAccountNo=:24, BONUSEXPACCOUNTNO=:25,
-servicetime=:26
+TypeCode=:2, Name=:3, Name2=:4, BrandID=:5, 
+BarCode=:6, Unit=:7, UnitSize=:8, Status=:9, Price=:10, 
+Count=:11, CreateDate=:12, SalesStartDate=:13, SalesEndDate=:14, Note=:15, 
+SalesAccountNo=:16, RefundAccountNo=:17, DiscountAccountNo=:18, BonusAccountNo=:19, BonusExpAccountNo=:20, 
+isTimeTable=:21, TimeTableID=:22, ServiceTime=:23, TagType=:24, TagTime=:25, 
+TagTimeMethod=:26
 WHERE ServID=:1";
 
                     res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202229", obj);
@@ -6448,12 +6448,12 @@ WHERE ServID=:1";
 
                     sql =
 @"UPDATE ServMain SET
-ServType=:2, Name=:3, Name2=:4, ServStartDate=:5,
-ServEndDate=:6, PriceAmount=:7, Count=:8, CatCode=:9, Unit=:10,
-UnitSize=:11, PrinterType=:12, CreateDate=:13, Note=:14, Status=:15, 
-TagType=:16, TagTime=:17, TagTimeMethod=:18, IsSchedule=:19, ScheduleType=:20, 
-SalesAccountNo=:21, RefundAccountNo=:22, DiscountAccountNo=:23, BonusAccountNo=:24, BONUSEXPACCOUNTNO=:25, 
-servicetime=:26, picture=:27
+TypeCode=:2, Name=:3, Name2=:4, BrandID=:5, 
+BarCode=:6, Unit=:7, UnitSize=:8, Status=:9, Price=:10, 
+Count=:11, CreateDate=:12, SalesStartDate=:13, SalesEndDate=:14, Note=:15, 
+SalesAccountNo=:16, RefundAccountNo=:17, DiscountAccountNo=:18, BonusAccountNo=:19, BonusExpAccountNo=:20, 
+isTimeTable=:21, TimeTableID=:22, ServiceTime=:23, TagType=:24, TagTime=:25, 
+TagTimeMethod=:26, picture=:27
 WHERE ServID=:1";
 
                     res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202229", pParam);
@@ -6863,8 +6863,12 @@ WHERE typecode = :1";
             {
                 string sql;
 
-                string[] fieldnames = new string[] { "a.PackId like","a.Name like","a.Name2 like","a.Note like","a.StartDate",
-"a.EndDate","a.Type","a.Status","a.SalesUser","a.SalesCreated","a.price"};
+                string[] fieldnames = new string[] { 
+                    "a.PackageId like","a.Name like","a.Name2 like","a.BrandID","a.BarCode like",
+                    "a.UnitSize like","a.Status","a.Price like","a.Count like","a.CreateDate",
+                    "a.SalesStartDate","a.SalesEndDate","a.Note like","a.SalesAccountNo like","a.RefundAccountNo like",
+                    "a.DiscountAccountNo like","a.BonusAccountNo like","a.BonusExpAccountNo like"
+                };
 
                 ArrayList dbparam = new ArrayList(fieldnames.Length);
                 StringBuilder sb = new StringBuilder();
@@ -6891,10 +6895,13 @@ WHERE typecode = :1";
                 }
 
                 sql = string.Format(
-@"select a.PackId, a.Name, a.Name2, a.Note, a.StartDate, a.EndDate,
-a.Type, decode(a.Type, 0, 'НИЙТИЙН', 1, 'ХУВИЙН') as TypeName, a.Status, decode(a.Status, 0, 'ИДЭВХГҮЙ', 1, 'ИДЭВХТЭЙ') as StatusName,
-a.SalesUser, a.SalesCreated, a.price
-from packmain a
+@"select a.PackageID, a.Name, a.Name2, a.BrandID, pb.name as brandidname, a.BarCode, 
+a.Unit, a.name as unitname, a.UnitSize, a.Status, decode(a.status, 0, 'Идэвхгүй', 1, 'Идэвхтэй') as Statusname, a.Price, a.Count, 
+a.CreateDate, a.SalesStartDate, a.SalesEndDate, a.Note, a.SalesAccountNo, 
+a.RefundAccountNo, a.DiscountAccountNo, a.BonusAccountNo, a.BonusExpAccountNo
+from packagemain a
+left join pabrand pb on a.brandid=pb.brandid 
+left join paunittype pu on a.Unit=pu.UNITTYPECODE
 {0} {1} ", sb.Length > 0 ? "where" : "", sb.ToString());
 
                 res = pDB.ExecuteQuery("core", sql, "DB202246", pageindex, pagerows, dbparam.ToArray());
@@ -6917,11 +6924,12 @@ from packmain a
             try
             {
                 string sql =
-@"select a.PackId, a.Name, a.Name2, a.Note, a.StartDate, a.EndDate,
-a.Type, decode(a.Type, 0, 'НИЙТИЙН', 1, 'ХУВИЙН') as TypeName, a.Status, decode(a.Status, 0, 'ИДЭВХГҮЙ', 1, 'ИДЭВХТЭЙ') as StatusName,
-a.SalesUser, a.SalesCreated, a.price
-from packmain a
-WHERE a.PackId=:1";
+@"select PackageID, Name, Name2, BrandID, BarCode, 
+Unit, UnitSize, Status, Price, Count, 
+CreateDate, SalesStartDate, SalesEndDate, Note, SalesAccountNo, 
+RefundAccountNo, DiscountAccountNo, BonusAccountNo, BonusExpAccountNo, Picture 
+from packmain 
+WHERE PackageID=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202247", pPackId);
 
@@ -6943,26 +6951,48 @@ WHERE a.PackId=:1";
             try
             {
                 #region [//Merge ProdPriceHist]
-                object[] objPrice = new object[5];
+                //object[] objPrice = new object[5];
 
-                objPrice[0] = IPos.Core.SystemProp.TxnDate;
-                objPrice[1] = 2;
-                objPrice[2] = pParam[0];
-                objPrice[3] = pParam[10];
-                objPrice[4] = pUserNo;
+                //objPrice[0] = IPos.Core.SystemProp.TxnDate;
+                //objPrice[1] = 2;
+                //objPrice[2] = pParam[0];
+                //objPrice[3] = pParam[10];
+                //objPrice[4] = pUserNo;
 
-                res = DB202288(pDB, objPrice);
-                if (res.ResultNo != 0)
-                    return res;
+                //res = DB202288(pDB, objPrice);
+                //if (res.ResultNo != 0)
+                //    return res;
                 #endregion
 
-                string sql =
-@"INSERT INTO packmain(PackId, Name, Name2, Note, StartDate,
-EndDate, Type, Status, SalesUser, SalesCreated, price)
-VALUES(:1, :2, :3, :4, :5,
-:6, :7, :8, :9, :10, :11)";
+                string sql = "";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202248", pParam);
+                if (pParam[19] == null)
+                {
+                    object[] obj = new object[19];
+
+                    for (int i = 0; i < 19; i++)
+                        obj[i] = pParam[i];
+
+                    sql =
+@"INSERT INTO packmain(PackageID, Name, Name2, BrandID, BarCode, 
+Unit, UnitSize, Status, Price, Count, 
+CreateDate, SalesStartDate, SalesEndDate, Note, SalesAccountNo, 
+RefundAccountNo, DiscountAccountNo, BonusAccountNo, BonusExpAccountNo )
+VALUES(:1, :2, :3, :4, :5,
+:6, :7, :8, :9)";
+
+                    res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202214", obj);
+                }
+                else
+                {
+                    sql =
+    @"INSERT INTO packmain(PackageID, Name, Name2, BrandID, BarCode, Unit, UnitSize, Status, Price, Count, 
+CreateDate, SalesStartDate, SalesEndDate, Note, SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, BonusExpAccountNo, Picture )
+VALUES(:1, :2, :3, :4, :5,
+:6, :7, :8, :9, :10)";
+
+                    res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202248", pParam);
+                }
                 res = F_Error(res);
                 return res;
             }
@@ -6982,26 +7012,50 @@ VALUES(:1, :2, :3, :4, :5,
             try
             {
                 #region [//Merge ProdPriceHist]
-                object[] objPrice = new object[5];
+                //object[] objPrice = new object[5];
 
-                objPrice[0] = IPos.Core.SystemProp.TxnDate;
-                objPrice[1] = 2;
-                objPrice[2] = pParam[0];
-                objPrice[3] = pParam[10];
-                objPrice[4] = pUserNo;
+                //objPrice[0] = IPos.Core.SystemProp.TxnDate;
+                //objPrice[1] = 2;
+                //objPrice[2] = pParam[0];
+                //objPrice[3] = pParam[10];
+                //objPrice[4] = pUserNo;
 
-                res = DB202288(pDB, objPrice);
-                if (res.ResultNo != 0)
-                    return res;
+                //res = DB202288(pDB, objPrice);
+                //if (res.ResultNo != 0)
+                //    return res;
                 #endregion
 
-                string sql =
-@"UPDATE packmain SET
-Name=:2, Name2=:3, Note=:4, StartDate=:5,
-EndDate=:6, Type=:7, Status=:8, SalesUser=:9, SalesCreated=:10, price=:11
+                string sql = "";
+
+                if (pParam[19] == null)
+                {
+                    object[] obj = new object[19];
+
+                    for (int i = 0; i < 19; i++)
+                        obj[i] = pParam[i];
+
+                    sql =
+@"UPDATE packagemain SET
+Name=:2, Name2=:3, BrandID=:4, BarCode=:5, 
+Unit=:6, UnitSize=:7, Status=:8, Price=:9, Count=:10, 
+CreateDate=:11, SalesStartDate=:12, SalesEndDate=:13, Note=:14, SalesAccountNo=:15, 
+RefundAccountNo=:16, DiscountAccountNo=:17, BonusAccountNo=:18, BonusExpAccountNo=:19
 WHERE PackId=:1";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202249", pParam);
+                    res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202214", obj);
+                }
+                else
+                {
+                    sql =
+@"UPDATE packagemain SET
+Name=:2, Name2=:3, BrandID=:4, BarCode=:5, 
+Unit=:6, UnitSize=:7, Status=:8, Price=:9, Count=:10, 
+CreateDate=:11, SalesStartDate=:12, SalesEndDate=:13, Note=:14, SalesAccountNo=:15, 
+RefundAccountNo=:16, DiscountAccountNo=:17, BonusAccountNo=:18, BonusExpAccountNo=:19, Picture=:20
+WHERE PackId=:1";
+
+                    res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202249", pParam);
+                }
                 res = F_Error(res);
                 return res;
             }
@@ -7021,7 +7075,7 @@ WHERE PackId=:1";
             try
             {
                 string sql =
-@"DELETE FROM packmain WHERE PackId=:1";
+@"DELETE FROM packagemain WHERE packageId=:1";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202250", pPackId);
 
                 return res;
@@ -7043,19 +7097,17 @@ WHERE PackId=:1";
             try
             {
                 string sql =
-@"select a.PackId, a.ProdId, c.name as ProdName, a.ProdType, decode(a.ProdType, 0, 'Бараа', 1, 'Үйлчилгээ') as ProdTypeName,
-a.Count, a.Optional, decode(a.Optional, 0, 'Уг барааг заавал борлуулна', 1, 'Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно') as OptionalName,
-a.price
-from packitem a
-left join (select InvId as prodno, InvType as prodtype, Name from invmain) c on a.ProdId=c.prodno
-where a.PackId=:1 and a.ProdType=0
+@"select a.PackageId, a.ProdId, c.name as ProdName, a.ProdType, decode(a.ProdType, 0, 'Бараа', 1, 'Үйлчилгээ') as ProdTypeName,
+a.Count, a.Optional, decode(a.Optional, 0, 'Уг барааг заавал борлуулна', 1, 'Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно') as OptionalName
+from packageitem a
+left join (select InvId as prodno, TypeCode as prodtype, Name from invmain) c on a.ProdId=c.prodno
+where a.PackageId=:1 and a.ProdType=0
 union
-select a.PackId, a.ProdId, c.name as ProdName, a.ProdType, decode(a.ProdType, 0, 'Бараа', 1, 'Үйлчилгээ') as ProdTypeName,
-a.Count, a.Optional, decode(a.Optional, 0, 'Уг барааг заавал борлуулна', 1, 'Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно') as OptionalName,
-a.price
-from packitem a
-left join (select ServId as prodno, ServType as prodtype, Name from servmain) c on a.ProdId=c.prodno
-where a.PackId=:1 and a.ProdType=1
+select a.PackageId, a.ProdId, c.name as ProdName, a.ProdType, decode(a.ProdType, 0, 'Бараа', 1, 'Үйлчилгээ') as ProdTypeName,
+a.Count, a.Optional, decode(a.Optional, 0, 'Уг барааг заавал борлуулна', 1, 'Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно') as OptionalName
+from Packageitem a
+left join (select ServId as prodno, TypeCode as prodtype, Name from servmain) c on a.ProdId=c.prodno
+where a.PackageId=:1 and a.ProdType=1
 ";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202251", pPackID);
@@ -7078,19 +7130,17 @@ where a.PackId=:1 and a.ProdType=1
             try
             {
                 string sql =
-@"select a.PackId, a.ProdId, c.name as ProdName, a.ProdType, decode(a.ProdType, 0, 'Бараа', 1, 'Үйлчилгээ') as ProdTypeName,
-a.Count, a.Optional, decode(a.Optional, 0, 'Уг барааг заавал борлуулна', 1, 'Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно') as OptionalName,
-a.price
-from packitem a
-left join (select InvId as prodno, InvType as prodtype, Name from invmain) c on a.ProdId=c.prodno
-where a.PackId=:1 and a.ProdType=0 and a.ProdId=:2 and a.ProdType=:3
+@"select a.PackageId, a.ProdId, c.name as ProdName, a.ProdType, decode(a.ProdType, 0, 'Бараа', 1, 'Үйлчилгээ') as ProdTypeName,
+a.Count, a.Optional, decode(a.Optional, 0, 'Уг барааг заавал борлуулна', 1, 'Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно') as OptionalName
+from packageitem a
+left join (select InvId as prodno, TypeCode as prodtype, Name from invmain) c on a.ProdId=c.prodno
+where a.PackageId=:1 and a.ProdType=0 and a.ProdId=:2 and a.ProdType=:3
 union
-select a.PackId, a.ProdId, c.name as ProdName, a.ProdType, decode(a.ProdType, 0, 'Бараа', 1, 'Үйлчилгээ') as ProdTypeName,
-a.Count, a.Optional, decode(a.Optional, 0, 'Уг барааг заавал борлуулна', 1, 'Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно') as OptionalName,
-a.price
-from packitem a
-left join (select ServId as prodno, ServType as prodtype, Name from servmain) c on a.ProdId=c.prodno
-where a.PackId=:1 and a.ProdType=1 and a.ProdId=:2 and a.ProdType=:3
+select a.PackageId, a.ProdId, c.name as ProdName, a.ProdType, decode(a.ProdType, 0, 'Бараа', 1, 'Үйлчилгээ') as ProdTypeName,
+a.Count, a.Optional, decode(a.Optional, 0, 'Уг барааг заавал борлуулна', 1, 'Уг бараа өөр ийм төрөлтэй бараанаас аль нэгийг сонгож болно') as OptionalName
+from packageitem a
+left join (select ServId as prodno, TypeCode as prodtype, Name from servmain) c on a.ProdId=c.prodno
+where a.PackageId=:1 and a.ProdType=1 and a.ProdId=:2 and a.ProdType=:3
 ";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202252", pPackID, pProdID, pProdType);
@@ -7113,8 +7163,8 @@ where a.PackId=:1 and a.ProdType=1 and a.ProdId=:2 and a.ProdType=:3
             try
             {
                 string sql =
-@"INSERT INTO packitem(PackId, ProdId, ProdType, Count, Optional, price)
-VALUES(:1, :2, :3, :4, :5, :6)";
+@"INSERT INTO packageitem(PackageId, ProdId, ProdType, Count, Optional)
+VALUES(:1, :2, :3, :4, :5)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202253", pParam);
                 res = F_Error(res);
@@ -7135,7 +7185,7 @@ VALUES(:1, :2, :3, :4, :5, :6)";
             Result res = new Result();
             try
             {
-                object[] obj = new object[8];
+                object[] obj = new object[7];
 
                 obj[0] = pOldParam[0];
                 obj[1] = pOldParam[1];
@@ -7144,12 +7194,11 @@ VALUES(:1, :2, :3, :4, :5, :6)";
                 obj[4] = pNewParam[2];
                 obj[5] = pNewParam[3];
                 obj[6] = pNewParam[4];
-                obj[7] = pNewParam[5];
 
                 string sql =
-@"UPDATE packitem SET
-ProdId=:4, ProdType=:5, Count=:6, Optional=:7, price=:8
-WHERE PackId=:1 and ProdId=:2 and ProdType=:3";
+@"UPDATE packageitem SET
+ProdId=:4, ProdType=:5, Count=:6, Optional=:7
+WHERE PackageId=:1 and ProdId=:2 and ProdType=:3";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202254", obj);
                 res = F_Error(res);
@@ -7171,7 +7220,7 @@ WHERE PackId=:1 and ProdId=:2 and ProdType=:3";
             try
             {
                 string sql =
-@"DELETE FROM packitem WHERE PackId=:1 and ProdId=:2 and ProdType=:3";
+@"DELETE FROM packageitem WHERE PackageId=:1 and ProdId=:2 and ProdType=:3";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202255", pPackId, pProdID, pProdType);
 
                 return res;
@@ -7193,10 +7242,10 @@ WHERE PackId=:1 and ProdId=:2 and ProdType=:3";
             try
             {
                 string sql =
-@"select a.packid, a.custno, c.firstname, c.lastname, c.corporatename
-from PackCust a
+@"select a.packageid, a.custno, c.firstname, c.lastname, c.corporatename
+from PackageCust a
 left join customer c on a.custno=c.customerno
-where a.PackId=:1
+where a.PackageId=:1
 ";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202256", pPackID);
@@ -7219,10 +7268,10 @@ where a.PackId=:1
             try
             {
                 string sql =
-@"select a.packid, a.custno, c.firstname, c.lastname, c.corporatename
-from PackCust a
+@"select a.packageid, a.custno, c.firstname, c.lastname, c.corporatename
+from PackageCust a
 left join customer c on a.custno=c.customerno
-where a.PackId=:1 and a.custno=:2
+where a.PackageId=:1 and a.custno=:2
 ";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202257", pPackID, pCustNo);
@@ -7245,7 +7294,7 @@ where a.PackId=:1 and a.custno=:2
             try
             {
                 string sql =
-@"INSERT INTO PackCust(PackId, custno)
+@"INSERT INTO PackageCust(PackageId, custno)
 VALUES(:1, :2)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202258", pParam);
@@ -7268,9 +7317,9 @@ VALUES(:1, :2)";
             try
             {
                 string sql =
-@"UPDATE PackCust SET
+@"UPDATE PackageCust SET
 custno=:3
-WHERE PackId=:1 and custno=:2";
+WHERE PackageId=:1 and custno=:2";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202259", pPackID, pOldCustNo, pNewCustNo);
                 res = F_Error(res);
@@ -7292,7 +7341,7 @@ WHERE PackId=:1 and custno=:2";
             try
             {
                 string sql =
-@"DELETE FROM PackCust WHERE PackId=:1 and custno=:2";
+@"DELETE FROM PackageCust WHERE PackageId=:1 and custno=:2";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202260", pPackID, pCustNo);
 
                 return res;
@@ -7314,10 +7363,10 @@ WHERE PackId=:1 and custno=:2";
             try
             {
                 string sql =
-@"select a.packid, a.UserNo, c.userfname, c.userlname
-from PackUser a
+@"select a.packageid, a.UserNo, c.userfname, c.userlname
+from PackageUser a
 left join hpuser c on a.UserNo=c.UserNo
-where a.PackId=:1
+where a.PackageId=:1
 ";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202261", pPackID);
@@ -7340,10 +7389,10 @@ where a.PackId=:1
             try
             {
                 string sql =
-@"select a.packid, a.UserNo, c.userfname, c.userlname
-from PackUser a
+@"select a.packageid, a.UserNo, c.userfname, c.userlname
+from PackageUser a
 left join hpuser c on a.UserNo=c.UserNo
-where a.PackId=:1 and a.UserNo=:2
+where a.PackageId=:1 and a.UserNo=:2
 ";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB202262", pPackID, pUserNo);
@@ -7366,7 +7415,7 @@ where a.PackId=:1 and a.UserNo=:2
             try
             {
                 string sql =
-@"INSERT INTO PackUser(PackId, UserNo)
+@"INSERT INTO PackageUser(PackageId, UserNo)
 VALUES(:1, :2)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB202263", pParam);
@@ -7389,9 +7438,9 @@ VALUES(:1, :2)";
             try
             {
                 string sql =
-@"UPDATE PackUser SET
+@"UPDATE PackageUser SET
 UserNo=:3
-WHERE PackId=:1 and UserNo=:2";
+WHERE PackageId=:1 and UserNo=:2";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB202264", pPackID, pOldUserNo, pNewUserNo);
                 res = F_Error(res);
@@ -7413,7 +7462,7 @@ WHERE PackId=:1 and UserNo=:2";
             try
             {
                 string sql =
-@"DELETE FROM PackUser WHERE PackId=:1 and UserNo=:2";
+@"DELETE FROM PackageUser WHERE PackageId=:1 and UserNo=:2";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB202265", pPackID, pUserNo);
 
                 return res;

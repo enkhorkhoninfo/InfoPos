@@ -78,18 +78,21 @@ namespace InfoPos.Parameter
             ucServMain.FieldLinkAdd("txtBarCode", 0, "BarCode", "", false, false);
             ucServMain.FieldLinkAdd("cboUnit", 0, "UNIT", "", false, false);
             ucServMain.FieldLinkAdd("numUnitSize", 0, "UNITSIZE", "", false, false);
+
             ucServMain.FieldLinkAdd("cboStatus", 0, "STATUS", "", false, false);
             ucServMain.FieldLinkAdd("txtPrice", 0, "PRICE", "", false, false);
             ucServMain.FieldLinkAdd("numCount", 0, "COUNT", "", false, false);
             ucServMain.FieldLinkAdd("dtCreateDate", 0, "CREATEDATE", "", false, false);
             ucServMain.FieldLinkAdd("dtSalesStartDate", 0, "SalesStartDate", "", true, false);
             ucServMain.FieldLinkAdd("dtSalesEndDate", 0, "SalesEndDate", "", true, false);
+            
             ucServMain.FieldLinkAdd("txtNote", 0, "NOTE", "", false, false);
             ucServMain.FieldLinkAdd("txtSalesAccountNo", 0, "SALESACCOUNTNO", "", false, false);
             ucServMain.FieldLinkAdd("txtRefundAccountNo", 0, "REFUNDACCOUNTNO", "", false, false);
             ucServMain.FieldLinkAdd("txtDiscountAccountNo", 0, "DISCOUNTACCOUNTNO", "", false, false);
             ucServMain.FieldLinkAdd("txtBonusAccountNo", 0, "BONUSACCOUNTNO", "", false, false);
             ucServMain.FieldLinkAdd("txtBONUSEXPACCOUNTNO", 0, "BONUSEXPACCOUNTNO", "", false, false);
+
             ucServMain.FieldLinkAdd("chkIsTimeTable", 0, "IsTimeTable", "", false, false);
             ucServMain.FieldLinkAdd("cboTimeTableID", 0, "TimeTableID", "", false, false);
             ucServMain.FieldLinkAdd("numServiceTime", 0, "SERVICETIME", "", false, false);
@@ -102,9 +105,9 @@ namespace InfoPos.Parameter
 
             ucServPrice.FieldLinkAdd("numProdType", 0, "ProdType", "", false, true);
             ucServPrice.FieldLinkAdd("txtProdId", 0, "servid", "", false, false);
-            ucServPrice.FieldLinkAdd("cboDayType", 0, "DayTypeid", "", true, false);
-            ucServPrice.FieldLinkAdd("dtStartTime", 0, "StartTime", "", true, false);
-            ucServPrice.FieldLinkAdd("dtEndTime", 0, "EndTime", "", true, false);
+            ucServPrice.FieldLinkAdd("cboPriceTypeID", 0, "PriceTypeID", "", true, false);
+            //ucServPrice.FieldLinkAdd("dtStartTime", 0, "StartTime", "", true, false);
+            //ucServPrice.FieldLinkAdd("dtEndTime", 0, "EndTime", "", true, false);
             ucServPrice.FieldLinkAdd("numPrice", 0, "Price", "", true, false);
 
             ucServPrice.FieldLinkAdd("picPicture", 0, "Picture", "", false, false);
@@ -149,13 +152,7 @@ namespace InfoPos.Parameter
                 string msg = "";
 
                 DictUtility.PrivNo = PrivNo;
-                string[] name = new string[] { "SERVTYPE", "INVCAT", "UNITTYPECODE", "TAGSETUP", "SCHEDULETYPE", "PADAYTYPE" };
-                //UNITTYPECODE	НЭГЖИЙН ТӨРӨЛ
-                //INVCAT	Ангиллын төрлийн бүртгэл
-                //SERVTYPE	Үйлчилгээний төрөл
-                //TAGSETUP	Тагийн төрөл
-                //SCHEDULETYPE	Хуваарийн төрөл
-                //PADAYTYPE	Өдрийн төрөл
+                string[] name = new string[] { "SERVTYPE", "UNITTYPECODE", "TAGSETUP", "SCHEDULETYPE", "PAPRICETYPE", "BRAND" };
 
                 res = DictUtility.Get(_core.RemoteObject, name, ref Tables);
 
@@ -168,16 +165,8 @@ namespace InfoPos.Parameter
                 {
                     FormUtility.LookUpEdit_SetList(ref cboTypeCode, DT, "SERVTYPE", "name", "", new int[] { 2, 3, 4 });
                 }
+
                 DT = (DataTable)Tables[1];
-                if (DT == null)
-                {
-                    msg = "\r\nDictionary-д INVCAT оруулаагүй байна" + res.ResultDesc;
-                }
-                else
-                {
-                    FormUtility.LookUpEdit_SetList(ref cboCatCode, DT, "CATCODE", "NAME", "", new int[] { 2, 3, 4 });
-                }
-                DT = (DataTable)Tables[2];
                 if (DT == null)
                 {
                     msg = "Dictionary-д UNITTYPECODE оруулаагүй байна-" + res.ResultDesc;
@@ -186,7 +175,7 @@ namespace InfoPos.Parameter
                 {
                     FormUtility.LookUpEdit_SetList(ref cboUnit, DT, "UNITTYPECODE", "NAME", "", new int[] { 2, 3, 4 });
                 }
-                DT = (DataTable)Tables[3];
+                DT = (DataTable)Tables[2];
                 if (DT == null)
                 {
                     msg = "Dictionary-д TAGSETUP оруулаагүй байна-" + res.ResultDesc;
@@ -196,31 +185,38 @@ namespace InfoPos.Parameter
                     FormUtility.LookUpEdit_SetList(ref cboTagType, DT, "TAGTYPE", "NAME", "", new int[] { 2, 3, 4 });
                 }
 
-                DT = (DataTable)Tables[4];
+                DT = (DataTable)Tables[3];
                 if (DT == null)
                 {
                     msg = "Dictionary-д SCHEDULETYPE оруулаагүй байна-" + res.ResultDesc;
                 }
                 else
                 {
-                    FormUtility.LookUpEdit_SetList(ref cboTimeTableID, DT, "SCHEDULETYPE", "NAME", "", new int[] { 2, 3, 4 });
+                    FormUtility.LookUpEdit_SetList(ref cboTimeTableID, DT, "SCHEDULETYPE", "NAME");
                 }
 
-                DT = (DataTable)Tables[5];
+                DT = (DataTable)Tables[4];
                 if (DT == null)
                 {
                     msg = "Dictionary-д PADAYTYPE оруулаагүй байна-" + res.ResultDesc;
                 }
                 else
                 {
-                    FormUtility.LookUpEdit_SetList(ref cboDayType, DT, "DAYTYPE", "DESCRIPTION", "", new int[] { 2, 3, 4 });
+                    FormUtility.LookUpEdit_SetList(ref cboPriceTypeID, DT, "PRICETYPEID", "NAME");
                 }
 
-                FormUtility.LookUpEdit_SetList(ref cboPrinterType, 0, "Bill Printer");
-                FormUtility.LookUpEdit_SetList(ref cboPrinterType, 1, "Lift Printer");
+                DT = (DataTable)Tables[5];
+                if (DT == null)
+                {
+                    msg = "Dictionary-д BRAND оруулаагүй байна-" + res.ResultDesc;
+                }
+                else
+                {
+                    FormUtility.LookUpEdit_SetList(ref cboBrandID, DT, "brandid", "NAME", "", new int[] { 2, 3, 4 });
+                }
 
-                FormUtility.LookUpEdit_SetList(ref cboStatus, 0, "Идэвхтэй");
-                FormUtility.LookUpEdit_SetList(ref cboStatus, 1, "Идэвхгүй");
+                FormUtility.LookUpEdit_SetList(ref cboStatus, 0, "Идэвхгүй");
+                FormUtility.LookUpEdit_SetList(ref cboStatus, 1, "Идэвхтэй");
 
                 FormUtility.LookUpEdit_SetList(ref cboTagTimeMethod, 0, "Борлуулалт хийгдсэнээр");
                 FormUtility.LookUpEdit_SetList(ref cboTagTimeMethod, 1, "Сүүлд түрээсээр олгосноор");
@@ -228,7 +224,6 @@ namespace InfoPos.Parameter
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Өгөгдлийн баазаас Dictionary олдсонгүй.");
             }
         }
@@ -236,8 +231,8 @@ namespace InfoPos.Parameter
         #region[Main]
         void ucServMain_EventReject()
         {
-            cboCatCode.ItemIndex = 0;
-            cboPrinterType.ItemIndex = 0;
+            //cboCatCode.ItemIndex = 0;
+            //cboPrinterType.ItemIndex = 0;
             cboTimeTableID.ItemIndex = 0;
             cboTypeCode.ItemIndex = 0;
             cboStatus.ItemIndex = 0;
@@ -246,13 +241,13 @@ namespace InfoPos.Parameter
             cboUnit.ItemIndex = 0;
             dtCreateDate.EditValue = _core.TxnDate;
             dtSalesStartDate.EditValue = _core.TxnDate;
-            tdSalesEndDate.EditValue = _core.TxnDate;
+            dtSalesEndDate.EditValue = _core.TxnDate;
             //btnInv.Enabled = false;
         }
         void ucServMain_EventAddAfter()
         {
-            cboCatCode.ItemIndex = 0;
-            cboPrinterType.ItemIndex = 0;
+            //cboCatCode.ItemIndex = 0;
+            //cboPrinterType.ItemIndex = 0;
             cboTimeTableID.ItemIndex = 0;
             cboTypeCode.ItemIndex = 0;
             cboStatus.ItemIndex = 0;
@@ -261,7 +256,7 @@ namespace InfoPos.Parameter
             cboUnit.ItemIndex = 0;
             dtCreateDate.EditValue = _core.TxnDate;
             dtSalesStartDate.EditValue = _core.TxnDate;
-            tdSalesEndDate.EditValue = _core.TxnDate;
+            dtSalesEndDate.EditValue = _core.TxnDate;
             btnInv.Enabled = true;
         }        
         void ucServMain_EventExit(bool editing, ref bool cancel)
@@ -336,28 +331,28 @@ namespace InfoPos.Parameter
                                      cboTypeCode.EditValue,          //1
                                      txtName.EditValue,              //2
                                      txtName2.EditValue,             //3
-                                     Static.ToDate(dtSalesStartDate.EditValue),      //4
-                                     Static.ToDate(tdSalesEndDate.EditValue),       //5
-                                     txtPrice.EditValue,   //6
-                                     numCount.EditValue,            //7
-                                     cboCatCode.EditValue,           //8
-                                     cboUnit.EditValue,              //9
-                                     numUnitSize.EditValue,              //10
-                                     cboPrinterType.EditValue,       //11
-                                     Static.ToDate(dtCreateDate.EditValue),//12         
-                                     txtNote.EditValue, //13             
-                                     cboStatus.EditValue, //14           
-                                     cboTagType.EditValue,//15
-                                     numTagTime.EditValue,  //17                                         
-                                     cboTagTimeMethod.EditValue,    //16  
-                                     chkIsTimeTable.Checked ? 1 : 0,//18 
-                                     cboTimeTableID.EditValue,          //19
-                                     txtSalesAccountNo.EditValue,        //20
-                                     txtRefundAccountNo.EditValue,       //21
-                                     txtDiscountAccountNo.EditValue,     //22
-                                     txtBonusAccountNo.EditValue,      //23
-                                      txtBONUSEXPACCOUNTNO.EditValue,     //24
-                                     numServiceTime.EditValue,  //25
+                                     Static.ToInt(cboBrandID.EditValue), //4
+                                     Static.ToStr(txtBarCode.EditValue), //5
+                                     cboUnit.EditValue,              //6
+                                     numUnitSize.EditValue,              //7
+                                     cboStatus.EditValue, //8
+                                     txtPrice.EditValue,   //9
+                                     numCount.EditValue,            //10
+                                     Static.ToDate(dtCreateDate.EditValue),//11         
+                                     Static.ToDate(dtSalesStartDate.EditValue),      //12
+                                     Static.ToDate(dtSalesEndDate.EditValue),       //13
+                                     txtNote.EditValue, //14            
+                                     txtSalesAccountNo.EditValue,        //15
+                                     txtRefundAccountNo.EditValue,       //16
+                                     txtDiscountAccountNo.EditValue,     //17
+                                     txtBonusAccountNo.EditValue,      //18
+                                     txtBONUSEXPACCOUNTNO.EditValue,     //19
+                                     chkIsTimeTable.Checked ? 1 : 0,//20
+                                     cboTimeTableID.EditValue,          //21
+                                     numServiceTime.EditValue,  //22
+                                     cboTagType.EditValue,//23
+                                     numTagTime.EditValue,  //24                                         
+                                     cboTagTimeMethod.EditValue,    //25
                                       _img  //26
                                     };
                 if (!isnew)
@@ -642,13 +637,13 @@ namespace InfoPos.Parameter
                 cboUnit.ItemIndex = 0;
                 dtCreateDate.EditValue = _core.TxnDate;
                 dtSalesStartDate.EditValue = _core.TxnDate;
-                tdSalesEndDate.EditValue = _core.TxnDate;
+                dtSalesEndDate.EditValue = _core.TxnDate;
 
                 txtProdId.EditValue = txtServID.Text;
                 numProdType.EditValue = 1;
-                dtEndTime.EditValue = _core.TxnDate;
-                dtStartTime.EditValue = _core.TxnDate;
-                cboDayType.ItemIndex = 0;
+                //dtEndTime.EditValue = _core.TxnDate;
+                //dtStartTime.EditValue = _core.TxnDate;
+                cboPriceTypeID.ItemIndex = 0;
                 chkIsTimeTable.Checked = true;
             }
             else if (_ServId != "")
@@ -716,18 +711,16 @@ namespace InfoPos.Parameter
         {
             object[] Value = {     Static.ToInt(1), 
                                    Static.ToStr(txtServID.EditValue),
-                                   Static.ToStr(cboDayType.EditValue),
-                                   Static.ToDateTime(dtStartTime.EditValue),
-                                   Static.ToDateTime(dtEndTime.EditValue),
+                                   Static.ToStr(cboPriceTypeID.EditValue),
                                    Static.ToInt(numPrice.EditValue)};
             pOldValue = Value;
             if (_ServId == "")
             {
                 txtProdId.EditValue = txtServID.Text;
                 numProdType.EditValue = 1;
-                dtEndTime.EditValue = _core.TxnDate;
-                dtStartTime.EditValue = _core.TxnDate;
-                cboDayType.ItemIndex = 0;
+                //dtEndTime.EditValue = _core.TxnDate;
+                //dtStartTime.EditValue = _core.TxnDate;
+                cboPriceTypeID.ItemIndex = 0;
             }
 
         }
@@ -735,17 +728,17 @@ namespace InfoPos.Parameter
         {
             txtProdId.EditValue = txtServID.Text;
             numProdType.EditValue = 1;
-            dtEndTime.EditValue = _core.TxnDate;
-            dtStartTime.EditValue = _core.TxnDate;
-            cboDayType.ItemIndex = 0;
+            //dtEndTime.EditValue = _core.TxnDate;
+            //dtStartTime.EditValue = _core.TxnDate;
+            cboPriceTypeID.ItemIndex = 0;
         }
         void ucServPrice_EventAddAfter()
         {
             txtProdId.EditValue =txtServID.Text;
             numProdType.EditValue = 1;
-            dtEndTime.EditValue = _core.TxnDate;
-            dtStartTime.EditValue = _core.TxnDate;
-            cboDayType.ItemIndex = 0;
+            //dtEndTime.EditValue = _core.TxnDate;
+            //dtStartTime.EditValue = _core.TxnDate;
+            cboPriceTypeID.ItemIndex = 0;
         }
         void ucServPrice_EventExit(bool editing, ref bool cancel)
         {
@@ -787,9 +780,9 @@ namespace InfoPos.Parameter
                 object[] obj = {    
                                    Static.ToInt(1), 
                                    Static.ToStr(txtServID.EditValue),
-                                   Static.ToStr(cboDayType.EditValue),
-                                   Static.ToDateTime(dtStartTime.EditValue),
-                                   Static.ToDateTime(dtEndTime.EditValue),
+                                   Static.ToStr(cboPriceTypeID.EditValue),
+                                   //Static.ToDateTime(dtStartTime.EditValue),
+                                   //Static.ToDateTime(dtEndTime.EditValue),
                                    Static.ToInt(numPrice.EditValue)
                                
                                };
@@ -853,9 +846,9 @@ namespace InfoPos.Parameter
                 if (Static.ToStr(txtServID.EditValue) == "")
                 txtProdId.EditValue = txtServID.Text;
                 numProdType.EditValue = 1;
-                dtEndTime.EditValue = _core.TxnDate;
-                dtStartTime.EditValue = _core.TxnDate;
-                cboDayType.ItemIndex = 0;
+                //dtEndTime.EditValue = _core.TxnDate;
+                //dtStartTime.EditValue = _core.TxnDate;
+                cboPriceTypeID.ItemIndex = 0;
             }
             catch (Exception ex)
             {
@@ -879,21 +872,17 @@ namespace InfoPos.Parameter
                 gvwPrice.Columns[2].OptionsColumn.AllowEdit = false;
 
 
-                gvwPrice.Columns[3].Caption = "Өдрийн төрлийн код";
+                gvwPrice.Columns[3].Caption = "Үнийн төрлийн код";
                 gvwPrice.Columns[3].Visible = true;              
                 gvwPrice.Columns[3].OptionsColumn.AllowEdit = false;
-                gvwPrice.Columns[4].Caption = "Өдрийн төрлийн нэр";
+
+                gvwPrice.Columns[4].Caption = "Эдгээр нөхцөл дэх үнэ";
                 gvwPrice.Columns[4].Visible = true;
                 gvwPrice.Columns[4].OptionsColumn.AllowEdit = false;
-                gvwPrice.Columns[5].Caption = "Хамрах цагийн эхлэл";
+
+                gvwPrice.Columns[5].Caption = "Үнийн төрлийн нэр";
                 gvwPrice.Columns[5].Visible = true;
                 gvwPrice.Columns[5].OptionsColumn.AllowEdit = false;
-                gvwPrice.Columns[6].Caption = "Хамрах цагийн төгсгөл";
-                gvwPrice.Columns[6].Visible = true;
-                gvwPrice.Columns[6].OptionsColumn.AllowEdit = false;
-                gvwPrice.Columns[7].Caption = "Эдгээр нөхцөл дэх үнэ";
-                gvwPrice.Columns[7].Visible = true;
-                gvwPrice.Columns[7].OptionsColumn.AllowEdit = false;
             }
             catch (Exception ex)
             {
@@ -908,7 +897,7 @@ namespace InfoPos.Parameter
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "Err");
+                MessageBox.Show(ex.Message + "Error");
             }
         }
         void ucServPrice_EventDelete()
@@ -919,7 +908,7 @@ namespace InfoPos.Parameter
             {
                 try
                 {
-                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140275, 140275, new object[] { numProdType.EditValue, _ServId, cboDayType.EditValue, dtStartTime.EditValue });//pProdType, pProdID, pDayType, pStartTime);
+                    Result r = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 202, 140275, 140275, new object[] { numProdType.EditValue, _ServId, cboPriceTypeID.EditValue });//pProdType, pProdID, cboPriceTypeID);
                     if (r.ResultNo != 0)
                     {
                         MessageBox.Show(r.ResultNo.ToString() + " " + r.ResultDesc);
