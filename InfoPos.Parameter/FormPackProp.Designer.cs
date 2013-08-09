@@ -682,6 +682,7 @@
             this.numCount.Name = "numCount";
             this.numCount.Properties.Mask.EditMask = "\\d{0,16}";
             this.numCount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.numCount.Properties.MaxLength = 10;
             this.numCount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.numCount.ShowToolTips = false;
             this.numCount.Size = new System.Drawing.Size(278, 20);
@@ -1108,7 +1109,7 @@
             this.txtBarCode.Location = new System.Drawing.Point(221, 220);
             this.txtBarCode.Name = "txtBarCode";
             this.txtBarCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBarCode.Properties.MaxLength = 200;
+            this.txtBarCode.Properties.MaxLength = 20;
             this.txtBarCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtBarCode.Size = new System.Drawing.Size(268, 20);
             this.txtBarCode.TabIndex = 9;
@@ -1461,6 +1462,7 @@
             this.txtPricePrice.Properties.Mask.EditMask = "n";
             this.txtPricePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPricePrice.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtPricePrice.Properties.MaxLength = 18;
             this.txtPricePrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPricePrice.Size = new System.Drawing.Size(305, 20);
             this.txtPricePrice.TabIndex = 5;

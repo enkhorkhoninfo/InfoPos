@@ -15,7 +15,8 @@ namespace IPos.Order
         DateTime first;
         public static Result F_Error(Result res)
         {
-            int DdIdErrorNo = -2147467259;
+            //int DdIdErrorNo = -2147467259;
+            int DdIdErrorNo = 1;
 
             if (res.ResultNo == DdIdErrorNo)
             {
@@ -67,6 +68,23 @@ namespace IPos.Order
                         break;
                     case 130110:	                //
                         res = Txn130110(ci, ri, db, ref lg);
+                        break;
+                    #endregion
+                    #region[Захиалга өгсөн үйлчлүүлэгчийн захиалсан бүтээгдэхүүн]
+                    case 130150:	                //Жагсаалт
+                        res = Txn130150(ci, ri, db, ref lg);
+                        break;
+                    case 130151:	                //Дэлгэрэнгүй
+                        res = Txn130151(ci, ri, db, ref lg);
+                        break;
+                    case 130152:	                //Нэмэх
+                        res = Txn130152(ci, ri, db, ref lg);
+                        break;
+                    case 130153:	                //Засварлах
+                        res = Txn130153(ci, ri, db, ref lg);
+                        break;
+                    case 130154:	                //Устгах
+                        res = Txn130154(ci, ri, db, ref lg);
                         break;
                     #endregion
                     #region[Захиалга доторх багц үйлчилгээний бүлэг]
@@ -224,7 +242,11 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204103(db, ri.ReceivedParam);
+                object[] obj = (object[])ri.ReceivedParam;
+
+                obj[7] = Static.ToDateTime(DateTime.Now); //Createdate
+
+                res = IPos.DB.Main.DB204103(db, obj, 0, "");
                 return res;
             }
             catch (Exception ex)
@@ -317,7 +339,7 @@ namespace IPos.Order
                 lg.item.Desc = "Захиалгад орсон үйлчлүүлэгчийн бүртгэл жагсаалт мэдээлэл авах";
                 if (res.ResultNo == 0)
                 {
-                    lg.AddDetail("ORDERPERSON", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                    lg.AddDetail("ORDERPERSON", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
                 }
             }
         }
@@ -350,7 +372,11 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204108(db, ri.ReceivedParam);
+                object[] obj = (object[])ri.ReceivedParam;
+
+                obj[1] = EServ.Interface.Sequence.NextByVal("ItemNo");
+
+                res = IPos.DB.Main.DB204108(db, obj);
                 return res;
             }
             catch (Exception ex)
@@ -376,7 +402,7 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204109(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToLong(ri.ReceivedParam[2]));
+                res = IPos.DB.Main.DB204109(db, (object[]) ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -403,7 +429,7 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204110(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204110(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
                 return res;
             }
             catch (Exception ex)
@@ -420,6 +446,144 @@ namespace IPos.Order
                 lg.item.Desc = "Захиалгад орсон үйлчлүүлэгчийн бүртгэл устгах";
                 lg.AddDetail("ORDERPERSON", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
                 lg.AddDetail("ORDERPERSON", "CUSTNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+            }
+        }
+        #endregion
+        #region [Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн]
+        public Result Txn130150(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                res = IPos.DB.Main.DB204150(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл жагсаалт мэдээлэл авах";
+                if (res.ResultNo == 0)
+                {
+                    lg.AddDetail("ORDERPERSONPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                    lg.AddDetail("ORDERPERSONPRODUCT", "ITEMNO", lg.item.Desc, ri.ReceivedParam[1].ToString());
+                }
+            }
+        }
+        public Result Txn130151(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                res = IPos.DB.Main.DB204151(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToInt(ri.ReceivedParam[2]), Static.ToStr(ri.ReceivedParam[3]));
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл дэлгэрэнгүй мэдээлэл авах";
+                lg.AddDetail("ORDERPERSONPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                lg.AddDetail("ORDERPERSONPRODUCT", "ITEMNO", lg.item.Desc, ri.ReceivedParam[1].ToString());
+                lg.AddDetail("ORDERPERSONPRODUCT", "PRODTYPE", lg.item.Desc, ri.ReceivedParam[2].ToString());
+                lg.AddDetail("ORDERPERSONPRODUCT", "PRODNO", lg.item.Desc, ri.ReceivedParam[3].ToString());
+            }
+        }
+        public Result Txn130152(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                object[] obj = (object[])ri.ReceivedParam;
+
+                //obj[1] = EServ.Interface.Sequence.NextByVal("ItemNo");
+
+                res = IPos.DB.Main.DB204152(db, obj);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл шинээр нэмэх";
+                if (res.ResultNo == 0)
+                {
+
+                }
+            }
+        }
+        public Result Txn130153(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                res = IPos.DB.Main.DB204153(db, (object[])ri.ReceivedParam);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл засварлах";
+                if (res.ResultNo == 0)
+                {
+                    lg.AddDetail("ORDERPERSONPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                    //lg.AddDetail("ORDERPERSONPRODUCT", "ITEM", ri.ReceivedParam[1].ToString(), ri.ReceivedParam[2].ToString());
+                }
+            }
+        }
+        public Result Txn130154(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
+        {
+            Result res = new Result();
+            try
+            {
+                res = IPos.DB.Main.DB204154(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToInt(ri.ReceivedParam[2]), Static.ToStr(ri.ReceivedParam[3]));
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                lg.item.Desc = "Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл устгах";
+                lg.AddDetail("ORDERPERSONPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                lg.AddDetail("ORDERPERSONPRODUCT", "ITEMNO", lg.item.Desc, ri.ReceivedParam[1].ToString());
+                lg.AddDetail("ORDERPERSONPRODUCT", "PRODTYPE", lg.item.Desc, ri.ReceivedParam[2].ToString());
+                lg.AddDetail("ORDERPERSONPRODUCT", "PRODNO", lg.item.Desc, ri.ReceivedParam[3].ToString());
             }
         }
         #endregion

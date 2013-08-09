@@ -29,10 +29,10 @@ namespace InfoPos.Parameter
         #endregion[]
         public FormPAInvType(Core.Core core)
         {
+            _core = core;
             InitializeComponent();            
             Init();
             InitCombo();
-            _core = core;
             this.Resource = _core.Resource;
             this.FieldLinkSetSaveState();
         }

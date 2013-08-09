@@ -125,6 +125,7 @@
             this.numTypeID.Properties.Mask.ShowPlaceHolders = false;
             this.numTypeID.Size = new System.Drawing.Size(218, 20);
             this.numTypeID.TabIndex = 1;
+            this.numTypeID.ToolTipTitle = "Дугаараа эрэмбээ оруулна уу";
             // 
             // labelControl2
             // 
@@ -167,6 +168,7 @@
             this.txtTypeName.Name = "txtTypeName";
             this.txtTypeName.Size = new System.Drawing.Size(218, 20);
             this.txtTypeName.TabIndex = 6;
+            this.txtTypeName.ToolTipTitle = "Нэрээ оруулна уу";
             // 
             // txtMaskValue
             // 
@@ -177,6 +179,7 @@
             this.txtMaskValue.Name = "txtMaskValue";
             this.txtMaskValue.Size = new System.Drawing.Size(218, 20);
             this.txtMaskValue.TabIndex = 7;
+            this.txtMaskValue.ToolTipTitle = "Маскны утгаа оруулна уу";
             // 
             // numOrderNo
             // 
@@ -191,6 +194,7 @@
             this.numOrderNo.Properties.Mask.ShowPlaceHolders = false;
             this.numOrderNo.Size = new System.Drawing.Size(218, 20);
             this.numOrderNo.TabIndex = 9;
+            this.numOrderNo.ToolTipTitle = "Жагсаалтын эрэмбээ оруулна уу";
             // 
             // cboMaskType
             // 

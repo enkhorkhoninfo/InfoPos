@@ -258,6 +258,84 @@ ALTER TABLE PACKAGEUSER
 RENAME COLUMN PACKID TO PACKageID;
 
 
+drop table orders;
+
+
+create table Orders (
+ OrderNo  Varchar2(20) ,
+ ChannelID  Number(4) ,
+ OrderName  nVarchar2(50) ,
+ OrderContactInfo  NVarchar2(50) ,
+ UserID  Varchar2(20) ,
+ CustNo  Number(20) ,
+ OrderType  Number(2) ,
+ CreateDate  Date ,
+ Status  Number(2) ,
+ CreateUser  number(5) ,
+ SalesUser  number(5) ,
+ PersonCount  Number(5) ,
+ StartDateTime  Date ,
+ EndDateTime  Date ,
+ GraceHoursStart  Number(17) ,
+ GraceHoursEnd  Number(17) ,
+ OrderAmount  Number(17,2) ,
+ OrderAmountMin  Number(17,2) ,
+ OrderAmountMax  Number(17,2) ,
+ OrderBalance  Number(17,2) ,
+ PrepaidAmount  Number(17,2) ,
+ CurCode  Varchar2(3) ,
+ PriceType  Number(2) ,
+ DiscountID  Number(4) ,
+ DiscountType  Number(2) ,
+ DicountAmount  Number(17,2) ,
+ CancelDateTime  Date ,
+ CancelNote  nVarchar2(100) ,
+ CancelUserNo  number(5) ,
+ ExpireDateTime  Date ,
+ ExpireNote  nVarchar2(100) ,
+ ExpireUserNo  number(5) ,
+ ConfirmDateTime  Date ,
+ ConfirmNote  nVarchar2(100) ,
+ ConfirmUserNo  number(5) ,
+ SaleDateTime  Date ,
+ SalesNo  nVarchar2(100) ,
+ ContractNo  nvarchar2(20) ,
+PRIMARY KEY (OrderNo)
+);
+
+drop table OrderPerson;
+drop table OrderPersonal;
+create table OrderPersonal (
+ OrderNo  Varchar2(20) ,
+ ItemNo  number(20) ,
+ RegisterNo  nvarchar2(50) ,
+ FirstName  nvarchar2(100) ,
+ LastName  nvarchar2(100) ,
+ MiddleName  nvarchar2(100) ,
+ Sex  number(1) ,
+ BirthDay  date ,
+ Email  nvarchar2(100) ,
+ Mobile  number(12) ,
+ Company  nvarchar2(100) ,
+ CountryCode  number(4) ,
+ Height  number(3) ,
+ FootSize  number(5,2) ,
+ SerialNo  Varchar2(20) ,
+PRIMARY KEY (OrderNo, ItemNo)
+);
+
+
+create table OrderPersonalProduct (
+ OrderNo  Varchar2(20) ,
+ ItemNo  number(4) ,
+ ProdNo  Varchar2(20) ,
+ ProdType  Number(2) ,
+ Qty  Number(17,2) ,
+PRIMARY KEY (OrderNo, ItemNo, ProdNo, ProdType)
+);
+
+
+
 
 
 

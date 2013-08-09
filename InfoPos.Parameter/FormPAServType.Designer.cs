@@ -82,6 +82,7 @@
             this.txtServType.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtServType.Size = new System.Drawing.Size(170, 20);
             this.txtServType.TabIndex = 0;
+            this.txtServType.ToolTipTitle = "Төрлийн кодоо оруулна уу";
             // 
             // labelControl1
             // 
@@ -111,6 +112,7 @@
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName.Size = new System.Drawing.Size(170, 20);
             this.txtName.TabIndex = 2;
+            this.txtName.ToolTipTitle = "Төрлийн нэрээ оруулна уу";
             // 
             // labelControl3
             // 
@@ -132,6 +134,7 @@
             this.txtName2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName2.Size = new System.Drawing.Size(170, 20);
             this.txtName2.TabIndex = 4;
+            this.txtName2.ToolTipTitle = "Төрлийн нэр2ээ оруулна уу";
             // 
             // labelControl4
             // 
@@ -165,6 +168,7 @@
             this.numOrderNo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.numOrderNo.Size = new System.Drawing.Size(171, 20);
             this.numOrderNo.TabIndex = 8;
+            this.numOrderNo.ToolTipTitle = "Эрэмбээ оруулна уу";
             // 
             // txtNote
             // 
@@ -178,6 +182,7 @@
             this.txtNote.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtNote.Size = new System.Drawing.Size(170, 96);
             this.txtNote.TabIndex = 5;
+            this.txtNote.ToolTipTitle = "Тайлбараа оруулна уу";
             // 
             // cboCatCode
             // 
@@ -194,7 +199,7 @@
             this.cboCatCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cboCatCode.Size = new System.Drawing.Size(174, 20);
             this.cboCatCode.TabIndex = 10;
-            this.cboCatCode.ToolTipTitle = "Төрөл сонгоно уу";
+            this.cboCatCode.ToolTipTitle = "Ангилалаа сонгоно уу";
             // 
             // labelControl6
             // 

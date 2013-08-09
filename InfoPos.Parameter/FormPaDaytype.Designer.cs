@@ -120,6 +120,7 @@
             this.txtDayType.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDayType.Size = new System.Drawing.Size(184, 20);
             this.txtDayType.TabIndex = 0;
+            this.txtDayType.ToolTipTitle = "Өдрийн төрлийн кодоо оруулна уу";
             // 
             // labelControl1
             // 
@@ -148,6 +149,7 @@
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName.Size = new System.Drawing.Size(184, 20);
             this.txtName.TabIndex = 1;
+            this.txtName.ToolTipTitle = "Нэрээ оруулна уу";
             // 
             // labelControl3
             // 
@@ -168,6 +170,7 @@
             this.txtName2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName2.Size = new System.Drawing.Size(184, 20);
             this.txtName2.TabIndex = 2;
+            this.txtName2.ToolTipTitle = "Нэр2 оо оруулна уу";
             // 
             // labelControl4
             // 
@@ -195,6 +198,7 @@
             this.txtOrderNo.Properties.MaxLength = 200;
             this.txtOrderNo.Size = new System.Drawing.Size(137, 20);
             this.txtOrderNo.TabIndex = 5;
+            this.txtOrderNo.ToolTipTitle = "Эрэмбээ оруулна уу";
             // 
             // labelControl6
             // 
@@ -215,6 +219,7 @@
             this.txtDescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDescription.Size = new System.Drawing.Size(184, 75);
             this.txtDescription.TabIndex = 3;
+            this.txtDescription.ToolTipTitle = "Тайлбараа оруулна уу";
             // 
             // cboIsDefault
             // 

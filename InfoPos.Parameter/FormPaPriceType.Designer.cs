@@ -125,6 +125,7 @@
             this.txtPriceTypeID.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPriceTypeID.Size = new System.Drawing.Size(184, 20);
             this.txtPriceTypeID.TabIndex = 0;
+            this.txtPriceTypeID.ToolTipTitle = "Үнийн төрлийн кодоо оруулна уу";
             // 
             // labelControl1
             // 
@@ -145,6 +146,7 @@
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName.Size = new System.Drawing.Size(184, 20);
             this.txtName.TabIndex = 1;
+            this.txtName.ToolTipTitle = "Нэрээ оруулна уу";
             // 
             // labelControl3
             // 
@@ -165,6 +167,7 @@
             this.txtName2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName2.Size = new System.Drawing.Size(184, 20);
             this.txtName2.TabIndex = 2;
+            this.txtName2.ToolTipTitle = "Нэр2 оо оруулна уу";
             // 
             // labelControl4
             // 
@@ -192,6 +195,7 @@
             this.txtOrderNo.Properties.MaxLength = 200;
             this.txtOrderNo.Size = new System.Drawing.Size(113, 20);
             this.txtOrderNo.TabIndex = 16;
+            this.txtOrderNo.ToolTipTitle = "Эрэмбээ оруулна уу";
             // 
             // labelControl6
             // 
@@ -214,6 +218,7 @@
             this.cboDayType.Properties.NullText = "";
             this.cboDayType.Size = new System.Drawing.Size(184, 20);
             this.cboDayType.TabIndex = 4;
+            this.cboDayType.ToolTipTitle = "Өдрийн төрөл сонгоно уу";
             // 
             // dtStartTime
             // 

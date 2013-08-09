@@ -119,6 +119,7 @@
             this.txtWeatherId.Location = new System.Drawing.Point(156, 33);
             this.txtWeatherId.Name = "txtWeatherId";
             this.txtWeatherId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtWeatherId.Properties.MaxLength = 4;
             this.txtWeatherId.Size = new System.Drawing.Size(185, 20);
             this.txtWeatherId.TabIndex = 0;
             this.txtWeatherId.ToolTipTitle = "Цаг агаарын төрлийн код оруулна уу.";

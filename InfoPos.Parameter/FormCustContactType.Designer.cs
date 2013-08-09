@@ -88,7 +88,7 @@
             this.numTypeCode.Properties.Mask.IgnoreMaskBlank = false;
             this.numTypeCode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.numTypeCode.Properties.Mask.ShowPlaceHolders = false;
-            this.numTypeCode.Properties.MaxLength = 50;
+            this.numTypeCode.Properties.MaxLength = 4;
             this.numTypeCode.Size = new System.Drawing.Size(177, 20);
             this.numTypeCode.TabIndex = 2;
             this.numTypeCode.ToolTipTitle = "Харилцагчтай холбоо барисан төрлийн код оруулна уу.";
@@ -123,7 +123,7 @@
             this.numOrderNo.Properties.Mask.IgnoreMaskBlank = false;
             this.numOrderNo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.numOrderNo.Properties.Mask.ShowPlaceHolders = false;
-            this.numOrderNo.Properties.MaxLength = 50;
+            this.numOrderNo.Properties.MaxLength = 4;
             this.numOrderNo.Size = new System.Drawing.Size(177, 20);
             this.numOrderNo.TabIndex = 5;
             this.numOrderNo.ToolTipTitle = "Жагсаалтын эрэмбэ оруулна уу.";

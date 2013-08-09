@@ -1408,6 +1408,7 @@
             this.txtSeriBarCode.MinimumSize = new System.Drawing.Size(232, 20);
             this.txtSeriBarCode.Name = "txtSeriBarCode";
             this.txtSeriBarCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSeriBarCode.Properties.MaxLength = 20;
             this.txtSeriBarCode.Size = new System.Drawing.Size(318, 20);
             this.txtSeriBarCode.TabIndex = 3;
             this.txtSeriBarCode.ToolTipTitle = "Барааны баар код оруулна уу.";
@@ -1448,6 +1449,7 @@
             this.txtSeriNote.MinimumSize = new System.Drawing.Size(232, 20);
             this.txtSeriNote.Name = "txtSeriNote";
             this.txtSeriNote.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSeriNote.Properties.MaxLength = 200;
             this.txtSeriNote.Size = new System.Drawing.Size(318, 57);
             this.txtSeriNote.TabIndex = 106;
             this.txtSeriNote.ToolTipTitle = "Үйлчилгээний код оруулна уу.";

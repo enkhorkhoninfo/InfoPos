@@ -97,6 +97,7 @@
             this.numBankNote.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.numBankNote.Size = new System.Drawing.Size(171, 20);
             this.numBankNote.TabIndex = 2;
+            this.numBankNote.ToolTipTitle = "Дэвсгэртийн тоон утгаа оруулна уу";
             // 
             // labelControl3
             // 
@@ -131,6 +132,7 @@
             this.numOrderNo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.numOrderNo.Size = new System.Drawing.Size(171, 20);
             this.numOrderNo.TabIndex = 4;
+            this.numOrderNo.ToolTipTitle = "Эрэмбийн дугаараа оруулна уу";
             // 
             // txtDesc
             // 
@@ -144,6 +146,7 @@
             this.txtDesc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtDesc.Size = new System.Drawing.Size(171, 20);
             this.txtDesc.TabIndex = 3;
+            this.txtDesc.ToolTipTitle = "Дэвсгэртийн нэр, тайлбараа оруулна уу";
             // 
             // cboCurrency
             // 
@@ -153,6 +156,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboCurrency.Size = new System.Drawing.Size(171, 20);
             this.cboCurrency.TabIndex = 8;
+            this.cboCurrency.ToolTipTitle = "Валютаа сонгоно уу";
             // 
             // FormPaBill
             // 

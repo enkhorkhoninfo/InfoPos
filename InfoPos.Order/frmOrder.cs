@@ -18,6 +18,7 @@ namespace InfoPos.Order
 {
     public partial class frmOrder : DevExpress.XtraEditors.XtraForm
     {
+        #region [ Variable ]
         InfoPos.Core.Core _core;
         long OldTabPersonCustNo = 0;
         string _orderno = ""; 
@@ -25,7 +26,8 @@ namespace InfoPos.Order
         string knowbutton = "", knowbuttonProduct = "";
         Form FormName = null;
         public static ImageCollection image = new ImageCollection();
-        public frmOrder(InfoPos.Core.Core core,string orderno)
+        #endregion
+        public frmOrder(InfoPos.Core.Core core, string orderno)
         {
             InitializeComponent();
             _core = core; 
@@ -35,8 +37,8 @@ namespace InfoPos.Order
             btnCustEnq.Image = _core.Resource.GetImage("navigate_refresh");
             btnCustFind.Image = _core.Resource.GetImage("button_find");
             btnOwnerFind.Image = _core.Resource.GetImage("button_find");
-            btnTabPersonCustEnq.Image = _core.Resource.GetImage("navigate_refresh");
-            btnTabCustFind.Image = _core.Resource.GetImage("button_find");
+            //btnTabPersonCustEnq.Image = _core.Resource.GetImage("navigate_refresh");
+            //btnTabCustFind.Image = _core.Resource.GetImage("button_find");
 
             btnGroupAdd.Image = _core.Resource.GetImage("navigate_add");
             btnGroupEdit.Image = _core.Resource.GetImage("navigate_edit");
@@ -61,13 +63,21 @@ namespace InfoPos.Order
             if (_orderno == "")
             {
                 ucGeneral.FieldLinkSetNewState();
-                dteStartDate.DateTime = DateTime.Now;
-                dteEndDate.DateTime = DateTime.Now;
+                dteStartDateTime.DateTime = DateTime.Now;
+                dteEndDateTime.DateTime = DateTime.Now;
+                //dteGraceHoursStart.DateTime = DateTime.Now;
+
                 cboCurCode.ItemIndex = 0;
-                cboStatus.ItemIndex = 1;
-                cboTermType.ItemIndex = 0;
+                cboDiscountID.ItemIndex = 0;
+                cboDiscountType.ItemIndex = 0;
+                cboOrderType.ItemIndex = 0;
+                cboPriceType.ItemIndex = 0;
+
+                FormUtility.LookUpEdit_SetValue(ref cboStatus, 0);
+                FormUtility.LookUpEdit_SetValue(ref cboChannelID, 0);
+
                 txtCreateUser.EditValue = _core.RemoteObject.User.UserNo;
-                txtOwnerUser.EditValue = _core.RemoteObject.User.UserNo;
+                txtSalesUser.EditValue = _core.RemoteObject.User.UserNo;
             }
             else
             {
@@ -78,18 +88,29 @@ namespace InfoPos.Order
         void InitCombo()
         {
             #region[General]
-            FormUtility.LookUpEdit_SetList(ref cboStatus, 0, "Цуцлагдсан");
-            FormUtility.LookUpEdit_SetList(ref cboStatus, 1, "Идэвхтэй");
-            FormUtility.LookUpEdit_SetList(ref cboStatus, 2, "Баталгаажсан");
+            FormUtility.LookUpEdit_SetList(ref cboStatus, 0, "Шинэ");
+            FormUtility.LookUpEdit_SetList(ref cboStatus, 1, "Баталгаажсан");
+            FormUtility.LookUpEdit_SetList(ref cboStatus, 2, "Хугацаа дууссан");
+            FormUtility.LookUpEdit_SetList(ref cboStatus, 3, "Цуцалсан");
 
-            FormUtility.LookUpEdit_SetList(ref cboTermType, "T", "Цаг");
-            FormUtility.LookUpEdit_SetList(ref cboTermType, "D", "Өдөр");
-            FormUtility.LookUpEdit_SetList(ref cboTermType, "W", "Гараг");
-            FormUtility.LookUpEdit_SetList(ref cboTermType, "M", "Сар");
+            FormUtility.LookUpEdit_SetList(ref cboOrderType, 0, "Due at service - Үйлчилгээ авахдаа төлбөрөө хийнэ");
+            FormUtility.LookUpEdit_SetList(ref cboOrderType, 1, "Paid order - Төлбөртэй захиалга / Гэрээт захиалга");
+
+            FormUtility.LookUpEdit_SetList(ref cboPriceType, 0, "Захиалгын дагуу үнэ байхгүй. Үйлчилгээ авах үеийнхээр");
+            FormUtility.LookUpEdit_SetList(ref cboPriceType, 1, "Захиалгын дагуу үнээр борлуулалт хийнэ");
+
+            FormUtility.LookUpEdit_SetList(ref cboDiscountType, 0, "Хөнгөлөлт байхгүй");
+            FormUtility.LookUpEdit_SetList(ref cboDiscountType, 1, "Хувиар хөнгөлөнө");
+            FormUtility.LookUpEdit_SetList(ref cboDiscountType, 2, "Дүнгээр хөнгөлөнө");
+
+            FormUtility.LookUpEdit_SetList(ref cboChannelID, 0, "Terminal");
+            FormUtility.LookUpEdit_SetList(ref cboChannelID, 1, "Web");
+            FormUtility.LookUpEdit_SetList(ref cboChannelID, 2, "Mobile");
+            FormUtility.LookUpEdit_SetList(ref cboChannelID, 3, "Kiosk");
 
             string msg = "";
             ArrayList Tables = new ArrayList();
-            string[] names = { "CURRENCY", "REBATEMASTER" };
+            string[] names = { "CURRENCY", "REBATEMASTER", "COUNTRY", "PAPRICETYPE" };
             DictUtility.PrivNo = 130001;
             Result res = DictUtility.Get(_core.RemoteObject, names, ref Tables);
             DataTable dt = (DataTable)Tables[0];
@@ -109,19 +130,55 @@ namespace InfoPos.Order
             }
             else
             {
-                FormUtility.LookUpEdit_SetList(ref cboRebateID, dt, "MASTERID", "NAME", "MASTERTYPE=0", new int[] { 1 });
-                FormUtility.LookUpEdit_SetList(ref cboLoyalID, dt, "MASTERID", "NAME", "MASTERTYPE=1", new int[] { 1 });
-                FormUtility.LookUpEdit_SetList(ref cboPointID, dt, "MASTERID", "NAME", "MASTERTYPE=2", new int[] { 1 });
+                //FormUtility.LookUpEdit_SetList(ref cboRebateID, dt, "MASTERID", "NAME", "MASTERTYPE=0", new int[] { 1 });
+                //FormUtility.LookUpEdit_SetList(ref cboLoyalID, dt, "MASTERID", "NAME", "MASTERTYPE=1", new int[] { 1 });
+                //FormUtility.LookUpEdit_SetList(ref cboPointID, dt, "MASTERID", "NAME", "MASTERTYPE=2", new int[] { 1 });
             }
+
+            dt = (DataTable)Tables[2];
+            if (dt == null)
+            {
+                msg = "Dictionary-д COUNTRY оруулаагүй байна-" + res.ResultDesc;
+            }
+            else
+            {
+                FormUtility.LookUpEdit_SetList(ref cboOPCountryCode, dt, "COUNTRYCODE", "NAME");
+            }
+
+            dt = (DataTable)Tables[3];
+            if (dt == null)
+            {
+                msg = "Dictionary-д PAPRICETYPE оруулаагүй байна-" + res.ResultDesc;
+            }
+            else
+            {
+                FormUtility.LookUpEdit_SetList(ref cboPricePriceTypeID, dt, "PriceTypeID", "NAME");
+            }
+
+            if (msg != "")
+                MessageBox.Show(msg);
+
             #endregion
-            #region[Group]
-            FormUtility.LookUpEdit_SetList(ref cboTabGroupRunTime, 0, "Нэг  ");
-            FormUtility.LookUpEdit_SetList(ref cboTabGroupRunTime, 1, "Олон");          
+            #region[Personal]
+            FormUtility.LookUpEdit_SetList(ref cboOPSex, 0, "Эр");
+            FormUtility.LookUpEdit_SetList(ref cboOPSex, 1, "Эм");
+
+            FormUtility.LookUpEdit_SetList(ref cboOPProdType, 0, "Бараа");
+            FormUtility.LookUpEdit_SetList(ref cboOPProdType, 1, "Үйлчилгээ");
+            FormUtility.LookUpEdit_SetList(ref cboOPProdType, 2, "Багц");
             #endregion
-            #region[Order]
+            #region[Product]
             FormUtility.LookUpEdit_SetList(ref cboProdProdType, 0, "Бараа материал");
             FormUtility.LookUpEdit_SetList(ref cboProdProdType, 1, "Үйлчилгээ");
             FormUtility.LookUpEdit_SetList(ref cboProdProdType, 2, "Багц");
+
+            FormUtility.LookUpEdit_SetList(ref cboProdDiscountType, 0, "Хөнгөлөлт байхгүй");
+            FormUtility.LookUpEdit_SetList(ref cboProdDiscountType, 1, "Хувиар хөнгөлөнө");
+            FormUtility.LookUpEdit_SetList(ref cboProdDiscountType, 2, "Дүнгээр хөнгөлөнө");
+
+            FormUtility.LookUpEdit_SetList(ref cboPriceDiscountType, 0, "Хөнгөлөлт байхгүй");
+            FormUtility.LookUpEdit_SetList(ref cboPriceDiscountType, 1, "Хувиар хөнгөлөнө");
+            FormUtility.LookUpEdit_SetList(ref cboPriceDiscountType, 2, "Дүнгээр хөнгөлөнө");
             #endregion
         }
         void InitEvents()
@@ -139,6 +196,7 @@ namespace InfoPos.Order
             ucPerson.EventSave += new ucTogglePanel.delegateEventSave(ucPerson_EventSave);
             ucPerson.EventDelete += new ucTogglePanel.delegateEventDelete(ucPerson_EventDelete);
             ucPerson.EventAddAfter += new ucTogglePanel.delegateEventAddAfter(ucPerson_EventAddAfter);
+            gvwOPProduct.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(gvwOPProduct_FocusedRowChanged);
             #endregion
         }
         void InitToggles()
@@ -172,28 +230,66 @@ namespace InfoPos.Order
             {
                 #region [General]
                 ucGeneral.FieldLinkAdd("txtOrderNo", 0, "OrderNo", "", false, false, true);
-                ucGeneral.FieldLinkAdd("txtCustNo", 0, "CustNo", "", true, false, true);
-                ucGeneral.FieldLinkAdd("txtCustomerName", 0, "LASTNAME", "", false, false, true);
-                ucGeneral.FieldLinkAdd("txtConfirmTerm", 0, "ConfirmTerm", "", false, false, false);
-                ucGeneral.FieldLinkAdd("cboTermType", 0, "TermType", "", true, false);
-                ucGeneral.FieldLinkAdd("txtOrderAmount", 0, "OrderAmount", "", false, false);
-                ucGeneral.FieldLinkAdd("txtPrepaidAmount", 0, "PrepaidAmount", "", false, false);
-                ucGeneral.FieldLinkAdd("txtPersonCount", 0, "PersonCount", "", false, false);
-                ucGeneral.FieldLinkAdd("cboCurCode", 0, "CurCode", "", false, false);
-                ucGeneral.FieldLinkAdd("txtFee", 0, "Fee", "", false, false);
-                ucGeneral.FieldLinkAdd("dteStartDate", 0, "StartDate", "", false, false);
-                ucGeneral.FieldLinkAdd("dteEndDate", 0, "EndDate", "", true, false);
-                ucGeneral.FieldLinkAdd("cboStatus", 0, "Status", "", false, false);
+                ucGeneral.FieldLinkAdd("cboChannelID", 0, "ChannelID", "", false, false, true);
+
+                ucGeneral.FieldLinkAdd("txtOrderName", 0, "OrderName", "", false, false, false);
+                ucGeneral.FieldLinkAdd("txtOrderContactInfo", 0, "OrderContactInfo", "", false, false, false);
+                ucGeneral.FieldLinkAdd("txtUserID", 0, "UserID", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtCustNo", 0, "CustNo", "", true, false, false);
+                ucGeneral.FieldLinkAdd("txtCustomerName", 0, "CustomerName", "", false, false, true);
+                ucGeneral.FieldLinkAdd("cboOrderType", 0, "OrderType", "", false, false, false);
                 ucGeneral.FieldLinkAdd("dteCreateDate", 0, "CreateDate", "", false, false, true);
-                ucGeneral.FieldLinkAdd("dtePostDate", 0, "CreatePostDate", "", false, false, true);
-                ucGeneral.FieldLinkAdd("txtOwnerUser", 0, "OwnerUser", "", false, false, true);
+                ucGeneral.FieldLinkAdd("cboStatus", 0, "Status", "", false, false, true);
                 ucGeneral.FieldLinkAdd("txtCreateUser", 0, "CreateUser", "", false, false, true);
-                ucGeneral.FieldLinkAdd("cboRebateID", 0, "RebateID", "", false, false);
-                ucGeneral.FieldLinkAdd("cboLoyalID", 0, "LoyalID", "", false, false);
-                ucGeneral.FieldLinkAdd("cboPointID", 0, "PointID", "", false, false);
+                ucGeneral.FieldLinkAdd("txtSalesUser", 0, "SalesUser", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtPersonCount", 0, "PersonCount", "", false, false);
+                ucGeneral.FieldLinkAdd("dteStartDateTime", 0, "StartDateTime", "", false, false);
+                ucGeneral.FieldLinkAdd("dteEndDateTime", 0, "EndDateTime", "", true, false);
+
+                ucGeneral.FieldLinkAdd("txtGraceHoursStart", 0, "GraceHoursStart", "", false, false);
+                ucGeneral.FieldLinkAdd("txtGraceHoursEnd", 0, "GraceHoursEnd", "", false, false);
+                ucGeneral.FieldLinkAdd("txtOrderAmount", 0, "OrderAmount", "", false, false);
+                ucGeneral.FieldLinkAdd("txtOrderAmountMin", 0, "OrderAmountMin", "", false, false);
+                ucGeneral.FieldLinkAdd("txtOrderAmountMax", 0, "OrderAmountMax", "", false, false);
+                ucGeneral.FieldLinkAdd("txtOrderBalance", 0, "OrderBalance", "", false, false);
+                ucGeneral.FieldLinkAdd("txtPrepaidAmount", 0, "PrepaidAmount", "", false, false);
+                ucGeneral.FieldLinkAdd("cboCurCode", 0, "CurCode", "", false, false);
+                ucGeneral.FieldLinkAdd("cboPriceType", 0, "PriceType", "", false, false);
+                ucGeneral.FieldLinkAdd("cboDiscountID", 0, "DiscountID", "", false, false);
+                ucGeneral.FieldLinkAdd("cboDiscountType", 0, "DiscountType", "", false, false);
+                ucGeneral.FieldLinkAdd("txtDicountAmount", 0, "DicountAmount", "", false, false);
+
+                ucGeneral.FieldLinkAdd("dteCancelDateTime", 0, "CancelDateTime", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtCancelNote", 0, "CancelNote", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtCancelUserNo", 0, "CancelUserNo", "", false, false, true);
+
+                ucGeneral.FieldLinkAdd("dteExpireDateTime", 0, "ExpireDateTime", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtExpireNote", 0, "ExpireNote", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtExpireUserNo", 0, "ExpireUserNo", "", false, false, true);
+
+                ucGeneral.FieldLinkAdd("dteConfirmDateTime", 0, "ConfirmDateTime", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtConfirmNote", 0, "ConfirmNote", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtConfirmUserNo", 0, "ConfirmUserNo", "", false, false, true);
+
+                ucGeneral.FieldLinkAdd("dteSaleDateTime", 0, "SaleDateTime", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtSalesNo", 0, "SalesNo", "", false, false, true);
+                ucGeneral.FieldLinkAdd("txtContractNo", 0, "ContractNo", "", false, false, true);
                 #endregion
                 #region[Person]
-                ucPerson.FieldLinkAdd("txtTabPersonCustomerNo", 0, "CUSTNO", "", true, false, true);
+                ucPerson.FieldLinkAdd("txtOPItemNo", 0, "ItemNo", "", false, false, true);
+                ucPerson.FieldLinkAdd("txtOPRegisterNo", 0, "RegisterNo", "", true, false, false);
+                ucPerson.FieldLinkAdd("txtOPFirstName", 0, "FirstName", "", true, false, false);
+                ucPerson.FieldLinkAdd("txtOPLastName", 0, "LastName", "", true, false, false);
+                ucPerson.FieldLinkAdd("txtOPMiddleName", 0, "MiddleName", "", false, false, false);
+                ucPerson.FieldLinkAdd("cboOPSex", 0, "Sex", "", true, false, false);
+                ucPerson.FieldLinkAdd("dteOPBirthDay", 0, "BirthDay", "", false, false, false);
+                ucPerson.FieldLinkAdd("txtOPEmail", 0, "Email", "", false, false, false);
+                ucPerson.FieldLinkAdd("txtOPMobile", 0, "Mobile", "", false, false, false);
+                ucPerson.FieldLinkAdd("txtOPCompany", 0, "Company", "", false, false, false);
+                ucPerson.FieldLinkAdd("cboOPCountryCode", 0, "CountryCode", "", false, false, false);
+                ucPerson.FieldLinkAdd("txtOPHeight", 0, "Height", "", false, false, false);
+                ucPerson.FieldLinkAdd("txtOPFootSize", 0, "FootSize", "", false, false, false);
+                ucPerson.FieldLinkAdd("txtOPSerialNo", 0, "SerialNo", "", false, false, false);
                 ucPerson.GridView = gvwOrderPerson;
                 #endregion
             }
@@ -211,7 +307,7 @@ namespace InfoPos.Order
             {
                 DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == System.Windows.Forms.DialogResult.No) return;
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130104, 130104, new object[] { txtOrderNo.EditValue });
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130105, 130105, new object[] { txtOrderNo.EditValue });
 
                 if (res.ResultNo == 0)
                 {
@@ -237,34 +333,53 @@ namespace InfoPos.Order
 
             if (ucGeneral.FieldValidate(ref err, ref cont) == true)
             {
-                if (dteStartDate.DateTime > dteEndDate.DateTime)
+                if (dteStartDateTime.DateTime > dteEndDateTime.DateTime)
                 {
                     MessageBox.Show(this, "Эхлэх дуусах огноо алдаатай байна.", "Алдаа");
                     cancel = true;
                     return;
                 }
-                dteCreateDate.EditValue = _core.TxnDate;
-                dtePostDate.EditValue = DateTime.Now;
+                //dteCreateDate.EditValue = _core.TxnDate;
+                //dteSaleDateTime.EditValue = DateTime.Now;
                 object[] obj = {
-                                   Static.ToStr(txtOrderNo.EditValue),
-                                   Static.ToStr(txtCustNo.EditValue),
-                                   Static.ToInt(txtConfirmTerm.EditValue),
-                                   Static.ToStr(cboTermType.EditValue),
-                                   Static.ToDecimal(txtOrderAmount.EditValue),
-                                   Static.ToDecimal(txtPrepaidAmount.EditValue),
-                                   Static.ToStr(cboCurCode.EditValue),
-                                   Static.ToDecimal(txtFee.EditValue),
-                                   Static.ToDateTime(dteStartDate.EditValue),
-                                   Static.ToDateTime(dteEndDate.EditValue),
-                                   Static.ToInt(txtPersonCount.EditValue),
-                                   Static.ToInt(cboStatus.EditValue),
-                                   Static.ToDate(dteCreateDate.EditValue),
-                                   Static.ToDateTime(dtePostDate.EditValue),
-                                   Static.ToInt(txtCreateUser.EditValue),
-                                   Static.ToInt(txtOwnerUser.EditValue),
-                                   Static.ToLong(cboRebateID.EditValue),
-                                   Static.ToLong(cboLoyalID.EditValue),
-                                   Static.ToLong(cboPointID.EditValue),
+                                    Static.ToStr(txtOrderNo.EditValue),
+                                    Static.ToInt(cboChannelID.EditValue),
+                                    Static.ToStr(txtOrderName.EditValue),
+                                    Static.ToStr(txtOrderContactInfo.EditValue),
+                                    Static.ToStr(txtUserID.EditValue),
+                                    Static.ToLong(txtCustNo.EditValue),
+                                    Static.ToInt(cboOrderType.EditValue),
+                                    Static.ToDateTime(dteCreateDate.EditValue),
+                                    Static.ToInt(cboStatus.EditValue),
+                                    Static.ToInt(txtCreateUser.EditValue),
+                                    Static.ToInt(txtSalesUser.EditValue),
+                                    Static.ToInt(txtPersonCount.EditValue),
+                                    Static.ToDateTime(dteStartDateTime.EditValue),
+                                    Static.ToDateTime(dteEndDateTime.EditValue),
+                                    Static.ToInt(txtGraceHoursStart.EditValue),
+                                    Static.ToInt(txtGraceHoursEnd.EditValue),
+                                    Static.ToDecimal(txtOrderAmount.EditValue),
+                                    Static.ToDecimal(txtOrderAmountMin.EditValue),
+                                    Static.ToDecimal(txtOrderAmountMax.EditValue),
+                                    Static.ToDecimal(txtOrderBalance.EditValue),
+                                    Static.ToDecimal(txtPrepaidAmount.EditValue),
+                                    Static.ToStr(cboCurCode.EditValue),
+                                    Static.ToInt(cboPriceType.EditValue),
+                                    Static.ToInt(cboDiscountID.EditValue),
+                                    Static.ToInt(cboDiscountType.EditValue),
+                                    Static.ToDecimal(txtDicountAmount.EditValue),
+                                    Static.ToDateTime(dteCancelDateTime.EditValue),
+                                    Static.ToStr(txtCancelNote.EditValue),
+                                    Static.ToInt(txtCancelUserNo.EditValue),
+                                    Static.ToDateTime(dteExpireDateTime.EditValue),
+                                    Static.ToStr(txtExpireNote.EditValue),
+                                    Static.ToInt(txtExpireUserNo.EditValue),
+                                    Static.ToDateTime(dteConfirmDateTime.EditValue),
+                                    Static.ToStr(txtConfirmNote.EditValue),
+                                    Static.ToInt(txtConfirmUserNo.EditValue),
+                                    Static.ToDateTime(dteSaleDateTime.EditValue),
+                                    Static.ToStr(txtSalesNo.EditValue),
+                                    Static.ToStr(txtContractNo.EditValue)
                                };
                 if (isnew)
                 {
@@ -305,12 +420,21 @@ namespace InfoPos.Order
         void ucGeneral_EventAddAfter()
         {
             txtCreateUser.EditValue = _core.RemoteObject.User.UserNo;
-            txtOwnerUser.EditValue = _core.RemoteObject.User.UserNo;
+            txtSalesUser.EditValue = _core.RemoteObject.User.UserNo;
             ucGeneral.FieldLinkSetNewState();
-            dteStartDate.DateTime = DateTime.Now;
-            dteEndDate.DateTime = DateTime.Now;
+
+            dteStartDateTime.DateTime = DateTime.Now;
+            dteEndDateTime.DateTime = DateTime.Now;
+
             cboCurCode.ItemIndex = 0;
-            cboStatus.ItemIndex = 1;
+            cboDiscountID.ItemIndex = 0;
+            cboDiscountType.ItemIndex = 0;
+            cboOrderType.ItemIndex = 0;
+            cboPriceType.ItemIndex = 0;
+
+            FormUtility.LookUpEdit_SetValue(ref cboStatus, 0);
+            FormUtility.LookUpEdit_SetValue(ref cboChannelID, 0);
+
         }
         private void RefreshGeneral()
         {
@@ -347,7 +471,7 @@ namespace InfoPos.Order
             {
                 DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == System.Windows.Forms.DialogResult.No) return;
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130110, 130110, new object[] { Static.ToStr(txtOrderNo.EditValue), Static.ToStr(txtTabPersonCustomerNo.EditValue) });
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130110, 130110, new object[] { Static.ToStr(txtOrderNo.EditValue), Static.ToStr(txtOPItemNo.EditValue) });
 
                 if (res.ResultNo == 0)
                 {
@@ -374,7 +498,20 @@ namespace InfoPos.Order
             {
                 object[] obj = {
                                    Static.ToStr(txtOrderNo.EditValue),
-                                   Static.ToStr(txtTabPersonCustomerNo.EditValue)
+                                   Static.ToLong(txtOPItemNo.EditValue),
+                                   Static.ToStr(txtOPRegisterNo.EditValue),
+                                   Static.ToStr(txtOPFirstName.EditValue),
+                                   Static.ToStr(txtOPLastName.EditValue),
+                                   Static.ToStr(txtOPMiddleName.EditValue),
+                                   Static.ToInt(cboOPSex.EditValue),
+                                   Static.ToDate(dteOPBirthDay.EditValue),
+                                   Static.ToStr(txtOPEmail.EditValue),
+                                   Static.ToInt(txtOPMobile.EditValue),
+                                   Static.ToStr(txtOPCompany.EditValue),
+                                   Static.ToInt(cboOPCountryCode.EditValue),
+                                   Static.ToInt(txtOPHeight.EditValue),
+                                   Static.ToInt(txtOPFootSize.EditValue),
+                                   Static.ToStr(txtOPSerialNo.EditValue)
                                };
                 if (isnew)
                 {
@@ -383,14 +520,13 @@ namespace InfoPos.Order
                 }
                 else
                 {
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130109, 130109, new object[] { txtOrderNo.EditValue, OldTabPersonCustNo, txtTabPersonCustomerNo.EditValue });
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130109, 130109, obj);
                     msg = "Амжилттай засварлалаа.";
                 }
                 if (res.ResultNo == 0)
                 {
                     MessageBox.Show(msg);
                     RefreshPerson();
-                    btnTabCustFind.Enabled = false;
                 }
                 else
                 {
@@ -411,12 +547,12 @@ namespace InfoPos.Order
         }
         void ucPerson_EventEdit(ref bool cancel)
         {
-            OldTabPersonCustNo = Static.ToLong(txtTabPersonCustomerNo.EditValue);
-            btnTabCustFind.Enabled = true;
+            //OldTabPersonCustNo = Static.ToLong(txtOPItemNo.EditValue);
+            //btnTabCustFind.Enabled = true;
         }
         void ucPerson_EventAddAfter()
         {
-            btnTabCustFind.Enabled = true;
+            //btnTabCustFind.Enabled = true;
         }
         private void RefreshPerson()
         {
@@ -441,6 +577,203 @@ namespace InfoPos.Order
                 MessageBox.Show(ex.Message);
             }
         }
+        private void gvwOrderPerson_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            DataRow dr = gvwOrderPerson.GetFocusedDataRow();
+            if (dr != null)
+            {
+                txtOPItemNo.EditValue = dr["ItemNo"];
+                txtOPRegisterNo.EditValue = dr["RegisterNo"];
+                txtOPFirstName.EditValue = dr["FirstName"];
+                txtOPLastName.EditValue = dr["LastName"];
+                txtOPMiddleName.EditValue = dr["MiddleName"];
+                FormUtility.LookUpEdit_SetValue(ref cboOPSex, dr["Sex"]);
+                dteOPBirthDay.EditValue = dr["BirthDay"];
+                txtOPEmail.EditValue = dr["Email"];
+                txtOPMobile.EditValue = dr["Mobile"];
+                txtOPCompany.EditValue = dr["Company"];
+                cboOPCountryCode.EditValue = dr["CountryCode"];
+                txtOPHeight.EditValue = dr["Height"];
+                txtOPFootSize.EditValue = dr["FootSize"];
+                txtOPSerialNo.EditValue = dr["SerialNo"];
+                OPRefreshProduct(Static.ToStr(txtOrderNo.EditValue), Static.ToLong(txtOPItemNo.EditValue));
+            }
+        }
+        //OPProduct
+        private void btnOPProdType_Click(object sender, EventArgs e)
+        {
+            if (cboOPProdType.EditValue != null)
+            {
+                switch (Static.ToInt(cboOPProdType.EditValue))
+                {
+                    case 0:
+                        {
+                            InfoPos.List.InventoryList frm = new List.InventoryList(_core);
+                            frm.ucInventoryList.Browsable = true;
+                            DialogResult res = frm.ShowDialog();
+                            if ((res == System.Windows.Forms.DialogResult.OK))
+                            {
+                                txtOPProdNo.EditValue = frm.ucInventoryList.SelectedRow["INVID"];
+                            }
+                        } break;
+                    case 1:
+                        {
+                            InfoPos.List.ServiceList frm = new List.ServiceList(_core);
+                            frm.ucServiceList.Browsable = true;
+                            DialogResult res = frm.ShowDialog();
+                            if ((res == System.Windows.Forms.DialogResult.OK))
+                            {
+                                txtOPProdNo.EditValue = frm.ucServiceList.SelectedRow["SERVID"];
+                            }
+                        } break;
+                    case 2:
+                        {
+                            InfoPos.List.PackMainList frm = new List.PackMainList(_core);
+                            frm.ucPackMain.Browsable = true;
+                            DialogResult res = frm.ShowDialog();
+                            if ((res == System.Windows.Forms.DialogResult.OK))
+                            {
+                                txtOPProdNo.EditValue = frm.ucPackMain.SelectedRow["PackageId"];
+                            }
+                        } break;
+                }
+            }
+            else
+                MessageBox.Show("Бүтээгдэхүүний төрлөө сонгоно уу.");
+        }
+        private void btnOPRefresh_Click(object sender, EventArgs e)
+        {
+            OPRefreshProduct(Static.ToStr(txtOrderNo.EditValue), Static.ToLong(txtOPItemNo.EditValue));
+        }
+        void OPRefreshProduct(string pOrderNo, long pItemNo)
+        {
+            Result res = new Result();
+            try
+            {
+                if (pOrderNo != "" || pItemNo != 0)
+                {
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130150, 130150, new object[] { pOrderNo, pItemNo });
+
+                    if (res.ResultNo == 0)
+                    {
+                        grdOPProduct.DataSource = res.Data.Tables[0];
+                        SetOPProduct();
+                    }
+                    else
+                    {
+                        MessageBox.Show(Static.ToStr(res.ResultNo) + " " + res.ResultDesc);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        void SetOPProduct()
+        {
+            gvwOPProduct.Columns[0].Caption = "Захиалгын дугаар";
+            gvwOPProduct.Columns[0].Visible = false;
+            gvwOPProduct.Columns[1].Caption = "Дэс дугаар";
+            gvwOPProduct.Columns[2].Caption = "Барааны дугаар";
+            gvwOPProduct.Columns[3].Caption = "Барааны нэр";
+            gvwOPProduct.Columns[4].Caption = "Барааны төрөл";
+            gvwOPProduct.Columns[5].Caption = "Тоо ширхэг";
+
+            for (int i = 0; i < 6; i++)
+            {
+                gvwOPProduct.Columns[i].OptionsColumn.AllowEdit = false;
+            }
+        }
+        private void btnOPAdd_Click(object sender, EventArgs e)
+        {
+            SaveOPProduct(true);
+        }
+        private void btnOPEdit_Click(object sender, EventArgs e)
+        {
+            SaveOPProduct(false);
+        }
+        void SaveOPProduct(bool isnew)
+        {
+            Result res = new Result();
+            string msg = "";
+
+            if(Static.ToStr(txtOPProdNo.EditValue) == "")
+            {
+                MessageBox.Show("Бүтээгдэхүүнээ сонгоно уу");
+                return;
+            }
+
+            if (Static.ToDecimal(txtOPQty.EditValue) == 0)
+            {
+                MessageBox.Show("Тоо ширхэгээ оруулна уу");
+                return;
+            }
+
+            object[] obj = {
+                                Static.ToStr(txtOrderNo.EditValue),
+                                Static.ToLong(txtOPItemNo.EditValue),
+                                Static.ToStr(txtOPProdNo.EditValue),
+                                Static.ToInt(cboOPProdType.EditValue),
+                                Static.ToDecimal(txtOPQty.EditValue)
+                            };
+            if (isnew)
+            {
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130152, 130152, obj);
+                msg = "Амжилттай нэмлээ.";
+            }
+            else
+            {
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130153, 130153, obj);
+                msg = "Амжилттай засварлалаа.";
+            }
+            if (res.ResultNo == 0)
+            {
+                MessageBox.Show(msg);
+                OPRefreshProduct(Static.ToStr(txtOrderNo.EditValue), Static.ToLong(txtOPItemNo.EditValue));
+            }
+            else
+            {
+                MessageBox.Show(res.ResultNo + " : " + res.ResultDesc);
+            }
+        }
+        private void btnOPDelete_Click(object sender, EventArgs e)
+        {
+            Result res = new Result();
+            try
+            {
+                DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (d == System.Windows.Forms.DialogResult.No) return;
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130154, 130154, new object[] { Static.ToStr(txtOrderNo.EditValue), Static.ToStr(txtOPItemNo.EditValue), 
+                Static.ToInt(cboOPProdType.EditValue), Static.ToStr(txtOPProdNo.EditValue)
+                });
+
+                if (res.ResultNo == 0)
+                {
+                    MessageBox.Show("Амжилттай устгагдлаа");
+                    OPRefreshProduct(Static.ToStr(txtOrderNo.EditValue), Static.ToLong(txtOPItemNo.EditValue));
+                }
+                else
+                {
+                    MessageBox.Show(Static.ToStr(res.ResultNo) + " " + res.ResultDesc);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        void gvwOPProduct_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            DataRow dr = gvwOPProduct.GetFocusedDataRow();
+            if (dr != null)
+            {
+                FormUtility.LookUpEdit_SetValue(ref cboOPProdType, dr["ProdType"]);
+                txtOPProdNo.EditValue = dr["ProdNo"];
+                txtOPQty.EditValue = dr["Qty"];
+            }
+        }
+        //OPProduct
         #endregion
         #region[Group]
         void ucGroup_EventEdit(ref bool cancel)
@@ -536,63 +869,12 @@ namespace InfoPos.Order
             else
                 MessageBox.Show(res2.ResultNo + " : " + res2.ResultDesc);
         }
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            Result res = new Result();
-            try
-            {
-                if (Static.ToLong(txtTabPersonCustomerNo.EditValue) != 0)
-                {
-                    object[] obj1 = new object[23];
-                    obj1[0] = Static.ToLong(txtTabPersonCustomerNo.EditValue);
-
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 205, 120001, 120001, obj1);
-
-                    if (res.ResultNo == 0)
-                    {
-                        object[] obj = new object[3];
-                        obj[0] = _core;
-                        obj[1] = txtTabPersonCustomerNo.EditValue;
-                        obj[2] = res.Data.Tables[0].Rows[0];
-                        EServ.Shared.Static.Invoke("InfoPos.Enquiry.dll", "InfoPos.Enquiry.Main", "CallCustomerEnquiry", obj);
-                    }
-                    else
-                    {
-                        MessageBox.Show(Static.ToStr(res.ResultNo) + " " + res.ResultDesc);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            InfoPos.List.CustomerList frm = new List.CustomerList(_core);
-            frm.ucCustomerList.Browsable = true;
-            DialogResult res = frm.ShowDialog();
-            if ((res == System.Windows.Forms.DialogResult.OK))
-            {
-                txtTabPersonCustomerNo.EditValue = frm.ucCustomerList.SelectedRow["CUSTOMERNO"];
-            }
-        }
         private void btnGroupAdd_Click(object sender, EventArgs e)
         {
             btnGroupEdit.Text = "Хадгалах";
             btnGroupAdd.Enabled = false;
             btnGroupDelete.Enabled = false;
             btnGroupCancel.Enabled = true;
-            tmeGroupEnd.Properties.ReadOnly = false;
-            tmeGroupStart.Properties.ReadOnly = false;
-            txtTabGroupNo.Properties.ReadOnly = false;
-            cboTabGroupRunTime.Properties.ReadOnly = false;
-            tmeGroupEnd.BackColor = Color.LemonChiffon;
-            tmeGroupStart.BackColor = Color.LemonChiffon;
-            dteTabGroupOrderDate.BackColor = Color.White;
-            txtTabGroupNo.BackColor = Color.LemonChiffon;
-            cboTabGroupRunTime.BackColor = Color.LemonChiffon;
-            cboTabGroupRunTime.ItemIndex = 0;
         }
         private void btnGroupEdit_Click(object sender, EventArgs e)
         {
@@ -604,14 +886,14 @@ namespace InfoPos.Order
                 btnGroupEdit.Text = "Хадгалах";
                 knowbutton="Засах";
                 btnGroupCancel.Enabled = true;
-                tmeGroupEnd.Properties.ReadOnly = false;
-                tmeGroupStart.Properties.ReadOnly = false;
-                cboTabGroupRunTime.Properties.ReadOnly = false;
-                tmeGroupEnd.BackColor = Color.LemonChiffon;
-                tmeGroupStart.BackColor = Color.LemonChiffon;
-                dteTabGroupOrderDate.BackColor = Color.White;
-                txtTabGroupNo.BackColor = Color.LemonChiffon;
-                cboTabGroupRunTime.BackColor = Color.LemonChiffon;
+                //tmeGroupEnd.Properties.ReadOnly = false;
+                //tmeGroupStart.Properties.ReadOnly = false;
+                //cboTabGroupRunTime.Properties.ReadOnly = false;
+                //tmeGroupEnd.BackColor = Color.LemonChiffon;
+                //tmeGroupStart.BackColor = Color.LemonChiffon;
+                //dteTabGroupOrderDate.BackColor = Color.White;
+                //txtTabGroupNo.BackColor = Color.LemonChiffon;
+                //cboTabGroupRunTime.BackColor = Color.LemonChiffon;
                 return;
             }
             else
@@ -620,11 +902,11 @@ namespace InfoPos.Order
                 string msg = "";
                 object[] obj = {
                                    Static.ToStr(txtOrderNo.EditValue),
-                                   Static.ToLong(txtTabGroupNo.EditValue),
-                                   Static.ToDate(dteTabGroupOrderDate.DateTime),
-                                   Static.ToDateTime(tmeGroupStart.Time),
-                                   Static.ToDateTime(tmeGroupEnd.Time),
-                                   Static.ToInt(cboTabGroupRunTime.EditValue)
+                                   //Static.ToLong(txtTabGroupNo.EditValue),
+                                   //Static.ToDate(dteTabGroupOrderDate.DateTime),
+                                   //Static.ToDateTime(tmeGroupStart.Time),
+                                   //Static.ToDateTime(tmeGroupEnd.Time),
+                                   //Static.ToInt(cboTabGroupRunTime.EditValue)
                                };
                 if (knowbutton == "")
                 {
@@ -658,25 +940,25 @@ namespace InfoPos.Order
             Result res = new Result();
             try
             {
-                DataRow dr = gvwGroup.GetFocusedDataRow();
-                if (dr != null)
-                {
-                    txtTabGroupNo.EditValue=dr["GROUPNO"];
-                }
-                DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (d == System.Windows.Forms.DialogResult.No) return;
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130115, 130115, new object[] { Static.ToStr(txtOrderNo.EditValue), Static.ToStr(txtTabGroupNo.EditValue) });
+                //DataRow dr = gvwGroup.GetFocusedDataRow();
+                //if (dr != null)
+                //{
+                //    txtTabGroupNo.EditValue=dr["GROUPNO"];
+                //}
+                //DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //if (d == System.Windows.Forms.DialogResult.No) return;
+                //res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130115, 130115, new object[] { Static.ToStr(txtOrderNo.EditValue), Static.ToStr(txtTabGroupNo.EditValue) });
 
-                if (res.ResultNo == 0)
-                {
-                    MessageBox.Show("Амжилттай устгагдлаа");
-                    cboTabGroupRunTime.ItemIndex = 0;
-                    RefreshGroup();
-                }
-                else
-                {
-                    MessageBox.Show(Static.ToStr(res.ResultNo) + " " + res.ResultDesc);
-                }
+                //if (res.ResultNo == 0)
+                //{
+                //    MessageBox.Show("Амжилттай устгагдлаа");
+                //    cboTabGroupRunTime.ItemIndex = 0;
+                //    RefreshGroup();
+                //}
+                //else
+                //{
+                //    MessageBox.Show(Static.ToStr(res.ResultNo) + " " + res.ResultDesc);
+                //}
             }
             catch (Exception ex)
             {
@@ -688,13 +970,13 @@ namespace InfoPos.Order
             DataRow dr = gvwGroup.GetFocusedDataRow();
             if (dr != null)
             {
-                txtTabGroupNo.EditValue=dr["groupno"];
-                dteTabGroupOrderDate.EditValue = dr["orderdate"];
-                tmeGroupStart.EditValue = dr["StartTime"];
-                tmeGroupEnd.EditValue = dr["EndTime"];
-                FormUtility.LookUpEdit_SetValue(ref cboTabGroupRunTime, dr["RunType"]);
-                txtProdOrderNo.EditValue = txtOrderNo.EditValue;
-                txtProdGroupNo.EditValue = dr["groupno"];
+                //txtTabGroupNo.EditValue=dr["groupno"];
+                //dteTabGroupOrderDate.EditValue = dr["orderdate"];
+                //tmeGroupStart.EditValue = dr["StartTime"];
+                //tmeGroupEnd.EditValue = dr["EndTime"];
+                //FormUtility.LookUpEdit_SetValue(ref cboTabGroupRunTime, dr["RunType"]);
+                txtPriceDiscountAmount.EditValue = txtOrderNo.EditValue;
+                txtPricePrice.EditValue = dr["groupno"];
                 RefreshProduct();
             }
         }
@@ -705,15 +987,15 @@ namespace InfoPos.Order
             btnGroupDelete.Enabled = true;
             btnGroupCancel.Enabled = false;
             knowbutton = "";
-            tmeGroupEnd.Properties.ReadOnly = true;
-            tmeGroupStart.Properties.ReadOnly = true;
-            txtTabGroupNo.Properties.ReadOnly = true;
-            cboTabGroupRunTime.Properties.ReadOnly = true;
-            tmeGroupEnd.BackColor = Color.Gainsboro;
-            tmeGroupStart.BackColor = Color.Gainsboro;
-            dteTabGroupOrderDate.BackColor = Color.Gainsboro;
-            txtTabGroupNo.BackColor = Color.Gainsboro;
-            cboTabGroupRunTime.BackColor = Color.Gainsboro;
+            //tmeGroupEnd.Properties.ReadOnly = true;
+            //tmeGroupStart.Properties.ReadOnly = true;
+            //txtTabGroupNo.Properties.ReadOnly = true;
+            //cboTabGroupRunTime.Properties.ReadOnly = true;
+            //tmeGroupEnd.BackColor = Color.Gainsboro;
+            //tmeGroupStart.BackColor = Color.Gainsboro;
+            //dteTabGroupOrderDate.BackColor = Color.Gainsboro;
+            //txtTabGroupNo.BackColor = Color.Gainsboro;
+            //cboTabGroupRunTime.BackColor = Color.Gainsboro;
         }
         #endregion
         #region[Product]
@@ -760,8 +1042,8 @@ namespace InfoPos.Order
             DataRow dr = gvwProduct.GetFocusedDataRow();
             if (dr != null)
             {
-                txtProdOrderNo.EditValue = dr["ORDERNO"];
-                txtProdGroupNo.EditValue=dr["GROUPNO"];
+                txtPriceDiscountAmount.EditValue = dr["ORDERNO"];
+                txtPricePrice.EditValue=dr["GROUPNO"];
                 txtProdProdNo.EditValue = dr["PRODNO"];
                 FormUtility.LookUpEdit_SetValue(ref cboProdProdType, dr["PRODTYPE"]);
             }
@@ -770,7 +1052,7 @@ namespace InfoPos.Order
             {
                 DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == System.Windows.Forms.DialogResult.No) return;
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130120, 130120, new object[] { Static.ToStr(txtProdOrderNo.EditValue), Static.ToLong(txtProdGroupNo.EditValue), Static.ToStr(txtProdProdNo.EditValue), Static.ToInt(cboProdProdType.EditValue) });
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 210, 130120, 130120, new object[] { Static.ToStr(txtPriceDiscountAmount.EditValue), Static.ToLong(txtPricePrice.EditValue), Static.ToStr(txtProdProdNo.EditValue), Static.ToInt(cboProdProdType.EditValue) });
 
                 if (res.ResultNo == 0)
                 {
@@ -778,8 +1060,8 @@ namespace InfoPos.Order
                     cboProdProdType.ItemIndex = 0;
                     txtProdQty.EditValue = null;
                     txtProdProdNo.EditValue = null;
-                    txtProdOrderNo.EditValue = null;
-                    txtProdGroupNo.EditValue = null;
+                    txtPriceDiscountAmount.EditValue = null;
+                    txtPricePrice.EditValue = null;
                     RefreshProduct();
                 }
                 else
@@ -831,7 +1113,7 @@ namespace InfoPos.Order
                 Result res = new Result();
                 string msg = "";
                 object[] obj = {
-                                   Static.ToStr(txtProdOrderNo.EditValue),
+                                   Static.ToStr(txtPriceDiscountAmount.EditValue),
                                    1,//Static.ToLong(txtProdGroupNo.EditValue),
                                    Static.ToStr(txtProdProdNo.EditValue),
                                    Static.ToInt(cboProdProdType.EditValue),
@@ -863,8 +1145,8 @@ namespace InfoPos.Order
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
             btnProductEdit.Text = "Хадгалах";
-            txtProdGroupNo.EditValue = txtTabGroupNo.EditValue;
-            txtProdOrderNo.EditValue = txtOrderNo.EditValue;
+            //txtPricePrice.EditValue = txtTabGroupNo.EditValue;
+            txtPriceDiscountAmount.EditValue = txtOrderNo.EditValue;
             btnProductAdd.Enabled = false;
             btnProductDelete.Enabled = false;
             btnProductCancel.Enabled = true;
@@ -980,16 +1262,25 @@ namespace InfoPos.Order
                     RefreshPerson();
                     gvwOrderPerson.Columns[0].Caption = "Захиалгын дугаар";
                     gvwOrderPerson.Columns[0].Visible = false;
-                    gvwOrderPerson.Columns[1].Caption = "Харилцагчийн дугаар";
-                    gvwOrderPerson.Columns[2].Caption = "Овог";
-                    gvwOrderPerson.Columns[3].Caption = "Нэр";
-                    gvwOrderPerson.Columns[4].Caption = "Байгууллагын нэр";
+                    gvwOrderPerson.Columns[1].Caption = "Дэс дугаар";
+                    gvwOrderPerson.Columns[2].Caption = "РД";
+                    gvwOrderPerson.Columns[3].Caption = "Эцэг эхийн нэр";
+                    gvwOrderPerson.Columns[4].Caption = "Өөрийн нэр";
+                    gvwOrderPerson.Columns[5].Caption = "Овог";
+                    gvwOrderPerson.Columns[6].Caption = "Хүйс";
+                    gvwOrderPerson.Columns[7].Caption = "Төрсөн огноо";
+                    gvwOrderPerson.Columns[8].Caption = "Email";
+                    gvwOrderPerson.Columns[9].Caption = "Утас";
+                    gvwOrderPerson.Columns[10].Caption = "Компани";
+                    gvwOrderPerson.Columns[11].Caption = "Улсын код";
+                    gvwOrderPerson.Columns[12].Caption = "Өндөр";
+                    gvwOrderPerson.Columns[13].Caption = "Гутлын хэмжээ";
+                    gvwOrderPerson.Columns[14].Caption = "Төхөөрөмжийн дугаар";
 
-                    gvwOrderPerson.Columns[0].OptionsColumn.AllowEdit = false;
-                    gvwOrderPerson.Columns[1].OptionsColumn.AllowEdit = false;
-                    gvwOrderPerson.Columns[2].OptionsColumn.AllowEdit = false;
-                    gvwOrderPerson.Columns[3].OptionsColumn.AllowEdit = false;
-                    gvwOrderPerson.Columns[4].OptionsColumn.AllowEdit = false;
+                    for (int i = 0; i < 15; i++)
+                    {
+                        gvwOrderPerson.Columns[i].OptionsColumn.AllowEdit = false;
+                    }
                     break;
                 case 2:
                     //RefreshGroup();
@@ -1022,8 +1313,8 @@ namespace InfoPos.Order
             DataRow dr = gvwProduct.GetFocusedDataRow();
             if (dr != null)
             {
-                txtProdOrderNo.EditValue=dr["ORDERNO"];
-                txtProdGroupNo.EditValue=dr["GROUPNO"];
+                txtPriceDiscountAmount.EditValue=dr["ORDERNO"];
+                txtPricePrice.EditValue=dr["GROUPNO"];
                 FormUtility.LookUpEdit_SetValue(ref cboProdProdType, dr["PRODTYPE"]);
                 txtProdProdNo.EditValue = dr["PRODNO"];
                 txtProdQty.EditValue = dr["QTY"];
@@ -1045,14 +1336,6 @@ namespace InfoPos.Order
             else { MessageBox.Show("Хуваарь тохируулаагүй байна.","Мэдээлэл", MessageBoxButtons.OK, MessageBoxIcon.Information); }
 
         }
-        private void gvwOrderPerson_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            DataRow dr = gvwOrderPerson.GetFocusedDataRow();
-            if (dr != null)
-            {
-                txtTabPersonCustomerNo.EditValue=dr["CUSTNO"];
-            }
-        }
         private void btnOwnerFind_Click(object sender, EventArgs e)
         {
             InfoPos.List.UserList frm = new List.UserList(_core);
@@ -1060,11 +1343,24 @@ namespace InfoPos.Order
             DialogResult res = frm.ShowDialog();
             if ((res == System.Windows.Forms.DialogResult.OK))
             {
-                txtOwnerUser.EditValue = frm.ucUserList.SelectedRow["USERNO"];
+                txtSalesUser.EditValue = frm.ucUserList.SelectedRow["USERNO"];
             }
         }
-
         private void frmOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void groupControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtProdOrderNo_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProdGroupNo_EditValueChanged(object sender, EventArgs e)
         {
 
         }

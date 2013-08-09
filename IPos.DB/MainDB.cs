@@ -14,8 +14,9 @@ namespace IPos.DB
     public static class Main
     {   
         public static Result F_Error(Result res)
-        {  
-            int DdIdErrorNo = -2147467259;
+        {
+            //int DdIdErrorNo = -2147467259;
+            int DdIdErrorNo = 1;
 
             if (res.ResultNo == DdIdErrorNo)
             {
@@ -11258,7 +11259,7 @@ VALUES(:1, :2, :3)";
             {
                 string sql;
 
-                string[] fieldnames = new string[] { "OrderNo like","CustNo like","FirstName like","LastName like","CorporateName like",
+                string[] fieldnames = new string[] { "OrderNo like","CustNo like","CustomerName like",
 "ConfirmTerm","TermType","OrderAmount","PrepaidAmount",
 "CurCode","Fee","StartDate","EndDate","PersonCount",
 "Status","CreateDate","PostDate","CreateUser","OwnerUser"};
@@ -11267,7 +11268,7 @@ VALUES(:1, :2, :3)";
                 StringBuilder sb = new StringBuilder();
                 sb.Clear();
 
-                #region [AutoNum]
+                #region [Auto Condition]
                 if (pParam != null)
                 {
                     int dbindex = 1;
@@ -11345,12 +11346,12 @@ where OrderNo=:1";
                     //Y=Year; C=CurrencyCode; M=Month; D=Day; Q=Quarter; Z=Business session; S=Sequence
 
                     Core.AutoNumEnum enums = new Core.AutoNumEnum();
-                    enums.Y = Static.ToStr(Static.ToDate(pParam[12]).Year);
-                    enums.M = Static.ToStr(Static.ToDate(pParam[12]).Month);
-                    enums.D = Static.ToStr(Static.ToDate(pParam[12]).Day);
-                    enums.Q = Static.ToStr(Math.Round(Static.ToDecimal(Static.ToDate(pParam[12]).Month / 3), 0, MidpointRounding.ToEven));
-                    enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[6])).CurrencyCode);
-                    enums.Z = Static.ToStr(Static.ToDate(pParam[12]).Year - ImplementYear);
+                    enums.Y = Static.ToStr(Static.ToDate(pParam[7]).Year);
+                    enums.M = Static.ToStr(Static.ToDate(pParam[7]).Month);
+                    enums.D = Static.ToStr(Static.ToDate(pParam[7]).Day);
+                    enums.Q = Static.ToStr(Math.Round(Static.ToDecimal(Static.ToDate(pParam[7]).Month / 3), 0, MidpointRounding.ToEven));
+                    enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[21])).CurrencyCode);
+                    enums.Z = Static.ToStr(Static.ToDate(pParam[7]).Year - ImplementYear);
                     Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, 4, "", enums);
                     if (seqres.ResultNo == 0)
                     {
@@ -11375,12 +11376,15 @@ where OrderNo=:1";
 
 
                 string sql =
-@"INSERT INTO orders(OrderNo, CustNo, ConfirmTerm, TermType, OrderAmount,
-PrepaidAmount, CurCode, Fee, StartDate, EndDate,
-PersonCount, Status, CreateDate, PostDate, CreateUser,
-OwnerUser, Rebateid, Loyalid, Pointid)
+@"INSERT INTO orders(OrderNo, ChannelID, OrderName, OrderContactInfo, UserID, CustNo, OrderType, CreateDate, Status, CreateUser, 
+SalesUser, PersonCount, StartDateTime, EndDateTime, GraceHoursStart, GraceHoursEnd, OrderAmount, OrderAmountMin, OrderAmountMax, OrderBalance, 
+PrepaidAmount, CurCode, PriceType, DiscountID, DiscountType, DicountAmount, CancelDateTime, CancelNote, CancelUserNo, ExpireDateTime, 
+ExpireNote, ExpireUserNo, ConfirmDateTime, ConfirmNote, ConfirmUserNo, SaleDateTime, SalesNo, ContractNo)
 VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, 
-:11, :12, :13, :14, :15, :16, :17, :18, :19)";
+:11, :12, :13, :14, :15, :16, :17, :18, :19, :20, 
+:21, :22, :23, :24, :25, :26, :27, :28, :29, :30,
+:31, :32, :33, :34, :35, :36, :37, :38
+)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204103", pParam);
                 res = F_Error(res);
@@ -11411,10 +11415,14 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
             {
                 string sql =
 @"UPDATE orders SET
-CustNo=:2, ConfirmTerm=:3, TermType=:4, OrderAmount=:5,
-PrepaidAmount=:6, CurCode=:7, Fee=:8, StartDate=:9, EndDate=:10,
-PersonCount=:11, Status=:12, CreateDate=:13, PostDate=:14, CreateUser=:15,
-OwnerUser=:16, Rebateid=:17, Loyalid=:18, Pointid=:19
+ChannelID=:2, OrderName=:3, OrderContactInfo=:4, UserID=:5, 
+CustNo=:6, OrderType=:7, CreateDate=:8, Status=:9, CreateUser=:10, 
+SalesUser=:11, PersonCount=:12, StartDateTime=:13, EndDateTime=:14, GraceHoursStart=:15, 
+GraceHoursEnd=:16, OrderAmount=:17, OrderAmountMin=:18, OrderAmountMax=:19, OrderBalance=:20, 
+PrepaidAmount=:21, CurCode=:22, PriceType=:23, DiscountID=:24, DiscountType=:25, 
+DicountAmount=:26, CancelDateTime=:27, CancelNote=:28, CancelUserNo=:29, ExpireDateTime=:30, 
+ExpireNote=:31, ExpireUserNo=:32, ConfirmDateTime=:33, ConfirmNote=:34, ConfirmUserNo=:35, 
+SaleDateTime=:36, SalesNo=:37, ContractNo=:38
 WHERE OrderNo=:1";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204104", pParam);
@@ -11461,10 +11469,11 @@ WHERE OrderNo=:1";
                 string sql;
 
                 sql =
-@"select a.orderno, a.custno, c.FirstName, c.LastName, c.CorporateName
-from orderperson a
-left join customer c on a.custno=c.customerno
-where a.orderno=:1
+@"select OrderNo, ItemNo, RegisterNo, FirstName, LastName, 
+MiddleName, Sex, BirthDay, Email, Mobile, 
+Company, CountryCode, Height, FootSize, SerialNo
+from OrderPersonal
+where orderno=:1
 ";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204106", pOrderNo);
@@ -11481,18 +11490,19 @@ where a.orderno=:1
         }
         #endregion
         #region [ DB204107 - Захиалгад орсон үйлчлүүлэгийн бүртгэл дэлгэрэнгүй мэдээлэл авах ]
-        public static Result DB204107(DbConnections pDB, string pOrderNo, long pCustNo)
+        public static Result DB204107(DbConnections pDB, string pOrderNo, long pItemNo)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"select a.orderno, a.custno, c.FirstName, c.LastName, c.CorporateName
-from orderperson a
-left join customer c on a.custno=c.customerno
-where a.orderno=:1 and a.custno=:2";
+@"select OrderNo, ItemNo, RegisterNo, FirstName, LastName, 
+MiddleName, Sex, BirthDay, Email, Mobile, 
+Company, CountryCode, Height, FootSize, SerialNo
+from OrderPersonal
+where orderno=:1 and ItemNo=:2";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204107", pOrderNo, pCustNo);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204107", pOrderNo, pItemNo);
 
                 return res;
             }
@@ -11513,8 +11523,12 @@ where a.orderno=:1 and a.custno=:2";
             {
 
                 string sql =
-@"INSERT INTO OrderPerson(OrderNo, CustNo)
-VALUES(:1, :2)";
+@"INSERT INTO OrderPersonal(OrderNo, ItemNo, RegisterNo, FirstName, LastName, 
+MiddleName, Sex, BirthDay, Email, Mobile, 
+Company, CountryCode, Height, FootSize, SerialNo)
+VALUES(:1, :2, :3, :4, :5, 
+:6, :7, :8, :9, :10, 
+:11, :12, :13, :14, :15)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204108", pParam);
                 res = F_Error(res);
@@ -11530,17 +11544,19 @@ VALUES(:1, :2)";
         }
         #endregion
         #region [ DB204109 - Захиалгад орсон үйлчлүүлэгийн бүртгэл засварлах ]
-        public static Result DB204109(DbConnections pDB, string pOrderNo, long pOldCustNo, long pNewCustNo)
+        public static Result DB204109(DbConnections pDB, object[] pParam)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"UPDATE OrderPerson SET
-CustNo=:3
-WHERE OrderNo=:1 and CustNo=:2";
+@"UPDATE OrderPersonal SET
+RegisterNo=:3, FirstName=:4, LastName=:5, 
+MiddleName=:6, Sex=:7, BirthDay=:8, Email=:9, Mobile=:10, 
+Company=:11, CountryCode=:12, Height=:13, FootSize=:14, SerialNo=:15
+WHERE orderno=:1 and ItemNo=:2";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204109", pOrderNo, pOldCustNo, pNewCustNo);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204109", pParam);
 
                 return res;
             }
@@ -11554,14 +11570,14 @@ WHERE OrderNo=:1 and CustNo=:2";
         }
         #endregion
         #region [ DB204110 - Захиалгад орсон үйлчлүүлэгийн бүртгэл устгах ]
-        public static Result DB204110(DbConnections pDB, string pOrderNo, string pCustNo)
+        public static Result DB204110(DbConnections pDB, string pOrderNo, long pItemNo)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"DELETE FROM OrderPerson WHERE OrderNo=:1 AND CustNo=:2";
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204110", pOrderNo, pCustNo);
+@"DELETE FROM OrderPersonal WHERE OrderNo=:1 AND ItemNo=:2";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204110", pOrderNo, pItemNo);
 
                 return res;
             }
@@ -12089,6 +12105,150 @@ WHERE orderno=:1";
 SET ExpendDateTime=:2, ExpendUserNo=:3
 WHERE orderno=:1";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204128", pOrderNo, pExpendDateTime, pUserNo);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+
+        #region [ DB204150 - Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл жагсаалт авах ]
+        public static Result DB204150(DbConnections pDB, string pOrderNo, long pItemNo)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql;
+
+                sql =
+@"select opp.OrderNo, opp.ItemNo, opp.ProdNo, im.name, opp.ProdType, opp.Qty
+from OrderPersonalProduct opp
+left join invmain im on opp.prodno=IM.INVID
+where opp.prodtype=0 and opp.orderno=:1 and opp.itemno=:2
+union
+select opp.OrderNo, opp.ItemNo, opp.ProdNo, sm.name, opp.ProdType, opp.Qty
+from OrderPersonalProduct opp
+left join servmain sm on opp.prodno=sm.servid
+where opp.prodtype=1 and opp.orderno=:1 and opp.itemno=:2
+union
+select opp.OrderNo, opp.ItemNo, opp.ProdNo, pm.name, opp.ProdType, opp.Qty
+from OrderPersonalProduct opp
+left join packagemain pm on opp.prodno=pm.packageid
+where opp.prodtype=2 and opp.orderno=:1 and opp.itemno=:2
+";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204150", pOrderNo, pItemNo);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204151 - Захиалгад орсон үйлчлүүлэгийн захиалсан бүтээгдэхүүн бүртгэл дэлгэрэнгүй мэдээлэл авах ]
+        public static Result DB204151(DbConnections pDB, string pOrderNo, long pItemNo, int pProdType, string pProdNo)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"select opp.OrderNo, opp.ItemNo, opp.ProdNo, im.name, opp.ProdType, opp.Qty
+from OrderPersonalProduct opp
+left join invmain im on opp.prodno=IM.INVID
+where opp.prodtype=0 and opp.orderno=:1 and opp.itemno=:2 and opp.ProdType=:3 and opp.ProdNo=:4
+union
+select opp.OrderNo, opp.ItemNo, opp.ProdNo, sm.name, opp.ProdType, opp.Qty
+from OrderPersonalProduct opp
+left join servmain sm on opp.prodno=sm.servid
+where opp.prodtype=1 and opp.orderno=:1 and opp.itemno=:2 and opp.ProdType=:3 and opp.ProdNo=:4
+union
+select opp.OrderNo, opp.ItemNo, opp.ProdNo, pm.name, opp.ProdType, opp.Qty
+from OrderPersonalProduct opp
+left join packagemain pm on opp.prodno=pm.packageid
+where opp.prodtype=2 and opp.orderno=:1 and opp.itemno=:2 and opp.ProdType=:3 and opp.ProdNo=:4
+";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204151", pOrderNo, pItemNo, pProdType, pProdNo);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204152 - Захиалгад орсон үйлчлүүлэгийн захиалсан бүтээгдэхүүн бүртгэл шинээр нэмэх ]
+        public static Result DB204152(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+
+                string sql =
+@"INSERT INTO OrderPersonalProduct(OrderNo, ItemNo, ProdNo, ProdType, Qty)
+VALUES(:1, :2, :3, :4, :5)";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204152", pParam);
+                res = F_Error(res);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204153 - Захиалгад орсон үйлчлүүлэгийн захиалсан бүтээгдэхүүн бүртгэл засварлах ]
+        public static Result DB204153(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"UPDATE OrderPersonalProduct SET
+ProdNo=:3, ProdType=:4, Qty=:5
+WHERE orderno=:1 and ItemNo=:2";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204153", pParam);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204154 - Захиалгад орсон үйлчлүүлэгийн захиалсан бүтээгдэхүүн бүртгэл устгах ]
+        public static Result DB204154(DbConnections pDB, string pOrderNo, long pItemNo, int pProdType, string pProdNo)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"DELETE FROM OrderPersonalProduct WHERE OrderNo=:1 AND ItemNo=:2 and ProdType=:3 and ProdNo=:4";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204154", pOrderNo, pItemNo, pProdType, pProdNo);
 
                 return res;
             }

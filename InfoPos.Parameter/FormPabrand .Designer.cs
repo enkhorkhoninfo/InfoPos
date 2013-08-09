@@ -79,6 +79,7 @@
             this.txtBrendID.Properties.MaxLength = 20;
             this.txtBrendID.Size = new System.Drawing.Size(172, 20);
             this.txtBrendID.TabIndex = 1;
+            this.txtBrendID.ToolTipTitle = "Брэндийн кодоо оруулна уу";
             // 
             // txtName
             // 
@@ -91,6 +92,7 @@
             this.txtName.Properties.MaxLength = 200;
             this.txtName.Size = new System.Drawing.Size(172, 20);
             this.txtName.TabIndex = 3;
+            this.txtName.ToolTipTitle = "Нэрээ оруулна уу";
             // 
             // labelControl2
             // 
@@ -111,6 +113,7 @@
             this.txtName2.Properties.MaxLength = 200;
             this.txtName2.Size = new System.Drawing.Size(172, 20);
             this.txtName2.TabIndex = 5;
+            this.txtName2.ToolTipTitle = "Нэр2ээ оруулна уу";
             // 
             // labelControl3
             // 
@@ -133,8 +136,10 @@
             this.numOrderNo.Properties.Mask.IgnoreMaskBlank = false;
             this.numOrderNo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.numOrderNo.Properties.Mask.ShowPlaceHolders = false;
+            this.numOrderNo.Properties.MaxLength = 4;
             this.numOrderNo.Size = new System.Drawing.Size(172, 20);
             this.numOrderNo.TabIndex = 7;
+            this.numOrderNo.ToolTipTitle = "Эрэмбээ оруулна уу";
             // 
             // labelControl4
             // 

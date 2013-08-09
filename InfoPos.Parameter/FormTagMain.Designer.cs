@@ -60,9 +60,6 @@
             this.groupControl1.Controls.Add(this.numOrderNo);
             this.groupControl1.Controls.Add(this.txtTagID);
             // 
-            // btnAdd
-            // 
-            // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(17, 115);
@@ -112,6 +109,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.numOrderNo.Location = new System.Drawing.Point(128, 112);
             this.numOrderNo.Name = "numOrderNo";
+            this.numOrderNo.Properties.MaxLength = 4;
             this.numOrderNo.Size = new System.Drawing.Size(182, 20);
             this.numOrderNo.TabIndex = 10;
             // 
@@ -121,6 +119,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTagID.Location = new System.Drawing.Point(128, 34);
             this.txtTagID.Name = "txtTagID";
+            this.txtTagID.Properties.MaxLength = 10;
             this.txtTagID.Size = new System.Drawing.Size(182, 20);
             this.txtTagID.TabIndex = 8;
             // 
