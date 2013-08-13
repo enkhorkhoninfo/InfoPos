@@ -374,7 +374,7 @@ create table OrderProduct (
  QtyMin  Number(17,2) ,
  QtyMax  Number(17,2) ,
  DiscountType  Number(2) ,
- DicountAmount  Number(17,2) ,
+ DiscountAmount  Number(17,2) ,
  Price  Number(17,2) ,
 PRIMARY KEY (OrderNo, ProdNo, ProdType)
 );
@@ -385,13 +385,16 @@ create table OrderProductPrice (
  ProdType  Number(2) ,
  PriceTypeID  Varchar2(20) ,
  DiscountType  Number(2) ,
- DicountAmount  Number(17,2) ,
+ DiscountAmount  Number(17,2) ,
  Price  Number(17,2) ,
 PRIMARY KEY (OrderNo, ProdNo, ProdType, PriceTypeID)
 );
 
 
 
+delete from txn where trancode=130128;
+
+INSERT INTO txn(trancode, name, name2) values('130128', 'Захиалга сэргээх', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130128');
 
 
 

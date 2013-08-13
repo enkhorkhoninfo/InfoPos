@@ -974,7 +974,12 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204126(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToDateTime(ri.ReceivedParam[1]), Static.ToInt(ri.ReceivedParam[2]));
+                string _orderno = Static.ToStr(ri.ReceivedParam[0]);
+                int _userno = Static.ToInt(ri.ReceivedParam[1]);
+                string _note = Static.ToStr(ri.ReceivedParam[2]);
+                DateTime _dte = Static.ToDateTime(DateTime.Now);
+
+                res = IPos.DB.Main.DB204126(db, _orderno, _userno, _note, _dte);
                 return res;
             }
             catch (Exception ex)
@@ -1002,8 +1007,12 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
+                string _orderno = Static.ToStr(ri.ReceivedParam[0]);
+                int _userno = Static.ToInt(ri.ReceivedParam[1]);
+                string _note = Static.ToStr(ri.ReceivedParam[2]);
+                DateTime _dte = Static.ToDateTime(DateTime.Now);
 
-                res = IPos.DB.Main.DB204127(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToDateTime(ri.ReceivedParam[1]), Static.ToInt(ri.ReceivedParam[2]), Static.ToStr(ri.ReceivedParam[3]));
+                res = IPos.DB.Main.DB204127(db, _orderno, _userno, _note, _dte);
                 return res;
             }
             catch (Exception ex)
@@ -1025,13 +1034,13 @@ namespace IPos.Order
             }
         }
         #endregion
-        #region[Захиалга сунгах]
+        #region[Захиалга сэргээх]
         public Result Txn130128(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204128(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToDate(ri.ReceivedParam[1]), Static.ToInt(ri.ReceivedParam[2]));
+                res = IPos.DB.Main.DB204128(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)

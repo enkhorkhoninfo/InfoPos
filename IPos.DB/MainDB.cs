@@ -12141,16 +12141,20 @@ WHERE ProdType=:1 and ProdNo=:2 and LineNumber=:3 and OrderNo=:4 and SalesNo=:5 
         #endregion
 
         #region [ DB204126 - Захиалга баталгаажуулах ]
-        public static Result DB204126(DbConnections pDB, string pOrderNo, DateTime pConfirmDateTime, int pUserNo)
+        public static Result DB204126(DbConnections pDB, string pOrderNo, int pUserNo, string pNote, DateTime pConfirmDateTime)
         {
             Result res = new Result();
             try
             {
                 string sql =
 @"UPDATE orders
-SET ConfirmDateTime=:2, ConfirmUserNo=:3, status=2
+SET 
+CONFIRMUSERNO=:2, 
+CONFIRMNOTE=:3
+CONFIRMDATETIME=:4, 
+status=1
 WHERE orderno=:1";
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204126", pOrderNo, pConfirmDateTime, pUserNo);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204126", pOrderNo, pUserNo, pNote, pConfirmDateTime);
 
                 return res;
             }
@@ -12164,16 +12168,21 @@ WHERE orderno=:1";
         }
         #endregion
         #region [ DB204127 - Захиалга цуцлах ]
-        public static Result DB204127(DbConnections pDB, string pOrderNo, DateTime pCancelDateTime, int pUserNo, string pCancelNote)
+        public static Result DB204127(DbConnections pDB, string pOrderNo, int pUserNo, string pNote, DateTime pConfirmDateTime)
         {
             Result res = new Result();
             try
             {
                 string sql =
 @"UPDATE orders
-SET CancelDateTime=:2, CancelUserNo=:3, status=0, CancelNote=:4
+SET 
+CANCELUSERNO=:2, 
+CANCELNOTE=:3
+CANCELDATETIME=:4, 
+status=8
 WHERE orderno=:1";
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204127", pOrderNo, pCancelDateTime, pUserNo, pCancelNote);
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204127", pOrderNo, pUserNo, pNote, pConfirmDateTime);
 
                 return res;
             }
@@ -12186,17 +12195,17 @@ WHERE orderno=:1";
             }
         }
         #endregion
-        #region [ DB204128 - Захиалга сунгах ]
-        public static Result DB204128(DbConnections pDB, string pOrderNo, DateTime pExpendDateTime, int pUserNo)
+        #region [ DB204128 - Захиалга сэргээх ]
+        public static Result DB204128(DbConnections pDB, string pOrderNo)
         {
             Result res = new Result();
             try
             {
                 string sql =
 @"UPDATE orders
-SET ExpendDateTime=:2, ExpendUserNo=:3
+SET status=0
 WHERE orderno=:1";
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204128", pOrderNo, pExpendDateTime, pUserNo);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204128", pOrderNo);
 
                 return res;
             }

@@ -805,44 +805,44 @@ namespace InfoPos.Order
         }
         private void btnCustFind_Click(object sender, EventArgs e)
         {
-            //InfoPos.List.CustomerList frm = new List.CustomerList(_core);
-            //frm.ucCustomerList.Browsable = true;
-            //DialogResult res = frm.ShowDialog();
-            //if ((res == System.Windows.Forms.DialogResult.OK))
-            //{
-            //    txtCustNo.EditValue = frm.ucCustomerList.SelectedRow["CUSTOMERNO"];
-            //}
+            InfoPos.List.CustomerList frm = new List.CustomerList(_core);
+            frm.ucCustomerList.Browsable = true;
+            DialogResult res = frm.ShowDialog();
+            if ((res == System.Windows.Forms.DialogResult.OK))
+            {
+                txtCustNo.EditValue = frm.ucCustomerList.SelectedRow["CUSTOMERNO"];
+            }
         }
         private void btnCustEnq_Click(object sender, EventArgs e)
         {
-            //Result res = new Result();
-            //try
-            //{
-            //    if (Static.ToLong(txtCustNo.EditValue) != 0)
-            //    {
-            //        object[] obj1 = new object[23];
-            //        obj1[0] = Static.ToLong(txtCustNo.EditValue);
+            Result res = new Result();
+            try
+            {
+                if (Static.ToLong(txtCustNo.EditValue) != 0)
+                {
+                    object[] obj1 = new object[23];
+                    obj1[0] = Static.ToLong(txtCustNo.EditValue);
 
-            //        res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 205, 120001, 120001, obj1);
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 205, 120001, 120001, obj1);
 
-            //        if (res.ResultNo == 0)
-            //        {
-            //            object[] obj = new object[3];
-            //            obj[0] = _core;
-            //            obj[1] = txtCustNo.EditValue;
-            //            obj[2] = res.Data.Tables[0].Rows[0];
-            //            EServ.Shared.Static.Invoke("InfoPos.Enquiry.dll", "InfoPos.Enquiry.Main", "CallCustomerEnquiry", obj);
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show(Static.ToStr(res.ResultNo) + " " + res.ResultDesc);
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                    if (res.ResultNo == 0)
+                    {
+                        object[] obj = new object[3];
+                        obj[0] = _core;
+                        obj[1] = txtCustNo.EditValue;
+                        obj[2] = res.Data.Tables[0].Rows[0];
+                        EServ.Shared.Static.Invoke("InfoPos.Enquiry.dll", "InfoPos.Enquiry.Main", "CallCustomerEnquiry", obj);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Static.ToStr(res.ResultNo) + " " + res.ResultDesc);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void txtCustNo_EditValueChanged(object sender, EventArgs e)
         {
