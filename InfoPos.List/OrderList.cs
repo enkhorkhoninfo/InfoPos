@@ -69,8 +69,11 @@ namespace InfoPos.List
             labelControl3.BackColor = Color.Orange;
             labelControl3.ForeColor = Color.Orange;
 
-            labelControl6.BackColor = Color.Green;
-            labelControl6.ForeColor = Color.Green;
+            labelControl6.BackColor = Color.LimeGreen;
+            labelControl6.ForeColor = Color.LimeGreen;
+
+            labelControl8.BackColor = Color.DeepPink;
+            labelControl8.ForeColor = Color.DeepPink;
 
             Function();
             //"a.OrderNo like","a.CustNo like","c.FirstName like","c.LastName like","c.CorporateName like",
@@ -120,10 +123,15 @@ namespace InfoPos.List
 
             labelControl1.BackColor = Color.SkyBlue;
             labelControl1.ForeColor = Color.SkyBlue;
+
             labelControl3.BackColor = Color.Orange;
             labelControl3.ForeColor = Color.Orange;
-            labelControl6.BackColor = Color.Green;
-            labelControl6.ForeColor = Color.Green;
+
+            labelControl6.BackColor = Color.LimeGreen;
+            labelControl6.ForeColor = Color.LimeGreen;
+
+            labelControl8.BackColor = Color.DeepPink;
+            labelControl8.ForeColor = Color.DeepPink;
 
             Function();
 
@@ -228,95 +236,95 @@ namespace InfoPos.List
 //a.PersonCount, a.Status, decode(a.Status, 0, 'Цуцлагдсан', 1, 'Идэвхтэй', 2, 'Баталгаажсан') as StatusName, a.CreateDate, a.PostDate,
 //a.CreateUser, a.OwnerUser
 
-            ucOrderList.FieldLinkSetColumnCaption(0, "Захиалгын дугаар");
-            ucOrderList.FieldLinkSetColumnCaption(1, "Харилцагчийн дугаар");
-            ucOrderList.FieldLinkSetColumnCaption(2, "Харилцагчийн эцэг эхийн нэр");
-            ucOrderList.FieldLinkSetColumnCaption(3, "Харилцагчийн нэр");
-            ucOrderList.FieldLinkSetColumnCaption(4, "Компаний нэр");
+            //ucOrderList.FieldLinkSetColumnCaption(0, "Захиалгын дугаар");
+            //ucOrderList.FieldLinkSetColumnCaption(1, "Харилцагчийн дугаар");
+            //ucOrderList.FieldLinkSetColumnCaption(2, "Харилцагчийн эцэг эхийн нэр");
+            //ucOrderList.FieldLinkSetColumnCaption(3, "Харилцагчийн нэр");
+            //ucOrderList.FieldLinkSetColumnCaption(4, "Компаний нэр");
 
-            ucOrderList.FieldLinkSetColumnCaption(5, "Баталгаажуулга хийх хугацаа");
-            ucOrderList.FieldLinkSetColumnCaption(6, "Баталгаажуулга хийх хугацааны төрөл");
-            ucOrderList.FieldLinkSetColumnCaption(7, "Баталгаажуулга хийх хугацааны төрлийн нэр");
+            //ucOrderList.FieldLinkSetColumnCaption(5, "Баталгаажуулга хийх хугацаа");
+            //ucOrderList.FieldLinkSetColumnCaption(6, "Баталгаажуулга хийх хугацааны төрөл");
+            //ucOrderList.FieldLinkSetColumnCaption(7, "Баталгаажуулга хийх хугацааны төрлийн нэр");
 
-            ucOrderList.FieldLinkSetColumnCaption(8, "Гэрээний үнийн дүн");
-            ucOrderList.gridView1.Columns[8].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            ucOrderList.gridView1.Columns[8].DisplayFormat.FormatString = "{0:n2}";
+            //ucOrderList.FieldLinkSetColumnCaption(8, "Гэрээний үнийн дүн");
+            //ucOrderList.gridView1.Columns[8].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            //ucOrderList.gridView1.Columns[8].DisplayFormat.FormatString = "{0:n2}";
 
-            ucOrderList.FieldLinkSetColumnCaption(9, "Урьдчилж төлсөн дүн");
-            ucOrderList.gridView1.Columns[9].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            ucOrderList.gridView1.Columns[9].DisplayFormat.FormatString = "{0:n2}";
+            //ucOrderList.FieldLinkSetColumnCaption(9, "Урьдчилж төлсөн дүн");
+            //ucOrderList.gridView1.Columns[9].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            //ucOrderList.gridView1.Columns[9].DisplayFormat.FormatString = "{0:n2}";
 
-            ucOrderList.FieldLinkSetColumnCaption(10, "Валют");
-            ucOrderList.FieldLinkSetColumnCaption(11, "Үйлчилгээний шимтгэл");
-            ucOrderList.gridView1.Columns[11].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            ucOrderList.gridView1.Columns[11].DisplayFormat.FormatString = "{0:n2}";
+            //ucOrderList.FieldLinkSetColumnCaption(10, "Валют");
+            //ucOrderList.FieldLinkSetColumnCaption(11, "Үйлчилгээний шимтгэл");
+            //ucOrderList.gridView1.Columns[11].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            //ucOrderList.gridView1.Columns[11].DisplayFormat.FormatString = "{0:n2}";
 
-            ucOrderList.FieldLinkSetColumnCaption(12, "Гэрээ үйлчлэх өдөр");
-            ucOrderList.FieldLinkSetColumnCaption(13, "Гэрээ дуусах өдөр");
-            ucOrderList.FieldLinkSetColumnCaption(14, "Захиалгад хамрагдах хүний тоо");
+            //ucOrderList.FieldLinkSetColumnCaption(12, "Гэрээ үйлчлэх өдөр");
+            //ucOrderList.FieldLinkSetColumnCaption(13, "Гэрээ дуусах өдөр");
+            //ucOrderList.FieldLinkSetColumnCaption(14, "Захиалгад хамрагдах хүний тоо");
 
-            ucOrderList.FieldLinkSetColumnCaption(15, "Гэрээний төлөв");
-            ucOrderList.FieldLinkSetColumnCaption(16, "Гэрээний төлөв");
+            //ucOrderList.FieldLinkSetColumnCaption(15, "Гэрээний төлөв");
+            //ucOrderList.FieldLinkSetColumnCaption(16, "Гэрээний төлөв");
 
-            ucOrderList.FieldLinkSetColumnCaption(17, "Үүсэгсэн огноо");
-            ucOrderList.FieldLinkSetColumnCaption(18, "Үүсэгсэн огноо цаг");
-            ucOrderList.FieldLinkSetColumnCaption(19, "Үүсэгсэн хэрэглэгч");
-            ucOrderList.FieldLinkSetColumnCaption(20, "Хариуцсан хэрэглэгч");
+            //ucOrderList.FieldLinkSetColumnCaption(17, "Үүсэгсэн огноо");
+            //ucOrderList.FieldLinkSetColumnCaption(18, "Үүсэгсэн огноо цаг");
+            //ucOrderList.FieldLinkSetColumnCaption(19, "Үүсэгсэн хэрэглэгч");
+            //ucOrderList.FieldLinkSetColumnCaption(20, "Хариуцсан хэрэглэгч");
 
-            ucOrderList.gridView1.GroupFooterShowMode = GroupFooterShowMode.VisibleAlways;
+            //ucOrderList.gridView1.GroupFooterShowMode = GroupFooterShowMode.VisibleAlways;
            
-            // Customize the total summary.
+            //// Customize the total summary.
 
-            ucOrderList.gridView1.Columns[0].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count;
-            ucOrderList.gridView1.Columns[0].SummaryItem.DisplayFormat = "Нийт гэрээний тоо :{0:C2}";
-            ucOrderList.gridView1.Columns[0].SummaryItem.Tag = 1;
-            (ucOrderList.gridView1.Columns[0].View as GridView).OptionsView.ShowFooter = true;
+            //ucOrderList.gridView1.Columns[0].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count;
+            //ucOrderList.gridView1.Columns[0].SummaryItem.DisplayFormat = "Нийт гэрээний тоо :{0:C2}";
+            //ucOrderList.gridView1.Columns[0].SummaryItem.Tag = 1;
+            //(ucOrderList.gridView1.Columns[0].View as GridView).OptionsView.ShowFooter = true;
 
-            ucOrderList.gridView1.OptionsView.ShowGroupPanel = false;
-            ucOrderList.gridView1.ExpandAllGroups();
+            //ucOrderList.gridView1.OptionsView.ShowGroupPanel = false;
+            //ucOrderList.gridView1.ExpandAllGroups();
 
-            ucOrderList.gridView1.Columns[8].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-            ucOrderList.gridView1.Columns[8].SummaryItem.DisplayFormat = "Нийт:{0:C2}";
-            ucOrderList.gridView1.Columns[8].SummaryItem.Tag = 1;
-            (ucOrderList.gridView1.Columns[8].View as GridView).OptionsView.ShowFooter = true;
+            //ucOrderList.gridView1.Columns[8].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            //ucOrderList.gridView1.Columns[8].SummaryItem.DisplayFormat = "Нийт:{0:C2}";
+            //ucOrderList.gridView1.Columns[8].SummaryItem.Tag = 1;
+            //(ucOrderList.gridView1.Columns[8].View as GridView).OptionsView.ShowFooter = true;
 
-            ucOrderList.gridView1.OptionsView.ShowGroupPanel = true;
-            ucOrderList.gridView1.ExpandAllGroups();
-
-
-            ucOrderList.gridView1.Columns[9].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-            ucOrderList.gridView1.Columns[9].SummaryItem.DisplayFormat = "Нийт:{0:C2}";
-            ucOrderList.gridView1.Columns[9].SummaryItem.Tag = 1;
-            (ucOrderList.gridView1.Columns[9].View as GridView).OptionsView.ShowFooter = true;
+            //ucOrderList.gridView1.OptionsView.ShowGroupPanel = true;
+            //ucOrderList.gridView1.ExpandAllGroups();
 
 
-             // Create and setup the first summary item.
-            GridGroupSummaryItem item = new GridGroupSummaryItem();
-            item.FieldName = "OrderNo";
-            item.SummaryType = DevExpress.Data.SummaryItemType.Count;
-            ucOrderList.gridView1.GroupSummary.Add(item);
+            //ucOrderList.gridView1.Columns[9].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            //ucOrderList.gridView1.Columns[9].SummaryItem.DisplayFormat = "Нийт:{0:C2}";
+            //ucOrderList.gridView1.Columns[9].SummaryItem.Tag = 1;
+            //(ucOrderList.gridView1.Columns[9].View as GridView).OptionsView.ShowFooter = true;
 
 
-            DevExpress.XtraGrid.GridGroupSummaryItem item1 = new DevExpress.XtraGrid.GridGroupSummaryItem();
-            item1.FieldName = "Amount";
+            // // Create and setup the first summary item.
+            //GridGroupSummaryItem item = new GridGroupSummaryItem();
+            //item.FieldName = "OrderNo";
+            //item.SummaryType = DevExpress.Data.SummaryItemType.Count;
+            //ucOrderList.gridView1.GroupSummary.Add(item);
 
-            item1.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-            item1.DisplayFormat = "Нийт гэрээний үнийн дүн {0:c2}";
-            item1.Tag = 1;
-            item1.ShowInGroupColumnFooter = ucOrderList.gridView1.Columns["OrderAmount"];
+
+            //DevExpress.XtraGrid.GridGroupSummaryItem item1 = new DevExpress.XtraGrid.GridGroupSummaryItem();
+            //item1.FieldName = "Amount";
+
+            //item1.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            //item1.DisplayFormat = "Нийт гэрээний үнийн дүн {0:c2}";
+            //item1.Tag = 1;
+            //item1.ShowInGroupColumnFooter = ucOrderList.gridView1.Columns["OrderAmount"];
      
-            ucOrderList.gridView1.GroupSummary.Add(item1);
+            //ucOrderList.gridView1.GroupSummary.Add(item1);
 
 
-            DevExpress.XtraGrid.GridGroupSummaryItem item2 = new DevExpress.XtraGrid.GridGroupSummaryItem();
-            item2.FieldName = "Balance";
+            //DevExpress.XtraGrid.GridGroupSummaryItem item2 = new DevExpress.XtraGrid.GridGroupSummaryItem();
+            //item2.FieldName = "Balance";
 
-            item2.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-            item2.DisplayFormat = "Нийт урьдчилж төлсөн дүн {0:c2}";
-            item2.Tag = 1;
-            item2.ShowInGroupColumnFooter = ucOrderList.gridView1.Columns["PrepaidAmount"];
+            //item2.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            //item2.DisplayFormat = "Нийт урьдчилж төлсөн дүн {0:c2}";
+            //item2.Tag = 1;
+            //item2.ShowInGroupColumnFooter = ucOrderList.gridView1.Columns["PrepaidAmount"];
 
-            ucOrderList.gridView1.GroupSummary.Add(item2);
+            //ucOrderList.gridView1.GroupSummary.Add(item2);
 
             FormUtility.RestoreStateGrid(appname, formname, ref ucOrderList.gridView1);
             FormUtility.RestoreStateVGrid(appname, formname, ref ucOrderList.ucParameterPanel1.vGridControl1, ref ucOrderList.groupControl1);
@@ -407,17 +415,22 @@ namespace InfoPos.List
             {
                 string Status = View.GetRowCellDisplayText(e.RowHandle, View.Columns[15]);
 
-                if (Status == "2")
-                {
-                    e.Appearance.BackColor = Color.Green;
-                    e.Appearance.BackColor2 = Color.Green;
-                }
-                if (Status == "1")
+                if (Status == "0")
                 {
                     e.Appearance.BackColor = Color.SkyBlue;
                     e.Appearance.BackColor2 = Color.SkyBlue;
                 }
-                if (Status == "0")
+                if (Status == "1")
+                {
+                    e.Appearance.BackColor = Color.LimeGreen;
+                    e.Appearance.BackColor2 = Color.LimeGreen;
+                }
+                if (Status == "8")
+                {
+                    e.Appearance.BackColor = Color.DeepPink;
+                    e.Appearance.BackColor2 = Color.DeepPink;
+                }
+                if (Status == "9")
                 {
                     e.Appearance.BackColor = Color.Orange;
                     e.Appearance.BackColor2 = Color.Orange;

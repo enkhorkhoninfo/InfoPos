@@ -175,46 +175,45 @@
             this.TabOrderGroup = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.grdProduct = new DevExpress.XtraGrid.GridControl();
             this.gvwProduct = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
-            this.btnProductDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnProductCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnProductEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.btnProductAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.txtProdPrice = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.txtProdDiscountAmount = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.cboProdDiscountType = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtProdQtyMax = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.txtProdQtyMin = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.btnGroupDelete = new DevExpress.XtraEditors.SimpleButton();
             this.txtProdQty = new DevExpress.XtraEditors.TextEdit();
             this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPriceDiscountAmount = new DevExpress.XtraEditors.TextEdit();
-            this.txtPricePrice = new DevExpress.XtraEditors.TextEdit();
+            this.btnGroupEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGroupAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnInvFind = new DevExpress.XtraEditors.SimpleButton();
             this.cboProdProdType = new DevExpress.XtraEditors.LookUpEdit();
             this.txtProdProdNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.grdPrice = new DevExpress.XtraGrid.GridControl();
+            this.gvwPrice = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl75 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.cboPriceDiscountType = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboPricePriceTypeID = new DevExpress.XtraEditors.LookUpEdit();
+            this.btnProductDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnProductEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnProductAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.txtPriceDiscountAmount = new DevExpress.XtraEditors.TextEdit();
+            this.txtPricePrice = new DevExpress.XtraEditors.TextEdit();
             this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
-            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.grdGroup = new DevExpress.XtraGrid.GridControl();
-            this.gvwGroup = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.btnGroupDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGroupCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGroupEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGroupAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.txtProdQtyMin = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.txtProdQtyMax = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-            this.cboProdDiscountType = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtProdDiscountAmount = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.txtProdPrice = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-            this.cboPricePriceTypeID = new DevExpress.XtraEditors.LookUpEdit();
-            this.cboPriceDiscountType = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl75 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.TabGeneral.SuspendLayout();
@@ -314,30 +313,34 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
-            this.groupControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvwProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
-            this.panelControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdQty.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPriceDiscountAmount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPricePrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboProdProdType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdProdNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvwGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvwProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdQtyMin.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdQtyMax.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboProdDiscountType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdDiscountAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProdPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboPricePriceTypeID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdDiscountAmount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboProdDiscountType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdQtyMax.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdQtyMin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdQty.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboProdProdType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdProdNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvwPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
+            this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboPriceDiscountType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboPricePriceTypeID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceDiscountAmount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPricePrice.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -414,7 +417,6 @@
             this.groupControl1.Size = new System.Drawing.Size(790, 452);
             this.groupControl1.TabIndex = 18;
             this.groupControl1.Text = "Өгөгдөл";
-            this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
             // tabControl1
             // 
@@ -1840,24 +1842,40 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Controls.Add(this.groupControl5);
-            this.panelControl4.Controls.Add(this.groupControl4);
+            this.panelControl4.Controls.Add(this.splitContainer1);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(2, 2);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(786, 478);
             this.panelControl4.TabIndex = 18;
             // 
-            // groupControl5
+            // splitContainer1
             // 
-            this.groupControl5.Controls.Add(this.grdProduct);
-            this.groupControl5.Controls.Add(this.panelControl7);
-            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl5.Location = new System.Drawing.Point(425, 2);
-            this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(359, 474);
-            this.groupControl5.TabIndex = 3;
-            this.groupControl5.Text = "Захиалгын бүтээгдэхүүний үнэ";
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(2, 2);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupControl4);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupControl5);
+            this.splitContainer1.Size = new System.Drawing.Size(782, 474);
+            this.splitContainer1.SplitterDistance = 415;
+            this.splitContainer1.TabIndex = 4;
+            // 
+            // groupControl4
+            // 
+            this.groupControl4.Controls.Add(this.grdProduct);
+            this.groupControl4.Controls.Add(this.panelControl5);
+            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl4.Location = new System.Drawing.Point(0, 0);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(415, 474);
+            this.groupControl4.TabIndex = 2;
+            this.groupControl4.Text = "Захиалгын бүтээгдэхүүн";
             // 
             // grdProduct
             // 
@@ -1865,8 +1883,8 @@
             this.grdProduct.Location = new System.Drawing.Point(2, 22);
             this.grdProduct.MainView = this.gvwProduct;
             this.grdProduct.Name = "grdProduct";
-            this.grdProduct.Size = new System.Drawing.Size(355, 304);
-            this.grdProduct.TabIndex = 1;
+            this.grdProduct.Size = new System.Drawing.Size(411, 228);
+            this.grdProduct.TabIndex = 0;
             this.grdProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwProduct});
             // 
@@ -1874,73 +1892,168 @@
             // 
             this.gvwProduct.GridControl = this.grdProduct;
             this.gvwProduct.Name = "gvwProduct";
-            this.gvwProduct.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvwProduct_FocusedRowChanged);
-            this.gvwProduct.DoubleClick += new System.EventHandler(this.gvwProduct_DoubleClick);
+            this.gvwProduct.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvwGroup_FocusedRowChanged);
             // 
-            // panelControl7
+            // panelControl5
             // 
-            this.panelControl7.Controls.Add(this.labelControl75);
-            this.panelControl7.Controls.Add(this.labelControl20);
-            this.panelControl7.Controls.Add(this.cboPriceDiscountType);
-            this.panelControl7.Controls.Add(this.cboPricePriceTypeID);
-            this.panelControl7.Controls.Add(this.btnProductDelete);
-            this.panelControl7.Controls.Add(this.btnProductCancel);
-            this.panelControl7.Controls.Add(this.btnProductEdit);
-            this.panelControl7.Controls.Add(this.btnProductAdd);
-            this.panelControl7.Controls.Add(this.txtPriceDiscountAmount);
-            this.panelControl7.Controls.Add(this.txtPricePrice);
-            this.panelControl7.Controls.Add(this.labelControl33);
-            this.panelControl7.Controls.Add(this.labelControl34);
-            this.panelControl7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl7.Location = new System.Drawing.Point(2, 326);
-            this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(355, 146);
-            this.panelControl7.TabIndex = 3;
+            this.panelControl5.Controls.Add(this.txtProdPrice);
+            this.panelControl5.Controls.Add(this.labelControl19);
+            this.panelControl5.Controls.Add(this.txtProdDiscountAmount);
+            this.panelControl5.Controls.Add(this.labelControl18);
+            this.panelControl5.Controls.Add(this.cboProdDiscountType);
+            this.panelControl5.Controls.Add(this.txtProdQtyMax);
+            this.panelControl5.Controls.Add(this.labelControl17);
+            this.panelControl5.Controls.Add(this.txtProdQtyMin);
+            this.panelControl5.Controls.Add(this.labelControl16);
+            this.panelControl5.Controls.Add(this.btnGroupDelete);
+            this.panelControl5.Controls.Add(this.txtProdQty);
+            this.panelControl5.Controls.Add(this.labelControl35);
+            this.panelControl5.Controls.Add(this.btnGroupEdit);
+            this.panelControl5.Controls.Add(this.btnGroupAdd);
+            this.panelControl5.Controls.Add(this.btnInvFind);
+            this.panelControl5.Controls.Add(this.cboProdProdType);
+            this.panelControl5.Controls.Add(this.txtProdProdNo);
+            this.panelControl5.Controls.Add(this.labelControl31);
+            this.panelControl5.Controls.Add(this.labelControl32);
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl5.Location = new System.Drawing.Point(2, 250);
+            this.panelControl5.MinimumSize = new System.Drawing.Size(354, 167);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(411, 222);
+            this.panelControl5.TabIndex = 1;
             // 
-            // btnProductDelete
+            // txtProdPrice
             // 
-            this.btnProductDelete.Location = new System.Drawing.Point(270, 116);
-            this.btnProductDelete.Name = "btnProductDelete";
-            this.btnProductDelete.Size = new System.Drawing.Size(80, 23);
-            this.btnProductDelete.TabIndex = 78;
-            this.btnProductDelete.Text = "Устгах";
-            this.btnProductDelete.Click += new System.EventHandler(this.btnProductDelete_Click);
+            this.txtProdPrice.EditValue = "";
+            this.txtProdPrice.Location = new System.Drawing.Point(150, 165);
+            this.txtProdPrice.Name = "txtProdPrice";
+            this.txtProdPrice.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtProdPrice.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtProdPrice.Properties.Appearance.Options.UseBackColor = true;
+            this.txtProdPrice.Properties.Appearance.Options.UseForeColor = true;
+            this.txtProdPrice.Properties.DisplayFormat.FormatString = "n";
+            this.txtProdPrice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtProdPrice.Properties.EditFormat.FormatString = "n";
+            this.txtProdPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtProdPrice.Properties.Mask.EditMask = "n";
+            this.txtProdPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtProdPrice.Size = new System.Drawing.Size(123, 20);
+            this.txtProdPrice.TabIndex = 37;
+            this.txtProdPrice.ToolTipTitle = "Харилцагч оруулна уу";
             // 
-            // btnProductCancel
+            // labelControl19
             // 
-            this.btnProductCancel.Enabled = false;
-            this.btnProductCancel.Location = new System.Drawing.Point(187, 117);
-            this.btnProductCancel.Name = "btnProductCancel";
-            this.btnProductCancel.Size = new System.Drawing.Size(80, 23);
-            this.btnProductCancel.TabIndex = 77;
-            this.btnProductCancel.Text = "Болих";
-            this.btnProductCancel.Click += new System.EventHandler(this.btnProductCancel_Click);
+            this.labelControl19.Location = new System.Drawing.Point(10, 168);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(63, 13);
+            this.labelControl19.TabIndex = 78;
+            this.labelControl19.Text = "Барааны үнэ";
             // 
-            // btnProductEdit
+            // txtProdDiscountAmount
             // 
-            this.btnProductEdit.Location = new System.Drawing.Point(96, 117);
-            this.btnProductEdit.Name = "btnProductEdit";
-            this.btnProductEdit.Size = new System.Drawing.Size(88, 23);
-            this.btnProductEdit.TabIndex = 76;
-            this.btnProductEdit.Text = "Засах";
-            this.btnProductEdit.Click += new System.EventHandler(this.btnProductEdit_Click);
+            this.txtProdDiscountAmount.EditValue = "";
+            this.txtProdDiscountAmount.Location = new System.Drawing.Point(150, 139);
+            this.txtProdDiscountAmount.Name = "txtProdDiscountAmount";
+            this.txtProdDiscountAmount.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtProdDiscountAmount.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtProdDiscountAmount.Properties.Appearance.Options.UseBackColor = true;
+            this.txtProdDiscountAmount.Properties.Appearance.Options.UseForeColor = true;
+            this.txtProdDiscountAmount.Properties.DisplayFormat.FormatString = "n";
+            this.txtProdDiscountAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtProdDiscountAmount.Properties.EditFormat.FormatString = "n";
+            this.txtProdDiscountAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtProdDiscountAmount.Properties.Mask.EditMask = "n";
+            this.txtProdDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtProdDiscountAmount.Size = new System.Drawing.Size(123, 20);
+            this.txtProdDiscountAmount.TabIndex = 35;
+            this.txtProdDiscountAmount.ToolTipTitle = "Харилцагч оруулна уу";
             // 
-            // btnProductAdd
+            // labelControl18
             // 
-            this.btnProductAdd.Location = new System.Drawing.Point(14, 117);
-            this.btnProductAdd.Name = "btnProductAdd";
-            this.btnProductAdd.Size = new System.Drawing.Size(80, 23);
-            this.btnProductAdd.TabIndex = 75;
-            this.btnProductAdd.Text = "Нэмэх";
-            this.btnProductAdd.Click += new System.EventHandler(this.btnProductAdd_Click);
+            this.labelControl18.Location = new System.Drawing.Point(10, 142);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(92, 13);
+            this.labelControl18.TabIndex = 76;
+            this.labelControl18.Text = "Хөнгөлөлтийн дүн";
+            // 
+            // cboProdDiscountType
+            // 
+            this.cboProdDiscountType.Location = new System.Drawing.Point(150, 113);
+            this.cboProdDiscountType.Name = "cboProdDiscountType";
+            this.cboProdDiscountType.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.cboProdDiscountType.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cboProdDiscountType.Properties.Appearance.Options.UseBackColor = true;
+            this.cboProdDiscountType.Properties.Appearance.Options.UseForeColor = true;
+            this.cboProdDiscountType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboProdDiscountType.Size = new System.Drawing.Size(255, 20);
+            this.cboProdDiscountType.TabIndex = 23;
+            // 
+            // txtProdQtyMax
+            // 
+            this.txtProdQtyMax.EditValue = "";
+            this.txtProdQtyMax.Location = new System.Drawing.Point(279, 87);
+            this.txtProdQtyMax.Name = "txtProdQtyMax";
+            this.txtProdQtyMax.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtProdQtyMax.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtProdQtyMax.Properties.Appearance.Options.UseBackColor = true;
+            this.txtProdQtyMax.Properties.Appearance.Options.UseForeColor = true;
+            this.txtProdQtyMax.Properties.Mask.EditMask = "n";
+            this.txtProdQtyMax.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtProdQtyMax.Size = new System.Drawing.Size(126, 20);
+            this.txtProdQtyMax.TabIndex = 17;
+            this.txtProdQtyMax.ToolTipTitle = "Харилцагч оруулна уу";
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(10, 116);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(104, 13);
+            this.labelControl17.TabIndex = 73;
+            this.labelControl17.Text = "Хөнгөлөлтийн төрөл";
+            // 
+            // txtProdQtyMin
+            // 
+            this.txtProdQtyMin.EditValue = "";
+            this.txtProdQtyMin.Location = new System.Drawing.Point(150, 87);
+            this.txtProdQtyMin.Name = "txtProdQtyMin";
+            this.txtProdQtyMin.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtProdQtyMin.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtProdQtyMin.Properties.Appearance.Options.UseBackColor = true;
+            this.txtProdQtyMin.Properties.Appearance.Options.UseForeColor = true;
+            this.txtProdQtyMin.Properties.Mask.EditMask = "n";
+            this.txtProdQtyMin.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtProdQtyMin.Size = new System.Drawing.Size(123, 20);
+            this.txtProdQtyMin.TabIndex = 15;
+            this.txtProdQtyMin.ToolTipTitle = "Харилцагч оруулна уу";
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Location = new System.Drawing.Point(10, 90);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(118, 13);
+            this.labelControl16.TabIndex = 71;
+            this.labelControl16.Text = "Тоо ширхэгийн хязгаар";
+            // 
+            // btnGroupDelete
+            // 
+            this.btnGroupDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGroupDelete.Location = new System.Drawing.Point(183, 194);
+            this.btnGroupDelete.Name = "btnGroupDelete";
+            this.btnGroupDelete.Size = new System.Drawing.Size(80, 23);
+            this.btnGroupDelete.TabIndex = 45;
+            this.btnGroupDelete.Text = "Устгах";
+            this.btnGroupDelete.Click += new System.EventHandler(this.btnGroupDelete_Click);
             // 
             // txtProdQty
             // 
             this.txtProdQty.EditValue = "";
             this.txtProdQty.Location = new System.Drawing.Point(150, 62);
             this.txtProdQty.Name = "txtProdQty";
-            this.txtProdQty.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtProdQty.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtProdQty.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtProdQty.Properties.Appearance.Options.UseBackColor = true;
+            this.txtProdQty.Properties.Appearance.Options.UseForeColor = true;
             this.txtProdQty.Properties.DisplayFormat.FormatString = "n";
             this.txtProdQty.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtProdQty.Properties.EditFormat.FormatString = "n";
@@ -1959,39 +2072,28 @@
             this.labelControl35.TabIndex = 54;
             this.labelControl35.Text = "Тоо ширхэг";
             // 
-            // txtPriceDiscountAmount
+            // btnGroupEdit
             // 
-            this.txtPriceDiscountAmount.EditValue = "";
-            this.txtPriceDiscountAmount.Location = new System.Drawing.Point(137, 57);
-            this.txtPriceDiscountAmount.Name = "txtPriceDiscountAmount";
-            this.txtPriceDiscountAmount.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtPriceDiscountAmount.Properties.Appearance.Options.UseBackColor = true;
-            this.txtPriceDiscountAmount.Properties.Mask.EditMask = "n";
-            this.txtPriceDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtPriceDiscountAmount.Properties.ReadOnly = true;
-            this.txtPriceDiscountAmount.Size = new System.Drawing.Size(138, 20);
-            this.txtPriceDiscountAmount.TabIndex = 54;
-            this.txtPriceDiscountAmount.ToolTipTitle = "Харилцагч оруулна уу";
-            this.txtPriceDiscountAmount.EditValueChanged += new System.EventHandler(this.txtProdOrderNo_EditValueChanged);
+            this.btnGroupEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGroupEdit.Location = new System.Drawing.Point(89, 194);
+            this.btnGroupEdit.Name = "btnGroupEdit";
+            this.btnGroupEdit.Size = new System.Drawing.Size(88, 23);
+            this.btnGroupEdit.TabIndex = 35;
+            this.btnGroupEdit.Text = "Засах";
+            this.btnGroupEdit.Click += new System.EventHandler(this.btnGroupEdit_Click);
             // 
-            // txtPricePrice
+            // btnGroupAdd
             // 
-            this.txtPricePrice.EditValue = "";
-            this.txtPricePrice.Location = new System.Drawing.Point(137, 83);
-            this.txtPricePrice.Name = "txtPricePrice";
-            this.txtPricePrice.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtPricePrice.Properties.Appearance.Options.UseBackColor = true;
-            this.txtPricePrice.Properties.Mask.EditMask = "n";
-            this.txtPricePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtPricePrice.Properties.ReadOnly = true;
-            this.txtPricePrice.Size = new System.Drawing.Size(138, 20);
-            this.txtPricePrice.TabIndex = 55;
-            this.txtPricePrice.ToolTipTitle = "Харилцагч оруулна уу";
-            this.txtPricePrice.EditValueChanged += new System.EventHandler(this.txtProdGroupNo_EditValueChanged);
+            this.btnGroupAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGroupAdd.Location = new System.Drawing.Point(3, 194);
+            this.btnGroupAdd.Name = "btnGroupAdd";
+            this.btnGroupAdd.Size = new System.Drawing.Size(80, 23);
+            this.btnGroupAdd.TabIndex = 30;
+            this.btnGroupAdd.Text = "Нэмэх";
+            this.btnGroupAdd.Click += new System.EventHandler(this.btnGroupAdd_Click);
             // 
             // btnInvFind
             // 
-            this.btnInvFind.Enabled = false;
             this.btnInvFind.Location = new System.Drawing.Point(330, 32);
             this.btnInvFind.Name = "btnInvFind";
             this.btnInvFind.Size = new System.Drawing.Size(75, 23);
@@ -2003,11 +2105,12 @@
             // 
             this.cboProdProdType.Location = new System.Drawing.Point(150, 9);
             this.cboProdProdType.Name = "cboProdProdType";
-            this.cboProdProdType.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.cboProdProdType.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.cboProdProdType.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cboProdProdType.Properties.Appearance.Options.UseBackColor = true;
+            this.cboProdProdType.Properties.Appearance.Options.UseForeColor = true;
             this.cboProdProdType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboProdProdType.Properties.ReadOnly = true;
             this.cboProdProdType.Size = new System.Drawing.Size(255, 20);
             this.cboProdProdType.TabIndex = 2;
             this.cboProdProdType.EditValueChanged += new System.EventHandler(this.cboProdProdType_EditValueChanged);
@@ -2017,8 +2120,10 @@
             this.txtProdProdNo.EditValue = "";
             this.txtProdProdNo.Location = new System.Drawing.Point(150, 35);
             this.txtProdProdNo.Name = "txtProdProdNo";
-            this.txtProdProdNo.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtProdProdNo.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtProdProdNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtProdProdNo.Properties.Appearance.Options.UseBackColor = true;
+            this.txtProdProdNo.Properties.Appearance.Options.UseForeColor = true;
             this.txtProdProdNo.Properties.ReadOnly = true;
             this.txtProdProdNo.Size = new System.Drawing.Size(174, 20);
             this.txtProdProdNo.TabIndex = 3;
@@ -2040,6 +2145,161 @@
             this.labelControl32.TabIndex = 47;
             this.labelControl32.Text = "Барааны дугаар";
             // 
+            // groupControl5
+            // 
+            this.groupControl5.Controls.Add(this.grdPrice);
+            this.groupControl5.Controls.Add(this.panelControl7);
+            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl5.Location = new System.Drawing.Point(0, 0);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(363, 474);
+            this.groupControl5.TabIndex = 3;
+            this.groupControl5.Text = "Захиалгын бүтээгдэхүүний үнэ";
+            // 
+            // grdPrice
+            // 
+            this.grdPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdPrice.Location = new System.Drawing.Point(2, 22);
+            this.grdPrice.MainView = this.gvwPrice;
+            this.grdPrice.Name = "grdPrice";
+            this.grdPrice.Size = new System.Drawing.Size(359, 304);
+            this.grdPrice.TabIndex = 1;
+            this.grdPrice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvwPrice});
+            // 
+            // gvwPrice
+            // 
+            this.gvwPrice.GridControl = this.grdPrice;
+            this.gvwPrice.Name = "gvwPrice";
+            this.gvwPrice.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvwProduct_FocusedRowChanged);
+            this.gvwPrice.DoubleClick += new System.EventHandler(this.gvwProduct_DoubleClick);
+            // 
+            // panelControl7
+            // 
+            this.panelControl7.Controls.Add(this.labelControl75);
+            this.panelControl7.Controls.Add(this.labelControl20);
+            this.panelControl7.Controls.Add(this.cboPriceDiscountType);
+            this.panelControl7.Controls.Add(this.cboPricePriceTypeID);
+            this.panelControl7.Controls.Add(this.btnProductDelete);
+            this.panelControl7.Controls.Add(this.btnProductEdit);
+            this.panelControl7.Controls.Add(this.btnProductAdd);
+            this.panelControl7.Controls.Add(this.txtPriceDiscountAmount);
+            this.panelControl7.Controls.Add(this.txtPricePrice);
+            this.panelControl7.Controls.Add(this.labelControl33);
+            this.panelControl7.Controls.Add(this.labelControl34);
+            this.panelControl7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl7.Location = new System.Drawing.Point(2, 326);
+            this.panelControl7.Name = "panelControl7";
+            this.panelControl7.Size = new System.Drawing.Size(359, 146);
+            this.panelControl7.TabIndex = 3;
+            // 
+            // labelControl75
+            // 
+            this.labelControl75.Location = new System.Drawing.Point(12, 86);
+            this.labelControl75.Name = "labelControl75";
+            this.labelControl75.Size = new System.Drawing.Size(120, 13);
+            this.labelControl75.TabIndex = 82;
+            this.labelControl75.Text = "Бараа үйлчилгээний үнэ";
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Location = new System.Drawing.Point(12, 60);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(92, 13);
+            this.labelControl20.TabIndex = 81;
+            this.labelControl20.Text = "Хөнгөлөлтийн дүн";
+            // 
+            // cboPriceDiscountType
+            // 
+            this.cboPriceDiscountType.Location = new System.Drawing.Point(137, 32);
+            this.cboPriceDiscountType.Name = "cboPriceDiscountType";
+            this.cboPriceDiscountType.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.cboPriceDiscountType.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cboPriceDiscountType.Properties.Appearance.Options.UseBackColor = true;
+            this.cboPriceDiscountType.Properties.Appearance.Options.UseForeColor = true;
+            this.cboPriceDiscountType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboPriceDiscountType.Size = new System.Drawing.Size(213, 20);
+            this.cboPriceDiscountType.TabIndex = 52;
+            // 
+            // cboPricePriceTypeID
+            // 
+            this.cboPricePriceTypeID.Location = new System.Drawing.Point(137, 6);
+            this.cboPricePriceTypeID.Name = "cboPricePriceTypeID";
+            this.cboPricePriceTypeID.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.cboPricePriceTypeID.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cboPricePriceTypeID.Properties.Appearance.Options.UseBackColor = true;
+            this.cboPricePriceTypeID.Properties.Appearance.Options.UseForeColor = true;
+            this.cboPricePriceTypeID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboPricePriceTypeID.Size = new System.Drawing.Size(213, 20);
+            this.cboPricePriceTypeID.TabIndex = 50;
+            // 
+            // btnProductDelete
+            // 
+            this.btnProductDelete.Location = new System.Drawing.Point(195, 118);
+            this.btnProductDelete.Name = "btnProductDelete";
+            this.btnProductDelete.Size = new System.Drawing.Size(80, 23);
+            this.btnProductDelete.TabIndex = 78;
+            this.btnProductDelete.Text = "Устгах";
+            this.btnProductDelete.Click += new System.EventHandler(this.btnProductDelete_Click);
+            // 
+            // btnProductEdit
+            // 
+            this.btnProductEdit.Location = new System.Drawing.Point(100, 118);
+            this.btnProductEdit.Name = "btnProductEdit";
+            this.btnProductEdit.Size = new System.Drawing.Size(88, 23);
+            this.btnProductEdit.TabIndex = 76;
+            this.btnProductEdit.Text = "Засах";
+            this.btnProductEdit.Click += new System.EventHandler(this.btnProductEdit_Click);
+            // 
+            // btnProductAdd
+            // 
+            this.btnProductAdd.Location = new System.Drawing.Point(14, 117);
+            this.btnProductAdd.Name = "btnProductAdd";
+            this.btnProductAdd.Size = new System.Drawing.Size(80, 23);
+            this.btnProductAdd.TabIndex = 75;
+            this.btnProductAdd.Text = "Нэмэх";
+            this.btnProductAdd.Click += new System.EventHandler(this.btnProductAdd_Click);
+            // 
+            // txtPriceDiscountAmount
+            // 
+            this.txtPriceDiscountAmount.EditValue = "";
+            this.txtPriceDiscountAmount.Location = new System.Drawing.Point(137, 57);
+            this.txtPriceDiscountAmount.Name = "txtPriceDiscountAmount";
+            this.txtPriceDiscountAmount.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtPriceDiscountAmount.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtPriceDiscountAmount.Properties.Appearance.Options.UseBackColor = true;
+            this.txtPriceDiscountAmount.Properties.Appearance.Options.UseForeColor = true;
+            this.txtPriceDiscountAmount.Properties.DisplayFormat.FormatString = "n";
+            this.txtPriceDiscountAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPriceDiscountAmount.Properties.EditFormat.FormatString = "n";
+            this.txtPriceDiscountAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPriceDiscountAmount.Properties.Mask.EditMask = "n";
+            this.txtPriceDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPriceDiscountAmount.Size = new System.Drawing.Size(138, 20);
+            this.txtPriceDiscountAmount.TabIndex = 54;
+            this.txtPriceDiscountAmount.ToolTipTitle = "Харилцагч оруулна уу";
+            // 
+            // txtPricePrice
+            // 
+            this.txtPricePrice.EditValue = "";
+            this.txtPricePrice.Location = new System.Drawing.Point(137, 83);
+            this.txtPricePrice.Name = "txtPricePrice";
+            this.txtPricePrice.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtPricePrice.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtPricePrice.Properties.Appearance.Options.UseBackColor = true;
+            this.txtPricePrice.Properties.Appearance.Options.UseForeColor = true;
+            this.txtPricePrice.Properties.DisplayFormat.FormatString = "n";
+            this.txtPricePrice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPricePrice.Properties.EditFormat.FormatString = "n";
+            this.txtPricePrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPricePrice.Properties.Mask.EditMask = "n";
+            this.txtPricePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPricePrice.Size = new System.Drawing.Size(138, 20);
+            this.txtPricePrice.TabIndex = 55;
+            this.txtPricePrice.ToolTipTitle = "Харилцагч оруулна уу";
+            // 
             // labelControl33
             // 
             this.labelControl33.Location = new System.Drawing.Point(11, 9);
@@ -2055,245 +2315,6 @@
             this.labelControl34.Size = new System.Drawing.Size(104, 13);
             this.labelControl34.TabIndex = 49;
             this.labelControl34.Text = "Хөнгөлөлтийн төрөл";
-            // 
-            // groupControl4
-            // 
-            this.groupControl4.Controls.Add(this.grdGroup);
-            this.groupControl4.Controls.Add(this.panelControl5);
-            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupControl4.Location = new System.Drawing.Point(2, 2);
-            this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(423, 474);
-            this.groupControl4.TabIndex = 2;
-            this.groupControl4.Text = "Захиалгын бүтээгдэхүүн";
-            this.groupControl4.Visible = false;
-            // 
-            // grdGroup
-            // 
-            this.grdGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdGroup.Location = new System.Drawing.Point(2, 22);
-            this.grdGroup.MainView = this.gvwGroup;
-            this.grdGroup.Name = "grdGroup";
-            this.grdGroup.Size = new System.Drawing.Size(419, 228);
-            this.grdGroup.TabIndex = 0;
-            this.grdGroup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvwGroup});
-            // 
-            // gvwGroup
-            // 
-            this.gvwGroup.GridControl = this.grdGroup;
-            this.gvwGroup.Name = "gvwGroup";
-            this.gvwGroup.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvwGroup_FocusedRowChanged);
-            // 
-            // panelControl5
-            // 
-            this.panelControl5.Controls.Add(this.txtProdPrice);
-            this.panelControl5.Controls.Add(this.labelControl19);
-            this.panelControl5.Controls.Add(this.txtProdDiscountAmount);
-            this.panelControl5.Controls.Add(this.labelControl18);
-            this.panelControl5.Controls.Add(this.cboProdDiscountType);
-            this.panelControl5.Controls.Add(this.txtProdQtyMax);
-            this.panelControl5.Controls.Add(this.labelControl17);
-            this.panelControl5.Controls.Add(this.txtProdQtyMin);
-            this.panelControl5.Controls.Add(this.labelControl16);
-            this.panelControl5.Controls.Add(this.btnGroupDelete);
-            this.panelControl5.Controls.Add(this.btnGroupCancel);
-            this.panelControl5.Controls.Add(this.txtProdQty);
-            this.panelControl5.Controls.Add(this.labelControl35);
-            this.panelControl5.Controls.Add(this.btnGroupEdit);
-            this.panelControl5.Controls.Add(this.btnGroupAdd);
-            this.panelControl5.Controls.Add(this.btnInvFind);
-            this.panelControl5.Controls.Add(this.cboProdProdType);
-            this.panelControl5.Controls.Add(this.txtProdProdNo);
-            this.panelControl5.Controls.Add(this.labelControl31);
-            this.panelControl5.Controls.Add(this.labelControl32);
-            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl5.Location = new System.Drawing.Point(2, 250);
-            this.panelControl5.MinimumSize = new System.Drawing.Size(354, 167);
-            this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(419, 222);
-            this.panelControl5.TabIndex = 1;
-            // 
-            // btnGroupDelete
-            // 
-            this.btnGroupDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGroupDelete.Location = new System.Drawing.Point(257, 194);
-            this.btnGroupDelete.Name = "btnGroupDelete";
-            this.btnGroupDelete.Size = new System.Drawing.Size(80, 23);
-            this.btnGroupDelete.TabIndex = 45;
-            this.btnGroupDelete.Text = "Устгах";
-            this.btnGroupDelete.Click += new System.EventHandler(this.btnGroupDelete_Click);
-            // 
-            // btnGroupCancel
-            // 
-            this.btnGroupCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGroupCancel.Enabled = false;
-            this.btnGroupCancel.Location = new System.Drawing.Point(175, 194);
-            this.btnGroupCancel.Name = "btnGroupCancel";
-            this.btnGroupCancel.Size = new System.Drawing.Size(80, 23);
-            this.btnGroupCancel.TabIndex = 40;
-            this.btnGroupCancel.Text = "Болих";
-            this.btnGroupCancel.Click += new System.EventHandler(this.btnGroupCancel_Click);
-            // 
-            // btnGroupEdit
-            // 
-            this.btnGroupEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGroupEdit.Location = new System.Drawing.Point(85, 194);
-            this.btnGroupEdit.Name = "btnGroupEdit";
-            this.btnGroupEdit.Size = new System.Drawing.Size(88, 23);
-            this.btnGroupEdit.TabIndex = 35;
-            this.btnGroupEdit.Text = "Засах";
-            this.btnGroupEdit.Click += new System.EventHandler(this.btnGroupEdit_Click);
-            // 
-            // btnGroupAdd
-            // 
-            this.btnGroupAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGroupAdd.Location = new System.Drawing.Point(3, 194);
-            this.btnGroupAdd.Name = "btnGroupAdd";
-            this.btnGroupAdd.Size = new System.Drawing.Size(80, 23);
-            this.btnGroupAdd.TabIndex = 30;
-            this.btnGroupAdd.Text = "Нэмэх";
-            this.btnGroupAdd.Click += new System.EventHandler(this.btnGroupAdd_Click);
-            // 
-            // txtProdQtyMin
-            // 
-            this.txtProdQtyMin.EditValue = "";
-            this.txtProdQtyMin.Location = new System.Drawing.Point(150, 87);
-            this.txtProdQtyMin.Name = "txtProdQtyMin";
-            this.txtProdQtyMin.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtProdQtyMin.Properties.Appearance.Options.UseBackColor = true;
-            this.txtProdQtyMin.Properties.Mask.EditMask = "n";
-            this.txtProdQtyMin.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtProdQtyMin.Properties.ReadOnly = true;
-            this.txtProdQtyMin.Size = new System.Drawing.Size(123, 20);
-            this.txtProdQtyMin.TabIndex = 15;
-            this.txtProdQtyMin.ToolTipTitle = "Харилцагч оруулна уу";
-            // 
-            // labelControl16
-            // 
-            this.labelControl16.Location = new System.Drawing.Point(10, 90);
-            this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(118, 13);
-            this.labelControl16.TabIndex = 71;
-            this.labelControl16.Text = "Тоо ширхэгийн хязгаар";
-            // 
-            // txtProdQtyMax
-            // 
-            this.txtProdQtyMax.EditValue = "";
-            this.txtProdQtyMax.Location = new System.Drawing.Point(279, 87);
-            this.txtProdQtyMax.Name = "txtProdQtyMax";
-            this.txtProdQtyMax.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtProdQtyMax.Properties.Appearance.Options.UseBackColor = true;
-            this.txtProdQtyMax.Properties.Mask.EditMask = "n";
-            this.txtProdQtyMax.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtProdQtyMax.Properties.ReadOnly = true;
-            this.txtProdQtyMax.Size = new System.Drawing.Size(126, 20);
-            this.txtProdQtyMax.TabIndex = 17;
-            this.txtProdQtyMax.ToolTipTitle = "Харилцагч оруулна уу";
-            // 
-            // labelControl17
-            // 
-            this.labelControl17.Location = new System.Drawing.Point(10, 116);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(104, 13);
-            this.labelControl17.TabIndex = 73;
-            this.labelControl17.Text = "Хөнгөлөлтийн төрөл";
-            // 
-            // cboProdDiscountType
-            // 
-            this.cboProdDiscountType.Location = new System.Drawing.Point(150, 113);
-            this.cboProdDiscountType.Name = "cboProdDiscountType";
-            this.cboProdDiscountType.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.cboProdDiscountType.Properties.Appearance.Options.UseBackColor = true;
-            this.cboProdDiscountType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboProdDiscountType.Properties.ReadOnly = true;
-            this.cboProdDiscountType.Size = new System.Drawing.Size(255, 20);
-            this.cboProdDiscountType.TabIndex = 23;
-            // 
-            // txtProdDiscountAmount
-            // 
-            this.txtProdDiscountAmount.EditValue = "";
-            this.txtProdDiscountAmount.Location = new System.Drawing.Point(150, 139);
-            this.txtProdDiscountAmount.Name = "txtProdDiscountAmount";
-            this.txtProdDiscountAmount.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtProdDiscountAmount.Properties.Appearance.Options.UseBackColor = true;
-            this.txtProdDiscountAmount.Properties.Mask.EditMask = "n";
-            this.txtProdDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtProdDiscountAmount.Properties.ReadOnly = true;
-            this.txtProdDiscountAmount.Size = new System.Drawing.Size(123, 20);
-            this.txtProdDiscountAmount.TabIndex = 35;
-            this.txtProdDiscountAmount.ToolTipTitle = "Харилцагч оруулна уу";
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Location = new System.Drawing.Point(10, 142);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(92, 13);
-            this.labelControl18.TabIndex = 76;
-            this.labelControl18.Text = "Хөнгөлөлтийн дүн";
-            // 
-            // txtProdPrice
-            // 
-            this.txtProdPrice.EditValue = "";
-            this.txtProdPrice.Location = new System.Drawing.Point(150, 165);
-            this.txtProdPrice.Name = "txtProdPrice";
-            this.txtProdPrice.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtProdPrice.Properties.Appearance.Options.UseBackColor = true;
-            this.txtProdPrice.Properties.Mask.EditMask = "n";
-            this.txtProdPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtProdPrice.Properties.ReadOnly = true;
-            this.txtProdPrice.Size = new System.Drawing.Size(123, 20);
-            this.txtProdPrice.TabIndex = 37;
-            this.txtProdPrice.ToolTipTitle = "Харилцагч оруулна уу";
-            // 
-            // labelControl19
-            // 
-            this.labelControl19.Location = new System.Drawing.Point(10, 168);
-            this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(63, 13);
-            this.labelControl19.TabIndex = 78;
-            this.labelControl19.Text = "Барааны үнэ";
-            // 
-            // cboPricePriceTypeID
-            // 
-            this.cboPricePriceTypeID.Location = new System.Drawing.Point(137, 6);
-            this.cboPricePriceTypeID.Name = "cboPricePriceTypeID";
-            this.cboPricePriceTypeID.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.cboPricePriceTypeID.Properties.Appearance.Options.UseBackColor = true;
-            this.cboPricePriceTypeID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboPricePriceTypeID.Properties.ReadOnly = true;
-            this.cboPricePriceTypeID.Size = new System.Drawing.Size(213, 20);
-            this.cboPricePriceTypeID.TabIndex = 50;
-            // 
-            // cboPriceDiscountType
-            // 
-            this.cboPriceDiscountType.Location = new System.Drawing.Point(137, 32);
-            this.cboPriceDiscountType.Name = "cboPriceDiscountType";
-            this.cboPriceDiscountType.Properties.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.cboPriceDiscountType.Properties.Appearance.Options.UseBackColor = true;
-            this.cboPriceDiscountType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboPriceDiscountType.Properties.ReadOnly = true;
-            this.cboPriceDiscountType.Size = new System.Drawing.Size(213, 20);
-            this.cboPriceDiscountType.TabIndex = 52;
-            // 
-            // labelControl20
-            // 
-            this.labelControl20.Location = new System.Drawing.Point(12, 60);
-            this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(92, 13);
-            this.labelControl20.TabIndex = 81;
-            this.labelControl20.Text = "Хөнгөлөлтийн дүн";
-            // 
-            // labelControl75
-            // 
-            this.labelControl75.Location = new System.Drawing.Point(12, 86);
-            this.labelControl75.Name = "labelControl75";
-            this.labelControl75.Size = new System.Drawing.Size(120, 13);
-            this.labelControl75.TabIndex = 82;
-            this.labelControl75.Text = "Бараа үйлчилгээний үнэ";
             // 
             // frmOrder
             // 
@@ -2416,32 +2437,36 @@
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
-            this.groupControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvwProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
-            this.panelControl7.ResumeLayout(false);
-            this.panelControl7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdQty.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPriceDiscountAmount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPricePrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboProdProdType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdProdNo.Properties)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvwGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvwProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdQtyMin.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdQtyMax.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboProdDiscountType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProdDiscountAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProdPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboPricePriceTypeID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdDiscountAmount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboProdDiscountType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdQtyMax.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdQtyMin.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdQty.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboProdProdType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProdProdNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvwPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
+            this.panelControl7.ResumeLayout(false);
+            this.panelControl7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboPriceDiscountType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboPricePriceTypeID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceDiscountAmount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPricePrice.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2491,15 +2516,14 @@
         private DevExpress.XtraTab.XtraTabPage TabOrderGroup;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl4;
-        private DevExpress.XtraGrid.GridControl grdGroup;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvwGroup;
-        private DevExpress.XtraEditors.GroupControl groupControl5;
         private DevExpress.XtraGrid.GridControl grdProduct;
         private DevExpress.XtraGrid.Views.Grid.GridView gvwProduct;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraGrid.GridControl grdPrice;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvwPrice;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.SimpleButton btnGroupDelete;
-        private DevExpress.XtraEditors.SimpleButton btnGroupCancel;
         private DevExpress.XtraEditors.SimpleButton btnGroupEdit;
         private DevExpress.XtraEditors.SimpleButton btnGroupAdd;
         private DevExpress.XtraEditors.PanelControl panelControl7;
@@ -2515,7 +2539,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl33;
         private DevExpress.XtraEditors.LabelControl labelControl34;
         private DevExpress.XtraEditors.SimpleButton btnProductDelete;
-        private DevExpress.XtraEditors.SimpleButton btnProductCancel;
         private DevExpress.XtraEditors.SimpleButton btnProductEdit;
         private DevExpress.XtraEditors.SimpleButton btnProductAdd;
         private DevExpress.XtraEditors.LabelControl labelControl37;
@@ -2635,5 +2658,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl20;
         private DevExpress.XtraEditors.LookUpEdit cboPriceDiscountType;
         private DevExpress.XtraEditors.LookUpEdit cboPricePriceTypeID;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

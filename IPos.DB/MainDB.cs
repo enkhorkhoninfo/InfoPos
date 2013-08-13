@@ -11591,7 +11591,7 @@ WHERE orderno=:1 and ItemNo=:2";
         }
         #endregion
 
-        #region [ DB204111 - Захиалга доторх багц үйлчилгээний бүлэг жагсаалт авах ]
+        #region [ DB204111 - Захиалга доторх багц дахь бүтээгдэхүүн жагсаалт авах ]
         public static Result DB204111(DbConnections pDB, string pOrderNo)
         {
             Result res = new Result();
@@ -11600,10 +11600,23 @@ WHERE orderno=:1 and ItemNo=:2";
                 string sql;
 
                 sql =
-@"select OrderNo, GroupNo, OrderDate, StartTime, EndTime, RunType,
-decode(RunType, 0, 'НЭГ', 1, 'ОЛОН') as RunTypeName
-from ordergroup
-where orderno=:1
+@"select o.OrderNo, o.ProdNo, im.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, o.Qty, o.QtyMin, o.QtyMax, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProduct o
+left join invmain im on o.prodno=im.invid
+where prodtype=0 and orderno=:1
+union
+select o.OrderNo, o.ProdNo, sm.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, o.Qty, o.QtyMin, o.QtyMax, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProduct o
+left join servmain sm on o.prodno=sm.servid
+where prodtype=1 and orderno=:1
+union
+select o.OrderNo, o.ProdNo, pm.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, o.Qty, o.QtyMin, o.QtyMax, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProduct o
+left join packagemain pm on o.prodno=pm.packageid
+where prodtype=2 and orderno=:1
 ";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204111", pOrderNo);
@@ -11619,19 +11632,32 @@ where orderno=:1
             }
         }
         #endregion
-        #region [ DB204112 - Захиалга доторх багц үйлчилгээний бүлэг дэлгэрэнгүй мэдээлэл авах ]
-        public static Result DB204112(DbConnections pDB, string pOrderNo, long pGroupNo)
+        #region [ DB204112 - Захиалга доторх багц дахь бүтээгдэхүүн дэлгэрэнгүй мэдээлэл авах ]
+        public static Result DB204112(DbConnections pDB, string pOrderNo, int pProdType, string pProdNo)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"select OrderNo, GroupNo, OrderDate, StartTime, EndTime, RunType,
-decode(RunType, 0, 'НЭГ', 1, 'ОЛОН') as RunTypeName
-from ordergroup
-where orderno=:1 and GroupNo=:2";
+@"select o.OrderNo, o.ProdNo, im.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, o.Qty, o.QtyMin, o.QtyMax, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProduct o
+left join invmain im on o.prodno=im.invid
+where prodtype=0 and orderno=:1 and o.ProdType=:2 and o.ProdNo=:3
+union
+select o.OrderNo, o.ProdNo, sm.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, o.Qty, o.QtyMin, o.QtyMax, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProduct o
+left join servmain sm on o.prodno=sm.servid
+where prodtype=1 and orderno=:1 and o.ProdType=:2 and o.ProdNo=:3
+union
+select o.OrderNo, o.ProdNo, pm.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, o.Qty, o.QtyMin, o.QtyMax, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProduct o
+left join packagemain pm on o.prodno=pm.packageid
+where prodtype=2 and orderno=:1 and o.ProdType=:2 and o.ProdNo=:3";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204112", pOrderNo, pGroupNo);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204112", pOrderNo, pProdType, pProdNo);
 
                 return res;
             }
@@ -11644,7 +11670,7 @@ where orderno=:1 and GroupNo=:2";
             }
         }
         #endregion
-        #region [ DB204113 - Захиалга доторх багц үйлчилгээний бүлэг шинээр нэмэх ]
+        #region [ DB204113 - Захиалга доторх багц дахь бүтээгдэхүүн шинээр нэмэх ]
         public static Result DB204113(DbConnections pDB, object[] pParam)
         {
             Result res = new Result();
@@ -11652,8 +11678,8 @@ where orderno=:1 and GroupNo=:2";
             {
 
                 string sql =
-@"INSERT INTO ordergroup(OrderNo, GroupNo, OrderDate, StartTime, EndTime, RunType)
-VALUES(:1, :2, :3, :4, :5, :6)";
+@"INSERT INTO OrderProduct(OrderNo, ProdNo, ProdType, Qty, QtyMin, QtyMax, DiscountType, DiscountAmount, Price)
+VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204113", pParam);
                 res = F_Error(res);
@@ -11668,18 +11694,34 @@ VALUES(:1, :2, :3, :4, :5, :6)";
             }
         }
         #endregion
-        #region [ DB204114 - Захиалга доторх багц үйлчилгээний бүлэг засварлах ]
-        public static Result DB204114(DbConnections pDB, object[] pParam)
+        #region [ DB204114 - Захиалга доторх багц дахь бүтээгдэхүүн засварлах ]
+        public static Result DB204114(DbConnections pDB, object[] pOldParam, object[] pNewParam)
         {
             Result res = new Result();
             try
             {
-                string sql =
-@"UPDATE ordergroup SET
-OrderDate=:3, StartTime=:4, EndTime=:5, RunType=:6
-WHERE OrderNo=:1 and GroupNo=:2";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204114", pParam);
+                object[] obj = new object[11];
+
+                obj[0] = pOldParam[0];
+                obj[1] = pOldParam[1];
+                obj[2] = pOldParam[2];
+
+                obj[3] = pNewParam[1];
+                obj[4] = pNewParam[2];
+                obj[5] = pNewParam[3];
+                obj[6] = pNewParam[4];
+                obj[7] = pNewParam[5];
+                obj[8] = pNewParam[6];
+                obj[9] = pNewParam[7];
+                obj[10] = pNewParam[8];
+
+                string sql =
+@"UPDATE OrderProduct SET
+ProdNo=:4, ProdType=:5, Qty=:6, QtyMin=:7, QtyMax=:8, DiscountType=:9, DiscountAmount=:10, Price=:11
+WHERE OrderNo=:1 and ProdType=:2 and ProdNo=:3";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204114", obj);
 
                 return res;
             }
@@ -11692,15 +11734,35 @@ WHERE OrderNo=:1 and GroupNo=:2";
             }
         }
         #endregion
-        #region [ DB204115 - Захиалга доторх багц үйлчилгээний бүлэг устгах ]
-        public static Result DB204115(DbConnections pDB, string pOrderNo, long pGroupNo)
+        #region [ DB204115 - Захиалга доторх багц дахь бүтээгдэхүүн устгах ]
+        public static Result DB204115(DbConnections pDB, string pOrderNo, int pProdType, string pProdNo)
         {
             Result res = new Result();
             try
             {
-                string sql =
-@"DELETE FROM ordergroup WHERE OrderNo=:1 and GroupNo=:2";
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204115", pOrderNo, pGroupNo);
+                string sql = "";
+
+                sql =
+@"select orderno FROM OrderProductPrice WHERE OrderNo=:1 and ProdType=:2 and ProdNo=:3";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204115", pOrderNo, pProdType, pProdNo);
+
+                if (res.ResultNo != 0)
+                {
+                    res.ResultDesc = "Захиалга доторх багц дахь бүтээгдэхүүний үнэ шалгах үед алдаа гарлаа. " + res.ResultDesc;
+                    res.ResultNo = 10;
+                    return res;
+                }
+
+                if (res.AffectedRows != 0)
+                {
+                    res.ResultDesc = "Энэ бүтээгдэхүүн дээр үнэ тохируулсан байгаа тул устгах боломжгүй. [Захиалга доторх багц дахь бүтээгдэхүүний үнээ шалгана уу]";
+                    res.ResultNo = 10;
+                    return res;
+                }
+
+                sql = 
+@"DELETE FROM OrderProduct WHERE OrderNo=:1 and ProdType=:2 and ProdNo=:3";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204115", pOrderNo, pProdType, pProdNo);
 
                 return res;
             }
@@ -11714,8 +11776,8 @@ WHERE OrderNo=:1 and GroupNo=:2";
         }
         #endregion
 
-        #region [ DB204116 - Захиалгын багц дахь бүтээгдэхүүний бүртгэл жагсаалт авах ]
-        public static Result DB204116(DbConnections pDB, string pOrderNo, long pGroupNo)
+        #region [ DB204116 - Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл жагсаалт авах ]
+        public static Result DB204116(DbConnections pDB, string pOrderNo, string pProdNo, int pProdType)
         {
             Result res = new Result();
             try
@@ -11723,24 +11785,32 @@ WHERE OrderNo=:1 and GroupNo=:2";
                 string sql;
 
                 sql =
-@"select A.OrderNo, A.GroupNo, A.ProdNo, A.ProdType, decode(A.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ') as ProdTypeName, A.Qty, 0 as ISSCHEDULE, b.Count, 'T' as Unit, 0 as Duration, b.name as prodname
-from orderproduct a
-left join invmain b on a.ProdNo=b.InvID
-where a.orderno=:1 and a.GroupNo=:2 and A.ProdType=0
+@"select o.OrderNo, o.ProdNo, im.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, 
+o.PriceTypeID, pp.name as PriceTypeIDName, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProductPrice o
+left join invmain im on o.prodno=im.invid
+left join papricetype pp on o.PriceTypeID=pp.PriceTypeID
+where o.prodtype=0 and o.orderno=:1 and o.ProdNo=:2 and o.ProdType=:3
 union
-select A.OrderNo, A.GroupNo, A.ProdNo, A.ProdType, decode(A.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ') as ProdTypeName, A.Qty, b.ISSCHEDULE, b.Count, p.Unit, p.Duration, b.name as prodname
-from orderproduct a
-left join servmain b on a.ProdNo=b.ServID
-left join PAScheduleType p on b.ScheduleType=p.ScheduleType
-where a.orderno=:1 and a.GroupNo=:2 and A.ProdType=1
+select o.OrderNo, o.ProdNo, im.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, 
+o.PriceTypeID, pp.name as PriceTypeIDName, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProductPrice o
+left join servmain im on o.prodno=im.servid
+left join papricetype pp on o.PriceTypeID=pp.PriceTypeID
+where o.prodtype=1 and o.orderno=:1 and o.ProdNo=:2 and o.ProdType=:3
 union
-select A.OrderNo, A.GroupNo, A.ProdNo, A.ProdType, decode(A.ProdType, 0, 'БАРАА', 2, 'БАГЦ') as ProdTypeName, A.Qty, 0 as ISSCHEDULE, 1 as Count, 'T' as Unit, 0 as Duration, b.name as prodname
-from orderproduct a
-left join packmain b on a.ProdNo=b.PackID
-where a.orderno=:1 and a.GroupNo=:2 and A.ProdType=2
+select o.OrderNo, o.ProdNo, im.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, 
+o.PriceTypeID, pp.name as PriceTypeIDName, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProductPrice o
+left join packagemain im on o.prodno=im.packageid
+left join papricetype pp on o.PriceTypeID=pp.PriceTypeID
+where o.prodtype=2 and o.orderno=:1 and o.ProdNo=:2 and o.ProdType=:3
 ";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204116", pOrderNo, pGroupNo);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204116", pOrderNo, pProdNo, pProdType);
 
                 return res;
             }
@@ -11753,18 +11823,38 @@ where a.orderno=:1 and a.GroupNo=:2 and A.ProdType=2
             }
         }
         #endregion
-        #region [ DB204117 - Захиалгын багц дахь бүтээгдэхүүний бүртгэл дэлгэрэнгүй мэдээлэл авах ]
-        public static Result DB204117(DbConnections pDB, string pOrderNo, long pGroupNo, string pProdNo, int pProdType)
+        #region [ DB204117 - Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл дэлгэрэнгүй мэдээлэл авах ]
+        public static Result DB204117(DbConnections pDB, string pOrderNo, string pProdNo, int pProdType, string pPriceTypeID)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"select OrderNo, GroupNo, ProdNo, ProdType, decode(ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ') as ProdTypeName, Qty
-from orderproduct
-where orderno=:1 and GroupNo=:2 and ProdNo=:3 and ProdType=:4";
+@"select o.OrderNo, o.ProdNo, im.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, 
+o.PriceTypeID, pp.name as PriceTypeIDName, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProductPrice o
+left join invmain im on o.prodno=im.invid
+left join papricetype pp on o.PriceTypeID=pp.PriceTypeID
+where o.prodtype=0 and o.orderno=:1 and o.ProdNo=:2 and o.ProdType=:3 and o.PriceTypeID=:4
+union
+select o.OrderNo, o.ProdNo, im.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, 
+o.PriceTypeID, pp.name as PriceTypeIDName, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProductPrice o
+left join servmain im on o.prodno=im.servid
+left join papricetype pp on o.PriceTypeID=pp.PriceTypeID
+where o.prodtype=1 and o.orderno=:1 and o.ProdNo=:2 and o.ProdType=:3 and o.PriceTypeID=:4
+union
+select o.OrderNo, o.ProdNo, im.name as prodnoname, o.ProdType, decode(o.ProdType, 0, 'БАРАА', 1, 'ҮЙЛЧИЛГЭЭ', 2, 'БАГЦ') as ProdTypeName, 
+o.PriceTypeID, pp.name as PriceTypeIDName, o.DiscountType, 
+decode(o.DiscountType, 0, 'Хөнгөлөлт байхгүй', 1, 'Хувиар хөнгөлөнө', 2, 'Дүнгээр хөнгөлөнө') as DiscountTypeName, o.DiscountAmount, o.Price
+from OrderProductPrice o
+left join packagemain im on o.prodno=im.packageid
+left join papricetype pp on o.PriceTypeID=pp.PriceTypeID
+where o.prodtype=2 and o.orderno=:1 and o.ProdNo=:2 and o.ProdType=:3 and o.PriceTypeID=:4";
 
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204117", pOrderNo, pGroupNo, pProdNo, pProdType);
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204117", pOrderNo, pProdNo, pProdType, pPriceTypeID);
 
                 return res;
             }
@@ -11777,7 +11867,7 @@ where orderno=:1 and GroupNo=:2 and ProdNo=:3 and ProdType=:4";
             }
         }
         #endregion
-        #region [ DB204118 - Захиалгын багц дахь бүтээгдэхүүний бүртгэл шинээр нэмэх ]
+        #region [ DB204118 - Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл шинээр нэмэх ]
         public static Result DB204118(DbConnections pDB, object[] pParam)
         {
             Result res = new Result();
@@ -11785,8 +11875,8 @@ where orderno=:1 and GroupNo=:2 and ProdNo=:3 and ProdType=:4";
             {
 
                 string sql =
-@"INSERT INTO orderproduct( OrderNo, GroupNo, ProdNo, ProdType, Qty)
-VALUES(:1, :2, :3, :4, :5)";
+@"INSERT INTO OrderProductPrice(OrderNo, ProdNo, ProdType, PriceTypeID, DiscountType, DiscountAmount, Price)
+VALUES(:1, :2, :3, :4, :5, :6, :7)";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204118", pParam);
                 res = F_Error(res);
@@ -11801,7 +11891,7 @@ VALUES(:1, :2, :3, :4, :5)";
             }
         }
         #endregion
-        #region [ DB204119 - Захиалгын багц дахь бүтээгдэхүүний бүртгэл засварлах ]
+        #region [ DB204119 - Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл засварлах ]
         public static Result DB204119(DbConnections pDB, object[] pOldParam, object[] pNewParam)
         {
             Result res = new Result();
@@ -11812,16 +11902,17 @@ VALUES(:1, :2, :3, :4, :5)";
                 obj[0] = pOldParam[0];
                 obj[1] = pOldParam[1];
                 obj[2] = pOldParam[2];
-                obj[3] = pNewParam[3];
-                obj[4] = pNewParam[1];
-                obj[5] = pNewParam[2];
-                obj[6] = pNewParam[3];
-                obj[7] = pNewParam[4];
+                obj[3] = pOldParam[3];
+
+                obj[4] = pNewParam[3];
+                obj[5] = pNewParam[4];
+                obj[6] = pNewParam[5];
+                obj[7] = pNewParam[6];
 
                 string sql =
-@"UPDATE orderproduct SET
-GroupNo=:5, ProdNo=:6, ProdType=:7, Qty=:8
-WHERE orderno=:1 and GroupNo=:2 and ProdNo=:3 and ProdType=:4";
+@"UPDATE OrderProductPrice SET
+PriceTypeID=:5, DiscountType=:6, DiscountAmount=:7, Price=:8
+WHERE orderno=:1 and ProdNo=:2 and ProdType=:3 and PriceTypeID=:4";
 
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204119", obj);
 
@@ -11836,15 +11927,16 @@ WHERE orderno=:1 and GroupNo=:2 and ProdNo=:3 and ProdType=:4";
             }
         }
         #endregion
-        #region [ DB204120 - Захиалгын багц дахь бүтээгдэхүүний бүртгэл устгах ]
-        public static Result DB204120(DbConnections pDB, string pOrderNo, long pGroupNo, string pProdNo, int pProdType)
+        #region [ DB204120 - Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл устгах ]
+        public static Result DB204120(DbConnections pDB, string pOrderNo, string pProdNo, int pProdType, string pPriceTypeID)
         {
             Result res = new Result();
             try
             {
                 string sql =
-@"DELETE FROM orderproduct WHERE orderno=:1 and GroupNo=:2 and ProdNo=:3 and ProdType=:4";
-                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204120", pOrderNo, pGroupNo, pProdNo, pProdType);
+@"DELETE FROM OrderProductPrice WHERE orderno=:1 and ProdNo=:2 and ProdType=:3 and PriceTypeID=:4";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204120", pOrderNo, pProdNo, pProdType, pPriceTypeID);
 
                 return res;
             }

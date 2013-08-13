@@ -87,37 +87,37 @@ namespace IPos.Order
                         res = Txn130154(ci, ri, db, ref lg);
                         break;
                     #endregion
-                    #region[Захиалга доторх багц үйлчилгээний бүлэг]
-                    case 130111:	                //	Захиалга доторх багц үйлчилгээний бүлэг жагсаалт мэдээлэл авах
+                    #region[Захиалга доторх багц дахь бүтээгдэхүүн]
+                    case 130111:	                //	Захиалга доторх багц дахь бүтээгдэхүүн жагсаалт мэдээлэл авах
                         res = Txn130111(ci, ri, db, ref lg);
                         break;
-                    case 130112:	                //  Захиалга доторх багц үйлчилгээний бүлэг дэлгэрэнгүй мэдээлэл авах
+                    case 130112:	                //  Захиалга доторх багц дахь бүтээгдэхүүн дэлгэрэнгүй мэдээлэл авах
                         res = Txn130112(ci, ri, db, ref lg);
                         break;
-                    case 130113:	                //	Захиалга доторх багц үйлчилгээний бүлэг нэмэх
+                    case 130113:	                //	Захиалга доторх багц дахь бүтээгдэхүүн нэмэх
                         res = Txn130113(ci, ri, db, ref lg);
                         break;
-                    case 130114:	                //	Захиалга доторх багц үйлчилгээний бүлэг засах
+                    case 130114:	                //	Захиалга доторх багц дахь бүтээгдэхүүн засах
                         res = Txn130114(ci, ri, db, ref lg);
                         break;
-                    case 130115:	                //	Захиалга доторх багц үйлчилгээний бүлэг устгах
+                    case 130115:	                //	Захиалга доторх багц дахь бүтээгдэхүүн устгах
                         res = Txn130115(ci, ri, db, ref lg);
                         break;
                     #endregion
-                    #region[Захиалгын багц дах бүтээгдэхүүний бүртгэл]
-                    case 130116:	                //	Захиалгын багц дахь бүтээгдэхүүний бүртгэл жагсаалт мэдээлэл авах
+                    #region[Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл]
+                    case 130116:	                //	Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл жагсаалт мэдээлэл авах
                         res = Txn130116(ci, ri, db, ref lg);
                         break;
-                    case 130117:	                //  Захиалгын багц дахь бүтээгдэхүүний бүртгэл дэлгэрэнгүй мэдээлэл авах
+                    case 130117:	                //  Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл дэлгэрэнгүй мэдээлэл авах
                         res = Txn130117(ci, ri, db, ref lg);
                         break;
-                    case 130118:	                //	Захиалгын багц дахь бүтээгдэхүүн нэмэх
+                    case 130118:	                //	Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл нэмэх
                         res = Txn130118(ci, ri, db, ref lg);
                         break;
-                    case 130119:	                //	Захиалгын багц дахь бүтээгдэхүүн засах
-                        res = Txn130116(ci, ri, db, ref lg);
+                    case 130119:	                //	Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл засах
+                        res = Txn130119(ci, ri, db, ref lg);
                         break;
-                    case 130120:	                //	Захиалгын багц дахь бүтээгдэхүүн устгах
+                    case 130120:	                //	Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл устгах
                         res = Txn130120(ci, ri, db, ref lg);
                         break;
                     #endregion
@@ -587,7 +587,7 @@ namespace IPos.Order
             }
         }
         #endregion
-        #region [Захиалга доторх багц үйлчилгээний бүлэг]
+        #region [Захиалга доторх багц дахь бүтээгдэхүүн]
         public Result Txn130111(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
@@ -607,10 +607,10 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалга доторх багц үйлчилгээний бүлэг жагсаалт мэдээлэл авах";
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүн жагсаалт мэдээлэл авах";
                 if (res.ResultNo == 0)
                 {
-                    lg.AddDetail("ORDERPERSON", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                    lg.AddDetail("ORDERPRODUCT", "", lg.item.Desc, ri.ReceivedParam[0].ToString());
                 }
             }
         }
@@ -619,7 +619,7 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204112(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204112(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToInt(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]));
                 return res;
             }
             catch (Exception ex)
@@ -633,9 +633,13 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалга доторх багц үйлчилгээний бүлэг дэлгэрэнгүй мэдээлэл авах";
-                lg.AddDetail("ORDERPERSON", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
-                lg.AddDetail("ORDERPERSON", "CUSTNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүн дэлгэрэнгүй мэдээлэл авах";
+                if (res.ResultNo == 0)
+                {
+                    lg.AddDetail("ORDERPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                    lg.AddDetail("ORDERPRODUCT", "PRODTYPE", lg.item.Desc, ri.ReceivedParam[1].ToString());
+                    lg.AddDetail("ORDERPRODUCT", "PRODNO", lg.item.Desc, ri.ReceivedParam[2].ToString());
+                }
             }
         }
         public Result Txn130113(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
@@ -657,7 +661,7 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалга доторх багц үйлчилгээний бүлэг шинээр нэмэх";
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүн шинээр нэмэх";
                 if (res.ResultNo == 0)
                 {
 
@@ -667,9 +671,14 @@ namespace IPos.Order
         public Result Txn130114(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
+            object[] OldParam = (object[])ri.ReceivedParam[0];
+            object[] NewParam = (object[])ri.ReceivedParam[1];
+            //object[] FieldParam = (object[])ri.ReceivedParam[2];
+
             try
             {
-                res = IPos.DB.Main.DB204114(db, ri.ReceivedParam);
+
+                res = IPos.DB.Main.DB204114(db, OldParam, NewParam);
                 return res;
             }
             catch (Exception ex)
@@ -683,11 +692,11 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалга доторх багц үйлчилгээний бүлэг засварлах";
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүн засварлах";
                 if (res.ResultNo == 0)
                 {
-                    lg.AddDetail("ORDERGROUP", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
-                    lg.AddDetail("ORDERGROUP", "GROUPNO", ri.ReceivedParam[1].ToString(), ri.ReceivedParam[2].ToString());
+                    //lg.AddDetail("ORDERPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                    //lg.AddDetail("ORDERPRODUCT", "GROUPNO", ri.ReceivedParam[1].ToString(), ri.ReceivedParam[2].ToString());
                 }
             }
         }
@@ -696,7 +705,7 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204115(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204115(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToInt(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]));
                 return res;
             }
             catch (Exception ex)
@@ -710,19 +719,23 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалга доторх багц үйлчилгээний бүлэг устгах";
-                lg.AddDetail("ORDERGROUP", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
-                lg.AddDetail("ORDERGROUP", "GROUPNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                if (res.ResultNo == 0)
+                {
+                    lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүн устгах";
+                    lg.AddDetail("ORDERPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                    lg.AddDetail("ORDERPRODUCT", "PRODTYPE", lg.item.Desc, ri.ReceivedParam[1].ToString());
+                    lg.AddDetail("ORDERPRODUCT", "PRODNO", lg.item.Desc, ri.ReceivedParam[2].ToString());
+                }
             }
         }
         #endregion
-        #region [Захиалгын багц дах бүтээгдэхүүний бүртгэл]
+        #region [Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл]
         public Result Txn130116(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
         {
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204116(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]));
+                res = IPos.DB.Main.DB204116(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]), Static.ToInt(ri.ReceivedParam[2]));
                 return res;
             }
             catch (Exception ex)
@@ -736,7 +749,7 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалгын багц дахь бүтээгдэхүүний бүртгэл жагсаалт мэдээлэл авах";
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүний үнийн жагсаалт мэдээлэл авах";
                 if (res.ResultNo == 0)
                 {
                     lg.AddDetail("ORDERPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
@@ -748,7 +761,7 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204117(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]), Static.ToInt(ri.ReceivedParam[3]));
+                res = IPos.DB.Main.DB204117(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]), Static.ToInt(ri.ReceivedParam[2]), Static.ToStr(ri.ReceivedParam[3]));
                 return res;
             }
             catch (Exception ex)
@@ -762,11 +775,11 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалгын багц дахь бүтээгдэхүүний дэлгэрэнгүй мэдээлэл авах";
-                lg.AddDetail("ORDERPRODUCT", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
-                lg.AddDetail("ORDERPRODUCT", "GROUPNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
-                lg.AddDetail("ORDERPRODUCT", "PRODNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
-                lg.AddDetail("ORDERPRODUCT", "PRODTYPE", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүний үнийн дэлгэрэнгүй мэдээлэл авах";
+                lg.AddDetail("ORDERPRODUCTPRICE", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                lg.AddDetail("ORDERPRODUCTPRICE", "PRODNO", lg.item.Desc, ri.ReceivedParam[1].ToString());
+                lg.AddDetail("ORDERPRODUCTPRICE", "PRODTYPE", lg.item.Desc, ri.ReceivedParam[2].ToString());
+                lg.AddDetail("ORDERPRODUCTPRICE", "PRICETYPEID", lg.item.Desc, ri.ReceivedParam[3].ToString());
             }
         }
         public Result Txn130118(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)
@@ -788,7 +801,7 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалгын багц дахь бүтээгдэхүүн шинээр нэмэх";
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүний үнийн шинээр нэмэх";
                 if (res.ResultNo == 0)
                 {
 
@@ -814,7 +827,7 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалгын багц дахь бүтээгдэхүүн засварлах";
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүний үнийн засварлах";
                 if (res.ResultNo == 0)
                 {
 
@@ -826,7 +839,7 @@ namespace IPos.Order
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204120(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToLong(ri.ReceivedParam[1]), Static.ToStr(ri.ReceivedParam[2]), Static.ToInt(ri.ReceivedParam[3]));
+                res = IPos.DB.Main.DB204120(db, Static.ToStr(ri.ReceivedParam[0]), Static.ToStr(ri.ReceivedParam[1]), Static.ToInt(ri.ReceivedParam[2]), Static.ToStr(ri.ReceivedParam[3]));
                 return res;
             }
             catch (Exception ex)
@@ -840,11 +853,11 @@ namespace IPos.Order
             }
             finally
             {
-                lg.item.Desc = "Захиалга доторх багц дах бүтээгдэхүүн устгах";
-                lg.AddDetail("ORDERGROUP", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
-                lg.AddDetail("ORDERGROUP", "GROUPNO", lg.item.Desc, ri.ReceivedParam[1].ToString());
-                lg.AddDetail("ORDERGROUP", "PRODNO", lg.item.Desc, ri.ReceivedParam[2].ToString());
-                lg.AddDetail("ORDERGROUP", "PRODTYPE", lg.item.Desc, ri.ReceivedParam[3].ToString());
+                lg.item.Desc = "Захиалга доторх багц дахь бүтээгдэхүүний үнийн устгах";
+                lg.AddDetail("ORDERPRODUCTPRICE", "ORDERNO", lg.item.Desc, ri.ReceivedParam[0].ToString());
+                lg.AddDetail("ORDERPRODUCTPRICE", "PRODNO", lg.item.Desc, ri.ReceivedParam[1].ToString());
+                lg.AddDetail("ORDERPRODUCTPRICE", "PRODTYPE", lg.item.Desc, ri.ReceivedParam[2].ToString());
+                lg.AddDetail("ORDERPRODUCTPRICE", "PRICETYPEID", lg.item.Desc, ri.ReceivedParam[3].ToString());
             }
         }
         #endregion

@@ -334,6 +334,95 @@ create table OrderPersonalProduct (
 PRIMARY KEY (OrderNo, ItemNo, ProdNo, ProdType)
 );
 
+delete from txn where trancode in (130111,
+130112,
+130113,
+130114,
+130115,
+130116,
+130117,
+130118,
+130119,
+130120
+)
+
+
+INSERT INTO txn(trancode, name, name2) values('130111', 'Захиалга доторх багц дахь бүтээгдэхүүний жагсаалт мэдээлэл авах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130111');
+INSERT INTO txn(trancode, name, name2) values('130112', 'Захиалга доторх багц дахь бүтээгдэхүүний дэлгэрэнгүй мэдээлэл авах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130112');
+INSERT INTO txn(trancode, name, name2) values('130113', 'Захиалга доторх багц дахь бүтээгдэхүүний шинээр нэмэх', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130113');
+INSERT INTO txn(trancode, name, name2) values('130114', 'Захиалга доторх багц дахь бүтээгдэхүүний засварлах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130114');
+INSERT INTO txn(trancode, name, name2) values('130115', 'Захиалга доторх багц дахь бүтээгдэхүүний устгах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130115');
+INSERT INTO txn(trancode, name, name2) values('130116', 'Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл жагсаалт мэдээлэл авах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130116');
+INSERT INTO txn(trancode, name, name2) values('130117', 'Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл дэлгэрэнгүй мэдээлэл авах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130117');
+INSERT INTO txn(trancode, name, name2) values('130118', 'Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл шинээр нэмэх', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130118');
+INSERT INTO txn(trancode, name, name2) values('130119', 'Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл засварлах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130119');
+INSERT INTO txn(trancode, name, name2) values('130120', 'Захиалга доторх багц дахь бүтээгдэхүүний үнийн бүртгэл устгах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130120');
+
+
+INSERT INTO txn(trancode, name, name2) values('130150', 'Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл жагсаалт мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130150');
+INSERT INTO txn(trancode, name, name2) values('130151', 'Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл дэлгэрэнгүй мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130151');
+INSERT INTO txn(trancode, name, name2) values('130152', 'Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл шинээр нэмэх', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130152');
+INSERT INTO txn(trancode, name, name2) values('130153', 'Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл засварлах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130153');
+INSERT INTO txn(trancode, name, name2) values('130154', 'Захиалгад орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл устгах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130154');
+
+drop table OrderProduct;
+create table OrderProduct (
+ OrderNo  Varchar2(20) ,
+ ProdNo  Varchar2(20) ,
+ ProdType  Number(2) ,
+ Qty  Number(17,2) ,
+ QtyMin  Number(17,2) ,
+ QtyMax  Number(17,2) ,
+ DiscountType  Number(2) ,
+ DicountAmount  Number(17,2) ,
+ Price  Number(17,2) ,
+PRIMARY KEY (OrderNo, ProdNo, ProdType)
+);
+drop table OrderProductPrice;
+create table OrderProductPrice (
+ OrderNo  Varchar2(20) ,
+ ProdNo  Varchar2(20) ,
+ ProdType  Number(2) ,
+ PriceTypeID  Varchar2(20) ,
+ DiscountType  Number(2) ,
+ DicountAmount  Number(17,2) ,
+ Price  Number(17,2) ,
+PRIMARY KEY (OrderNo, ProdNo, ProdType, PriceTypeID)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
