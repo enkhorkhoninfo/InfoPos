@@ -397,9 +397,87 @@ delete from txn where trancode=130128;
 INSERT INTO txn(trancode, name, name2) values('130128', 'Захиалга сэргээх', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130128');
 
 
+create table PreSaleMain (
+ PreSaleProd  Varchar2(20) ,
+ Name  nvarchar2(50) ,
+ Name2  nvarchar2(50) ,
+ Count  Number(20) ,
+ AutoNumNo  number(5) ,
+ SalesAccountNo  Varchar2(20) ,
+ RefundAccountNo  Varchar2(20) ,
+ DiscountAccountNo  Varchar2(20) ,
+ BonusAccountNo  Varchar2(20) ,
+ BonusExpAccountNo  Varchar2(20) ,
+PRIMARY KEY (PreSaleProd)
+);
+
+
+INSERT INTO txn(trancode, name, name2) values('130326', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн жагсаалт мэдээлэл авах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130326');
+INSERT INTO txn(trancode, name, name2) values('130327', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн дэлгэрэнгүй мэдээлэл авах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130327');
+INSERT INTO txn(trancode, name, name2) values('130328', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн шинээр нэмэх', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130328');
+INSERT INTO txn(trancode, name, name2) values('130329', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн засварлах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130329');
+INSERT INTO txn(trancode, name, name2) values('130330', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн устгах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130330');
 
 
 
+Insert into DICTIONARY(ID, NAME,DESCRIPTION, SQL, REFRESHINTERVAL, FIELDNAMES,UPDATETABLE) VALUES('AUTONUM', 'Автомат дугаарлалт',  '', 'select id, name from autonum order by id', '120', 'id, name', 'AUTONUM');
+
+Insert into DICTIONARY(ID, NAME,DESCRIPTION, SQL, REFRESHINTERVAL, FIELDNAMES,UPDATETABLE) VALUES('PRESALEMAIN', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн',  '', 'select PreSaleProd, name from PreSaleMain order by Name', '120', 'PreSaleProd, name ', 'PreSaleMain');
+
+
+INSERT INTO txn(trancode, name, name2) values('130301', 'Урьдчилсан борлуулалтын үндсэн бүртгэл жагсаалт мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130301');
+INSERT INTO txn(trancode, name, name2) values('130302', 'Урьдчилсан борлуулалтын үндсэн бүртгэл дэлгэрэнгүй мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130302');
+INSERT INTO txn(trancode, name, name2) values('130303', 'Урьдчилсан борлуулалтын үндсэн бүртгэл шинээр нэмэх', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130303');
+INSERT INTO txn(trancode, name, name2) values('130304', 'Урьдчилсан борлуулалтын үндсэн бүртгэл засварлах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130304');
+INSERT INTO txn(trancode, name, name2) values('130305', 'Урьдчилсан борлуулалтын үндсэн бүртгэл устгах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130305');
+
+
+create table PreSale (
+ PreSaleNo  Varchar2(20) ,
+ PreSaleType  Number(2) ,
+ CustNo  Varchar2(20) ,
+ ChannelID  Number(4) ,
+ PreSaleProd  Varchar2(20) ,
+ UserID  Varchar2(20) ,
+ CreateDate  Date ,
+ Status  Number(2) ,
+ CreateUser  number(5) ,
+ SalesUser  number(5) ,
+ PersonCount  Number(5) ,
+ StartDateTime  Date ,
+ EndDateTime  Date ,
+ GraceHoursStart  Number(17,2) ,
+ GraceHoursEnd  Number(17,2) ,
+ PreSaleAmount  Number(17,2) ,
+ PreSaleAmountMin  Number(17,2) ,
+ PreSaleAmountMax  Number(17,2) ,
+ SaleAmount  Number(17,2) ,
+ AmartizationAmount  Number(17,2) ,
+ AmartizationType  Number(2) ,
+ AmartizationFreq  Varchar2(2) ,
+ AmartizationMethod  Number(2) ,
+ CurCode  Varchar2(3) ,
+ PriceType  Number(2) ,
+ DiscountID  Number(4) ,
+ DiscountType  Number(2) ,
+ DicountAmount  Number(17,2) ,
+ CancelDateTime  Date ,
+ CancelNote  nVarchar2(100) ,
+ CancelUserNo  number(5) ,
+ ExpireDateTime  Date ,
+ ExpireNote  nVarchar2(100) ,
+ ExpireUserNo  number(5) ,
+ ConfirmDateTime  Date ,
+ ConfirmNote  nVarchar2(100) ,
+ ConfirmUserNo  number(5) ,
+ ContractNo  nvarchar2(20) ,
+ SalesAccountNo  Varchar2(20) ,
+ RefundAccountNo  Varchar2(20) ,
+ DiscountAccountNo  Varchar2(20) ,
+ BonusAccountNo  Varchar2(20) ,
+ BonusExpAccountNo  Varchar2(20) ,
+PRIMARY KEY (PreSaleNo)
+);
 
 
 

@@ -10503,7 +10503,7 @@ WHERE LOGID=:1 ORDER BY LOGID, TABLENAME, FIELDNAME";
         #endregion
         #endregion
         #endregion
-        #region [ DB204 - Contract & Orders ]
+        #region [ DB204 - Contract & Orders & PreSale ]
         #region [ Contract ]
         #region [ DB204001 - Гэрээний үндсэн бүртгэл жагсаалт авах ]
         public static Result DB204001(DbConnections pDB, int pageindex, int pagerows, object[] pParam)
@@ -12350,6 +12350,367 @@ WHERE orderno=:1 and ItemNo=:2";
                 string sql =
 @"DELETE FROM OrderPersonalProduct WHERE OrderNo=:1 AND ItemNo=:2 and ProdType=:3 and ProdNo=:4";
                 res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204154", pOrderNo, pItemNo, pProdType, pProdNo);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region [ PreSale ]
+
+        #region [ DB204301 - Урьдчилсан борлуулалтын үндсэн бүртгэл жагсаалт авах ]
+        public static Result DB204301(DbConnections pDB, int pageindex, int pagerows, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql;
+
+                string[] fieldnames = new string[] { "presaleno like","CustNo like","CustomerName like",
+"ConfirmTerm","TermType","OrderAmount","PrepaidAmount",
+"CurCode","Fee","StartDate","EndDate","PersonCount",
+"Status","CreateDate","PostDate","CreateUser","OwnerUser"};
+
+                ArrayList dbparam = new ArrayList(fieldnames.Length);
+                StringBuilder sb = new StringBuilder();
+                sb.Clear();
+
+                #region [Auto Condition]
+                if (pParam != null)
+                {
+                    int dbindex = 1;
+                    for (int i = 0; i < pParam.Length; i++)
+                    {
+
+                        if (pParam[i] != null && pParam[i] != DBNull.Value && Static.ToStr(pParam[i]) != "")
+                        {
+                            if (sb.Length > 0) sb.Append(" AND ");
+
+                            if (fieldnames[i].Substring(fieldnames[i].Length - 5, 5).ToLower() == " like")
+                                sb.AppendFormat(" {0} :{1}||'%' ", fieldnames[i], dbindex++);
+
+                            else
+                                sb.AppendFormat(" {0}=:{1}", fieldnames[i], dbindex++);
+                            dbparam.Add(pParam[i]);
+                        }
+                    }
+                }
+                #endregion
+
+                sql = string.Format(
+@"select *
+from V_PRESALELIST
+{0} {1} ", sb.Length > 0 ? "where" : " order by presaleno desc", sb.ToString());
+
+                res = pDB.ExecuteQuery("core", sql, "DB204301", pageindex, pagerows, dbparam.ToArray());
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204302 - Урьдчилсан борлуулалтын үндсэн бүртгэл дэлгэрэнгүй мэдээлэл авах ]
+        public static Result DB204302(DbConnections pDB, string ppresaleno)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"select *
+from V_PRESALELIST
+where presaleno=:1";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204302", ppresaleno);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204303 - Урьдчилсан борлуулалтын үндсэн бүртгэл шинээр нэмэх ]
+        public static Result DB204303(DbConnections pDB, object[] pParam, int flag, string presaleno)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql = "";
+                if (flag == 0)
+                {
+                    int ImplementYear = Core.SystemProp.ImplementYear;
+                    long seq = 0;
+                    int autnumno = 3;
+                    #region [ Урьдчилсан борлуулалт ]
+                    Core.AutoNumEnum enums = new Core.AutoNumEnum();
+                    enums.Y = Static.ToStr(Static.ToDate(pParam[6]).Year);
+                    enums.M = Static.ToStr(Static.ToDate(pParam[6]).Month);
+                    enums.D = Static.ToStr(Static.ToDate(pParam[6]).Day);
+
+                    enums.Q = Static.ToStr(Math.Round(Static.ToDecimal(Static.ToDate(pParam[6]).Month / 3), 0, MidpointRounding.ToEven));
+
+                    enums.C = Static.ToStr(Core.SystemProp.gCur.Get(Static.ToStr(pParam[23])).CurrencyCode);
+                    enums.Z = Static.ToStr(Static.ToDate(pParam[6]).Year - ImplementYear);
+
+                    if (Static.ToInt(pParam[1]) == 2) // vauchir
+                    { 
+                        //asd
+                        sql = "select autonumno from presalemain where presaleprod=:1";
+                        res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204303", Static.ToStr(pParam[4]));
+                        if (res.ResultNo != 0)
+                        {
+                            res.ResultDesc = "УБ ын бүтээгдэхүүн сонгоход алдаа гарлаа. " + res.ResultDesc;
+                            res.ResultNo = 10;
+                            return res;
+                        }
+
+                        if (res.AffectedRows == 0)
+                        {
+                            res.ResultDesc = "УБ ын бүтээгдэхүүн олдсонгүй.";
+                            res.ResultNo = 11;
+                            return res;
+                        }
+
+                        autnumno = Static.ToInt(res.Data.Tables[0].Rows[0]["autonumno"]);
+                    }
+
+                    Result seqres = Core.SystemProp.gAutoNum.GetNextNumber(pDB, autnumno, "", enums);
+                    if (seqres.ResultNo == 0)
+                    {
+                        seq = Static.ToLong(seqres.ResultDesc);
+                        if (seq == 0)
+                        {
+                            seqres.ResultNo = 9110068;
+                            seqres.ResultDesc = "Автомат дугаар нэмэхэд хөрвүүлэлт дээр алдаа гарлаа. [ID:" + autnumno + "][" + seqres.ResultDesc + "]";
+                            return seqres;
+                        }
+                    }
+                    else
+                        return seqres;
+
+                    pParam[0] = seq;
+                    #endregion
+                }
+                else
+                {
+                    pParam[0] = presaleno;
+                }
+
+                sql =
+@"INSERT INTO presale(PreSaleNo, PreSaleType, CustNo, ChannelID, PreSaleProd, UserID, CreateDate, Status, CreateUser, SalesUser, 
+PersonCount, StartDateTime, EndDateTime, GraceHoursStart, GraceHoursEnd, PreSaleAmount, PreSaleAmountMin, PreSaleAmountMax, SaleAmount, AmartizationAmount, 
+AmartizationType, AmartizationFreq, AmartizationMethod, CurCode, PriceType, DiscountID, DiscountType, DicountAmount, CancelDateTime, CancelNote, 
+CancelUserNo, ExpireDateTime, ExpireNote, ExpireUserNo, ConfirmDateTime, ConfirmNote, ConfirmUserNo, ContractNo, SalesAccountNo, RefundAccountNo, 
+DiscountAccountNo, BonusAccountNo, BonusExpAccountNo)
+VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, 
+:11, :12, :13, :14, :15, :16, :17, :18, :19, :20, 
+:21, :22, :23, :24, :25, :26, :27, :28, :29, :30,
+:31, :32, :33, :34, :35, :36, :37, :38, :39, :40,
+:41, :42, :43)";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204303", pParam);
+                res = F_Error(res);
+                if (res.ResultNo == 0)
+                {
+                    object[] obbj = new object[1];
+
+                    obbj[0] = pParam[0];
+
+                    res.Param = obbj;
+                }
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204304 - Урьдчилсан борлуулалтын үндсэн бүртгэл засварлах ]
+        public static Result DB204304(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"UPDATE presale SET
+PreSaleType=:2, CustNo=:3, ChannelID=:4, PreSaleProd=:5, UserID=:6, CreateDate=:7, Status=:8, CreateUser=:9, SalesUser=:10, 
+PersonCount=:11, StartDateTime=:12, EndDateTime=:13, GraceHoursStart=:14, GraceHoursEnd=:15, PreSaleAmount=:16, PreSaleAmountMin=:17, PreSaleAmountMax=:18, SaleAmount=:19, AmartizationAmount=:20, 
+AmartizationType=:21, AmartizationFreq=:22, AmartizationMethod=:23, CurCode=:24, PriceType=:25, DiscountID=:26, DiscountType=:27, DicountAmount=:28, CancelDateTime=:29, CancelNote=:30, 
+CancelUserNo=:31, ExpireDateTime=:32, ExpireNote=:33, ExpireUserNo=:34, ConfirmDateTime=:35, ConfirmNote=:36, ConfirmUserNo=:37, ContractNo=:38, SalesAccountNo=:39, RefundAccountNo=:40, 
+DiscountAccountNo=:41, BonusAccountNo=:42, BonusExpAccountNo=:43
+WHERE PreSaleNo=:1";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204304", pParam);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204305 - Урьдчилсан борлуулалтын үндсэн бүртгэл устгах ]
+        public static Result DB204305(DbConnections pDB, string pPreSaleNo)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"DELETE FROM presale WHERE PreSaleNo=:1";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204305", pPreSaleNo);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+
+        #region [ DB204421 - Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн жагсаалт авах ]
+        public static Result DB204421(DbConnections pDB)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql;
+
+                sql =
+@"select p.PreSaleProd, p.name, p.Name2, p.Count, p.AutoNumNo, a.name as AutoNumNoName, p.SalesAccountNo, p.RefundAccountNo, p.DiscountAccountNo, p.BonusAccountNo,
+p.BonusExpAccountNo
+from PreSaleMain p
+left join autonum a on p.autonumno=A.ID
+";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204421", null);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204422 - Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн дэлгэрэнгүй мэдээлэл авах ]
+        public static Result DB204422(DbConnections pDB, string pPreSaleProd)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"select p.PreSaleProd, p.name, p.Name2, p.Count, p.AutoNumNo, a.name as AutoNumNoName, p.SalesAccountNo, p.RefundAccountNo, p.DiscountAccountNo, p.BonusAccountNo,
+p.BonusExpAccountNo
+from PreSaleMain p
+left join autonum a on p.autonumno=A.ID 
+where p.PreSaleProd=:1";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.SELECT, "DB204422", pPreSaleProd);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204423 - Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн шинээр нэмэх ]
+        public static Result DB204423(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+
+                string sql =
+@"INSERT INTO PreSaleMain(PreSaleProd, Name, Name2, Count, AutoNumNo, 
+SalesAccountNo, RefundAccountNo, DiscountAccountNo, BonusAccountNo, BonusExpAccountNo)
+VALUES(:1, :2, :3, :4, :5, 
+:6, :7, :8, :9, :10)";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.INSERT, "DB204423", pParam);
+                res = F_Error(res);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204424 - Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн засварлах ]
+        public static Result DB204424(DbConnections pDB, object[] pParam)
+        {
+            Result res = new Result();
+            try
+            {
+
+                string sql =
+@"UPDATE PreSaleMain SET
+Name=:2, Name2=:3, Count=:4, AutoNumNo=:5, 
+SalesAccountNo=:6, RefundAccountNo=:7, DiscountAccountNo=:8, BonusAccountNo=:9, BonusExpAccountNo=:10
+WHERE PreSaleProd=:1";
+
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.UPDATE, "DB204424", pParam);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                ISM.Lib.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+                res.ResultNo = 9110001;
+                res.ResultDesc = "Датабааз руу хандахад алдаа гарлаа" + ex.Message;
+                return res;
+            }
+        }
+        #endregion
+        #region [ DB204425 - Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн устгах ]
+        public static Result DB204425(DbConnections pDB, string pPreSaleProd)
+        {
+            Result res = new Result();
+            try
+            {
+                string sql =
+@"DELETE FROM PreSaleMain WHERE PreSaleProd=:1";
+                res = pDB.ExecuteQuery("core", sql, enumCommandType.DELETE, "DB204425", pPreSaleProd);
 
                 return res;
             }
