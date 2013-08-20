@@ -460,7 +460,7 @@ create table PreSale (
  PriceType  Number(2) ,
  DiscountID  Number(4) ,
  DiscountType  Number(2) ,
- DicountAmount  Number(17,2) ,
+ DiscountAmount  Number(17,2) ,
  CancelDateTime  Date ,
  CancelNote  nVarchar2(100) ,
  CancelUserNo  number(5) ,

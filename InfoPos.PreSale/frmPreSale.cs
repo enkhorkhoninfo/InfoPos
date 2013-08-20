@@ -284,7 +284,7 @@ namespace InfoPos.PreSale
                 ucGeneral.FieldLinkAdd("cboPriceType", 0, "PriceType", "", true, false, false);
                 ucGeneral.FieldLinkAdd("txtDiscountID", 0, "DiscountID", "", true, false, false);
                 ucGeneral.FieldLinkAdd("cboDiscountType", 0, "DiscountType", "", false, false, false);
-                ucGeneral.FieldLinkAdd("txtDicountAmount", 0, "DicountAmount", "", false, false, false);
+                ucGeneral.FieldLinkAdd("txtDicountAmount", 0, "DiscountAmount", "", false, false, false);
                 ucGeneral.FieldLinkAdd("dteCancelDateTime", 0, "CancelDateTime", "", false, false, false);
                 ucGeneral.FieldLinkAdd("txtCancelNote", 0, "CancelNote", "", false, false, false);
                 ucGeneral.FieldLinkAdd("txtCancelUserNo", 0, "CancelUserNo", "", false, false, false);

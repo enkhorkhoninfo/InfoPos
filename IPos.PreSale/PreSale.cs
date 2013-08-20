@@ -247,7 +247,7 @@ namespace IPos.PreSale
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204101(db, 1, 1, null);
+                res = IPos.DB.Main.DB204301(db, 1, 1, null);
                 return res;
             }
             catch (Exception ex)
@@ -273,7 +273,7 @@ namespace IPos.PreSale
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204102(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204302(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)
@@ -298,9 +298,9 @@ namespace IPos.PreSale
             {
                 object[] obj = (object[])ri.ReceivedParam;
 
-                obj[7] = Static.ToDateTime(DateTime.Now); //Createdate
+                obj[6] = Static.ToDateTime(DateTime.Now); //Createdate
 
-                res = IPos.DB.Main.DB204103(db, obj, 0, "");
+                res = IPos.DB.Main.DB204303(db, obj, 0, "");
                 return res;
             }
             catch (Exception ex)
@@ -326,7 +326,7 @@ namespace IPos.PreSale
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204104(db, ri.ReceivedParam);
+                res = IPos.DB.Main.DB204304(db, ri.ReceivedParam);
                 return res;
             }
             catch (Exception ex)
@@ -352,7 +352,7 @@ namespace IPos.PreSale
             Result res = new Result();
             try
             {
-                res = IPos.DB.Main.DB204105(db, Static.ToStr(ri.ReceivedParam[0]));
+                res = IPos.DB.Main.DB204305(db, Static.ToStr(ri.ReceivedParam[0]));
                 return res;
             }
             catch (Exception ex)

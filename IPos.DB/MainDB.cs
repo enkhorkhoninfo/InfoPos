@@ -12375,10 +12375,16 @@ WHERE orderno=:1 and ItemNo=:2";
             {
                 string sql;
 
-                string[] fieldnames = new string[] { "presaleno like","CustNo like","CustomerName like",
-"ConfirmTerm","TermType","OrderAmount","PrepaidAmount",
-"CurCode","Fee","StartDate","EndDate","PersonCount",
-"Status","CreateDate","PostDate","CreateUser","OwnerUser"};
+                string[] fieldnames = new string[] { "PreSaleNo like", "PreSaleType", "CustomerName like", "ChannelID", "PreSaleProd", 
+                        "UserID like", "CreateDate", "Status", "CreateUser", "SalesUser", 
+                        "PersonCount", "StartDateTime", "EndDateTime", "GraceHoursStart", "GraceHoursEnd", 
+                        "PreSaleAmount like", "PreSaleAmountMin like", "PreSaleAmountMax like", "SaleAmount like", "AmartizationAmount like", 
+                        "AmartizationType", "AmartizationFreq", "AmartizationMethod", "CurCode", "PriceType", 
+                        "DiscountID", "DiscountType", "DiscountAmount", "CancelDateTime", "CancelNote like", 
+                        "CancelUserNo", "ExpireDateTime", "ExpireNote like", "ExpireUserNo", "ConfirmDateTime", 
+                        "ConfirmNote like", "ConfirmUserNo", "ContractNo like", "SalesAccountNo like", "RefundAccountNo like", 
+                        "DiscountAccountNo like", "BonusAccountNo like", "BonusExpAccountNo like"
+                };
 
                 ArrayList dbparam = new ArrayList(fieldnames.Length);
                 StringBuilder sb = new StringBuilder();
@@ -12518,7 +12524,7 @@ where presaleno=:1";
                 sql =
 @"INSERT INTO presale(PreSaleNo, PreSaleType, CustNo, ChannelID, PreSaleProd, UserID, CreateDate, Status, CreateUser, SalesUser, 
 PersonCount, StartDateTime, EndDateTime, GraceHoursStart, GraceHoursEnd, PreSaleAmount, PreSaleAmountMin, PreSaleAmountMax, SaleAmount, AmartizationAmount, 
-AmartizationType, AmartizationFreq, AmartizationMethod, CurCode, PriceType, DiscountID, DiscountType, DicountAmount, CancelDateTime, CancelNote, 
+AmartizationType, AmartizationFreq, AmartizationMethod, CurCode, PriceType, DiscountID, DiscountType, DiscountAmount, CancelDateTime, CancelNote, 
 CancelUserNo, ExpireDateTime, ExpireNote, ExpireUserNo, ConfirmDateTime, ConfirmNote, ConfirmUserNo, ContractNo, SalesAccountNo, RefundAccountNo, 
 DiscountAccountNo, BonusAccountNo, BonusExpAccountNo)
 VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, 
@@ -12558,7 +12564,7 @@ VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10,
 @"UPDATE presale SET
 PreSaleType=:2, CustNo=:3, ChannelID=:4, PreSaleProd=:5, UserID=:6, CreateDate=:7, Status=:8, CreateUser=:9, SalesUser=:10, 
 PersonCount=:11, StartDateTime=:12, EndDateTime=:13, GraceHoursStart=:14, GraceHoursEnd=:15, PreSaleAmount=:16, PreSaleAmountMin=:17, PreSaleAmountMax=:18, SaleAmount=:19, AmartizationAmount=:20, 
-AmartizationType=:21, AmartizationFreq=:22, AmartizationMethod=:23, CurCode=:24, PriceType=:25, DiscountID=:26, DiscountType=:27, DicountAmount=:28, CancelDateTime=:29, CancelNote=:30, 
+AmartizationType=:21, AmartizationFreq=:22, AmartizationMethod=:23, CurCode=:24, PriceType=:25, DiscountID=:26, DiscountType=:27, DiscountAmount=:28, CancelDateTime=:29, CancelNote=:30, 
 CancelUserNo=:31, ExpireDateTime=:32, ExpireNote=:33, ExpireUserNo=:34, ConfirmDateTime=:35, ConfirmNote=:36, ConfirmUserNo=:37, ContractNo=:38, SalesAccountNo=:39, RefundAccountNo=:40, 
 DiscountAccountNo=:41, BonusAccountNo=:42, BonusExpAccountNo=:43
 WHERE PreSaleNo=:1";

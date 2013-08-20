@@ -227,5 +227,13 @@ namespace InfoPos.List
             ob.MdiParent = _core.MainForm;
             ob.Show();
         }
+        public void CallPreSaleList(object[] param)                   //УБ жагсаалт дуудах
+        {
+            _core = (Core.Core)param[0];
+
+            InfoPos.List.PreSaleList frm = new InfoPos.List.PreSaleList(_core);
+            frm.MdiParent = _core.MainForm;
+            frm.Show();
+        }
     }
 }

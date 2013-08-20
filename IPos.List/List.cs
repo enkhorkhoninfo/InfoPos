@@ -33,6 +33,9 @@ namespace IPos.List
                     case 130101: 	            //Захиалгын жагсаалт авах
                         res = Txn130101(ci, ri, db, ref lg);
                         break;
+                    case 130301: 	            //УБ жагсаалт авах
+                        res = Txn130301(ci, ri, db, ref lg);
+                        break;
                     case 110100: 	            //Хэрэглэгчийн жагсаалт авах
                         res = Txn110100(ci, ri, db, ref lg);
                         break;
@@ -290,6 +293,85 @@ namespace IPos.List
                         if (pParam[i] != null)
                         {
                             lg.AddDetail("ORDER", FieldName[i].ToString(), "Захиалгын жагсаалт авах", Static.ToStr(pParam[i]));
+                        }
+                    }
+                }
+            }
+        }
+        public Result Txn130301(ClientInfo ci, RequestInfo ri, DbConnections db, ref Log lg)        //УБ жагсаалт авах
+        {
+            Result res = new Result();
+            object[] pParam = ri.ReceivedParam;
+            try
+            {
+                res = IPos.DB.Main.DB204301(db, ri.PageIndex, ri.PageRows, ri.ReceivedParam);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.ResultNo = 9110002;
+                res.ResultDesc = "Програм руу нэвтрэхэд алдаа гарлаа" + ex.Message;
+
+                EServ.Shared.Static.WriteToLogFile("Error.log", ex.Message + ex.Source + ex.StackTrace);
+
+                return res;
+            }
+            finally
+            {
+                if (res.ResultNo == 0)
+                {
+                    lg.item.Desc = "УБ жагсаалт авах";
+                    object[] FieldName = new object[19];
+
+                    FieldName[0] = "PreSaleNo";
+                    FieldName[1] = "PreSaleType";
+                    FieldName[2] = "CustNo";
+                    FieldName[3] = "ChannelID";
+                    FieldName[4] = "PreSaleProd";
+                    FieldName[5] = "UserID";
+                    FieldName[6] = "CreateDate";
+                    FieldName[7] = "Status";
+                    FieldName[8] = "CreateUser";
+                    FieldName[9] = "SalesUser";
+                    FieldName[10] = "PersonCount";
+                    FieldName[11] = "StartDateTime";
+                    FieldName[12] = "EndDateTime";
+                    FieldName[13] = "GraceHoursStart";
+                    FieldName[14] = "GraceHoursEnd";
+                    FieldName[15] = "PreSaleAmount";
+                    FieldName[16] = "PreSaleAmountMin";
+                    FieldName[17] = "PreSaleAmountMax";
+                    FieldName[18] = "SaleAmount";
+                    FieldName[19] = "AmartizationAmount";
+                    FieldName[20] = "AmartizationType";
+                    FieldName[21] = "AmartizationFreq";
+                    FieldName[22] = "AmartizationMethod";
+                    FieldName[23] = "CurCode";
+                    FieldName[24] = "PriceType";
+                    FieldName[25] = "DiscountID";
+                    FieldName[26] = "DiscountType";
+                    FieldName[27] = "DiscountAmount";
+                    FieldName[28] = "CancelDateTime";
+                    FieldName[29] = "CancelNote";
+                    FieldName[30] = "CancelUserNo";
+                    FieldName[31] = "ExpireDateTime";
+                    FieldName[32] = "ExpireNote";
+                    FieldName[33] = "ExpireUserNo";
+                    FieldName[34] = "ConfirmDateTime";
+                    FieldName[35] = "ConfirmNote";
+                    FieldName[36] = "ConfirmUserNo";
+                    FieldName[37] = "ContractNo";
+                    FieldName[38] = "SalesAccountNo";
+                    FieldName[39] = "RefundAccountNo";
+                    FieldName[40] = "DiscountAccountNo";
+                    FieldName[41] = "BonusAccountNo";
+                    FieldName[42] = "BonusExpAccountNo";
+
+                    for (int i = 0; i < FieldName.Length; i++)
+                    {
+                        if (pParam[i] != null)
+                        {
+                            lg.AddDetail("PRESALE", FieldName[i].ToString(), "УБ жагсаалт авах", Static.ToStr(pParam[i]));
                         }
                     }
                 }

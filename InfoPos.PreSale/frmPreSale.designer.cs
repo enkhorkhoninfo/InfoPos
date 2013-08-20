@@ -387,7 +387,7 @@
             // 
             this.TabGeneral.Controls.Add(this.ucGeneral);
             this.TabGeneral.Name = "TabGeneral";
-            this.TabGeneral.Size = new System.Drawing.Size(791, 483);
+            this.TabGeneral.Size = new System.Drawing.Size(790, 482);
             this.TabGeneral.Text = "Үндсэн мэдээлэл";
             // 
             // ucGeneral
@@ -396,7 +396,7 @@
             this.ucGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucGeneral.Location = new System.Drawing.Point(0, 0);
             this.ucGeneral.Name = "ucGeneral";
-            this.ucGeneral.Size = new System.Drawing.Size(791, 483);
+            this.ucGeneral.Size = new System.Drawing.Size(790, 482);
             this.ucGeneral.TabIndex = 0;
             this.ucGeneral.ToggleShowDelete = false;
             this.ucGeneral.ToggleShowEdit = false;
@@ -437,7 +437,7 @@
             this.groupControl1.Controls.Add(this.cboPreSaleProd);
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(791, 453);
+            this.groupControl1.Size = new System.Drawing.Size(790, 452);
             this.groupControl1.TabIndex = 18;
             this.groupControl1.Text = "Өгөгдөл";
             // 
@@ -456,7 +456,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 279);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(791, 174);
+            this.tabControl1.Size = new System.Drawing.Size(790, 173);
             this.tabControl1.TabIndex = 99;
             // 
             // tabPage8
@@ -472,7 +472,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(783, 148);
+            this.tabPage8.Size = new System.Drawing.Size(782, 147);
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "Элэгдүүлэлт";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -564,7 +564,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(783, 148);
+            this.tabPage9.Size = new System.Drawing.Size(782, 147);
             this.tabPage9.TabIndex = 6;
             this.tabPage9.Text = "Данс";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -676,7 +676,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(783, 148);
+            this.tabPage2.Size = new System.Drawing.Size(782, 147);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Хөнгөлөлт";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -746,7 +746,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(783, 148);
+            this.tabPage3.Size = new System.Drawing.Size(782, 147);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Баталгаажуулалт";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -816,7 +816,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(783, 148);
+            this.tabPage4.Size = new System.Drawing.Size(782, 147);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Хугацаа дууссан";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -886,7 +886,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(783, 148);
+            this.tabPage5.Size = new System.Drawing.Size(782, 147);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Цуцалсан";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -963,7 +963,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(783, 148);
+            this.tabPage1.Size = new System.Drawing.Size(782, 147);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Лавлагаа";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1494,7 +1494,7 @@
             // 
             this.TabOrderPerson.Controls.Add(this.ucPerson);
             this.TabOrderPerson.Name = "TabOrderPerson";
-            this.TabOrderPerson.Size = new System.Drawing.Size(791, 483);
+            this.TabOrderPerson.Size = new System.Drawing.Size(790, 482);
             this.TabOrderPerson.Text = "Захиалга өгсөн үйлчлүүлэгч";
             // 
             // ucPerson
@@ -1503,7 +1503,7 @@
             this.ucPerson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucPerson.Location = new System.Drawing.Point(0, 0);
             this.ucPerson.Name = "ucPerson";
-            this.ucPerson.Size = new System.Drawing.Size(791, 483);
+            this.ucPerson.Size = new System.Drawing.Size(790, 482);
             this.ucPerson.TabIndex = 0;
             this.ucPerson.ToggleShowDelete = false;
             this.ucPerson.ToggleShowEdit = false;
@@ -1522,7 +1522,7 @@
             this.panelControl2.Controls.Add(this.groupControl3);
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(791, 450);
+            this.panelControl2.Size = new System.Drawing.Size(790, 449);
             this.panelControl2.TabIndex = 20;
             // 
             // splitterControl1
@@ -1530,7 +1530,7 @@
             this.splitterControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitterControl1.Location = new System.Drawing.Point(412, 2);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(6, 446);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 445);
             this.splitterControl1.TabIndex = 20;
             this.splitterControl1.TabStop = false;
             // 
@@ -1540,7 +1540,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(2, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(416, 446);
+            this.panelControl1.Size = new System.Drawing.Size(415, 445);
             this.panelControl1.TabIndex = 18;
             // 
             // grdOrderPerson
@@ -1549,7 +1549,7 @@
             this.grdOrderPerson.Location = new System.Drawing.Point(2, 2);
             this.grdOrderPerson.MainView = this.gvwOrderPerson;
             this.grdOrderPerson.Name = "grdOrderPerson";
-            this.grdOrderPerson.Size = new System.Drawing.Size(412, 442);
+            this.grdOrderPerson.Size = new System.Drawing.Size(411, 441);
             this.grdOrderPerson.TabIndex = 0;
             this.grdOrderPerson.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwOrderPerson});
@@ -1564,9 +1564,9 @@
             // 
             this.groupControl3.Controls.Add(this.tabControl2);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupControl3.Location = new System.Drawing.Point(418, 2);
+            this.groupControl3.Location = new System.Drawing.Point(417, 2);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(371, 446);
+            this.groupControl3.Size = new System.Drawing.Size(371, 445);
             this.groupControl3.TabIndex = 19;
             this.groupControl3.Text = "Өгөгдөл";
             // 
@@ -1578,7 +1578,7 @@
             this.tabControl2.Location = new System.Drawing.Point(2, 22);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(367, 422);
+            this.tabControl2.Size = new System.Drawing.Size(367, 421);
             this.tabControl2.TabIndex = 57;
             // 
             // tabPage6
@@ -1614,7 +1614,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(359, 396);
+            this.tabPage6.Size = new System.Drawing.Size(359, 395);
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "Үйлчлүүлэгч";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1880,7 +1880,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(359, 396);
+            this.tabPage7.Size = new System.Drawing.Size(359, 395);
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = "Захиалсан бүтээгдэхүүн";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1891,7 +1891,7 @@
             this.grdOPProduct.Location = new System.Drawing.Point(3, 116);
             this.grdOPProduct.MainView = this.gvwOPProduct;
             this.grdOPProduct.Name = "grdOPProduct";
-            this.grdOPProduct.Size = new System.Drawing.Size(353, 277);
+            this.grdOPProduct.Size = new System.Drawing.Size(353, 276);
             this.grdOPProduct.TabIndex = 2;
             this.grdOPProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwOPProduct});
@@ -2030,7 +2030,7 @@
             // 
             this.TabOrderGroup.Controls.Add(this.panelControl3);
             this.TabOrderGroup.Name = "TabOrderGroup";
-            this.TabOrderGroup.Size = new System.Drawing.Size(791, 483);
+            this.TabOrderGroup.Size = new System.Drawing.Size(790, 482);
             this.TabOrderGroup.Text = "Захиалгын бүтээндэхүүн";
             // 
             // panelControl3
@@ -2039,7 +2039,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(791, 483);
+            this.panelControl3.Size = new System.Drawing.Size(790, 482);
             this.panelControl3.TabIndex = 20;
             // 
             // panelControl4
@@ -2048,7 +2048,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(2, 2);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(787, 479);
+            this.panelControl4.Size = new System.Drawing.Size(786, 478);
             this.panelControl4.TabIndex = 18;
             // 
             // splitContainer1
@@ -2064,8 +2064,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupControl5);
-            this.splitContainer1.Size = new System.Drawing.Size(783, 475);
-            this.splitContainer1.SplitterDistance = 415;
+            this.splitContainer1.Size = new System.Drawing.Size(782, 474);
+            this.splitContainer1.SplitterDistance = 414;
             this.splitContainer1.TabIndex = 4;
             // 
             // groupControl4
@@ -2075,7 +2075,7 @@
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl4.Location = new System.Drawing.Point(0, 0);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(415, 475);
+            this.groupControl4.Size = new System.Drawing.Size(414, 474);
             this.groupControl4.TabIndex = 2;
             this.groupControl4.Text = "Захиалгын бүтээгдэхүүн";
             // 
@@ -2085,7 +2085,7 @@
             this.grdProduct.Location = new System.Drawing.Point(2, 22);
             this.grdProduct.MainView = this.gvwProduct;
             this.grdProduct.Name = "grdProduct";
-            this.grdProduct.Size = new System.Drawing.Size(411, 229);
+            this.grdProduct.Size = new System.Drawing.Size(410, 228);
             this.grdProduct.TabIndex = 0;
             this.grdProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwProduct});
@@ -2118,10 +2118,10 @@
             this.panelControl5.Controls.Add(this.labelControl31);
             this.panelControl5.Controls.Add(this.labelControl32);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl5.Location = new System.Drawing.Point(2, 251);
+            this.panelControl5.Location = new System.Drawing.Point(2, 250);
             this.panelControl5.MinimumSize = new System.Drawing.Size(354, 167);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(411, 222);
+            this.panelControl5.Size = new System.Drawing.Size(410, 222);
             this.panelControl5.TabIndex = 1;
             // 
             // txtProdPrice
@@ -2354,7 +2354,7 @@
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl5.Location = new System.Drawing.Point(0, 0);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(364, 475);
+            this.groupControl5.Size = new System.Drawing.Size(364, 474);
             this.groupControl5.TabIndex = 3;
             this.groupControl5.Text = "Захиалгын бүтээгдэхүүний үнэ";
             // 
@@ -2364,7 +2364,7 @@
             this.grdPrice.Location = new System.Drawing.Point(2, 22);
             this.grdPrice.MainView = this.gvwPrice;
             this.grdPrice.Name = "grdPrice";
-            this.grdPrice.Size = new System.Drawing.Size(360, 305);
+            this.grdPrice.Size = new System.Drawing.Size(360, 304);
             this.grdPrice.TabIndex = 1;
             this.grdPrice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwPrice});
@@ -2390,7 +2390,7 @@
             this.panelControl7.Controls.Add(this.labelControl33);
             this.panelControl7.Controls.Add(this.labelControl34);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl7.Location = new System.Drawing.Point(2, 327);
+            this.panelControl7.Location = new System.Drawing.Point(2, 326);
             this.panelControl7.Name = "panelControl7";
             this.panelControl7.Size = new System.Drawing.Size(360, 146);
             this.panelControl7.TabIndex = 3;
