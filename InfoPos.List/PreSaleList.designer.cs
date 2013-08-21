@@ -63,6 +63,7 @@
             this.ucReSaleList.TabIndex = 0;
             this.ucReSaleList.VisibleFilter = false;
             this.ucReSaleList.VisibleFind = true;
+            this.ucReSaleList.EventSelected += new ISM.Template.ucGridPanel.delegateEventSelected(this.ucContractList_EventSelected);
             this.ucReSaleList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContractList_KeyDown);
             // 
             // labelControl1
@@ -141,7 +142,7 @@
             this.labelControl8.TabIndex = 10;
             this.labelControl8.Text = "labelControl8";
             // 
-            // ReSaleList
+            // PreSaleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,7 +158,7 @@
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.ucReSaleList);
             this.KeyPreview = true;
-            this.Name = "ReSaleList";
+            this.Name = "PreSaleList";
             this.Text = "Урьдчилсан борлуулалтын жагсаалт";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ContractList_FormClosing);
             this.Load += new System.EventHandler(this.ContractList_Load);

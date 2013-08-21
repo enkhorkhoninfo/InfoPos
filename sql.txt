@@ -412,11 +412,49 @@ PRIMARY KEY (PreSaleProd)
 );
 
 
-INSERT INTO txn(trancode, name, name2) values('130326', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн жагсаалт мэдээлэл авах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130326');
-INSERT INTO txn(trancode, name, name2) values('130327', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн дэлгэрэнгүй мэдээлэл авах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130327');
-INSERT INTO txn(trancode, name, name2) values('130328', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн шинээр нэмэх', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130328');
-INSERT INTO txn(trancode, name, name2) values('130329', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн засварлах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130329');
-INSERT INTO txn(trancode, name, name2) values('130330', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн устгах', '');    INSERT INTO grouptxn(groupid, trancode) values('1', '130330');
+INSERT INTO txn(trancode, name, name2) values('130301', 'Урьдчилсан борлуулалтын үндсэн бүртгэл жагсаалт мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130301');
+INSERT INTO txn(trancode, name, name2) values('130302', 'Урьдчилсан борлуулалтын үндсэн бүртгэл дэлгэрэнгүй мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130302');
+INSERT INTO txn(trancode, name, name2) values('130303', 'Урьдчилсан борлуулалтын үндсэн бүртгэл шинээр нэмэх', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130303');
+INSERT INTO txn(trancode, name, name2) values('130304', 'Урьдчилсан борлуулалтын үндсэн бүртгэл засварлах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130304');
+INSERT INTO txn(trancode, name, name2) values('130305', 'Урьдчилсан борлуулалтын үндсэн бүртгэл устгах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130305');
+INSERT INTO txn(trancode, name, name2) values('130306', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн бүртгэл жагсаалт мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130306');
+INSERT INTO txn(trancode, name, name2) values('130307', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн бүртгэл дэлгэрэнгүй мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130307');
+INSERT INTO txn(trancode, name, name2) values('130308', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн бүртгэл шинээр нэмэх', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130308');
+INSERT INTO txn(trancode, name, name2) values('130309', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн бүртгэл засварлах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130309');
+INSERT INTO txn(trancode, name, name2) values('130310', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн бүртгэл устгах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130310');
+INSERT INTO txn(trancode, name, name2) values('130311', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл жагсаалт мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130311');
+INSERT INTO txn(trancode, name, name2) values('130312', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл дэлгэрэнгүй мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130312');
+INSERT INTO txn(trancode, name, name2) values('130313', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл шинээр нэмэх', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130313');
+INSERT INTO txn(trancode, name, name2) values('130314', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл засварлах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130314');
+INSERT INTO txn(trancode, name, name2) values('130315', 'Урьдчилсан борлуулалтанд орсон үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл устгах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130315');
+INSERT INTO txn(trancode, name, name2) values('130316', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний жагсаалт мэдээлэл авах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130316');
+INSERT INTO txn(trancode, name, name2) values('130317', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний дэлгэрэнгүй мэдээлэл авах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130317');
+INSERT INTO txn(trancode, name, name2) values('130318', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний шинээр нэмэх', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130318');
+INSERT INTO txn(trancode, name, name2) values('130319', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний засварлах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130319');
+INSERT INTO txn(trancode, name, name2) values('130320', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний устгах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130320');
+INSERT INTO txn(trancode, name, name2) values('130321', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний үнийн бүртгэл жагсаалт мэдээлэл авах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130321');
+INSERT INTO txn(trancode, name, name2) values('130322', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний үнийн бүртгэл дэлгэрэнгүй мэдээлэл авах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130322');
+INSERT INTO txn(trancode, name, name2) values('130323', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний үнийн бүртгэл шинээр нэмэх', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130323');
+INSERT INTO txn(trancode, name, name2) values('130324', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний үнийн бүртгэл засварлах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130324');
+INSERT INTO txn(trancode, name, name2) values('130325', 'Урьдчилсан борлуулалт доторх багц дахь бүтээгдэхүүний үнийн бүртгэл устгах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130325');
+	
+INSERT INTO txn(trancode, name, name2) values('130326', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн жагсаалт мэдээлэл авах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130326');
+INSERT INTO txn(trancode, name, name2) values('130327', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн дэлгэрэнгүй мэдээлэл авах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130327');
+INSERT INTO txn(trancode, name, name2) values('130328', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн шинээр нэмэх', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130328');
+INSERT INTO txn(trancode, name, name2) values('130329', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн засварлах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130329');
+INSERT INTO txn(trancode, name, name2) values('130330', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн устгах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130330');
+	
+INSERT INTO txn(trancode, name, name2) values('130331', 'Урьдчилсан борлуулалт баталгаажуулах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130331');
+INSERT INTO txn(trancode, name, name2) values('130332', 'Урьдчилсан борлуулалт цуцлах', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130332');
+INSERT INTO txn(trancode, name, name2) values('130333', 'Урьдчилсан борлуулалт сэргээх', '');	INSERT INTO grouptxn(groupid, trancode) values('1', '130333');
+	
+INSERT INTO txn(trancode, name, name2) values('130350', 'Урьдчилсан борлуулалтын үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл жагсаалт мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130350');
+INSERT INTO txn(trancode, name, name2) values('130351', 'Урьдчилсан борлуулалтын үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл дэлгэрэнгүй мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130351');
+INSERT INTO txn(trancode, name, name2) values('130352', 'Урьдчилсан борлуулалтын үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл шинээр нэмэх', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130352');
+INSERT INTO txn(trancode, name, name2) values('130353', 'Урьдчилсан борлуулалтын үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл засварлах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130353');
+INSERT INTO txn(trancode, name, name2) values('130354', 'Урьдчилсан борлуулалтын үйлчлүүлэгчийн захиалсан бүтээгдэхүүн бүртгэл устгах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130354');
+
+
 
 
 
@@ -424,12 +462,6 @@ Insert into DICTIONARY(ID, NAME,DESCRIPTION, SQL, REFRESHINTERVAL, FIELDNAMES,UP
 
 Insert into DICTIONARY(ID, NAME,DESCRIPTION, SQL, REFRESHINTERVAL, FIELDNAMES,UPDATETABLE) VALUES('PRESALEMAIN', 'Урьдчилсан борлуулалтын үндсэн бүтээгдэхүүн',  '', 'select PreSaleProd, name from PreSaleMain order by Name', '120', 'PreSaleProd, name ', 'PreSaleMain');
 
-
-INSERT INTO txn(trancode, name, name2) values('130301', 'Урьдчилсан борлуулалтын үндсэн бүртгэл жагсаалт мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130301');
-INSERT INTO txn(trancode, name, name2) values('130302', 'Урьдчилсан борлуулалтын үндсэн бүртгэл дэлгэрэнгүй мэдээлэл авах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130302');
-INSERT INTO txn(trancode, name, name2) values('130303', 'Урьдчилсан борлуулалтын үндсэн бүртгэл шинээр нэмэх', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130303');
-INSERT INTO txn(trancode, name, name2) values('130304', 'Урьдчилсан борлуулалтын үндсэн бүртгэл засварлах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130304');
-INSERT INTO txn(trancode, name, name2) values('130305', 'Урьдчилсан борлуулалтын үндсэн бүртгэл устгах', ' ');	INSERT INTO grouptxn(groupid, trancode) values('1', '130305');
 
 
 create table PreSale (
@@ -480,6 +512,62 @@ PRIMARY KEY (PreSaleNo)
 );
 
 
+
+
+
+drop table PreSaleProduct;
+create table PreSaleProduct (
+ PreSaleNo  Varchar2(20) ,
+ ProdNo  Varchar2(20) ,
+ ProdType  Number(2) ,
+ Qty  Number(17,2) ,
+ QtyMin  Number(17,2) ,
+ QtyMax  Number(17,2) ,
+ DiscountType  Number(2) ,
+ DiscountAmount  Number(17,2) ,
+ Price  Number(17,2) ,
+PRIMARY KEY (PreSaleNo, ProdNo, ProdType)
+);
+drop table PreSaleProductPrice;
+create table PreSaleProductPrice (
+ PreSaleNo  Varchar2(20) ,
+ ProdNo  Varchar2(20) ,
+ ProdType  Number(2) ,
+ PriceTypeID  Varchar2(20) ,
+ DiscountType  Number(2) ,
+ DiscountAmount  Number(17,2) ,
+ Price  Number(17,2) ,
+PRIMARY KEY (PreSaleNo, ProdNo, ProdType, PriceTypeID)
+);
+drop table PreSalePersonal;
+create table PreSalePersonal (
+ PreSaleNo  Varchar2(20) ,
+ ItemNo  number(20) ,
+ RegisterNo  nvarchar2(50) ,
+ FirstName  nvarchar2(100) ,
+ LastName  nvarchar2(100) ,
+ MiddleName  nvarchar2(100) ,
+ Sex  number(1) ,
+ BirthDay  date ,
+ Email  nvarchar2(100) ,
+ Mobile  number(12) ,
+ Company  nvarchar2(100) ,
+ CountryCode  number(4) ,
+ Height  number(3) ,
+ FootSize  number(5,2) ,
+ SerialNo  Varchar2(20) ,
+PRIMARY KEY (PreSaleNo, ItemNo)
+);
+
+drop table PreSalePersonalProduct;
+create table PreSalePersonalProduct (
+ PreSaleNo  Varchar2(20) ,
+ ItemNo  number(20) ,
+ ProdNo  Varchar2(20) ,
+ ProdType  Number(2) ,
+ Qty  Number(17,2) ,
+PRIMARY KEY (PreSaleNo, ItemNo, ProdNo, ProdType)
+);
 
 
 

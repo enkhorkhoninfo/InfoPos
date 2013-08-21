@@ -56,7 +56,7 @@ namespace InfoPos.List
         private void Init()
         {
             ucReSaleList.EventDataChanged += new ucGridPanel.delegateEventDataChanged(ucContractList_EventDataChanged);
-            ucReSaleList.EventSelected += new ucGridPanel.delegateEventSelected(ucContractList_EventSelected);
+            //ucReSaleList.EventSelected += new ucGridPanel.delegateEventSelected(ucContractList_EventSelected);
             ucReSaleList.EventFindPaging += new ucGridPanel.delegateEventFindPaging(ucContractList_EventFindPaging);
            
             ucReSaleList.gridView1.RowCellStyle += new RowCellStyleEventHandler(gridView1_RowCellStyle);
@@ -400,8 +400,8 @@ namespace InfoPos.List
                 {
                     object[] obj = new object[2];
                     obj[0] = _core;
-                    obj[1] = Static.ToStr(selectedrow["ReSaleNo"]);
-                    EServ.Shared.Static.Invoke("InfoPos.ReSale.dll", "InfoPos.ReSale.Main", "CallReSale", obj);
+                    obj[1] = Static.ToStr(selectedrow["PreSaleNo"]);
+                    EServ.Shared.Static.Invoke("InfoPos.PreSale.dll", "InfoPos.PreSale.Main", "CallPreSale", obj);
                 }
                 else
                 {

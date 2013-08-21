@@ -321,7 +321,7 @@ namespace IPos.List
                 if (res.ResultNo == 0)
                 {
                     lg.item.Desc = "УБ жагсаалт авах";
-                    object[] FieldName = new object[19];
+                    object[] FieldName = new object[43];
 
                     FieldName[0] = "PreSaleNo";
                     FieldName[1] = "PreSaleType";

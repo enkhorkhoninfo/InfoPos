@@ -46,56 +46,56 @@ namespace InfoPos.PreSale
         }
         public void CallPreSaleConform(object[] param)
         {
-            string orderno;
+            string presaleno;
             try
             {
                 _core = (Core.Core)param[0];
-                orderno = Convert.ToString(param[1]);
-                //InfoPos.Order.frmOrderConfirm frm = new InfoPos.Order.frmOrderConfirm(_core, orderno);
-                //frm.MdiParent = _core.MainForm;
-                //frm.Show();
+                presaleno = Convert.ToString(param[1]);
+                InfoPos.PreSale.frmPreSaleConfirm frm = new InfoPos.PreSale.frmPreSaleConfirm(_core, presaleno);
+                frm.MdiParent = _core.MainForm;
+                frm.Show();
             }
             catch
             {
-                //InfoPos.Order.frmPreSale frm = new InfoPos.Order.frmPreSale(_core, "");
-                //frm.MdiParent = _core.MainForm;
-                //frm.Show();
+                InfoPos.PreSale.frmPreSaleConfirm frm = new InfoPos.PreSale.frmPreSaleConfirm(_core, "");
+                frm.MdiParent = _core.MainForm;
+                frm.Show();
             }
         }
         public void CallPreSaleCancel(object[] param)
         {
-            string orderno;
+            string presaleno;
             try
             {
                 _core = (Core.Core)param[0];
-                orderno = Convert.ToString(param[1]);
-                //InfoPos.Order.frmOrderCancel frm = new InfoPos.Order.frmOrderCancel(_core, orderno);
-                //frm.MdiParent = _core.MainForm;
-                //frm.Show();
+                presaleno = Convert.ToString(param[1]);
+                InfoPos.PreSale.frmPreSaleCancel frm = new InfoPos.PreSale.frmPreSaleCancel(_core, presaleno);
+                frm.MdiParent = _core.MainForm;
+                frm.Show();
             }
             catch
             {
-                //InfoPos.Order.frmPreSale frm = new InfoPos.Order.frmPreSale(_core, "");
-                //frm.MdiParent = _core.MainForm;
-                //frm.Show();
+                InfoPos.PreSale.frmPreSaleCancel frm = new InfoPos.PreSale.frmPreSaleCancel(_core, "");
+                frm.MdiParent = _core.MainForm;
+                frm.Show();
             }
         }
         public void CallPreSaleRecovery(object[] param)
         {
-            string orderno;
+            string presaleno;
             try
             {
                 _core = (Core.Core)param[0];
-                orderno = Convert.ToString(param[1]);
-                //InfoPos.Order.frmOrderRecovery frm = new InfoPos.Order.frmOrderRecovery(_core, orderno);
-                //frm.MdiParent = _core.MainForm;
-                //frm.Show();
+                presaleno = Convert.ToString(param[1]);
+                InfoPos.PreSale.frmPreSaleRecovery frm = new InfoPos.PreSale.frmPreSaleRecovery(_core, presaleno);
+                frm.MdiParent = _core.MainForm;
+                frm.Show();
             }
             catch
             {
-                //InfoPos.Order.frmPreSale frm = new InfoPos.Order.frmPreSale(_core, "");
-                //frm.MdiParent = _core.MainForm;
-                //frm.Show();
+                InfoPos.PreSale.frmPreSaleRecovery frm = new InfoPos.PreSale.frmPreSaleRecovery(_core, "");
+                frm.MdiParent = _core.MainForm;
+                frm.Show();
             }
         }
         #endregion

@@ -260,6 +260,7 @@ namespace InfoPos.PreSale
                 ucGeneral.FieldLinkAdd("txtPreSaleNo", 0, "PreSaleNo", "", false, false, true);
                 ucGeneral.FieldLinkAdd("cboPreSaleType", 0, "PreSaleType", "", true, false, false);
                 ucGeneral.FieldLinkAdd("txtCustNo", 0, "CustNo", "", true, false, true);
+                ucGeneral.FieldLinkAdd("txtCustomerName", 0, "CustomerName", "", false, false, true);
                 ucGeneral.FieldLinkAdd("cboChannelID", 0, "ChannelID", "", true, false, false);
                 ucGeneral.FieldLinkAdd("cboPreSaleProd", 0, "PreSaleProd", "", true, false, false);
                 ucGeneral.FieldLinkAdd("txtUserID", 0, "UserID", "", false, false, false);
@@ -513,7 +514,7 @@ namespace InfoPos.PreSale
             {
                 DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == System.Windows.Forms.DialogResult.No) return;
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130110, 130110, new object[] { Static.ToStr(txtPreSaleNo.EditValue), Static.ToStr(txtOPItemNo.EditValue) });
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130310, 130310, new object[] { Static.ToStr(txtPreSaleNo.EditValue), Static.ToStr(txtOPItemNo.EditValue) });
 
                 if (res.ResultNo == 0)
                 {
@@ -565,12 +566,12 @@ namespace InfoPos.PreSale
                                };
                 if (isnew)
                 {
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130108, 130108, obj);
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130308, 130308, obj);
                     msg = "Амжилттай нэмлээ.";
                 }
                 else
                 {
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130109, 130109, obj);
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130309, 130309, obj);
                     msg = "Амжилттай засварлалаа.";
                 }
                 if (res.ResultNo == 0)
@@ -609,7 +610,7 @@ namespace InfoPos.PreSale
             Result res = new Result();
             try
             {
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130106, 130106, new object[] { txtPreSaleNo.EditValue });
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130306, 130306, new object[] { txtPreSaleNo.EditValue });
 
                 if (res.ResultNo == 0)
                 {
@@ -702,7 +703,7 @@ namespace InfoPos.PreSale
             {
                 if (pOrderNo != "" || pItemNo != 0)
                 {
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130150, 130150, new object[] { pOrderNo, pItemNo });
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130350, 130350, new object[] { pOrderNo, pItemNo });
 
                     if (res.ResultNo == 0)
                     {
@@ -776,12 +777,12 @@ namespace InfoPos.PreSale
                             };
             if (isnew)
             {
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130152, 130152, obj);
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130352, 130352, obj);
                 msg = "Амжилттай нэмлээ.";
             }
             else
             {
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130153, 130153, obj);
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130353, 130353, obj);
                 msg = "Амжилттай засварлалаа.";
             }
             if (res.ResultNo == 0)
@@ -801,7 +802,7 @@ namespace InfoPos.PreSale
             {
                 DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == System.Windows.Forms.DialogResult.No) return;
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130154, 130154, new object[] { Static.ToStr(txtPreSaleNo.EditValue), Static.ToStr(txtOPItemNo.EditValue), 
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130354, 130354, new object[] { Static.ToStr(txtPreSaleNo.EditValue), Static.ToStr(txtOPItemNo.EditValue), 
                 Static.ToInt(cboOPProdType.EditValue), Static.ToStr(txtOPProdNo.EditValue)
                 });
 
@@ -841,7 +842,7 @@ namespace InfoPos.PreSale
             Result res = new Result();
             try
             {
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130111, 130111, new object[] { txtPreSaleNo.EditValue });
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130311, 130311, new object[] { txtPreSaleNo.EditValue });
 
                 if (res.ResultNo == 0)
                 {
@@ -865,6 +866,11 @@ namespace InfoPos.PreSale
             if ((res == System.Windows.Forms.DialogResult.OK))
             {
                 txtCustNo.EditValue = frm.ucCustomerList.SelectedRow["CUSTOMERNO"];
+
+                if (Static.ToInt(frm.ucCustomerList.SelectedRow["CLASSCODE"]) == 0)
+                    txtCustomerName.EditValue = Static.ToStr(frm.ucCustomerList.SelectedRow["FIRSTNAME"]) + "." + Static.ToStr(frm.ucCustomerList.SelectedRow["LASTNAME"]);
+                else
+                    txtCustomerName.EditValue = Static.ToStr(frm.ucCustomerList.SelectedRow["CORPORATENAME"]);
             }
         }
         private void btnCustEnq_Click(object sender, EventArgs e)
@@ -989,12 +995,12 @@ namespace InfoPos.PreSale
 
                 if (isnew)
                 {
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130113, 130113, NewObj);
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130313, 130313, NewObj);
                     msg = "Амжилттай нэмлээ.";
                 }
                 else
                 {
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130114, 130114, new object[] { OldObj, NewObj });
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130314, 130314, new object[] { OldObj, NewObj });
                     msg = "Амжилттай засварлалаа.";
                 }
                 if (res.ResultNo == 0)
@@ -1017,7 +1023,7 @@ namespace InfoPos.PreSale
                 {
                     DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (d == System.Windows.Forms.DialogResult.No) return;
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130115, 130115, new object[] { Static.ToStr(txtPreSaleNo.EditValue), Static.ToInt(dr["prodtype"]), Static.ToStr(dr["prodno"]) });
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130315, 130315, new object[] { Static.ToStr(txtPreSaleNo.EditValue), Static.ToInt(dr["prodtype"]), Static.ToStr(dr["prodno"]) });
 
                     if (res.ResultNo == 0)
                     {
@@ -1106,7 +1112,7 @@ namespace InfoPos.PreSale
                 {
                     DialogResult d = MessageBox.Show("Бичлэгийг утсгахдаа итгэлтэй байна уу?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (d == System.Windows.Forms.DialogResult.No) return;
-                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130120, 130120, new object[] { Static.ToStr(txtPreSaleNo.EditValue), Static.ToStr(dr["prodno"]), Static.ToInt(dr["prodtype"]), Static.ToStr(dr["PriceTypeID"]) });
+                    res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130320, 130320, new object[] { Static.ToStr(txtPreSaleNo.EditValue), Static.ToStr(dr["prodno"]), Static.ToInt(dr["prodtype"]), Static.ToStr(dr["PriceTypeID"]) });
 
                     if (res.ResultNo == 0)
                     {
@@ -1188,12 +1194,12 @@ namespace InfoPos.PreSale
                             };
             if (isnew)
             {
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130118, 130118, newobj);
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130318, 130318, newobj);
                 msg = "Амжилттай нэмлээ.";
             }
             else
             {
-                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130119, 130119, new object[] { oldobj, newobj });
+                res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130319, 130319, new object[] { oldobj, newobj });
                 msg = "Амжилттай засварлалаа.";
             }
 
@@ -1215,7 +1221,7 @@ namespace InfoPos.PreSale
         {
             Result res = new Result();
             grdPrice.DataSource = null;
-            res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130116, 130116, new object[] { pOrderNo, pProdNo, ProdType });
+            res = _core.RemoteObject.Connection.Call(_core.RemoteObject.User.UserNo, 213, 130316, 130316, new object[] { pOrderNo, pProdNo, ProdType });
             if (res.ResultNo == 0)
             {
                 //RepositoryItemImageComboBox imagecombo = new RepositoryItemImageComboBox();
@@ -1412,6 +1418,12 @@ namespace InfoPos.PreSale
         private void tabPage9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboOPProdType_EditValueChanged(object sender, EventArgs e)
+        {
+            txtOPProdNo.EditValue = null;
+            txtOPQty.EditValue = 0;
         }
     }
 }

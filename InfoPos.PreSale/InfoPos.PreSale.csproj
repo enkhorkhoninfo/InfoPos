@@ -112,6 +112,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmPreSaleCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreSaleCancel.Designer.cs">
+      <DependentUpon>frmPreSaleCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreSaleConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreSaleConfirm.Designer.cs">
+      <DependentUpon>frmPreSaleConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreSaleRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreSaleRecovery.Designer.cs">
+      <DependentUpon>frmPreSaleRecovery.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPreSale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +146,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmPreSaleCancel.resx">
+      <DependentUpon>frmPreSaleCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreSaleConfirm.resx">
+      <DependentUpon>frmPreSaleConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreSaleRecovery.resx">
+      <DependentUpon>frmPreSaleRecovery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPreSale.resx">
       <DependentUpon>frmPreSale.cs</DependentUpon>
     </EmbeddedResource>

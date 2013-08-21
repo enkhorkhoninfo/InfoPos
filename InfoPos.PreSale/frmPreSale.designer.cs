@@ -1495,7 +1495,7 @@
             this.TabOrderPerson.Controls.Add(this.ucPerson);
             this.TabOrderPerson.Name = "TabOrderPerson";
             this.TabOrderPerson.Size = new System.Drawing.Size(790, 482);
-            this.TabOrderPerson.Text = "Захиалга өгсөн үйлчлүүлэгч";
+            this.TabOrderPerson.Text = "УБ - ын үйлчлүүлэгч";
             // 
             // ucPerson
             // 
@@ -1882,7 +1882,7 @@
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(359, 395);
             this.tabPage7.TabIndex = 1;
-            this.tabPage7.Text = "Захиалсан бүтээгдэхүүн";
+            this.tabPage7.Text = "УБ - ын бүтээгдэхүүн";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // grdOPProduct
@@ -1996,6 +1996,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboOPProdType.Size = new System.Drawing.Size(138, 20);
             this.cboOPProdType.TabIndex = 74;
+            this.cboOPProdType.EditValueChanged += new System.EventHandler(this.cboOPProdType_EditValueChanged);
             // 
             // txtOPProdNo
             // 
@@ -2031,7 +2032,7 @@
             this.TabOrderGroup.Controls.Add(this.panelControl3);
             this.TabOrderGroup.Name = "TabOrderGroup";
             this.TabOrderGroup.Size = new System.Drawing.Size(790, 482);
-            this.TabOrderGroup.Text = "Захиалгын бүтээндэхүүн";
+            this.TabOrderGroup.Text = "УБ - ын бүтээндэхүүн";
             // 
             // panelControl3
             // 
@@ -2077,7 +2078,7 @@
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(414, 474);
             this.groupControl4.TabIndex = 2;
-            this.groupControl4.Text = "Захиалгын бүтээгдэхүүн";
+            this.groupControl4.Text = "УБ - ын бүтээгдэхүүн";
             // 
             // grdProduct
             // 
@@ -2356,7 +2357,7 @@
             this.groupControl5.Name = "groupControl5";
             this.groupControl5.Size = new System.Drawing.Size(364, 474);
             this.groupControl5.TabIndex = 3;
-            this.groupControl5.Text = "Захиалгын бүтээгдэхүүний үнэ";
+            this.groupControl5.Text = "УБ - ын бүтээгдэхүүний үнэ";
             // 
             // grdPrice
             // 
