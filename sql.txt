@@ -570,6 +570,38 @@ PRIMARY KEY (PreSaleNo, ItemNo, ProdNo, ProdType)
 );
 
 
+drop table PreSaleMain;
+create table PreSaleProd (
+ PreSaleProd  Varchar2(20) ,
+ Name  nvarchar2(50) ,
+ Name2  nvarchar2(50) ,
+ Count  Number(10) ,
+ AutoNumNo  Number(5) ,
+ SalesAccountNo  Varchar2(20) ,
+ RefundAccountNo  Varchar2(20) ,
+ DiscountAccountNo  Varchar2(20) ,
+ BonusAccountNo  Varchar2(20) ,
+ BonusExpAccountNo  Varchar2(20) ,
+ isDoSale  Number(1) ,
+ isOnReport  Number(1) ,
+ isPostFin  Number(1) ,
+ isValidationAmount  Number(1) ,
+ isDedicateItems  Number(1) ,
+ isValidationQty  Number(1) ,
+ isRent  Number(1) ,
+ isRegistration  Number(1) ,
+ isPersonalData  Number(1) ,
+ isAmartization  Number(1) ,
+ isAmartizationSale  Number(1) ,
+ AmartizationType  Number(2) ,
+ AmartizationFreq  Varchar2(2) ,
+ AmartizationMethod  Number(2) ,
+ isBySale  Number(1) ,
+ isSeries  Number(1) ,
+ isContract  Number(1) ,
+ CustomerPaymentType  Number(1) ,
+PRIMARY KEY (PreSaleProd)
+);
 
 
 
